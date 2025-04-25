@@ -1,0 +1,9 @@
+/Src/CSharp/Azure/.vs
+/Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/PublishProfiles
+Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/serviceDependencies.AF-SDA-DiscordRelay - Zip Deploy.json
+Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/launchSettings.json
+Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/serviceDependencies.json
+Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/serviceDependencies.local.json
+Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/ServiceDependencies/AF-SDA-DiscordRelay - Zip Deploy/appInsights1.arm.json
+Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/ServiceDependencies/AF-SDA-DiscordRelay - Zip Deploy/profile.arm.json
+Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/ServiceDependencies/AF-SDA-DiscordRelay - Zip Deploy/storage1.arm.json

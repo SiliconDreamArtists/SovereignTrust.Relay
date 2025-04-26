@@ -62,9 +62,9 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
                 if (queueClient.Exists())
                 {
                     SignalCore.Signal<dynamic> signalCore = SignalCore.Signal.Start<dynamic>(Newtonsoft.Json.JsonConvert.DeserializeObject(requestBody));
-                    string signalCoreJson = Newtonsoft.Json.JsonConvert.SerializeObject(requestBody);
                     signalCore.LogInformation("Received packet from Discord.");
-                    await queueClient.SendMessageAsync(Convert.ToBase64String(Encoding.UTF8.GetBytes(requestBody)));
+                    string signalCoreJson = Newtonsoft.Json.JsonConvert.SerializeObject(signalCore);
+                    await queueClient.SendMessageAsync(Convert.ToBase64String(Encoding.UTF8.GetBytes(signalCoreJson)));
                     _logger.LogInformation("✅ Message enqueued successfully.");
                     return DiscordInteractionResponseHelper.HandleInteraction(requestBody, _logger);
                 }

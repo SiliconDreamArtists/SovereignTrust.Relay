@@ -114,6 +114,6 @@ MIT — see [`LICENSE`](./LICENSE)
 
 ## 🔗 Related Repos
 
-- [`SovereignTrust.SignalCore`](https://github.com/SiliconDreamArtists/signal-core) – The universal feedback/result object
+- [`SovereignTrust.SignalGraph`](https://github.com/SiliconDreamArtists/signal-core) – The universal feedback/result object
 - [`SovereignTrust.Router`](https://github.com/SiliconDreamArtists/SovereignTrust.Router) – Resolves and executes signal instructions
 - [`SovereignTrust.Emitter`](https://github.com/SiliconDreamArtists/SovereignTrust.Emitter) – Triggers and authors intent signals

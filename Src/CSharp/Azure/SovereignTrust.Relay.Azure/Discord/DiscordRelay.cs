@@ -37,7 +37,7 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
 
             if (string.IsNullOrWhiteSpace(requestBody))
             {
-                _logger.LogWarning("⚠️ Empty body received.");
+                _logger.LogWarning("Empty body received.");
                 return new BadRequestObjectResult("Empty request body.");
             }
 

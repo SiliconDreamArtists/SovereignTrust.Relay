@@ -7,3 +7,4 @@ Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/serviceDependencies.local
 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/ServiceDependencies/AF-SDA-DiscordRelay - Zip Deploy/appInsights1.arm.json
 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/ServiceDependencies/AF-SDA-DiscordRelay - Zip Deploy/profile.arm.json
 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/ServiceDependencies/AF-SDA-DiscordRelay - Zip Deploy/storage1.arm.json
+/Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/ServiceDependencies/bddb-sda-prod-relay - Zip Deploy

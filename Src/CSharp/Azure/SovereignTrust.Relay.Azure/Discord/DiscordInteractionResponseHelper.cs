@@ -9,7 +9,7 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
         {
             if (string.IsNullOrWhiteSpace(requestBody))
             {
-                log.LogWarning("⚠️ Empty request body.");
+                log.LogWarning("Empty request body.");
                 return new BadRequestObjectResult("Empty request body.");
             }
 
@@ -20,7 +20,7 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
             }
             catch (Exception ex)
             {
-                log.LogWarning($"⚠️ Could not parse JSON body: {ex.Message}");
+                log.LogWarning($"Could not parse JSON body: {ex.Message}");
                 return new BadRequestObjectResult("Invalid JSON.");
             }
 

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SovereignTrust.Relay.Azure", "SovereignTrust.Relay.Azure\SovereignTrust.Relay.Azure.csproj", "{2B424117-5411-4250-89E6-93B6CB32E441}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalCore", "..\..\..\..\SignalGraph\Src\CSharp\SignalCore.csproj", "{5E6813D9-4159-8BDE-FED6-21F0EC3EA2A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2B424117-5411-4250-89E6-93B6CB32E441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B424117-5411-4250-89E6-93B6CB32E441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B424117-5411-4250-89E6-93B6CB32E441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E6813D9-4159-8BDE-FED6-21F0EC3EA2A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6813D9-4159-8BDE-FED6-21F0EC3EA2A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E6813D9-4159-8BDE-FED6-21F0EC3EA2A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E6813D9-4159-8BDE-FED6-21F0EC3EA2A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

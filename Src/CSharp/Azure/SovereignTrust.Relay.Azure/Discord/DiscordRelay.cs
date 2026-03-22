@@ -20,7 +20,7 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
         {
             _logger = logger;
             _config = config;
-            SignalCore.Signal.Logger = logger;
+            SignalGraph.Signal.Logger = logger;
         }
 
         [Function(nameof(DiscordRelay))]
@@ -37,7 +37,7 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
 
             if (string.IsNullOrWhiteSpace(requestBody))
             {
-                _logger.LogWarning("⚠️ Empty body received.");
+                _logger.LogWarning("Empty body received.");
                 return new BadRequestObjectResult("Empty request body.");
             }
 
@@ -61,10 +61,10 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
 
                 if (queueClient.Exists())
                 {
-                    SignalCore.Signal<dynamic> signalCore = SignalCore.Signal.Start<dynamic>(Newtonsoft.Json.JsonConvert.DeserializeObject(requestBody));
-                    signalCore.LogInformation("Received packet from Discord.");
-                    string signalCoreJson = Newtonsoft.Json.JsonConvert.SerializeObject(signalCore);
-                    await queueClient.SendMessageAsync(Convert.ToBase64String(Encoding.UTF8.GetBytes(signalCoreJson)));
+                    SignalGraph.Signal<dynamic> signalGraph = SignalGraph.Signal.Start<dynamic>(Newtonsoft.Json.JsonConvert.DeserializeObject(requestBody));
+                    signalGraph.LogInformation("Received packet from Discord.");
+                    string signalGraphJson = Newtonsoft.Json.JsonConvert.SerializeObject(signalGraph);
+                    await queueClient.SendMessageAsync(Convert.ToBase64String(Encoding.UTF8.GetBytes(signalGraphJson)));
                     _logger.LogInformation("✅ Message enqueued successfully.");
                     return DiscordInteractionResponseHelper.HandleInteraction(requestBody, _logger);
                 }

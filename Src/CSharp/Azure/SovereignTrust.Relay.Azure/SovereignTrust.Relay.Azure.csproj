@@ -18,7 +18,9 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSec.Cryptography" Version="24.4.0" />
-    <PackageReference Include="SovereignTrust-SignalCore" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\SignalGraph\Src\CSharp\SignalCore.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

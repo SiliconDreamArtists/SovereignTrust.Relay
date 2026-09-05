@@ -25,7 +25,7 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
 
         [Function(nameof(DiscordRelay))]
         public async Task<IActionResult> RunDiscordRelayAsync(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "discord")] HttpRequest req)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "discordrelay")] HttpRequest req)
         {
             _logger.LogInformation("📥 Discord relay function triggered.");
 
@@ -34,7 +34,7 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
             {
                 requestBody = await streamReader.ReadToEndAsync();
             }
-
+            -
             if (string.IsNullOrWhiteSpace(requestBody))
             {
                 _logger.LogWarning("Empty body received.");

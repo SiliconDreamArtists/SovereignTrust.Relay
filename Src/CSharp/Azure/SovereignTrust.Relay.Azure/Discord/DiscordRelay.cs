@@ -34,7 +34,7 @@ namespace SovereignTrust.Relay.Azure.Azure.Discord
             {
                 requestBody = await streamReader.ReadToEndAsync();
             }
-            -
+
             if (string.IsNullOrWhiteSpace(requestBody))
             {
                 _logger.LogWarning("Empty body received.");

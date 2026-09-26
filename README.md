@@ -1,5 +1,7 @@
 # SovereignTrust.Relay
 
+For deployment, required settings, the signing-helper flag, and duplicate handling, see [Relay operations](docs/Relay-Operations.md).
+
 **SovereignTrust.Relay** is the ingestion layer of the [SovereignTrust](https://sovereigntrust.foundation) protocol. It accepts external input — including webhooks, HTTP events, and raw messages — and transforms them into valid `Signal<T>` messages for the SovereignTrust queue.
 
 Relays are stateless, lightweight bridges that connect the outside world to the SovereignTrust execution pipeline.

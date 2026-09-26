@@ -1,53 +1,76 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy dotnet core project to Azure Function App - sda-relay-dev
-
+name: Build and deploy Relay development
 on:
   push:
-    branches:
-      - main_publish
+    branches: [main_publish]
+  pull_request:
+    branches: [main_publish]
   workflow_dispatch:
-
+permissions:
+  contents: read
+concurrency:
+  group: relay-dev-${{ github.ref }}
+  cancel-in-progress: false
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '10.0' # set this to the dotnet version to use
-
+  PROJECT: Src/CSharp/Azure/SovereignTrust.Relay.Azure/SovereignTrust.Relay.Azure.csproj
+  TEST_PROJECT: Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj
 jobs:
-  build-and-deploy:
+  build:
+    services:
+      azurite:
+        image: mcr.microsoft.com/azure-storage/azurite:3.35.0
+        ports:
+          - 10000:10000
+          - 10001:10001
+    if: github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/main_publish'
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
+    timeout-minutes: 15
     steps:
-      - name: 'Checkout GitHub Action'
-        uses: actions/checkout@v4
-
-      - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
-        uses: actions/setup-dotnet@v1
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: 'Resolve Project Dependencies Using Dotnet'
+          dotnet-version: '10.0.x'
+      - name: Restore Functions project directly
+        run: dotnet restore "$PROJECT"
+      - name: Test
+        run: dotnet test "$TEST_PROJECT" --configuration Release
+      - name: Publish
+        run: dotnet publish "$PROJECT" --configuration Release --no-restore --output "${{ runner.temp }}/relay-publish"
+      - name: Verify deployment files
         shell: bash
         run: |
-          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          dotnet build --configuration Release --output ./output
-          popd
-      
-      - name: Login to Azure
-        uses: azure/login@v2
+          test -f "${{ runner.temp }}/relay-publish/host.json"
+          test -f "${{ runner.temp }}/relay-publish/worker.config.json"
+          test ! -f "${{ runner.temp }}/relay-publish/local.settings.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: relay-release
+          path: ${{ runner.temp }}/relay-publish/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main_publish' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v4
+        with:
+          name: relay-release
+          path: publish
+      - uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0A9E4E4191004A4088F5D73B16EDD230 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_016E06385B4B44C19924799356CC11D2 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FBA65200AE3F4A6EBE0BF83B52A58778 }}
-
-      - name: 'Run Azure Functions Action'
-        uses: Azure/functions-action@v1
-        id: fa
+      - name: Validate runtime, provision storage, and disable test signing
+        shell: pwsh
+        run: ./scripts/Prepare-RelayDeployment.ps1 -AppName sda-relay-dev
+      - uses: Azure/functions-action@v1
         with:
-          app-name: 'sda-relay-dev'
-          slot-name: 'Production'
-          package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-          
+          app-name: sda-relay-dev
+          package: publish

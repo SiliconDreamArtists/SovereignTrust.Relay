@@ -11,6 +11,12 @@ concurrency:
   group: relay-dev-${{ github.ref }}
   cancel-in-progress: false
 env:
+  AZURE_FUNCTIONAPP_NAME: sda-relay-dev
+  AZURE_RESOURCE_GROUP: sda-dev
+  # Public identifiers for the existing development GitHub OIDC identity.
+  AZURE_CLIENT_ID: 7067b6d4-0e94-4c7d-95f7-628683138311
+  AZURE_TENANT_ID: 8904b745-1738-426c-ad85-3fcecb32d24b
+  AZURE_SUBSCRIPTION_ID: cc1fa56e-a8ce-411f-bb5c-58e96d9ac4f8
   PROJECT: Src/CSharp/Azure/SovereignTrust.Relay.Azure/SovereignTrust.Relay.Azure.csproj
   TEST_PROJECT: Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj
 jobs:
@@ -64,13 +70,14 @@ jobs:
           path: publish
       - uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0A9E4E4191004A4088F5D73B16EDD230 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_016E06385B4B44C19924799356CC11D2 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FBA65200AE3F4A6EBE0BF83B52A58778 }}
+          client-id: ${{ env.AZURE_CLIENT_ID }}
+          tenant-id: ${{ env.AZURE_TENANT_ID }}
+          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
       - name: Validate runtime, provision storage, and disable test signing
         shell: pwsh
-        run: ./scripts/Prepare-RelayDeployment.ps1 -AppName sda-relay-dev
+        run: ./scripts/Prepare-RelayDeployment.ps1 -AppName $env:AZURE_FUNCTIONAPP_NAME -ResourceGroup $env:AZURE_RESOURCE_GROUP -Subscription $env:AZURE_SUBSCRIPTION_ID
       - uses: Azure/functions-action@v1
         with:
-          app-name: sda-relay-dev
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
           package: publish
+          remote-build: false

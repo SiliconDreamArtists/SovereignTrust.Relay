@@ -1,5 +1,6 @@
 param(
     [Parameter(Mandatory)][ValidateSet('sda-relay-dev', 'bddb-sda-prod-relay')][string]$AppName,
+    [string]$ResourceGroup,
     [string]$Subscription
 )
 $ErrorActionPreference = 'Stop'
@@ -10,9 +11,15 @@ function Invoke-AzureJson {
     if ($LASTEXITCODE -ne 0) { throw 'Azure command failed. Verify deployment identity permissions and app configuration.' }
     if ($result) { ($result -join [Environment]::NewLine) | ConvertFrom-Json }
 }
-$apps = @(Invoke-AzureJson -Arguments @('functionapp', 'list'))
-$app = $apps | Where-Object name -eq $AppName
-if (@($app).Count -ne 1) { throw "Cannot uniquely find $AppName in the selected subscription." }
+if ($ResourceGroup) {
+    $app = Invoke-AzureJson -Arguments @('functionapp', 'show', '--name', $AppName, '--resource-group', $ResourceGroup)
+} else {
+    $apps = @(Invoke-AzureJson -Arguments @('functionapp', 'list'))
+    $app = $apps | Where-Object name -eq $AppName
+    if (@($app).Count -ne 1) { throw "Cannot uniquely find $AppName in the selected subscription." }
+}
+Write-Output "Deployment target: $($app.id); state: $($app.state)"
+if ($app.state -ne 'Running') { throw "Start $AppName before deploying." }
 $group = $app.resourceGroup
 $config = Invoke-AzureJson -Arguments @('functionapp', 'config', 'show', '--name', $AppName, '--resource-group', $group)
 $detail = Invoke-AzureJson -Arguments @('resource', 'show', '--ids', $app.id)
@@ -23,9 +30,13 @@ $relayWindowsRuntime = $app.kind -notmatch 'linux' -and $config.netFrameworkVers
 if (!$relayFlexRuntime -and !$relayLinuxRuntime -and !$relayWindowsRuntime) {
     throw 'Configure this app for .NET 10 isolated before deploying.'
 }
-$plan = Invoke-AzureJson -Arguments @('appservice', 'plan', 'show', '--ids', $detail.properties.serverFarmId)
-if ($app.kind -match 'linux' -and $plan.sku.name -eq 'Y1') {
-    throw '.NET 10 does not support Linux Consumption. Migrate to a supported plan first.'
+# Flex runtime metadata already identifies a supported plan. The deployment
+# identity can be scoped to the app without read access to its hosting plan.
+if (!$relayFlexRuntime) {
+    $plan = Invoke-AzureJson -Arguments @('appservice', 'plan', 'show', '--ids', $detail.properties.serverFarmId)
+    if ($app.kind -match 'linux' -and $plan.sku.name -eq 'Y1') {
+        throw '.NET 10 does not support Linux Consumption. Migrate to a supported plan first.'
+    }
 }
 $settingsList = @(Invoke-AzureJson -Arguments @('functionapp', 'config', 'appsettings', 'list', '--name', $AppName, '--resource-group', $group))
 $settings = @{}

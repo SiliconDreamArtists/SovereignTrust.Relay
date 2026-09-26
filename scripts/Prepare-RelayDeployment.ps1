@@ -18,11 +18,20 @@ if ($ResourceGroup) {
     $app = $apps | Where-Object name -eq $AppName
     if (@($app).Count -ne 1) { throw "Cannot uniquely find $AppName in the selected subscription." }
 }
-Write-Output "Deployment target: $($app.id); state: $($app.state)"
-if ($app.state -ne 'Running') { throw "Start $AppName before deploying." }
 $group = $app.resourceGroup
-$config = Invoke-AzureJson -Arguments @('functionapp', 'config', 'show', '--name', $AppName, '--resource-group', $group)
 $detail = Invoke-AzureJson -Arguments @('resource', 'show', '--ids', $app.id)
+# The CLI's flattened functionapp response can omit state for Flex apps.
+# Prefer the raw ARM resource property, falling back to the CLI value.
+$state = [string]$detail.properties.state
+if ([string]::IsNullOrWhiteSpace($state)) { $state = [string]$app.state }
+if ([string]::IsNullOrWhiteSpace($state)) {
+    Write-Output "Deployment target: $($app.id); state: unknown"
+    Write-Warning 'Azure did not return an app state; continuing with deployment validation.'
+} else {
+    Write-Output "Deployment target: $($app.id); state: $state"
+    if ($state -ne 'Running') { throw "Azure reports '$state' for $AppName. Start the app before deploying." }
+}
+$config = Invoke-AzureJson -Arguments @('functionapp', 'config', 'show', '--name', $AppName, '--resource-group', $group)
 $runtime = $detail.properties.functionAppConfig.runtime
 $relayFlexRuntime = $runtime.name -eq 'dotnet-isolated' -and $runtime.version -eq '10.0'
 $relayLinuxRuntime = $config.linuxFxVersion -eq 'DOTNET-ISOLATED|10.0'

@@ -1,52 +1,60 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy dotnet core project to Azure Function App - bddb-sda-prod-relay
-
+name: Promote Relay to production
 on:
-  push:
-    branches:
-      - main_publish
   workflow_dispatch:
-
-env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'Src/CSharp/Azure/SovereignTrust.Relay.Azure'
-  DOTNET_VERSION: '8.0'
-
+    inputs:
+      development_run_id:
+        description: Successful development workflow run ID, verified with Discord
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: relay-production
+  cancel-in-progress: false
 jobs:
-  build-and-deploy:
+  promote:
+    if: github.ref == 'refs/heads/main_publish'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
-      id-token: write
       contents: read
-
+      actions: read
+      id-token: write
     steps:
-      - name: Checkout GitHub Action
-        uses: actions/checkout@v4
-
-      - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
-        uses: actions/setup-dotnet@v4
+      - name: Verify successful development deployment
+        uses: actions/github-script@v7
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      - name: Resolve Project Dependencies Using Dotnet
-        shell: bash
-        run: |
-          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          dotnet publish --configuration Release --output ./output
-          popd
-      
-      - name: Login to Azure
-        uses: azure/login@v2
+          script: |
+            const input = context.payload.inputs.development_run_id;
+            if (!/^[1-9][0-9]*$/.test(input)) throw new Error('Invalid development run ID.');
+            const {data: run} = await github.rest.actions.getWorkflowRun({
+              ...context.repo, run_id: input
+            });
+            if (run.conclusion !== 'success' || run.head_branch !== 'main_publish' ||
+                !['push', 'workflow_dispatch'].includes(run.event) ||
+                run.path !== '.github/workflows/main_publish_sda-relay-dev.yml') {
+              throw new Error('Select a successful main_publish development deployment.');
+            }
+            core.exportVariable('RELEASE_SHA', run.head_sha);
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ env.RELEASE_SHA }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: relay-release
+          path: publish
+          run-id: ${{ inputs.development_run_id }}
+          github-token: ${{ github.token }}
+      - uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3100EF586D6E4903AD0835EA9B25CEDD }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_07253DE70413481EB96595158B1BC29D }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7A4B4ECE1C4E4EC3A6F8C5561D4328C0 }}
-
-      - name: Run Azure Functions Action
-        uses: Azure/functions-action@v1
-        id: fa
+      - name: Validate runtime, provision storage, and disable test signing
+        shell: pwsh
+        run: ./scripts/Prepare-RelayDeployment.ps1 -AppName bddb-sda-prod-relay
+      - uses: Azure/functions-action@v1
         with:
-          app-name: 'bddb-sda-prod-relay'
-          slot-name: 'Production'
-          package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
+          app-name: bddb-sda-prod-relay
+          package: publish

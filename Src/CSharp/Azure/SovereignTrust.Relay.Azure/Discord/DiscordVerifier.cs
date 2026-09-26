@@ -1,44 +1,34 @@
-﻿using System.Text;
+using System.Globalization;
+using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using NSec.Cryptography;
+namespace SovereignTrust.Relay.Azure.Azure.Discord;
 
-namespace SovereignTrust.Relay.Azure.Azure.Discord
+public static class DiscordVerifier
 {
-    public static class DiscordVerifier
+    public const int MaxAgeSeconds = 300;
+    public const int FutureSkewSeconds = 30;
+    public static bool IsValidRequest(HttpRequest req, string body, string publicKeyHex,
+        ILogger log, TimeProvider? clock = null)
     {
-        public static bool IsValidRequest(HttpRequest req, string requestBody, string publicKeyHex, ILogger log)
+        if (!req.Headers.TryGetValue("X-Signature-Ed25519", out var signature) || signature.Count != 1 ||
+            !req.Headers.TryGetValue("X-Signature-Timestamp", out var timestamp) || timestamp.Count != 1 ||
+            !long.TryParse(timestamp.ToString(), NumberStyles.None, CultureInfo.InvariantCulture, out var seconds))
+            return false;
+        var now = (clock ?? TimeProvider.System).GetUtcNow().ToUnixTimeSeconds();
+        if (seconds < now - MaxAgeSeconds || seconds > now + FutureSkewSeconds) return false;
+        try
         {
-            if (!req.Headers.TryGetValue("X-Signature-Ed25519", out var sigHeader) ||
-                !req.Headers.TryGetValue("X-Signature-Timestamp", out var timestampHeader))
-            {
-                log.LogWarning("❌ Missing required Discord headers.");
-                return false;
-            }
-
-            string signatureHex = sigHeader.ToString();
-            string timestamp = timestampHeader.ToString();
-
-            try
-            {
-                byte[] messageBytes = Encoding.UTF8.GetBytes(timestamp + requestBody);
-                byte[] signatureBytes = Convert.FromHexString(signatureHex);
-                byte[] publicKeyBytes = Convert.FromHexString(publicKeyHex);
-
-                var algorithm = SignatureAlgorithm.Ed25519;
-                var publicKey = PublicKey.Import(algorithm, publicKeyBytes, KeyBlobFormat.RawPublicKey);
-
-                bool isValid = algorithm.Verify(publicKey, messageBytes, signatureBytes);
-                if (!isValid)
-                    log.LogWarning("❌ Signature did not match.");
-
-                return isValid;
-            }
-            catch (Exception ex)
-            {
-                log.LogError(ex, "❌ Exception during signature verification.");
-                return false;
-            }
+            var bytes = Convert.FromHexString(signature.ToString());
+            if (bytes.Length != 64) return false;
+            var key = PublicKey.Import(SignatureAlgorithm.Ed25519, Convert.FromHexString(publicKeyHex), KeyBlobFormat.RawPublicKey);
+            return SignatureAlgorithm.Ed25519.Verify(key, Encoding.UTF8.GetBytes(timestamp.ToString() + body), bytes);
+        }
+        catch (Exception ex) when (ex is FormatException or ArgumentException)
+        {
+            log.LogWarning("Malformed Discord signature or public key.");
+            return false;
         }
     }
-} 
+}

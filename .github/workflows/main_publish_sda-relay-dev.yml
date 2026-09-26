@@ -37,6 +37,9 @@ jobs:
           dotnet-version: '10.0.x'
       - name: Restore Functions project directly
         run: dotnet restore "$PROJECT"
+      - name: Test deployment preparation
+        shell: pwsh
+        run: ./Tests/Deployment/Prepare-RelayDeployment.Tests.ps1
       - name: Test
         run: dotnet test "$TEST_PROJECT" --configuration Release
       - name: Publish

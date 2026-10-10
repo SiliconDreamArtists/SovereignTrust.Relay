@@ -9,6 +9,8 @@ using Newtonsoft.Json.Linq;
 using SovereignTrust.Relay.Azure;
 namespace SovereignTrust.Relay.Azure.Azure.Discord;
 
+/// <summary>Handles the Discord HTTP interaction endpoint and dispatches validated interactions.</summary>
+/// <remarks>The function attribute and HTTP trigger describe an ingress route; runtime host and downstream settings remain external.</remarks>
 public sealed class DiscordRelay(ILogger<DiscordRelay> logger, RelaySettings settings,
     IInteractionDispatcher dispatcher, TimeProvider clock)
 {

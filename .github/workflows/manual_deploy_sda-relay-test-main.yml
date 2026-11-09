@@ -1,0 +1,79 @@
+name: Deploy SDA Relay test manually from main
+run-name: Deploy Relay test from ${{ github.sha }}
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sda-relay-test-manual-deploy
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: sda-test
+    permissions:
+      contents: read
+      id-token: write
+    services:
+      azurite:
+        image: mcr.microsoft.com/azure-storage/azurite:3.35.0
+        ports:
+          - 10000:10000
+          - 10001:10001
+    env:
+      APP_NAME: sda-relay-test
+      RESOURCE_GROUP: sda-test
+      PROJECT: Src/CSharp/Azure/SovereignTrust.Relay.Azure/SovereignTrust.Relay.Azure.csproj
+      TEST_PROJECT: Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - name: Test and build package from this dispatch commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          dotnet restore "$PROJECT"
+          pwsh ./Tests/Deployment/Prepare-RelayDeployment.Tests.ps1
+          dotnet test "$TEST_PROJECT" --configuration Release
+          dotnet publish "$PROJECT" --configuration Release --no-restore --output "${{ runner.temp }}/relay-publish"
+          test -f "${{ runner.temp }}/relay-publish/host.json"
+          test -f "${{ runner.temp }}/relay-publish/worker.config.json"
+          test -f "${{ runner.temp }}/relay-publish/SovereignTrust.Relay.Azure.dll"
+          test ! -f "${{ runner.temp }}/relay-publish/local.settings.json"
+      - uses: azure/login@v2
+        with:
+          client-id: 6a3a0c9c-17df-486c-84b7-adc73204fa65
+          tenant-id: 8904b745-1738-426c-ad85-3fcecb32d24b
+          subscription-id: 5c813ecc-3c19-44de-b676-304116fc869d
+      - name: Verify target runtime and required Relay configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected='/subscriptions/5c813ecc-3c19-44de-b676-304116fc869d/resourceGroups/sda-test/providers/Microsoft.Web/sites/sda-relay-test'
+          actual=$(az resource show --ids "$expected" --query id -o tsv)
+          test "${actual,,}" = "${expected,,}"
+          test "$(az resource show --ids "$expected" --query properties.state -o tsv)" = 'Running'
+          test "$(az resource show --ids "$expected" --query properties.functionAppConfig.runtime.name -o tsv)" = 'dotnet-isolated'
+          test "$(az resource show --ids "$expected" --query properties.functionAppConfig.runtime.version -o tsv)" = '10.0'
+          names=$(az functionapp config appsettings list --resource-group "$RESOURCE_GROUP" --name "$APP_NAME" --query '[].name' -o tsv)
+          if ! printf '%s\n' "$names" | grep -Fxq 'DISCORD_PUBLIC_KEY'; then
+            echo '::error::Configure DISCORD_PUBLIC_KEY before deploying Relay.'
+            exit 1
+          fi
+          if ! printf '%s\n' "$names" | grep -Fxq 'StorageQueueAccount'; then
+            echo '::error::Configure StorageQueueAccount before deploying Relay.'
+            exit 1
+          fi
+          unset names
+      - uses: Azure/functions-action@v1
+        with:
+          app-name: ${{ env.APP_NAME }}
+          package: ${{ runner.temp }}/relay-publish
+          remote-build: false

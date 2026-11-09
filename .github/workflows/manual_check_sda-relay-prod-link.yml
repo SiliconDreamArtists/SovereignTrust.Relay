@@ -1,0 +1,28 @@
+name: Check Relay production Azure link
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: sda-prod
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: azure/login@v2
+        with:
+          client-id: 939a822c-9b97-4592-aeb4-39432b566f62
+          tenant-id: 8904b745-1738-426c-ad85-3fcecb32d24b
+          subscription-id: b7690041-454b-472b-b340-3d8dde115103
+      - name: Verify exact production app without changing it
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected='/subscriptions/b7690041-454b-472b-b340-3d8dde115103/resourceGroups/sda-prod/providers/Microsoft.Web/sites/sda-relay-prod'
+          actual=$(az resource show --ids "$expected" --query id -o tsv)
+          test "${actual,,}" = "${expected,,}"
+          state=$(az resource show --ids "$expected" --query properties.state -o tsv)
+          test "$state" = 'Running'

@@ -1,0 +1,111 @@
+Initialized empty Git repository in C:/Users/sfost/AppData/Local/Temp/vscode-agent-codex-sandbox-IVVYFM/relay-provenance-W4-20261122/.git/
+warning: LF will be replaced by CRLF in Tests/Deployment/Package-Promotion.Tests.ps1.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in global.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in scripts/New-RelayPackage.ps1.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in scripts/Test-RelayPackage.ps1.
+The file will have its original line endings in your working directory
+[master (root-commit) 1c40a9b] Disposable local provenance fixture (no remote)
+ 100 files changed, 6309 insertions(+)
+ create mode 100644 .github/workflows/main_publish_bddb-sda-prod-relay.yml
+ create mode 100644 .github/workflows/main_publish_sda-relay-dev.yml
+ create mode 100644 .github/workflows/manual_check_sda-relay-prod-link.yml
+ create mode 100644 .github/workflows/manual_check_sda-relay-test-link.yml
+ create mode 100644 .github/workflows/manual_deploy_sda-relay-dev.yml
+ create mode 100644 .github/workflows/manual_deploy_sda-relay-prod-main.yml
+ create mode 100644 .github/workflows/manual_deploy_sda-relay-test-main.yml
+ create mode 100644 .gitignore
+ create mode 100644 Documentation/Projects/Working/RELAY-MIG-01-Working.md
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-F04-preimage-W2.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W1-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W1-02.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W1-final.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W2-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W2-02.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-02.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-03.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-04.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-final.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-all-W2-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-app-preimage-W1.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-ci-44992280876-failed.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-ci-44992280876-platform-extract-W3.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-correction-preimage-W2.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-diff-W1-final.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-diff-W2-final.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-diff-W3.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-host-W1-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-inventory-20261122.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-local-result-W1.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-local-result-W2.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-local-result-W3-02.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-local-result-W3.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-manual-build-availability-W3.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W1-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W1-02.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W2-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W2-02.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W3-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-parse-W1-final.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-parse-W2-final.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-parse-W3.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-plan-preimage-W0.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-platform-correction-W3.patch
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-platform-preimage-W3.json
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-publish-W1-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-release-W1-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-restore-W1.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-script-W1-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-script-W1-final.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-unit-W1-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-unit-W1-02.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-unit-W1-03.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-workflow-W1-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-workflow-W1-final.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-workflow-W2-01.log
+ create mode 100644 Documentation/Projects/Working/logs/RELAY-MIG-01-workflow-W2-02.log
+ create mode 100644 Documentation/Projects/Working/logs/sda-relay-api-dev-availability-request.json
+ create mode 100644 Documentation/Projects/Working/logs/sda-relay-api-dev-availability-result.json
+ create mode 100644 Documentation/Projects/Working/logs/sda-relay-api-prod-availability-request.json
+ create mode 100644 Documentation/Projects/Working/logs/sda-relay-api-prod-availability-result.json
+ create mode 100644 Documentation/Projects/Working/logs/sda-relay-api-test-availability-request.json
+ create mode 100644 Documentation/Projects/Working/logs/sda-relay-api-test-availability-result.json
+ create mode 100644 LICENSE
+ create mode 100644 README.md
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/.gitignore
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Discord/DiscordInteractionResponseHelper.cs
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Discord/DiscordRelay.cs
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Discord/DiscordVerifier.cs
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Discord/InteractionDispatcher.cs
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Ed25519SignFunction.cs
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Ed25519keyGenerator.cs
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/HelperAuthorization.cs
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Program.cs
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/Properties/serviceDependencies.bddb-sda-prod-relay - Zip Deploy.json
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/RelaySettings.cs
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/SovereignTrust.Relay.Azure.csproj
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/host.json
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.Azure/ps/Call-Discord.ps1
+ create mode 100644 Src/CSharp/Azure/SovereignTrust.Relay.sln
+ create mode 100644 Tests/.gitignore
+ create mode 100644 Tests/Deployment/Package-Promotion.Tests.ps1
+ create mode 100644 Tests/Deployment/Prepare-RelayDeployment.Tests.ps1
+ create mode 100644 Tests/Deployment/Workflow-Contracts.Tests.ps1
+ create mode 100644 Tests/SovereignTrust.Relay.Tests/HttpTests.cs
+ create mode 100644 Tests/SovereignTrust.Relay.Tests/LeaseCrashWorker/LeaseCrashWorker.csproj
+ create mode 100644 Tests/SovereignTrust.Relay.Tests/LeaseCrashWorker/Program.cs
+ create mode 100644 Tests/SovereignTrust.Relay.Tests/RecoveryTests.cs
+ create mode 100644 Tests/SovereignTrust.Relay.Tests/RelayTests.cs
+ create mode 100644 Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj
+ create mode 100644 docs/Relay-Operations.md
+ create mode 100644 global.json
+ create mode 100644 scripts/Get-RelayRuntimeIdentity.ps1
+ create mode 100644 scripts/New-RelayPackage.ps1
+ create mode 100644 scripts/Prepare-RelayDeployment.ps1
+ create mode 100644 scripts/Test-RelayBuildAcceptance.ps1
+ create mode 100644 scripts/Test-RelayPackage.ps1
+ create mode 100644 scripts/Test-RelayPromotion.ps1
+ create mode 100644 scripts/Test-RelayPublishedHost.ps1

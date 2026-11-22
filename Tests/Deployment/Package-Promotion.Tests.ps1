@@ -3,6 +3,13 @@ $ErrorActionPreference='Stop'
 if(Test-Path $EvidenceDirectory){throw 'Fixture directory must be new'}
 New-Item -ItemType Directory $EvidenceDirectory|Out-Null
 $root=Join-Path $PSScriptRoot '../..'
+$policy=Get-Content -Raw (Join-Path $root 'global.json')|ConvertFrom-Json
+$selectedSdk=@(& dotnet --version);$sdkExit=$LASTEXITCODE
+if($policy.sdk.version -cne '10.0.100' -or $policy.sdk.rollForward -cne 'latestFeature' -or $policy.sdk.allowPrerelease -ne $false -or
+   $sdkExit -ne 0 -or $selectedSdk.Count -ne 1 -or $selectedSdk[0] -notmatch '^10\.'){
+    throw "SDK 10 policy/actual selection failed: exit=$sdkExit; output=$($selectedSdk -join ', ')"
+}
+Write-Output "PASS actual SDK selection $($selectedSdk[0]) under repository policy"
 $sha=git -C $root rev-parse HEAD
 $tree=git -C $root rev-parse 'HEAD^{tree}'
 $package=Join-Path (Resolve-Path $EvidenceDirectory) 'synthetic-package'
@@ -22,13 +29,15 @@ function Write-Manifest { $manifest|ConvertTo-Json -Depth 6|Set-Content (Join-Pa
 Write-Manifest
 & (Join-Path $root 'scripts/Test-RelayPackage.ps1') -PackageDirectory $package -ReleaseSha $sha -ExpectedBuildRunId '123'
 Write-Output 'PASS synthetic Ubuntu description without Linux accepted by structured platform (not runtime acceptance)'
-foreach($case in @('WrongSource','WrongPackageHash','WrongPlatform','MissingPlatform','MissingProvenance','WrongFileHash','UnacceptedPackage','WrongBuildRun')){
+foreach($case in @('WrongSource','WrongPackageHash','WrongPlatform','MissingPlatform','WrongSdk','ArraySdk','MissingProvenance','WrongFileHash','UnacceptedPackage','WrongBuildRun')){
     $copy=$manifest|ConvertTo-Json -Depth 6|ConvertFrom-Json -AsHashtable
     switch($case){
         WrongSource {$manifest.sourceSha='2222222222222222222222222222222222222222'}
         WrongPackageHash {$manifest.packageSha256='0'*64}
         WrongPlatform {$manifest.platform='Windows';$manifest.os='Linux (misleading description must not authorize Windows)'}
         MissingPlatform {$manifest.Remove('platform')}
+        WrongSdk {$manifest.sdk='11.0.100'}
+        ArraySdk {$manifest.sdk=@('10.0.404','unexpected native output')}
         MissingProvenance {$manifest.workflowRunId=''}
         WrongFileHash {$manifest.files[0].sha256='0'*64}
     }
@@ -38,7 +47,9 @@ foreach($case in @('WrongSource','WrongPackageHash','WrongPlatform','MissingPlat
         elseif($case -eq 'WrongBuildRun'){& (Join-Path $root 'scripts/Test-RelayPackage.ps1') -PackageDirectory $package -ReleaseSha $sha -ExpectedBuildRunId '999'|Out-Null}
         else{& (Join-Path $root 'scripts/Test-RelayPackage.ps1') -PackageDirectory $package -ReleaseSha $sha|Out-Null}
     }catch{$failure=$_.Exception.Message}
-    if(!$failure){throw "FAIL $case accepted"};Write-Output "PASS $case rejected";$manifest=$copy
+    if(!$failure){throw "FAIL $case accepted"}
+    if($case -in @('WrongSdk','ArraySdk') -and $failure -notmatch 'provenance: sdk'){throw "FAIL $case wrong discriminating error: $failure"}
+    Write-Output "PASS $case rejected";$manifest=$copy
 }
 Write-Manifest
 # Execute the verifier's actual event/mode branches; synthetic bytes never establish runtime success.

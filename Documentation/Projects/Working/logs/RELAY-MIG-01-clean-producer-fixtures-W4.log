@@ -1,0 +1,38 @@
+PASS actual runtime platform oracle Windows (description informational)
+Validated scalar source/build-run metadata and native Git tree; platform/package checks still required.
+Verified package integrity/provenance fields 841EFD5F53314488EF4F3BA4108CD42068A8B5AF207F75B9CE2570728B7A1088; matching Linux runtime receipt still required.
+PASS synthetic Ubuntu description without Linux accepted by structured platform (not runtime acceptance)
+PASS WrongSource rejected
+PASS WrongPackageHash rejected
+PASS WrongPlatform rejected
+PASS MissingPlatform rejected
+PASS WrongSdk rejected
+PASS ArraySdk rejected
+PASS MissingProvenance rejected
+PASS WrongFileHash rejected
+PASS UnacceptedPackage rejected
+PASS WrongBuildRun rejected
+PASS event/mode BuildPush
+PASS event/mode BuildPr
+PASS event/mode BuildPrWrongRef
+PASS event/mode PrAsRelease
+PASS event/mode BuildPushAsRelease
+PASS event/mode ReleaseAsBuildOnly
+PASS accepted build Valid
+PASS accepted build PushOrigin
+PASS accepted build PrOrigin
+PASS accepted build WrongWorkflow
+PASS accepted build FailedRun
+PASS accepted build WrongSource
+PASS accepted build WrongRef
+PASS accepted build Expired
+PASS accepted build WrongArtifactId
+PASS accepted build MissingAcceptance
+PASS promotion Valid
+PASS promotion FailedRun
+PASS promotion WrongWorkflow
+PASS promotion BuildOnlyCi
+PASS promotion PullRequest
+PASS promotion WrongSha
+PASS promotion Expired
+PASS promotion NoIndependentAcceptance

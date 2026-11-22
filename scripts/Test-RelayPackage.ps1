@@ -4,12 +4,22 @@ $ErrorActionPreference='Stop'
 $manifest=Get-Content -Raw -LiteralPath (Join-Path $PackageDirectory 'release.json')|ConvertFrom-Json
 if($manifest.sourceSha -cne $ReleaseSha -or $manifest.packageSha256 -notmatch '^[A-Fa-f0-9]{64}$' -or
     (Get-FileHash -LiteralPath (Join-Path $PackageDirectory 'relay.zip') -Algorithm SHA256).Hash -ine $manifest.packageSha256){throw 'Package/source identity mismatch.'}
-if($manifest.platform -cne 'Linux'){throw 'Deployment requires structured Linux runtime platform provenance.'}
 if($PSBoundParameters.ContainsKey('ExpectedBuildRunId') -and
    ($ExpectedBuildRunId -notmatch '^[1-9][0-9]*$' -or $manifest.workflowRunId -cne $ExpectedBuildRunId)){throw 'Package build-run identity mismatch.'}
-if($manifest.sourceTree -notmatch '^[a-f0-9]{40}$' -or $manifest.sdk -notmatch '^10\.' -or
-   $manifest.repository -cne 'SiliconDreamArtists/SovereignTrust.Relay' -or
-   $manifest.workflowRunId -notmatch '^[1-9][0-9]*$' -or !$manifest.workflowRef) {throw 'Incomplete source/build-run provenance.'}
+$publicFields=@();foreach($field in @('sourceSha','sourceTree','sdk','repository','workflowRunId','workflowRef','sourceRef','platform','purpose','eventName')){
+    $value=$manifest.$field
+    $publicFields+=@{field=$field;value=$value;type=$(if($null -eq $value){'null'}else{$value.GetType().FullName})}
+}
+$invalid=@()
+if($manifest.sourceTree -isnot [string] -or $manifest.sourceTree -notmatch '^[a-f0-9]{40}$'){$invalid+='sourceTree'}
+if($manifest.sdk -isnot [string] -or $manifest.sdk -notmatch '^10\.'){$invalid+='sdk'}
+if($manifest.repository -isnot [string] -or $manifest.repository -cne 'SiliconDreamArtists/SovereignTrust.Relay'){$invalid+='repository'}
+if($manifest.workflowRunId -isnot [string] -or $manifest.workflowRunId -notmatch '^[1-9][0-9]*$'){$invalid+='workflowRunId'}
+if($manifest.workflowRef -isnot [string] -or [string]::IsNullOrWhiteSpace($manifest.workflowRef)){$invalid+='workflowRef'}
+if($invalid.Count){
+    Write-Output ('Validator public provenance fields: '+($publicFields|ConvertTo-Json -Compress -Depth 4))
+    throw "Incomplete source/build-run provenance: $($invalid -join ', ')."
+}
 if($BuildOnly){
     $validEventRef=($manifest.eventName -in @('push','workflow_dispatch') -and $manifest.sourceRef -match '^refs/heads/') -or
         ($manifest.eventName -ceq 'pull_request' -and $manifest.sourceRef -match '^refs/pull/[1-9][0-9]*/merge$')
@@ -18,8 +28,13 @@ if($BuildOnly){
     $manifest.sourceRef -notmatch '^refs/heads/'){
     throw 'Deployment requires a manual branch release; build-only/PR artifacts cannot deploy.'
 }
-$expectedTree=& git -C (Split-Path $PSScriptRoot) rev-parse "$ReleaseSha^{tree}"
-if($LASTEXITCODE -or $manifest.sourceTree -cne $expectedTree){throw 'Source tree does not match selected release commit.'}
+$expectedTree=@(& git -C (Split-Path $PSScriptRoot) rev-parse "$ReleaseSha^{tree}");$treeExit=$LASTEXITCODE
+if($treeExit -ne 0 -or $expectedTree.Count -ne 1 -or $expectedTree[0] -notmatch '^[a-f0-9]{40}$' -or $manifest.sourceTree -cne $expectedTree[0]){
+    Write-Output ('Validator public Git provenance: '+(@{expectedTree=$expectedTree;exit=$treeExit;manifestTree=$manifest.sourceTree}|ConvertTo-Json -Compress))
+    throw 'Source tree does not match selected release commit.'
+}
+Write-Output 'Validated scalar source/build-run metadata and native Git tree; platform/package checks still required.'
+if($manifest.platform -cne 'Linux'){throw 'Deployment requires structured Linux runtime platform provenance.'}
 foreach($required in @('SovereignTrust.Relay.Azure.dll','SovereignTrust.Relay.Azure.deps.json','SovereignTrust.Relay.Azure.runtimeconfig.json','runtimes/linux-x64/native/libsodium.so')){
     if(@($manifest.files|Where-Object path -CEQ $required).Count -ne 1){throw "Missing required Linux package file: $required"}
 }

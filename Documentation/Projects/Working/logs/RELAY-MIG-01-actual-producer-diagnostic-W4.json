@@ -1,0 +1,77 @@
+{
+  "sdkRegex": true,
+  "repositoryExact": true,
+  "sdkExit": 0,
+  "sourceTreeRegex": true,
+  "runIdRegex": true,
+  "gitExit": 0,
+  "standaloneSdk": "10.0.404",
+  "fixtureEnvironmentUnchanged": true,
+  "fields": [
+    {
+      "field": "sourceSha",
+      "type": "System.String",
+      "value": "2b4bf18603e5c8632654ff2bd743f75e10c2478e"
+    },
+    {
+      "field": "sourceTree",
+      "type": "System.String",
+      "value": "5e6e1968f7c39d476edaa5b6428ed89dfb9384ea"
+    },
+    {
+      "field": "sdk",
+      "type": "System.String",
+      "value": "10.0.404"
+    },
+    {
+      "field": "repository",
+      "type": "System.String",
+      "value": "SiliconDreamArtists/SovereignTrust.Relay"
+    },
+    {
+      "field": "workflowRunId",
+      "type": "System.String",
+      "value": "900000000001"
+    },
+    {
+      "field": "workflowRef",
+      "type": "System.String",
+      "value": "SiliconDreamArtists/SovereignTrust.Relay/.github/workflows/main_publish_sda-relay-dev.yml@refs/heads/agents/relay-azure-to-aspnet-core-migration"
+    },
+    {
+      "field": "sourceRef",
+      "type": "System.String",
+      "value": "refs/heads/agents/relay-azure-to-aspnet-core-migration"
+    },
+    {
+      "field": "platform",
+      "type": "System.String",
+      "value": "Windows"
+    },
+    {
+      "field": "os",
+      "type": "System.String",
+      "value": "Microsoft Windows 10.0.26200"
+    }
+  ],
+  "head": "2b4bf18603e5c8632654ff2bd743f75e10c2478e",
+  "environmentBeforeFixtures": {
+    "GITHUB_REF": "refs/heads/agents/relay-azure-to-aspnet-core-migration",
+    "GITHUB_SHA": "2b4bf18603e5c8632654ff2bd743f75e10c2478e",
+    "GITHUB_WORKFLOW_REF": "SiliconDreamArtists/SovereignTrust.Relay/.github/workflows/main_publish_sda-relay-dev.yml@refs/heads/agents/relay-azure-to-aspnet-core-migration",
+    "GITHUB_EVENT_NAME": "push",
+    "GITHUB_REPOSITORY": "SiliconDreamArtists/SovereignTrust.Relay",
+    "GITHUB_RUN_ID": "900000000001"
+  },
+  "workflowRefPresent": true,
+  "purpose": "Actual unchanged clean-snapshot producer diagnostic; local Windows only, simulated public GitHub metadata",
+  "standaloneGitTree": "5e6e1968f7c39d476edaa5b6428ed89dfb9384ea",
+  "environmentAfterFixtures": {
+    "GITHUB_REF": "refs/heads/agents/relay-azure-to-aspnet-core-migration",
+    "GITHUB_SHA": "2b4bf18603e5c8632654ff2bd743f75e10c2478e",
+    "GITHUB_WORKFLOW_REF": "SiliconDreamArtists/SovereignTrust.Relay/.github/workflows/main_publish_sda-relay-dev.yml@refs/heads/agents/relay-azure-to-aspnet-core-migration",
+    "GITHUB_EVENT_NAME": "push",
+    "GITHUB_REPOSITORY": "SiliconDreamArtists/SovereignTrust.Relay",
+    "GITHUB_RUN_ID": "900000000001"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "fields": [
+    {
+      "value": "1c40a9bef87feef703fb598a94cda8aceb53275f",
+      "type": "System.String",
+      "field": "sourceSha"
+    },
+    {
+      "value": "049132eb3838f30d89b0a5ca5b5029add98d6016",
+      "type": "System.String",
+      "field": "sourceTree"
+    },
+    {
+      "value": "10.0.404",
+      "type": "System.String",
+      "field": "sdk"
+    },
+    {
+      "value": "SiliconDreamArtists/SovereignTrust.Relay",
+      "type": "System.String",
+      "field": "repository"
+    },
+    {
+      "value": "900000000003",
+      "type": "System.String",
+      "field": "workflowRunId"
+    },
+    {
+      "value": "SiliconDreamArtists/SovereignTrust.Relay/.github/workflows/main_publish_sda-relay-dev.yml@refs/heads/agents/relay-azure-to-aspnet-core-migration",
+      "type": "System.String",
+      "field": "workflowRef"
+    },
+    {
+      "value": "refs/heads/agents/relay-azure-to-aspnet-core-migration",
+      "type": "System.String",
+      "field": "sourceRef"
+    },
+    {
+      "value": "Windows",
+      "type": "System.String",
+      "field": "platform"
+    },
+    {
+      "value": "Microsoft Windows 10.0.26200",
+      "type": "System.String",
+      "field": "os"
+    }
+  ],
+  "expectedWindowsRejection": "Deployment requires structured Linux runtime platform provenance.",
+  "fixturePath": "C:\\Users\\sfost\\AppData\\Local\\Temp\\vscode-agent-codex-sandbox-IVVYFM\\relay-provenance-W4-20261122",
+  "checksPassed": 3,
+  "fixtureTree": "049132eb3838f30d89b0a5ca5b5029add98d6016",
+  "fixtureRemoteCount": 0,
+  "maxSourceOutputPathLength": 206,
+  "fixtureCommit": "1c40a9bef87feef703fb598a94cda8aceb53275f",
+  "fixtureEnvironmentUnchanged": true,
+  "taskHead": "2b4bf18603e5c8632654ff2bd743f75e10c2478e",
+  "sourceBuildMetadataValidatedBeforeRejection": true,
+  "purpose": "Actual corrected producer to validator in clean disposable short-path snapshot; not a release",
+  "limitations": [
+    "Temporary no-remote Git snapshot only; no project branch commit.",
+    "Public GitHub metadata simulated, not actual Actions run.",
+    "Windows package remains nondeployable; corrected Linux pipeline must still pass."
+  ]
+}

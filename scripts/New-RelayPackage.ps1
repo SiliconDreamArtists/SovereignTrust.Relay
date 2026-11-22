@@ -7,6 +7,17 @@ if($env:GITHUB_REPOSITORY -cne 'SiliconDreamArtists/SovereignTrust.Relay' -or
 if($LASTEXITCODE){throw 'Package must be built from a committed unchanged source snapshot.'}
 $untracked=@(& git -C $root ls-files --others --exclude-standard | Where-Object {$_ -notlike 'Documentation/Projects/Working/logs/*'})
 if($LASTEXITCODE -or $untracked.Count){throw 'Unexpected untracked input outside isolated test evidence; package provenance is not exact.'}
+$sourceSha=@(& git -C $root rev-parse HEAD);$headExit=$LASTEXITCODE
+$sourceTree=@(& git -C $root rev-parse 'HEAD^{tree}');$treeExit=$LASTEXITCODE
+$sdk=@(& dotnet --version);$sdkExit=$LASTEXITCODE
+$native=@{sourceSha=$sourceSha;sourceTree=$sourceTree;sdk=$sdk;gitHeadExit=$headExit;gitTreeExit=$treeExit;sdkExit=$sdkExit}
+Write-Output ('Producer public native provenance: '+($native|ConvertTo-Json -Compress))
+if($headExit -ne 0 -or $sourceSha.Count -ne 1 -or $sourceSha[0] -notmatch '^[a-f0-9]{40}$' -or
+   $treeExit -ne 0 -or $sourceTree.Count -ne 1 -or $sourceTree[0] -notmatch '^[a-f0-9]{40}$' -or
+   $sdkExit -ne 0 -or $sdk.Count -ne 1 -or $sdk[0] -notmatch '^10\.'){
+    throw 'Producer requires one successful Git commit/tree and SDK 10 version result; see public native provenance.'
+}
+$sourceSha=[string]$sourceSha[0];$sourceTree=[string]$sourceTree[0];$sdk=[string]$sdk[0]
 if(Test-Path -LiteralPath $OutputDirectory){throw 'Package output must be new; never overwrite accepted artifacts.'}
 New-Item -ItemType Directory -Path $OutputDirectory | Out-Null
 $output=(Resolve-Path -LiteralPath $OutputDirectory).Path
@@ -27,6 +38,6 @@ $zip=Join-Path $output 'relay.zip'
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 [IO.Compression.ZipFile]::CreateFromDirectory($publish,$zip)
 $runtime=& (Join-Path $PSScriptRoot 'Get-RelayRuntimeIdentity.ps1')
-$manifest=@{purpose=$(if($BuildOnly){'build-only'}else{'deployment-release'});eventName=$env:GITHUB_EVENT_NAME;sourceSha=(& git -C $root rev-parse HEAD);sourceTree=(& git -C $root rev-parse 'HEAD^{tree}');sdk=(& dotnet --version);platform=$runtime.platform;os=$runtime.os;repository=$env:GITHUB_REPOSITORY;workflowRunId=$env:GITHUB_RUN_ID;workflowRef=$env:GITHUB_WORKFLOW_REF;sourceRef=$env:GITHUB_REF;packageSha256=(Get-FileHash $zip -Algorithm SHA256).Hash;files=$files}
+$manifest=@{purpose=$(if($BuildOnly){'build-only'}else{'deployment-release'});eventName=$env:GITHUB_EVENT_NAME;sourceSha=$sourceSha;sourceTree=$sourceTree;sdk=$sdk;platform=$runtime.platform;os=$runtime.os;repository=$env:GITHUB_REPOSITORY;workflowRunId=$env:GITHUB_RUN_ID;workflowRef=$env:GITHUB_WORKFLOW_REF;sourceRef=$env:GITHUB_REF;packageSha256=(Get-FileHash $zip -Algorithm SHA256).Hash;files=$files}
 $manifest|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $output 'release.json') -Encoding utf8NoBOM
 Write-Output "Package SHA256 $($manifest.packageSha256); source $($manifest.sourceSha)"

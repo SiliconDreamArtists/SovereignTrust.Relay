@@ -1,0 +1,30 @@
+PASS dev manual only
+PASS dev exact environment/app
+PASS dev ordinary deployment
+PASS dev exact source identity
+PASS dev predeployment guards
+PASS dev no input interpolation into script
+PASS Dev downloads accepted manual package without rebuilding
+PASS Dev binds accepted run artifact and bytes before Azure login
+PASS test manual only
+PASS test exact environment/app
+PASS test ordinary deployment
+PASS test exact source identity
+PASS test predeployment guards
+PASS test no input interpolation into script
+PASS test accepted predecessor binding
+PASS test promotes without rebuilding
+PASS prod manual only
+PASS prod exact environment/app
+PASS prod ordinary deployment
+PASS prod exact source identity
+PASS prod predeployment guards
+PASS prod no input interpolation into script
+PASS prod accepted predecessor binding
+PASS prod promotes without rebuilding
+PASS CI runs on published migration branch without deployment
+PASS CI selects manual release vs nondeployment push PR mode
+PASS CI retains distinct manual and nondeployment ZIP manifest startup artifacts
+PASS CI records attributable immutable artifact identity
+PASS Legacy cannot deploy
+Workflow contracts: 29 passed

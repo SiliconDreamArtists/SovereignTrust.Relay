@@ -1,22 +1,7 @@
-﻿$url = "https://discord.relay.sda.studio/api/discord?"
-#$url = "https://feeds.sda.studio/api/GetCurrentMedia"
-#$url = "http://localhost:7107/api/discord"
-
-#$origin = "https://localhost:7107"
-
-$Body = "test"
-
-# Create an Invoke-WebRequest with a custom Origin header
-$response = Invoke-WebRequest -Uri $url -Method Post -Body $Body -ErrorAction Stop
-
-# Display the response status code and Access-Control-Allow-Origin header
-Write-Output "Response Status Code: $($response.StatusCode)"
-if ($response.Headers["Access-Control-Allow-Origin"]) {
-    Write-Output "Access-Control-Allow-Origin: $($response.Headers["Access-Control-Allow-Origin"])"
-} else {
-    Write-Output "Access-Control-Allow-Origin header not found"
-}
-
-$reponse
-
-
+param([Parameter(Mandatory)][uri]$Origin)
+# Callback-safe negative probe only. No signature means no queue/receipt/consumer work.
+$uri=[uri]::new($Origin,'/api/discordrelay')
+if($uri.Scheme -ne 'https' -and !$uri.IsLoopback){throw 'Require HTTPS or loopback'}
+$response=Invoke-WebRequest -Uri $uri -Method Post -ContentType 'application/json' -Body '{"type":1}' -SkipHttpErrorCheck
+if([int]$response.StatusCode -ne 401){throw "Expected unsigned401; observed $($response.StatusCode)"}
+Write-Output 'PASS unsigned Discord request rejected; genuine signed ping and queue/callback acceptance remain separate.'

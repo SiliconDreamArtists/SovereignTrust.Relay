@@ -2,17 +2,21 @@ using System.Globalization;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Functions.Worker;
 using NSec.Cryptography;
 using SovereignTrust.Relay.Azure;
 namespace SovereignTrust.Relay.Azure.Azure;
 
-public sealed class Ed25519SignFunction(RelaySettings settings, TimeProvider clock)
+[Controller]
+public sealed class Ed25519SignFunction(RelaySettings settings, TimeProvider clock) : ControllerBase
 {
-    [Function("Ed25519SignFunction")]
-    public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req)
+    [HttpPost("/api/Ed25519SignFunction")]
+    public Task<IActionResult> HttpRun() => Run(Request);
+
+    [NonAction]
+    public async Task<IActionResult> Run(HttpRequest req)
     {
         if (!settings.SigningEnabled) return new NotFoundResult();
+        if (!HelperAuthorization.IsAuthorized(req, settings.HelperApiKey)) return new UnauthorizedResult();
         using var reader = new StreamReader(req.Body);
         var body = await reader.ReadToEndAsync(req.HttpContext.RequestAborted);
         if (string.IsNullOrWhiteSpace(body)) return new BadRequestObjectResult("Empty request body.");

@@ -1,0 +1,10 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  SovereignTrust.Relay.Azure -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\bin\Release\net10.0\SovereignTrust.Relay.Azure.dll
+  LeaseCrashWorker -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\LeaseCrashWorker\bin\Release\net10.0\LeaseCrashWorker.dll
+  SovereignTrust.Relay.Tests -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll
+Test run for C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Documentation\Projects\Working\logs\W1-all-01\sfost_SDADEV01_2026-11-21_21_35_09_net10.0.trx
+
+Passed!  - Failed:     0, Passed:    45, Skipped:     0, Total:    45, Duration: 17 s - SovereignTrust.Relay.Tests.dll (net10.0)

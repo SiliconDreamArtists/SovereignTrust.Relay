@@ -1,0 +1,7 @@
+{
+  "limitation": "Read-only availability check, not reservation or creation; prior inline body attempts failed media type then Windows CLI quoting; file body corrects actual transport.",
+  "name": "sda-relay-api-prod",
+  "utc": "2026-11-22T05:27:23.7441367Z",
+  "response": "{\n  \"message\": \"\",\n  \"nameAvailable\": true,\n  \"reason\": \"\"\n}",
+  "exit": 0
+}

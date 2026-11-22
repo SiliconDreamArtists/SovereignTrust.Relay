@@ -40,7 +40,7 @@ Relays do not validate, authorize, or execute. They:
 | Webhook Listener | Accepts POST requests and verifies headers          |
 | Signal Transformer | Wraps raw input into a structured `Signal<T>`      |
 | Queue Writer     | Enqueues to Azure Queue, AWS SQS, or custom adapter |
-| Stateless        | Runs as Azure Function, container, or serverless    |
+| HTTP API         | Ordinary ASP.NET Core / Kestrel Web App             |
 
 ---
 
@@ -79,7 +79,7 @@ Pushed into SovereignTrust queue for execution.
 
 | Host Platform | Description                          |
 |---------------|--------------------------------------|
-| Azure Function | Native support with `HttpTrigger`   |
+| ASP.NET Core   | Ordinary .NET 10 Web API / App Service |
 | AWS Lambda    | Wrap with API Gateway                |
 | Kestrel (.NET) | For on-prem or container use        |
 
@@ -98,7 +98,7 @@ Each relay should be small, scoped, and stateless.
 
 ## 🧪 Example Usage
 
-Coming soon in `Examples/DiscordRelay.cs` and `Relay.Tests/`.
+See [operations](docs/Relay-Operations.md) and the hosted HTTP/storage tests in [Relay tests](Tests/SovereignTrust.Relay.Tests/).
 
 ---
 

@@ -1,0 +1,20 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  SovereignTrust.Relay.Azure -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\bin\Release\net10.0\SovereignTrust.Relay.Azure.dll
+  LeaseCrashWorker -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\LeaseCrashWorker\bin\Release\net10.0\LeaseCrashWorker.dll
+  SovereignTrust.Relay.Tests -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll
+Test run for C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:05.21]     HttpTests.SerializedUtf8LimitRejectsBeforeQueue [FAIL]
+  Failed HttpTests.SerializedUtf8LimitRejectsBeforeQueue [91 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: RequestEntityTooLarge
+Actual:   OK
+  Stack Trace:
+     at HttpTests.SerializedUtf8LimitRejectsBeforeQueue() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 152
+   at HttpTests.SerializedUtf8LimitRejectsBeforeQueue() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 154
+--- End of stack trace from previous location ---
+Results File: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Documentation\Projects\Working\logs\W1-all-03\sfost_SDADEV01_2026-11-21_21_41_36_net10.0.trx
+
+Failed!  - Failed:     1, Passed:    53, Skipped:     0, Total:    54, Duration: 17 s - SovereignTrust.Relay.Tests.dll (net10.0)

@@ -1,86 +1,60 @@
-name: Build and deploy Relay development
+name: Relay build and test (no deployment)
 on:
   push:
-    branches: [main_publish]
   pull_request:
-    branches: [main_publish]
   workflow_dispatch:
 permissions:
   contents: read
-concurrency:
-  group: relay-dev-${{ github.ref }}
-  cancel-in-progress: false
-env:
-  AZURE_FUNCTIONAPP_NAME: sda-relay-dev
-  AZURE_RESOURCE_GROUP: sda-dev
-  # Public identifiers for the existing development GitHub OIDC identity.
-  AZURE_CLIENT_ID: 7067b6d4-0e94-4c7d-95f7-628683138311
-  AZURE_TENANT_ID: 8904b745-1738-426c-ad85-3fcecb32d24b
-  AZURE_SUBSCRIPTION_ID: cc1fa56e-a8ce-411f-bb5c-58e96d9ac4f8
-  PROJECT: Src/CSharp/Azure/SovereignTrust.Relay.Azure/SovereignTrust.Relay.Azure.csproj
-  TEST_PROJECT: Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj
 jobs:
-  build:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     services:
       azurite:
         image: mcr.microsoft.com/azure-storage/azurite:3.35.0
-        ports:
-          - 10000:10000
-          - 10001:10001
-    if: github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/main_publish'
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+        ports: ['10000:10000', '10001:10001']
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '10.0.x'
-      - name: Restore Functions project directly
-        run: dotnet restore "$PROJECT"
-      - name: Test deployment preparation
+      - name: Test source and deployment guards
         shell: pwsh
-        run: ./Tests/Deployment/Prepare-RelayDeployment.Tests.ps1
-      - name: Test
-        run: dotnet test "$TEST_PROJECT" --configuration Release
-      - name: Publish
-        run: dotnet publish "$PROJECT" --configuration Release --no-restore --output "${{ runner.temp }}/relay-publish"
-      - name: Verify deployment files
-        shell: bash
         run: |
-          test -f "${{ runner.temp }}/relay-publish/host.json"
-          test -f "${{ runner.temp }}/relay-publish/worker.config.json"
-          test ! -f "${{ runner.temp }}/relay-publish/local.settings.json"
+          ./Tests/Deployment/Prepare-RelayDeployment.Tests.ps1
+          ./Tests/Deployment/Workflow-Contracts.Tests.ps1
+          ./Tests/Deployment/Package-Promotion.Tests.ps1 -EvidenceDirectory 'Documentation/Projects/Working/logs/ci-package-fixtures'
+          dotnet test Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj --configuration Release --logger trx --results-directory Documentation/Projects/Working/logs/ci-tests
+          if ($LASTEXITCODE) { throw 'Tests failed' }
+          if ($env:GITHUB_EVENT_NAME -ceq 'workflow_dispatch') {
+            ./scripts/New-RelayPackage.ps1 -OutputDirectory '${{ runner.temp }}/relay-package'
+            ./scripts/Test-RelayPackage.ps1 -PackageDirectory '${{ runner.temp }}/relay-package' -ReleaseSha '${{ github.sha }}'
+          } else {
+            ./scripts/New-RelayPackage.ps1 -OutputDirectory '${{ runner.temp }}/relay-package' -BuildOnly
+            ./scripts/Test-RelayPackage.ps1 -PackageDirectory '${{ runner.temp }}/relay-package' -ReleaseSha '${{ github.sha }}' -BuildOnly
+          }
       - uses: actions/upload-artifact@v4
+        id: linux_build_artifact
         with:
-          name: relay-release
-          path: ${{ runner.temp }}/relay-publish/
-          include-hidden-files: true
+          name: ${{ github.event_name == 'workflow_dispatch' && 'relay-manual-package' || 'relay-ci-linux-package' }}
+          path: |
+            ${{ runner.temp }}/relay-package/relay.zip
+            ${{ runner.temp }}/relay-package/release.json
+            ${{ runner.temp }}/relay-package/host-evidence/
           if-no-files-found: error
-          retention-days: 14
-  deploy:
-    needs: build
-    if: github.ref == 'refs/heads/main_publish' && github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      contents: read
-      id-token: write
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/download-artifact@v4
-        with:
-          name: relay-release
-          path: publish
-      - uses: azure/login@v2
-        with:
-          client-id: ${{ env.AZURE_CLIENT_ID }}
-          tenant-id: ${{ env.AZURE_TENANT_ID }}
-          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
-      - name: Validate runtime, provision storage, and disable test signing
+          retention-days: 30
+      - name: Record nondeployment Linux artifact identity
         shell: pwsh
-        run: ./scripts/Prepare-RelayDeployment.ps1 -AppName $env:AZURE_FUNCTIONAPP_NAME -ResourceGroup $env:AZURE_RESOURCE_GROUP -Subscription $env:AZURE_SUBSCRIPTION_ID
-      - uses: Azure/functions-action@v1
+        env:
+          ARTIFACT_ID: ${{ steps.linux_build_artifact.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.linux_build_artifact.outputs.artifact-digest }}
+        run: |
+          "NO DEPLOYMENT; event=$env:GITHUB_EVENT_NAME; run=$env:GITHUB_RUN_ID; commit=$env:GITHUB_SHA; artifact=$env:ARTIFACT_ID; digest=$env:ARTIFACT_DIGEST" >> $env:GITHUB_STEP_SUMMARY
+      - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-          package: publish
-          remote-build: false
+          name: relay-ci-evidence
+          path: |
+            Documentation/Projects/Working/logs/ci-tests/
+            ${{ runner.temp }}/relay-package/host-evidence/
+          retention-days: 30

@@ -1,0 +1,15 @@
+Verified immutable Linux package E8EBF910D945E4889C45B445034BDA108E2216E7A568C3301BE82855A1A9131F
+PASS synthetic package integrity validator positive (not runtime acceptance)
+PASS WrongSource rejected
+PASS WrongPackageHash rejected
+PASS WrongOs rejected
+PASS MissingProvenance rejected
+PASS WrongFileHash rejected
+PASS UnacceptedPackage rejected
+PASS promotion Valid
+PASS promotion FailedRun
+PASS promotion WrongWorkflow
+PASS promotion PullRequest
+PASS promotion WrongSha
+PASS promotion Expired
+PASS promotion NoIndependentAcceptance

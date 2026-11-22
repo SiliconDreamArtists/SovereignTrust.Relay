@@ -1,0 +1,15 @@
+Verified package integrity/provenance fields 472521334EED6C07EA177423EEAA736FC4F0BDF9BF8CA8E4F96D2D8AEC9CD8C2; matching Linux runtime receipt still required.
+PASS synthetic package integrity validator positive (not runtime acceptance)
+PASS WrongSource rejected
+PASS WrongPackageHash rejected
+PASS WrongOs rejected
+PASS MissingProvenance rejected
+PASS WrongFileHash rejected
+PASS UnacceptedPackage rejected
+PASS promotion Valid
+PASS promotion FailedRun
+PASS promotion WrongWorkflow
+PASS promotion PullRequest
+PASS promotion WrongSha
+PASS promotion Expired
+PASS promotion NoIndependentAcceptance

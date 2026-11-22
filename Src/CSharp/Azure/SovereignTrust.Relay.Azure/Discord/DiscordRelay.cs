@@ -2,7 +2,6 @@ using System.Globalization;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -10,13 +9,17 @@ using SovereignTrust.Relay.Azure;
 namespace SovereignTrust.Relay.Azure.Azure.Discord;
 
 /// <summary>Handles the Discord HTTP interaction endpoint and dispatches validated interactions.</summary>
-/// <remarks>The function attribute and HTTP trigger describe an ingress route; runtime host and downstream settings remain external.</remarks>
+/// <remarks>Hosting and downstream settings remain environment-specific.</remarks>
+[Controller]
 public sealed class DiscordRelay(ILogger<DiscordRelay> logger, RelaySettings settings,
-    IInteractionDispatcher dispatcher, TimeProvider clock)
+    IInteractionDispatcher dispatcher, TimeProvider clock) : ControllerBase
 {
-    [Function(nameof(DiscordRelay))]
+    [HttpPost("/api/discordrelay")]
+    public Task<IActionResult> HttpRun() => RunDiscordRelayAsync(Request);
+
+    [NonAction]
     public async Task<IActionResult> RunDiscordRelayAsync(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "discordrelay")] HttpRequest req)
+        HttpRequest req)
     {
         using var deadline = CancellationTokenSource.CreateLinkedTokenSource(req.HttpContext.RequestAborted);
         deadline.CancelAfter(TimeSpan.FromSeconds(2));

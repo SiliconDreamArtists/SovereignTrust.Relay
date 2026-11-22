@@ -1,0 +1,19 @@
+{
+  "mainProtected": true,
+  "changedFiles": 133,
+  "merged": false,
+  "url": "https://github.com/SiliconDreamArtists/SovereignTrust.Relay/pull/16",
+  "testMerge": "5595eb7d2d768459cfc432036344a6fdc21ef6cc",
+  "head": "c61956f79a0cae963551f271686f1f1298622c53",
+  "bodySha256": "F2C56293217C4E23E69E9CA9CF1DB10A72DAE4F81E88CF2E2A65D2D4EF154B90",
+  "title": "Migrate Relay API and consolidate disabled release controls",
+  "actualHeadUnchanged": true,
+  "draft": true,
+  "branch": "agents/relay-azure-to-aspnet-core-migration",
+  "utc": "2026-11-22T08:10:52.2208568Z",
+  "state": "open",
+  "base": "874f54c7f4795a07f9f3e4b1b3dd13d0a4b4f500",
+  "actualMainUnchanged": true,
+  "number": 16,
+  "autoMerge": null
+}

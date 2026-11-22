@@ -1,0 +1,798 @@
+{
+  "utc": "2026-11-22T08:08:20.4680057Z",
+  "mergeable": true,
+  "title": "Migrate Relay API and consolidate disabled release controls",
+  "base": {
+    "repository": "SiliconDreamArtists/SovereignTrust.Relay",
+    "ref": "main",
+    "sha": "874f54c7f4795a07f9f3e4b1b3dd13d0a4b4f500"
+  },
+  "autoMerge": null,
+  "body": "This PR proposes the complete Relay migration and release-control source at c61956f79a0cae963551f271686f1f1298622c53 onto main 874f54c7f4795a07f9f3e4b1b3dd13d0a4b4f500. It includes the ordinary ASP.NET Core API, SDK10 policy, tests, helpers, documentation/evidence history and disabled one-dropdown deployment workflow; it is not workflow-only. All deployment jobs remain literal false; no package rebuild, dispatch, environment/FIC or cloud effect is part of this PR. Exact accepted W5 package E4473862F6A6406B8DC021CFFCB34B82247AAD7640D9FE0CB3659D1A8DBB87FC remains source b32c3fbfe2cdf64056be264d59dcd97df6d4591e. Merge is blocked pending existing protected PR approval/test-merge checks and independent exact publication/inverse readiness. No admin bypass.",
+  "changedFiles": 133,
+  "deployWorkflowBlob": "bee597a83703ffebda30055df5575c71486db8c2",
+  "mergeableState": "blocked",
+  "merged": false,
+  "draft": true,
+  "bodySha256": "F2C56293217C4E23E69E9CA9CF1DB10A72DAE4F81E88CF2E2A65D2D4EF154B90",
+  "files": [
+    {
+      "filename": ".github/workflows/main_publish_bddb-sda-prod-relay.yml",
+      "status": "modified",
+      "sha": "47d7cf091cc161a442057bdedbe10596699792be"
+    },
+    {
+      "filename": ".github/workflows/main_publish_sda-relay-dev.yml",
+      "status": "modified",
+      "sha": "bb049656b934ae08ae373f0487eeb1f6f5221db6"
+    },
+    {
+      "filename": ".github/workflows/manual_check_sda-relay-prod-link.yml",
+      "status": "modified",
+      "sha": "b65246801ed5d2fc407d554b21cc2a09ac6570b7"
+    },
+    {
+      "filename": ".github/workflows/manual_check_sda-relay-test-link.yml",
+      "status": "modified",
+      "sha": "d7b652d3ee4537b079725283d2885f40927922e8"
+    },
+    {
+      "filename": ".github/workflows/manual_deploy_sda-relay-prod-main.yml",
+      "status": "removed",
+      "sha": "df23ef1a42e529abf0808c6afcf56d17970e20db"
+    },
+    {
+      "filename": ".github/workflows/manual_deploy_sda-relay-test-main.yml",
+      "status": "removed",
+      "sha": "078690db486692f7e9db61fc36b19e110dace6f7"
+    },
+    {
+      "filename": ".github/workflows/manual_deploy_sda-relay.yml",
+      "status": "added",
+      "sha": "bee597a83703ffebda30055df5575c71486db8c2"
+    },
+    {
+      "filename": "Documentation/Projects/Working/RELAY-MIG-01-Working.md",
+      "status": "added",
+      "sha": "d4f9563f9ba636ccfb7a2a40b92d31d2f7208350"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-F04-preimage-W2.json",
+      "status": "added",
+      "sha": "3b36e6d42e61e7b553b19128105164f13b8ec2ee"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W1-01.log",
+      "status": "added",
+      "sha": "4889933ee57eb15aadd3576cda42a84d2179bef4"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W1-02.log",
+      "status": "added",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W1-final.log",
+      "status": "added",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W2-01.log",
+      "status": "added",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-actionlint-W2-02.log",
+      "status": "added",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-actual-producer-W4.log",
+      "status": "added",
+      "sha": "74dafaebe2a42ff87bcbda31563b63716d04b356"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-actual-producer-diagnostic-W4.json",
+      "status": "added",
+      "sha": "62e54e7cd5363b6d494124d5402e094efd7af1e5"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-01.log",
+      "status": "added",
+      "sha": "9994fea83920277821b54d42ed9d1bd3dd53b460"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-02.log",
+      "status": "added",
+      "sha": "e5d27d6f41ef870990e38587ca8f5cafa4466c9e"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-03.log",
+      "status": "added",
+      "sha": "5a43b7a2a251f7204982aae7807f32f9d7fac448"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-04.log",
+      "status": "added",
+      "sha": "6d7b370dc6fd2be1c97d7e8654636f6f24408cd8"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-all-W1-final.log",
+      "status": "added",
+      "sha": "b0e6041e5e9072dcf11a19a5e8ce5ed7dfe859a9"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-all-W2-01.log",
+      "status": "added",
+      "sha": "650dd912fc5649776a844509c877eb9bc04f72d3"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-app-preimage-W1.json",
+      "status": "added",
+      "sha": "59cd473b38fd11a8aa0f78617b6867e518a5dd93"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-ci-44992280876-failed.log",
+      "status": "added",
+      "sha": "888700105c7a1b3bd8d3d1ccf0974ec0fc9c6aa2"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-ci-44992280876-platform-extract-W3.log",
+      "status": "added",
+      "sha": "045579624380cee366a53f57688325335e17ef80"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-ci-44993123905-failed.log",
+      "status": "added",
+      "sha": "921f84565beffa8a3c2058b834a5d0840203cb9f"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-ci-44993123905-sdk-extract-W4.log",
+      "status": "added",
+      "sha": "ddfca06de5a5b091f4a1ee495700bc52a26bd5de"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-clean-producer-fixtures-W4-02.log",
+      "status": "added",
+      "sha": "3bfe6f244cd0b8858fc87a4e843a50323f7fe5cd"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-clean-producer-fixtures-W4.log",
+      "status": "added",
+      "sha": "9e306832cb5d23a7f8804b36ce6b0219685495b8"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-clean-producer-git-W4-02.log",
+      "status": "added",
+      "sha": "d8dfca0fd6db4a23c56a94767642354b8d242fb2"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-clean-producer-git-W4.log",
+      "status": "added",
+      "sha": "153cb67753d1aaefb976dbca2f13f8b23de95ec1"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-corrected-producer-W4-02.log",
+      "status": "added",
+      "sha": "e944780aef47104f6e1343c8966e543179a1a406"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-corrected-producer-W4.log",
+      "status": "added",
+      "sha": "57e45d89027493729adface905b95c8cfcbd1c32"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-corrected-producer-diagnostic-W4-02.json",
+      "status": "added",
+      "sha": "d5f3973a9acc3b1f965b0570fd84a78feceb86fa"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-corrected-validator-W4-02.log",
+      "status": "added",
+      "sha": "7f70fd0d9b2254b8150762b27d3b6e3de5aa4fa4"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-correction-preimage-W2.json",
+      "status": "added",
+      "sha": "b1f5a7d6f2358fc4df67ed460a670c5674ed9c2b"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-diagnostic-fixtures-W4.log",
+      "status": "added",
+      "sha": "27f82d56673c4b2ba8beb0d19c67f3decbc1f381"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-diff-W1-final.log",
+      "status": "added",
+      "sha": "864696588a9790863ac27e13baf88009a8788167"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-diff-W2-final.log",
+      "status": "added",
+      "sha": "864696588a9790863ac27e13baf88009a8788167"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-diff-W3.log",
+      "status": "added",
+      "sha": "59af29285ae13a46bdb107bab93f3bb07848972f"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-diff-W4.log",
+      "status": "added",
+      "sha": "59af29285ae13a46bdb107bab93f3bb07848972f"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-host-W1-01.log",
+      "status": "added",
+      "sha": "73cb7a559bdc4d846143bd3aacfeaac24567cb17"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-inventory-20261122.json",
+      "status": "added",
+      "sha": "ef3bf3586fba512268f5144efbd2b931f01eb98b"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-local-result-W1.json",
+      "status": "added",
+      "sha": "bfe59277d0cfc556e096fef3c922f2af1e717705"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-local-result-W2.json",
+      "status": "added",
+      "sha": "e3670b7befefb82e1941bb7d478e1a777d99d63c"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-local-result-W3-02.json",
+      "status": "added",
+      "sha": "fe3d90fbfe8178f6f368c2e1ffbc4c1f1416cb9b"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-local-result-W3.json",
+      "status": "added",
+      "sha": "b45ef551764991cea42e0aa0213725cb5e553f39"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-local-result-W4.json",
+      "status": "added",
+      "sha": "371b2b0b14809c2535126d382fc3615bd82f8209"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-manual-build-availability-W3.json",
+      "status": "added",
+      "sha": "643cf903154afe39ce99278fe86ceae7f35d76e2"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W1-01.log",
+      "status": "added",
+      "sha": "8b3722a9592343c2312b32c550c59ab8afa3f95d"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W1-02.log",
+      "status": "added",
+      "sha": "eabcc2cd23c97804c8d569baa73119f7c48becb4"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W2-01.log",
+      "status": "added",
+      "sha": "d2f3310720d36b7b2fb44a9b03e48c340d7626ff"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W2-02.log",
+      "status": "added",
+      "sha": "cf26e8bbf5f87d59bf5325f983adc3bc4b7a5865"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W3-01.log",
+      "status": "added",
+      "sha": "ea648931db32ca8330e61709e3530ff1ece73f89"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W4-01.log",
+      "status": "added",
+      "sha": "e819170f00cbcc3eb39803feb27680c731ac54fa"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-package-tests-W4-final.log",
+      "status": "added",
+      "sha": "4b86085948c5f2af5017f878e3453c9f7e9d6e5d"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-parse-W1-final.log",
+      "status": "added",
+      "sha": "aedfd6578750af23ec215793f5714c404e22c561"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-parse-W2-final.log",
+      "status": "added",
+      "sha": "a48df7806506747d7ea3a6b9232f7fe700fd530b"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-parse-W3.log",
+      "status": "added",
+      "sha": "b167c2185be2754b86768dddf814772a8e6d0495"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-parse-W4.log",
+      "status": "added",
+      "sha": "705c2d75c929df9a2e634c968d0843e9768a7572"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-plan-preimage-W0.json",
+      "status": "added",
+      "sha": "53bc42c5c09dfcf7d2b0371c55b04f4c0328aa97"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-platform-correction-W3.patch",
+      "status": "added",
+      "sha": "135ae84bec57175e4d792e83cc04d7955d80a001"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-platform-preimage-W3.json",
+      "status": "added",
+      "sha": "d6757cab8400d10bf558713d1fb8c8684fbc1018"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-provenance-correction-W4.patch",
+      "status": "added",
+      "sha": "3e8c8b60ed9f4192fffdc8958670178b79f6f22b"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-provenance-preimage-W4.json",
+      "status": "added",
+      "sha": "6bac4a3cc2947636ce62d91413d060b3625c3948"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-publish-W1-01.log",
+      "status": "added",
+      "sha": "638dd260da2e3128eefbe702e1a033bf6e9b44dc"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-release-W1-01.log",
+      "status": "added",
+      "sha": "8271b1f05924b7743961c08ec99fa1ec592f38e5"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-restore-W1.log",
+      "status": "added",
+      "sha": "8cff6c8800cab38bc8f2ebb8d4dcee18a76232a1"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-runner-sdk-metadata-W4.log",
+      "status": "added",
+      "sha": "02c8bf3b96adc0944952d0f44f9348a88009b792"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-script-W1-01.log",
+      "status": "added",
+      "sha": "86f273f6088798ada9df16fb33be63b43a66c828"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-script-W1-final.log",
+      "status": "added",
+      "sha": "86f273f6088798ada9df16fb33be63b43a66c828"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-unit-W1-01.log",
+      "status": "added",
+      "sha": "9174d36cb4d36cb519db940b6ad09e02a8c6950c"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-unit-W1-02.log",
+      "status": "added",
+      "sha": "917d2774a35c43a6ee60be71474d1fbb6831e2e8"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-unit-W1-03.log",
+      "status": "added",
+      "sha": "51356ee36123696eb5661945ff10f642a8bd12ff"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-workflow-W1-01.log",
+      "status": "added",
+      "sha": "c50e77d6b5ed7df98266550a68923e065b3e04ac"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-workflow-W1-final.log",
+      "status": "added",
+      "sha": "c50e77d6b5ed7df98266550a68923e065b3e04ac"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-workflow-W2-01.log",
+      "status": "added",
+      "sha": "79e487000b52e240c7133ff8d4d907ed58cea4c2"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-MIG-01-workflow-W2-02.log",
+      "status": "added",
+      "sha": "8e6b4746134712a8c43342b458d04d5aa9769398"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-actionlint-W7-01.log",
+      "status": "added",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-actionlint-W7-final.log",
+      "status": "added",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-diff-W7.log",
+      "status": "added",
+      "sha": "c45630a3946bd27733492276bcc86a6bd1bdd8fd"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-download-schema-W7.json",
+      "status": "added",
+      "sha": "315b8581ab86c565f995d4473d3289c690016cb0"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-implementation-preimage-W7.json",
+      "status": "added",
+      "sha": "06c543e77f87c302f7675b74b8d8873f5b40c07d"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-invocation-error-W7.log",
+      "status": "added",
+      "sha": "2a4e0c8038cca719c41f97f9a8322ccbd003406d"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-package-tests-W7-final.log",
+      "status": "added",
+      "sha": "ce043042d89de26805d98579dd324675f974c168"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-parser-W7.log",
+      "status": "added",
+      "sha": "08e4feb1b8fbc7804b5442cdf061bd654674203c"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-plan-preimage-W6.json",
+      "status": "added",
+      "sha": "7c490804a350621f144eb27cb53403d1605dd02b"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-preflight-tests-W7-final.log",
+      "status": "added",
+      "sha": "86f273f6088798ada9df16fb33be63b43a66c828"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-preservation-W7.json",
+      "status": "added",
+      "sha": "1b94917ea766799687d039318a8f32944eab7be9"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-release-tests-W7-01.log",
+      "status": "added",
+      "sha": "04d8675600ce03afd383e2cd1b47fecfbdeeb343"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-release-tests-W7-02.log",
+      "status": "added",
+      "sha": "ee5ebce1fe35807c7263d9947e9db0f5d1c63174"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-release-tests-W7-04.log",
+      "status": "added",
+      "sha": "04137a110025dd141317637fd8400141a3e2ecde"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-release-tests-W7-final.log",
+      "status": "added",
+      "sha": "77a9503f8308ed17798eae1d62410210a367c895"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-result-W7.json",
+      "status": "added",
+      "sha": "0d6d087dc67eff63820cea95ccb2336fa50abaf6"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-workflow-tests-W7-01.log",
+      "status": "added",
+      "sha": "c0dfd581ec814e6d0ca799ec7745744f9e07ad72"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/RELAY-RELEASE-UX-01-workflow-tests-W7-final.log",
+      "status": "added",
+      "sha": "c0dfd581ec814e6d0ca799ec7745744f9e07ad72"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/sda-relay-api-dev-availability-request.json",
+      "status": "added",
+      "sha": "654d610e18631ede941bcc3492e48267fa07d17c"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/sda-relay-api-dev-availability-result.json",
+      "status": "added",
+      "sha": "41fa78201c770504284c6ee7e618c6dc9263ee9e"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/sda-relay-api-prod-availability-request.json",
+      "status": "added",
+      "sha": "fc1b3117e92078a4f6037707c0d7703e0fefa971"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/sda-relay-api-prod-availability-result.json",
+      "status": "added",
+      "sha": "47bb6a5c6d54570a52851c40af044bb0538b178e"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/sda-relay-api-test-availability-request.json",
+      "status": "added",
+      "sha": "96d7c8626874b964048a415d554d60d2cbe36924"
+    },
+    {
+      "filename": "Documentation/Projects/Working/logs/sda-relay-api-test-availability-result.json",
+      "status": "added",
+      "sha": "8bca4575c5d685e2dcecf2e877b3f4fce40822e4"
+    },
+    {
+      "filename": "README.md",
+      "status": "modified",
+      "sha": "99d09157416f8cb35e004d56634fbc41a47254bd"
+    },
+    {
+      "filename": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/Discord/DiscordRelay.cs",
+      "status": "modified",
+      "sha": "d262feb1c9c2b03c1e7f046151a38d927bcb2b5e"
+    },
+    {
+      "filename": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/Ed25519SignFunction.cs",
+      "status": "modified",
+      "sha": "05a4ae1d8cf39ffc682a490b9cb6055c478f020b"
+    },
+    {
+      "filename": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/Ed25519keyGenerator.cs",
+      "status": "modified",
+      "sha": "a24dc7724a75f9090befb6d11748dd83d1efe638"
+    },
+    {
+      "filename": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/HelperAuthorization.cs",
+      "status": "added",
+      "sha": "89156271cdb0ed9889c6fa1e8277d9f04388cc5d"
+    },
+    {
+      "filename": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/Program.cs",
+      "status": "modified",
+      "sha": "566605440e3ad363ba12335bb340dd06387a4905"
+    },
+    {
+      "filename": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/RelaySettings.cs",
+      "status": "modified",
+      "sha": "35dce9c5fb1fbc91605da7ddce8af0166eb4c398"
+    },
+    {
+      "filename": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/SovereignTrust.Relay.Azure.csproj",
+      "status": "modified",
+      "sha": "0fa7f7ccff45a9323f123c29f53d66edc9c9a945"
+    },
+    {
+      "filename": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/ps/Call-Discord.ps1",
+      "status": "modified",
+      "sha": "6b830a8e97b0a8e6b528fae1e72b3457d071abd8"
+    },
+    {
+      "filename": "Tests/Deployment/Package-Promotion.Tests.ps1",
+      "status": "added",
+      "sha": "dd541570497dcbc5d746ca14d4747bd3763f03cd"
+    },
+    {
+      "filename": "Tests/Deployment/Prepare-RelayDeployment.Tests.ps1",
+      "status": "modified",
+      "sha": "af03a9c04785bec0229277eb4193c2a39f0594a0"
+    },
+    {
+      "filename": "Tests/Deployment/Release-Workflow.Tests.ps1",
+      "status": "added",
+      "sha": "9bf036f3f8b511692daff3f7caf2c2b3017fad39"
+    },
+    {
+      "filename": "Tests/Deployment/Workflow-Contracts.Tests.ps1",
+      "status": "added",
+      "sha": "f6c17fe335c059101b83419484a938ae40d258d7"
+    },
+    {
+      "filename": "Tests/SovereignTrust.Relay.Tests/HttpTests.cs",
+      "status": "added",
+      "sha": "fa9e74ee93455ade24483c2365b5b8d88fa4a0cc"
+    },
+    {
+      "filename": "Tests/SovereignTrust.Relay.Tests/LeaseCrashWorker/LeaseCrashWorker.csproj",
+      "status": "added",
+      "sha": "278251cb5132a6bf9d0ba654e04591bfb4546fe5"
+    },
+    {
+      "filename": "Tests/SovereignTrust.Relay.Tests/LeaseCrashWorker/Program.cs",
+      "status": "added",
+      "sha": "416c2051f1b4c9a8b8393317bc1440e2537d8633"
+    },
+    {
+      "filename": "Tests/SovereignTrust.Relay.Tests/RecoveryTests.cs",
+      "status": "added",
+      "sha": "68031bce140f43366352477e66dadb59ac3470db"
+    },
+    {
+      "filename": "Tests/SovereignTrust.Relay.Tests/RelayTests.cs",
+      "status": "modified",
+      "sha": "9a1883110d89ba8b990237ca6bfcc27100854775"
+    },
+    {
+      "filename": "Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj",
+      "status": "modified",
+      "sha": "3d8bb03dfc22ee0085b1b728e7dda1353d673680"
+    },
+    {
+      "filename": "docs/Relay-Operations.md",
+      "status": "modified",
+      "sha": "34af47ea241133bff6b5fd8854e59d6efebbf8f1"
+    },
+    {
+      "filename": "global.json",
+      "status": "added",
+      "sha": "d46d21e50b3f3284ca3589173cac1e0af1076810"
+    },
+    {
+      "filename": "scripts/Get-RelayReleaseTarget.ps1",
+      "status": "added",
+      "sha": "a3aa05fe36fb73a794e1bb95839a38628b5f6b0e"
+    },
+    {
+      "filename": "scripts/Get-RelayRuntimeIdentity.ps1",
+      "status": "added",
+      "sha": "d2531eef243116d949bcdfdd6570d43e5f1bde27"
+    },
+    {
+      "filename": "scripts/New-RelayPackage.ps1",
+      "status": "added",
+      "sha": "f5793edaf40aee32d6b5d420ad38c443597dc97f"
+    },
+    {
+      "filename": "scripts/New-RelayStageReceipt.ps1",
+      "status": "added",
+      "sha": "11be210a154a42eab49794d86132bb3477323a61"
+    },
+    {
+      "filename": "scripts/Prepare-RelayDeployment.ps1",
+      "status": "modified",
+      "sha": "183d97ee59ec5039b3e6a8207430f981231def34"
+    },
+    {
+      "filename": "scripts/Relay.Release.psd1",
+      "status": "added",
+      "sha": "f6e1b663ce18cbabb5e49e0070ebce63ab154ac5"
+    },
+    {
+      "filename": "scripts/Test-RelayBuildAcceptance.ps1",
+      "status": "added",
+      "sha": "1c819c565a147f0937a415c0ed39faf7cac74617"
+    },
+    {
+      "filename": "scripts/Test-RelayPackage.ps1",
+      "status": "added",
+      "sha": "da1b240420a87c21788218d55b0c8f4d36b2a97e"
+    },
+    {
+      "filename": "scripts/Test-RelayPromotion.ps1",
+      "status": "added",
+      "sha": "438089bcf0439111360f4ba58c42eadaca5ed3e8"
+    },
+    {
+      "filename": "scripts/Test-RelayPublishedHost.ps1",
+      "status": "added",
+      "sha": "b17dd158eeb25787fa63c978ba5395760b030dc9"
+    }
+  ],
+  "head": {
+    "repository": "SiliconDreamArtists/SovereignTrust.Relay",
+    "ref": "agents/relay-azure-to-aspnet-core-migration",
+    "sha": "c61956f79a0cae963551f271686f1f1298622c53"
+  },
+  "ruleset": {
+    "id": 5068096,
+    "name": "Require Code Owner Review",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "SiliconDreamArtists/SovereignTrust.Relay",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "~ALL"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 1,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": true,
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": false,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        }
+      }
+    ],
+    "node_id": "RRS_lACqUmVwb3NpdG9yec459FMvzgBNVUA",
+    "created_at": "2025-04-24T19:24:43.296-07:00",
+    "updated_at": "2025-04-24T19:24:43.296-07:00",
+    "bypass_actors": [
+      {
+        "actor_id": 5,
+        "actor_type": "RepositoryRole",
+        "bypass_mode": "always"
+      }
+    ],
+    "current_user_can_bypass": "always",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/SiliconDreamArtists/SovereignTrust.Relay/rulesets/5068096"
+      },
+      "html": {
+        "href": "https://github.com/SiliconDreamArtists/SovereignTrust.Relay/rules/5068096"
+      }
+    }
+  },
+  "testMergeSha": "5595eb7d2d768459cfc432036344a6fdc21ef6cc",
+  "checks": {
+    "mergeStateStatus": "BLOCKED",
+    "mergeable": "MERGEABLE",
+    "reviewDecision": "REVIEW_REQUIRED",
+    "statusCheckRollup": [
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-11-22T08:08:04Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/SiliconDreamArtists/SovereignTrust.Relay/actions/runs/45001297005/job/137143191898",
+        "name": "test",
+        "startedAt": "2026-11-22T08:07:09Z",
+        "status": "COMPLETED",
+        "workflowName": "Build and deploy Relay development"
+      },
+      {
+        "__typename": "CheckRun",
+        "completedAt": "2026-11-22T07:21:31Z",
+        "conclusion": "SUCCESS",
+        "detailsUrl": "https://github.com/SiliconDreamArtists/SovereignTrust.Relay/actions/runs/44997778005/job/137132429341",
+        "name": "test",
+        "startedAt": "2026-11-22T07:20:28Z",
+        "status": "COMPLETED",
+        "workflowName": "Build and deploy Relay development"
+      }
+    ]
+  },
+  "state": "open",
+  "mainProtected": true,
+  "observedEffect": "One exact draft PR only. No merge/dispatch/settings/ref/cloud effect.",
+  "literalFalseJobs": 3,
+  "url": "https://github.com/SiliconDreamArtists/SovereignTrust.Relay/pull/16",
+  "number": 16,
+  "prRuns": [
+    {
+      "id": 45001297005,
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "c61956f79a0cae963551f271686f1f1298622c53",
+      "head_branch": "agents/relay-azure-to-aspnet-core-migration",
+      "path": ".github/workflows/main_publish_sda-relay-dev.yml",
+      "created_at": "2026-11-22T08:07:06Z",
+      "html_url": "https://github.com/SiliconDreamArtists/SovereignTrust.Relay/actions/runs/45001297005",
+      "workflow_id": 367901964
+    }
+  ]
+}

@@ -6,21 +6,25 @@ $row=$contract.Stages[$Stage]
 if($ValidateControl -or $RequireOwner){
     if($env:GITHUB_REPOSITORY -cne $contract.Repository -or $env:GITHUB_EVENT_NAME -cne 'workflow_dispatch' -or
        $env:GITHUB_REF -cne $contract.ControlRef -or $env:GITHUB_SHA -cnotmatch '^[a-f0-9]{40}$' -or
-       $env:RELAY_CONTROL_COMMIT -cne $env:GITHUB_SHA){throw 'Unreviewed deployment control revision/ref.'}
+       $env:GITHUB_RUN_ID -notmatch '^[1-9][0-9]*$'){throw 'Invalid deployment control context/ref.'}
+    $json=& gh api "repos/$($contract.Repository)/actions/runs/$env:GITHUB_RUN_ID"
+    if($LASTEXITCODE){throw 'Cannot authenticate current control run'}
+    $run=($json -join "`n")|ConvertFrom-Json
+    if($run.repository.full_name -cne $contract.Repository -or $run.path -cne $contract.WorkflowPath -or
+       $run.event -cne 'workflow_dispatch' -or $run.head_sha -cne $env:GITHUB_SHA -or
+       ('refs/heads/'+$run.head_branch) -cne $contract.ControlRef){throw 'Current control run metadata differs from Actions context.'}
 }
 if($RequireOwner){
     foreach($field in @('DeploymentClientId','DeploymentPrincipalId','RuntimePrincipalId')){
         if($row[$field] -cnotmatch '^[a-f0-9]{8}(-[a-f0-9]{4}){3}-[a-f0-9]{12}$'){throw "Owner packet is unbound: $field"}
     }
-    if($row.OwnerPacketSha256 -notmatch '^[A-Fa-f0-9]{64}$' -or $row.DefaultHostName -notmatch '^[a-z0-9-]+\.[a-z0-9.-]*azurewebsites\.net$'){
-        throw 'Owner packet/default hostname is unbound.'
+    if($row.DefaultHostName -notmatch '^[a-z0-9-]+\.[a-z0-9.-]*azurewebsites\.net$'){
+        throw 'Owner default hostname is missing.'
     }
     if($env:RELAY_AZURE_CLIENT_ID -cne $row.DeploymentClientId -or $env:RELAY_AZURE_TENANT_ID -cne $contract.TenantId -or
        $env:RELAY_AZURE_SUBSCRIPTION_ID -cne $row.Subscription){throw 'Environment OIDC identity does not match fixed owner profile.'}
     if($row.Predecessor -and ($env:RELAY_PREVIOUS_ACCEPTED_RUN_ID -notmatch '^[1-9][0-9]*$' -or
-       $env:RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID -notmatch '^[1-9][0-9]*$' -or
-       $env:RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256 -notmatch '^[A-Fa-f0-9]{64}$' -or
-       $env:RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256 -ine $contract.Package.Sha256)){
+       $env:RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID -notmatch '^[1-9][0-9]*$')){
         throw 'Owner predecessor pointers are incomplete or not single exact identities.'
     }
 }

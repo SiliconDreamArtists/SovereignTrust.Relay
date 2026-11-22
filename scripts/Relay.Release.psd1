@@ -21,19 +21,19 @@
             Environment = 'sda-dev'; Subscription = 'cc1fa56e-a8ce-411f-bb5c-58e96d9ac4f8'; Group = 'sda-dev'
             AppName = 'sda-relay-api-dev'; PlanName = 'ASP-sda-dev-fusion'; Sku = 'B1'
             JobKey = 'deploy_dev'; JobName = 'Relay deployment dev'; Predecessor = ''
-            DeploymentClientId = ''; DeploymentPrincipalId = ''; RuntimePrincipalId = ''; DefaultHostName = ''; OwnerPacketSha256 = ''
+            DeploymentClientId = ''; DeploymentPrincipalId = ''; RuntimePrincipalId = ''; DefaultHostName = ''
         }
         test = @{
             Environment = 'sda-test'; Subscription = '5c813ecc-3c19-44de-b676-304116fc869d'; Group = 'sda-test'
             AppName = 'sda-relay-api-test'; PlanName = 'ASP-sda-test-fusion'; Sku = 'B1'
             JobKey = 'deploy_test'; JobName = 'Relay deployment test'; Predecessor = 'dev'
-            DeploymentClientId = ''; DeploymentPrincipalId = ''; RuntimePrincipalId = ''; DefaultHostName = ''; OwnerPacketSha256 = ''
+            DeploymentClientId = ''; DeploymentPrincipalId = ''; RuntimePrincipalId = ''; DefaultHostName = ''
         }
         prod = @{
             Environment = 'sda-prod'; Subscription = 'b7690041-454b-472b-b340-3d8dde115103'; Group = 'sda-prod'
             AppName = 'sda-relay-api-prod'; PlanName = 'ASP-sda-prod-fusion'; Sku = 'B3'
             JobKey = 'deploy_prod'; JobName = 'Relay deployment prod'; Predecessor = 'test'
-            DeploymentClientId = ''; DeploymentPrincipalId = ''; RuntimePrincipalId = ''; DefaultHostName = ''; OwnerPacketSha256 = ''
+            DeploymentClientId = ''; DeploymentPrincipalId = ''; RuntimePrincipalId = ''; DefaultHostName = ''
         }
     }
 }

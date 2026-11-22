@@ -1,0 +1,8 @@
+{
+  "createAttempted": true,
+  "exit": 0,
+  "utc": "2026-11-22T08:07:04.1563667Z",
+  "attempt": 1,
+  "next": "Read-only exact PR identity reconciliation only; never blind retry",
+  "output": "https://github.com/SiliconDreamArtists/SovereignTrust.Relay/pull/16"
+}

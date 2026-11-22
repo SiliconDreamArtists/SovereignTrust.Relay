@@ -1,0 +1,39 @@
+PASS no owner hash property remains
+PASS fixed target dev
+PASS owner unbound dev
+PASS fixed target test
+PASS owner unbound test
+PASS fixed target prod
+PASS owner unbound prod
+PASS synthetic exact owner profile accepted
+PASS cross-environment RELAY_AZURE_CLIENT_ID rejected
+PASS cross-environment RELAY_AZURE_TENANT_ID rejected
+PASS cross-environment RELAY_AZURE_SUBSCRIPTION_ID rejected
+PASS unknown stage
+PASS wrong control ref
+PASS legacy manual control hash is ignored
+PASS authenticated current run rejects CurrentRepo
+PASS authenticated current run rejects CurrentEvent
+PASS authenticated current run rejects CurrentSha
+PASS authenticated current run rejects CurrentBranch
+PASS new control revision differs from fixed package source
+PASS build rejects push
+PASS build rejects pull_request
+PASS build rejects source
+PASS build rejects artifact
+PASS build rejects digest
+PASS build rejects expired
+PASS build rejects duplicate
+PASS build rejects caller-run
+PASS build rejects caller-sha
+PASS writer resolves in-progress dev job
+PASS writer does not award dev acceptance
+PASS writer immutable dev output
+PASS writer preserves existing dev bytes
+PASS writer rejects completed dev job
+Exception: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\Deployment\Release-Workflow.Tests.ps1:9
+Line |
+   9 |  …  if($Reject -ne [bool]$failure){throw "FAIL $Name : $failure"};$scrip …
+     |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | FAIL test predecessor valid : Exception calling "Kill" with "1" argument(s): "No process is associated with this
+     | object."

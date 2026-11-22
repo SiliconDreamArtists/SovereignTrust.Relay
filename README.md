@@ -121,3 +121,5 @@ MIT — see [`LICENSE`](./LICENSE)
 - [`SovereignTrust.SignalGraph`](https://github.com/SiliconDreamArtists/signal-core) – The universal feedback/result object
 - [`SovereignTrust.Router`](https://github.com/SiliconDreamArtists/SovereignTrust.Router) – Resolves and executes signal instructions
 - [`SovereignTrust.Emitter`](https://github.com/SiliconDreamArtists/SovereignTrust.Emitter) – Triggers and authors intent signals
+
+Deployment uses the fixed environment dropdown with all deployment jobs disabled. The reviewed no-pin contract removes manually copied owner/control/predecessor SHA prerequisites; accepted artifact integrity checks and owner-accepted predecessor run/artifact IDs remain required. See [operations](docs/Relay-Operations.md).

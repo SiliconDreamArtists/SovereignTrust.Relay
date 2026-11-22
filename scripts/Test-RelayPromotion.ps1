@@ -1,17 +1,11 @@
-param([Parameter(Mandatory)][ValidateSet('dev','test','prod')][string]$Stage,[string]$ReceiptPath)
+param([Parameter(Mandatory)][ValidateSet('dev','test','prod')][string]$Stage,[string]$ScratchDirectory)
 $ErrorActionPreference='Stop'
 $Stage=$Stage.ToLowerInvariant()
 $target=& (Join-Path $PSScriptRoot 'Get-RelayReleaseTarget.ps1') -Stage $Stage -ValidateControl
 if(!$target.Predecessor){Write-Output 'Dev has no predecessor; exact accepted manual package is required.';return}
 $previous=& (Join-Path $PSScriptRoot 'Get-RelayReleaseTarget.ps1') -Stage $target.Predecessor
 $runId=$env:RELAY_PREVIOUS_ACCEPTED_RUN_ID;$artifactId=$env:RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID
-if($runId -notmatch '^[1-9][0-9]*$' -or $artifactId -notmatch '^[1-9][0-9]*$' -or
-   $env:RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256 -notmatch '^[A-Fa-f0-9]{64}$' -or
-   $env:RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256 -ine $target.Package.Sha256 -or !$ReceiptPath -or !(Test-Path -LiteralPath $ReceiptPath)){
-    throw 'Missing owner-accepted predecessor run/artifact/receipt/package.'
-}
-if((Get-FileHash -LiteralPath $ReceiptPath -Algorithm SHA256).Hash -ine $env:RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256){throw 'Owner-pinned predecessor receipt bytes changed.'}
-$receipt=Get-Content -Raw -LiteralPath $ReceiptPath|ConvertFrom-Json
+$receipt=& (Join-Path $PSScriptRoot 'Get-RelayStageReceipt.ps1') -Stage $Stage -ScratchDirectory $ScratchDirectory
 foreach($field in @('stage','githubEnvironment','targetAppResourceId','repository','workflowPath','controlCommit','controlRef','workflowBlobSha','runId','jobKey','jobName','jobId','deploymentAction')){
     if($receipt.$field -isnot [string]){throw "Predecessor receipt field must be scalar text: $field"}
 }
@@ -22,18 +16,15 @@ if($receipt.schemaVersion -ne 1 -or $receipt.stage -cne $previous.Stage -or $rec
    $receipt.jobId -notmatch '^[1-9][0-9]*$' -or $receipt.controlCommit -cnotmatch '^[a-f0-9]{40}$' -or
    $receipt.workflowBlobSha -cnotmatch '^[a-f0-9]{40}$' -or $receipt.controlRef -notmatch '^refs/heads/' -or
    $receipt.deploymentAction -cne 'completed') {throw 'Predecessor stage/job/target/control identity mismatch.'}
-foreach($key in $target.Package.Keys){if($receipt.package.$key -cne $target.Package[$key]){throw "Predecessor package tuple changed: $key"}}
+if($null -eq $receipt.package -or $receipt.package.GetType() -ne [System.Management.Automation.PSCustomObject]){throw 'Predecessor package must be an object.'}
+foreach($key in $target.Package.Keys){if($receipt.package.$key -isnot [string] -or $receipt.package.$key -cne $target.Package[$key]){throw "Predecessor package tuple changed: $key"}}
 $json=& gh api "repos/$($target.Repository)/actions/runs/$runId"
 if($LASTEXITCODE){throw 'Cannot read predecessor run'}
 $run=($json -join "`n")|ConvertFrom-Json
 if($run.repository.full_name -cne $target.Repository -or $run.path -cne $target.WorkflowPath -or $run.event -cne 'workflow_dispatch' -or
    $run.status -cne 'completed' -or $run.conclusion -cne 'success' -or $run.head_sha -cne $receipt.controlCommit -or
    ('refs/heads/'+$run.head_branch) -cne $receipt.controlRef){throw 'Predecessor is not the owner-accepted completed manual control run.'}
-$json=& gh api "repos/$($target.Repository)/actions/runs/$runId/artifacts"
-if($LASTEXITCODE){throw 'Cannot read predecessor artifact'}
-$artifacts=@((($json -join "`n")|ConvertFrom-Json).artifacts|Where-Object name -CEQ ('relay-stage-'+$previous.Stage))
-if($artifacts.Count -ne 1 -or [string]$artifacts[0].id -cne $artifactId -or $artifacts[0].expired -ne $false -or
-   $artifacts[0].workflow_run.head_sha -cne $receipt.controlCommit){throw 'Wrong/missing/expired predecessor stage artifact.'}
+# The receipt helper already authenticated exact artifact metadata, all-pages uniqueness and archive bytes.
 $json=& gh api "repos/$($target.Repository)/actions/runs/$runId/jobs?per_page=100" --paginate --slurp
 if($LASTEXITCODE){throw 'Cannot read predecessor jobs'}
 $jobs=@();foreach($page in (($json -join "`n")|ConvertFrom-Json)){$jobs+=@($page.jobs)}

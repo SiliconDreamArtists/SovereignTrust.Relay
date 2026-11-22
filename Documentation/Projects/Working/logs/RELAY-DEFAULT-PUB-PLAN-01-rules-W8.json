@@ -1,0 +1,15 @@
+{
+  "effectiveMain": "[{\"type\":\"deletion\",\"ruleset_source_type\":\"Repository\",\"ruleset_source\":\"SiliconDreamArtists/SovereignTrust.Relay\",\"ruleset_id\":5068096},{\"type\":\"non_fast_forward\",\"ruleset_source_type\":\"Repository\",\"ruleset_source\":\"SiliconDreamArtists/SovereignTrust.Relay\",\"ruleset_id\":5068096},{\"type\":\"pull_request\",\"parameters\":{\"required_approving_review_count\":1,\"dismiss_stale_reviews_on_push\":false,\"required_reviewers\":[],\"require_code_owner_review\":true,\"require_last_push_approval\":false,\"required_review_thread_resolution\":false,\"require_extra_approval_for_unattributed_changes\":true,\"allowed_merge_methods\":[\"merge\",\"squash\",\"rebase\"]},\"ruleset_source_type\":\"Repository\",\"ruleset_source\":\"SiliconDreamArtists/SovereignTrust.Relay\",\"ruleset_id\":5068096}]",
+  "effectiveExit": 0,
+  "detail": "{\"id\":5068096,\"name\":\"Require Code Owner Review\",\"target\":\"branch\",\"source_type\":\"Repository\",\"source\":\"SiliconDreamArtists/SovereignTrust.Relay\",\"enforcement\":\"active\",\"conditions\":{\"ref_name\":{\"exclude\":[],\"include\":[\"~ALL\"]}},\"rules\":[{\"type\":\"deletion\"},{\"type\":\"non_fast_forward\"},{\"type\":\"pull_request\",\"parameters\":{\"required_approving_review_count\":1,\"dismiss_stale_reviews_on_push\":false,\"required_reviewers\":[],\"require_code_owner_review\":true,\"require_last_push_approval\":false,\"required_review_thread_resolution\":false,\"require_extra_approval_for_unattributed_changes\":true,\"allowed_merge_methods\":[\"merge\",\"squash\",\"rebase\"]}}],\"node_id\":\"RRS_lACqUmVwb3NpdG9yec459FMvzgBNVUA\",\"created_at\":\"2025-04-24T19:24:43.296-07:00\",\"updated_at\":\"2025-04-24T19:24:43.296-07:00\",\"bypass_actors\":[{\"actor_id\":5,\"actor_type\":\"RepositoryRole\",\"bypass_mode\":\"always\"}],\"current_user_can_bypass\":\"always\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/SiliconDreamArtists/SovereignTrust.Relay/rulesets/5068096\"},\"html\":{\"href\":\"https://github.com/SiliconDreamArtists/SovereignTrust.Relay/rules/5068096\"}}}",
+  "candidateCodeOwners": [],
+  "candidateGithubPaths": [
+    ".github/workflows/main_publish_bddb-sda-prod-relay.yml",
+    ".github/workflows/main_publish_sda-relay-dev.yml",
+    ".github/workflows/manual_check_sda-relay-prod-link.yml",
+    ".github/workflows/manual_check_sda-relay-test-link.yml",
+    ".github/workflows/manual_deploy_sda-relay.yml"
+  ],
+  "effect": "Read-only rules/source inspection; no protection bypass or policy edit.",
+  "detailExit": 0
+}

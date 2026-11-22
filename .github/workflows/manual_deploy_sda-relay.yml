@@ -26,14 +26,11 @@ jobs:
       id-token: write
     env:
       GH_TOKEN: ${{ github.token }}
-      RELAY_CONTROL_COMMIT: ${{ vars.RELAY_CONTROL_COMMIT }}
       RELAY_AZURE_CLIENT_ID: ${{ vars.RELAY_AZURE_CLIENT_ID }}
       RELAY_AZURE_TENANT_ID: ${{ vars.RELAY_AZURE_TENANT_ID }}
       RELAY_AZURE_SUBSCRIPTION_ID: ${{ vars.RELAY_AZURE_SUBSCRIPTION_ID }}
       RELAY_PREVIOUS_ACCEPTED_RUN_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RUN_ID }}
       RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID }}
-      RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256 }}
-      RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256: ${{ vars.RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256 }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -107,14 +104,11 @@ jobs:
       id-token: write
     env:
       GH_TOKEN: ${{ github.token }}
-      RELAY_CONTROL_COMMIT: ${{ vars.RELAY_CONTROL_COMMIT }}
       RELAY_AZURE_CLIENT_ID: ${{ vars.RELAY_AZURE_CLIENT_ID }}
       RELAY_AZURE_TENANT_ID: ${{ vars.RELAY_AZURE_TENANT_ID }}
       RELAY_AZURE_SUBSCRIPTION_ID: ${{ vars.RELAY_AZURE_SUBSCRIPTION_ID }}
       RELAY_PREVIOUS_ACCEPTED_RUN_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RUN_ID }}
       RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID }}
-      RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256 }}
-      RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256: ${{ vars.RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256 }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -131,16 +125,9 @@ jobs:
       - name: Verify fixed independently accepted manual package identity
         shell: pwsh
         run: ./scripts/Test-RelayBuildAcceptance.ps1
-      - uses: actions/download-artifact@v4
-        with:
-          artifact-ids: ${{ vars.RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID }}
-          merge-multiple: true
-          run-id: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RUN_ID }}
-          github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/predecessor
       - name: Verify owner-accepted predecessor stage and fixed job proof
         shell: pwsh
-        run: ./scripts/Test-RelayPromotion.ps1 -Stage test -ReceiptPath '${{ runner.temp }}/predecessor/stage-receipt.json'
+        run: ./scripts/Test-RelayPromotion.ps1 -Stage test -ScratchDirectory '${{ runner.temp }}/predecessor/stage-receipt.json'
       - uses: actions/download-artifact@v4
         with:
           artifact-ids: 14743586651
@@ -197,14 +184,11 @@ jobs:
       id-token: write
     env:
       GH_TOKEN: ${{ github.token }}
-      RELAY_CONTROL_COMMIT: ${{ vars.RELAY_CONTROL_COMMIT }}
       RELAY_AZURE_CLIENT_ID: ${{ vars.RELAY_AZURE_CLIENT_ID }}
       RELAY_AZURE_TENANT_ID: ${{ vars.RELAY_AZURE_TENANT_ID }}
       RELAY_AZURE_SUBSCRIPTION_ID: ${{ vars.RELAY_AZURE_SUBSCRIPTION_ID }}
       RELAY_PREVIOUS_ACCEPTED_RUN_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RUN_ID }}
       RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID }}
-      RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256 }}
-      RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256: ${{ vars.RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256 }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -221,16 +205,9 @@ jobs:
       - name: Verify fixed independently accepted manual package identity
         shell: pwsh
         run: ./scripts/Test-RelayBuildAcceptance.ps1
-      - uses: actions/download-artifact@v4
-        with:
-          artifact-ids: ${{ vars.RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID }}
-          merge-multiple: true
-          run-id: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RUN_ID }}
-          github-token: ${{ github.token }}
-          path: ${{ runner.temp }}/predecessor
       - name: Verify owner-accepted predecessor stage and fixed job proof
         shell: pwsh
-        run: ./scripts/Test-RelayPromotion.ps1 -Stage prod -ReceiptPath '${{ runner.temp }}/predecessor/stage-receipt.json'
+        run: ./scripts/Test-RelayPromotion.ps1 -Stage prod -ScratchDirectory '${{ runner.temp }}/predecessor/stage-receipt.json'
       - uses: actions/download-artifact@v4
         with:
           artifact-ids: 14743586651

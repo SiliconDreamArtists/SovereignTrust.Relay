@@ -1,0 +1,188 @@
+PASS no owner hash property remains
+PASS fixed target dev
+PASS owner unbound dev
+PASS fixed target test
+PASS owner unbound test
+PASS fixed target prod
+PASS owner unbound prod
+PASS synthetic exact owner profile accepted
+PASS cross-environment RELAY_AZURE_CLIENT_ID rejected
+PASS cross-environment RELAY_AZURE_TENANT_ID rejected
+PASS cross-environment RELAY_AZURE_SUBSCRIPTION_ID rejected
+PASS unknown stage
+PASS wrong control ref
+PASS legacy manual control hash is ignored
+PASS authenticated current run rejects CurrentRepo
+PASS authenticated current run rejects CurrentEvent
+PASS authenticated current run rejects CurrentSha
+PASS authenticated current run rejects CurrentBranch
+PASS new control revision differs from fixed package source
+PASS build rejects push
+PASS build rejects pull_request
+PASS build rejects source
+PASS build rejects artifact
+PASS build rejects digest
+PASS build rejects expired
+PASS build rejects duplicate
+PASS build rejects caller-run
+PASS build rejects caller-sha
+PASS writer resolves in-progress dev job
+PASS writer does not award dev acceptance
+PASS writer immutable dev output
+PASS writer preserves existing dev bytes
+PASS writer rejects completed dev job
+PASS test predecessor valid
+PASS test scratch boundary valid
+PASS test predecessor legacy-hashes-ignored
+PASS test scratch boundary legacy-hashes-ignored
+PASS test predecessor old-control-ref
+PASS test scratch boundary old-control-ref
+PASS test predecessor missing-owner
+PASS test scratch boundary missing-owner
+PASS test predecessor self-awarded
+PASS test scratch boundary self-awarded
+PASS test predecessor corrupt-archive
+PASS test scratch boundary corrupt-archive
+PASS test predecessor truncated-archive
+PASS test scratch boundary truncated-archive
+PASS test predecessor missing-digest
+PASS test scratch boundary missing-digest
+PASS test predecessor malformed-digest
+PASS test scratch boundary malformed-digest
+PASS test predecessor artifact-source
+PASS test scratch boundary artifact-source
+PASS test predecessor artifact-run
+PASS test scratch boundary artifact-run
+PASS test predecessor duplicate-entry
+PASS test scratch boundary duplicate-entry
+PASS test predecessor traversal
+PASS test scratch boundary traversal
+PASS test predecessor unexpected
+PASS test scratch boundary unexpected
+PASS test predecessor oversized-json
+PASS test scratch boundary oversized-json
+PASS test predecessor invalid-utf8
+PASS test scratch boundary invalid-utf8
+PASS test predecessor invalid-json
+PASS test scratch boundary invalid-json
+PASS test predecessor nonscalar
+PASS test scratch boundary nonscalar
+PASS test predecessor transport-exit
+PASS test scratch boundary transport-exit
+PASS test predecessor scratch-collision
+PASS test scratch boundary scratch-collision
+PASS test predecessor wrong-artifact
+PASS test scratch boundary wrong-artifact
+PASS test predecessor duplicate-artifact
+PASS test scratch boundary duplicate-artifact
+PASS test predecessor expired
+PASS test scratch boundary expired
+PASS test predecessor wrong-stage
+PASS test scratch boundary wrong-stage
+PASS test predecessor wrong-target
+PASS test scratch boundary wrong-target
+PASS test predecessor wrong-package
+PASS test scratch boundary wrong-package
+PASS test predecessor wrong-job
+PASS test scratch boundary wrong-job
+PASS test predecessor failed-job
+PASS test scratch boundary failed-job
+PASS test predecessor canceled-job
+PASS test scratch boundary canceled-job
+PASS test predecessor skipped-job
+PASS test scratch boundary skipped-job
+PASS test predecessor duplicate-job
+PASS test scratch boundary duplicate-job
+PASS test predecessor wrong-stage-success
+PASS test scratch boundary wrong-stage-success
+PASS test predecessor wrong-run-control
+PASS test scratch boundary wrong-run-control
+PASS test predecessor wrong-blob
+PASS test scratch boundary wrong-blob
+PASS test predecessor wrong-structure
+PASS test scratch boundary wrong-structure
+PASS test predecessor wrong-event
+PASS test scratch boundary wrong-event
+PASS test predecessor failed-run
+PASS test scratch boundary failed-run
+PASS writer resolves in-progress test job
+PASS writer does not award test acceptance
+PASS writer immutable test output
+PASS writer preserves existing test bytes
+PASS writer rejects completed test job
+PASS prod predecessor valid
+PASS prod scratch boundary valid
+PASS prod predecessor legacy-hashes-ignored
+PASS prod scratch boundary legacy-hashes-ignored
+PASS prod predecessor old-control-ref
+PASS prod scratch boundary old-control-ref
+PASS prod predecessor missing-owner
+PASS prod scratch boundary missing-owner
+PASS prod predecessor self-awarded
+PASS prod scratch boundary self-awarded
+PASS prod predecessor corrupt-archive
+PASS prod scratch boundary corrupt-archive
+PASS prod predecessor truncated-archive
+PASS prod scratch boundary truncated-archive
+PASS prod predecessor missing-digest
+PASS prod scratch boundary missing-digest
+PASS prod predecessor malformed-digest
+PASS prod scratch boundary malformed-digest
+PASS prod predecessor artifact-source
+PASS prod scratch boundary artifact-source
+PASS prod predecessor artifact-run
+PASS prod scratch boundary artifact-run
+PASS prod predecessor duplicate-entry
+PASS prod scratch boundary duplicate-entry
+PASS prod predecessor traversal
+PASS prod scratch boundary traversal
+PASS prod predecessor unexpected
+PASS prod scratch boundary unexpected
+PASS prod predecessor oversized-json
+PASS prod scratch boundary oversized-json
+PASS prod predecessor invalid-utf8
+PASS prod scratch boundary invalid-utf8
+PASS prod predecessor invalid-json
+PASS prod scratch boundary invalid-json
+PASS prod predecessor nonscalar
+PASS prod scratch boundary nonscalar
+PASS prod predecessor transport-exit
+PASS prod scratch boundary transport-exit
+PASS prod predecessor scratch-collision
+PASS prod scratch boundary scratch-collision
+PASS prod predecessor wrong-artifact
+PASS prod scratch boundary wrong-artifact
+PASS prod predecessor duplicate-artifact
+PASS prod scratch boundary duplicate-artifact
+PASS prod predecessor expired
+PASS prod scratch boundary expired
+PASS prod predecessor wrong-stage
+PASS prod scratch boundary wrong-stage
+PASS prod predecessor wrong-target
+PASS prod scratch boundary wrong-target
+PASS prod predecessor wrong-package
+PASS prod scratch boundary wrong-package
+PASS prod predecessor wrong-job
+PASS prod scratch boundary wrong-job
+PASS prod predecessor failed-job
+PASS prod scratch boundary failed-job
+PASS prod predecessor canceled-job
+PASS prod scratch boundary canceled-job
+PASS prod predecessor skipped-job
+PASS prod scratch boundary skipped-job
+PASS prod predecessor duplicate-job
+PASS prod scratch boundary duplicate-job
+PASS prod predecessor wrong-stage-success
+PASS prod scratch boundary wrong-stage-success
+PASS prod predecessor wrong-run-control
+PASS prod scratch boundary wrong-run-control
+PASS prod predecessor wrong-blob
+PASS prod scratch boundary wrong-blob
+PASS prod predecessor wrong-structure
+PASS prod scratch boundary wrong-structure
+PASS prod predecessor wrong-event
+PASS prod scratch boundary wrong-event
+PASS prod predecessor failed-run
+PASS prod scratch boundary failed-run
+PASS mock API vector exercised and retained
+Release workflow checks: 187 passed; 404 mocked GitHub reads, zero cloud calls.

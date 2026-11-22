@@ -1,0 +1,71 @@
+{
+  "head": "c61956f79a0cae963551f271686f1f1298622c53",
+  "main": "874f54c7f4795a07f9f3e4b1b3dd13d0a4b4f500",
+  "pr": 16,
+  "prHead": "c61956f79a0cae963551f271686f1f1298622c53",
+  "workingPreimageSha256": "FFD82BB7057091588DB7F94F5CDAA0EAB0DEE444F8B7A4DC326827ECEC131E20",
+  "files": [
+    {
+      "path": ".github/workflows/manual_deploy_sda-relay.yml",
+      "rawSha256": "2CE6ACD8AE0D030159359635EA16FB96F3DE5B7417013C2002ABFB098768E338",
+      "gitBlob": "bee597a83703ffebda30055df5575c71486db8c2"
+    },
+    {
+      "path": "scripts/Relay.Release.psd1",
+      "rawSha256": "43A0B9969E5DDEB05D671DDFEF817A59C970C2B85303AE6905CA3A490FE7B726",
+      "gitBlob": "f6e1b663ce18cbabb5e49e0070ebce63ab154ac5"
+    },
+    {
+      "path": "scripts/Get-RelayReleaseTarget.ps1",
+      "rawSha256": "AF95DD17170479B0693DECCA66C184CFEE2F1BD08E0CA2E8FDCA448EB6CA530B",
+      "gitBlob": "a3aa05fe36fb73a794e1bb95839a38628b5f6b0e"
+    },
+    {
+      "path": "scripts/Test-RelayBuildAcceptance.ps1",
+      "rawSha256": "8CD6DFEACB15F2AB663B416D3F9E519B40269C252CB9FD928661CCD6A9C34B5E",
+      "gitBlob": "1c819c565a147f0937a415c0ed39faf7cac74617"
+    },
+    {
+      "path": "scripts/Test-RelayPromotion.ps1",
+      "rawSha256": "5C85B2BF8A0B758A3DEF01BB44DF1FEFE9790203C636D96D206BAE11F9C56291",
+      "gitBlob": "438089bcf0439111360f4ba58c42eadaca5ed3e8"
+    },
+    {
+      "path": "scripts/New-RelayStageReceipt.ps1",
+      "rawSha256": "08A8CEDAAD26F6A9E7745EA26EFE357DF22B494AF2036B2D0225774C473C37B2",
+      "gitBlob": "11be210a154a42eab49794d86132bb3477323a61"
+    },
+    {
+      "path": "scripts/Test-RelayPackage.ps1",
+      "rawSha256": "D1D627C0D3A507F8FF9D9CF2F0D6E90B465E937369397BFB88880192BC0FE66B",
+      "gitBlob": "da1b240420a87c21788218d55b0c8f4d36b2a97e"
+    },
+    {
+      "path": "Tests/Deployment/Release-Workflow.Tests.ps1",
+      "rawSha256": "A5AE8FD746F390B29AD6E70181EE40DBDFBCE0F80F3751B5D02CBDAAE3478852",
+      "gitBlob": "9bf036f3f8b511692daff3f7caf2c2b3017fad39"
+    },
+    {
+      "path": "Tests/Deployment/Workflow-Contracts.Tests.ps1",
+      "rawSha256": "E74539EB3FE82CDB94611D1C9CE29E86442352A6524DE81CE996140DA9E87A3D",
+      "gitBlob": "f6c17fe335c059101b83419484a938ae40d258d7"
+    },
+    {
+      "path": "Tests/Deployment/Package-Promotion.Tests.ps1",
+      "rawSha256": "F032F8CCF2A57DAB636B06B25777D6DC7730230C1EDF34557816AC4E9FDDA351",
+      "gitBlob": "dd541570497dcbc5d746ca14d4747bd3763f03cd"
+    },
+    {
+      "path": "docs/Relay-Operations.md",
+      "rawSha256": "E15793B5E68B4A343827052B25C7D82480292983F3D97EF481597AEF1AA5C52A",
+      "gitBlob": "34af47ea241133bff6b5fd8854e59d6efebbf8f1"
+    },
+    {
+      "path": "README.md",
+      "rawSha256": "AB8634CA3819774CBDA9D2927F8897041FF8CD475B705F1EF1C660F5786495D5",
+      "gitBlob": "99d09157416f8cb35e004d56634fbc41a47254bd"
+    }
+  ],
+  "newPath": "scripts/Get-RelayStageReceipt.ps1",
+  "newPathAbsent": true
+}

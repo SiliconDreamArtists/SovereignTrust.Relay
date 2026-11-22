@@ -1,0 +1,238 @@
+{
+  "sourceCount": 9,
+  "excludes": "All unlisted paths; this immutable allowlist itself is additionally permitted with its reviewer-supplied hash",
+  "purpose": "Exact W12 accepted source/record/textual evidence publication allowlist; no binaries or scratch",
+  "files": [
+    {
+      "path": ".github/workflows/manual_deploy_sda-relay.yml",
+      "rawSha256": "CE590FCB846B598BCA794DA75042B490827C606BE3D940C237904C8B3344C90C",
+      "gitBlob": "6f0f72376835666fca4ea1a4a587f67c09624045"
+    },
+    {
+      "path": "docs/Relay-Operations.md",
+      "rawSha256": "27D7177BDA1E7383F77F52DC18D3327FEFA130423D219751D2239407849B37A2",
+      "gitBlob": "66a36d5cbe1b1541c838f7fa4f22373eabd50dbe"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-create-outcome-W9.json",
+      "rawSha256": "3796A208DF397C73C24BBF030657F1C5DBB2D181A3C22CF8946D451B472157A4",
+      "gitBlob": "f7c9040ee785e7c3cd10003d6f50783de56fb650"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-create-request-W9.json",
+      "rawSha256": "E8C08CFB610D27E26F769A36F0E14A61986871C7BD735B1AC547E20C4D0A2CA8",
+      "gitBlob": "30739fdf2079086ed909d937a943fd5bf0f60643"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-discord-overview-W8.json",
+      "rawSha256": "F429D3146BC807D0A1C69AB7C0F97B0A2603FF6BA54D79FA2820510F2CA8F915",
+      "gitBlob": "111c3d9cf063dfead47ee396e4b243c42f50dce1"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-discord-primary-W8.json",
+      "rawSha256": "543D84F47B3D70A1F9BC482714F088DB34E3D4DFD37E6540B1DD80B96A379070",
+      "gitBlob": "afff64ad43f293e5ccbe74cb09460908562cbfaa"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-packet-W8.json",
+      "rawSha256": "D17E65F980A8704231E460A26F260E3E4A72F119C8D28F3F48014E561DC8C3B0",
+      "gitBlob": "30ba329fb684fc73eef8a7dad310d40412a8c2c2"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-pr-16-ci-W9.json",
+      "rawSha256": "3AEE4496B7783F6458E9B0E7CD659678374C7C8B009E9483214BDD680CD30BBF",
+      "gitBlob": "db0a17c415ad306778872f360d57da2988051e74"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-pr-16-ci-W9.log",
+      "rawSha256": "466B73F573533E185B491A43C98B87FA01A013764A101CFB67FB4A9CAA16710B",
+      "gitBlob": "00e8470b6fe033e6e68511a6f2d7f4afa2dca782"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-pr-16-final-W9.json",
+      "rawSha256": "56C934DEAF8E7262B97AD0D11B963830B977A998668EDE765EE8D453FD304E86",
+      "gitBlob": "544747ba092bcc3a867d61d3b6f561c1f32bdd98"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-pr-16-readback-W9.json",
+      "rawSha256": "39978E2349E7E311012C3C9C2027C4659F3575ABEFE2D163785431C1B2FFF856",
+      "gitBlob": "ed3c881325255d7f7e4680f9fc70efc5a133f3ac"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-pr-body-W9.txt",
+      "rawSha256": "F2C56293217C4E23E69E9CA9CF1DB10A72DAE4F81E88CF2E2A65D2D4EF154B90",
+      "gitBlob": "3054ac61474d087fa4db90050ba5d610e3e4da92"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-preflight-W9.json",
+      "rawSha256": "87FF3C51E80B731F4766C5D4C9DCC405CF51382D395A1097A948A65007B9297D",
+      "gitBlob": "a564c4408965d2eba6dedbee0fca2ad7d30ee446"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-remote-W8.json",
+      "rawSha256": "03A5D58C8CEA5935B6C94E11468F584C03D0C673D84A8A1DE8ACE044FC4D10E2",
+      "gitBlob": "7f286eac7c2b531a037bbb527ec2a01ba882f4f0"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-result-W9.json",
+      "rawSha256": "5EB738891CBC04C05047BE8AACDB270AE76E91F8314E9733D56249A428C9BC24",
+      "gitBlob": "88fcdb0cec9bdc329663ac5b9fb7b8403928d6f0"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-DEFAULT-PUB-PLAN-01-rules-W8.json",
+      "rawSha256": "4333D6CD9E5B7267BDF37130FFB981A92AE4678FF92C12DC6D23CC28F912381E",
+      "gitBlob": "bb4fbed9aa5772533a41ee57de40bd2ba7a6e8ee"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-actionlint-W11-01.log",
+      "rawSha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "gitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-baseline-W10.json",
+      "rawSha256": "9BCEAD9F58BE48A9B3A6813BA3FF2985FC77A0FDD10C6B31DFE4AE86ED293208",
+      "gitBlob": "eb21309e8b0a3de99b41207acb31da2d8f3bac22"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-diffcheck-W11-01.log",
+      "rawSha256": "B74A92AC819943374BDAA98705F72C4748C297C7916770CC08683265D630BF67",
+      "gitBlob": "9a2f6d4fcce5cf7dc423ee4719e08007ae7e4174"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-diffcheck-W12-01.log",
+      "rawSha256": "B74A92AC819943374BDAA98705F72C4748C297C7916770CC08683265D630BF67",
+      "gitBlob": "9a2f6d4fcce5cf7dc423ee4719e08007ae7e4174"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-package-W11-01.log",
+      "rawSha256": "9F238BB4A9236D47B9901E27BF292917CA8474D09F2B4F52ABCCFD96F173A131",
+      "gitBlob": "42f3734be141faa7af22bad7481819456678d072"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-plan-W10.md",
+      "rawSha256": "A2E037B45937993E21FCEC7F15DD2B49854834650EA7FB67463E38977A894600",
+      "gitBlob": "e31871d5a483a90181a65a9912ea65da2fa7d096"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-pr16-body-W11.txt",
+      "rawSha256": "231349F260B5C8BCF3A714F68CDFC6BED65A43439D2E169061A0B0EBD080EAA4",
+      "gitBlob": "4c2b07493e5cec0f9cc3c8497e4d1ac54f2aa662"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-pr16-body-W12.txt",
+      "rawSha256": "3F2A565342616538154C0E4FE6BD4E7CB20BD394F0730747130B8588D76A49B0",
+      "gitBlob": "2a46f6cc18cdf0e9cd33580295327d1444d1acd9"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-prepare-W11-01.log",
+      "rawSha256": "6D265A7191B8E7610784C3A08C281E9FD4EED13186FB950EDAF48057D8922C75",
+      "gitBlob": "86f273f6088798ada9df16fb33be63b43a66c828"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-01.log",
+      "rawSha256": "2845E6711F32848FFCFD31C0867D132B231C2B5D420E7657431FA87AB5863AC9",
+      "gitBlob": "8258f9b2ed42d8f3ad039bc4f562891e57ae5a16"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-02.log",
+      "rawSha256": "9F9687D467DE8B2F48234B0E1C4A1B29F562789C85EBAF179E631133EE122267",
+      "gitBlob": "3fbd8e143759dea09220570ca0d7710d1c94abc8"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-03.log",
+      "rawSha256": "A91ABB48F40764D2FB7100AA86F28C7EC4414950523F6E5D0A5166EBE49CFB08",
+      "gitBlob": "212b34328f2792edd71bd5011c5540bf75bcd084"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-04.log",
+      "rawSha256": "741A4168CB95E9CA466ACF3C68622F746FA78518B8FE36A49723E776997C21D7",
+      "gitBlob": "54774f4f9c2906ee85c4d91017529347aa258ddf"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-05.log",
+      "rawSha256": "254CBC40DB6C98043958A2454AF9ED04CBA6066459A2EB9FC820CEE1D6A12F6F",
+      "gitBlob": "23ef496d237444b3a6930e7483d2831c97936cbc"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W12-01.log",
+      "rawSha256": "FDA20A826323D7375417E477A7592BED5A65324C9F746E5A9550699C71DDDBC3",
+      "gitBlob": "50bc8dd4b557fc12f29c6f5da10ebd68d36c6524"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-result-W11.json",
+      "rawSha256": "D267CA042DE57FB1E8F114B45B977E22DCCF6ECBECD5B5439CE3D6CEB67D50E4",
+      "gitBlob": "17e951c7ebdd637068658dea7a90ce2f5fcc5214"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-result-W12.json",
+      "rawSha256": "7D5DBE21F3BA0001655721031B07F4645D2CE893057A7E3B41CF491CB5C78517",
+      "gitBlob": "b66904e4685eeba9af90725d386f31960b8b9f87"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-workflow-W11-01.log",
+      "rawSha256": "03FBC9C117C2BE77A4B736D521D348B9EEC67A5AFE98EEAFF504831E2867D9DF",
+      "gitBlob": "dd19b48c6ece5795c456e7f2292b7457a6730120"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/W11-release-05/mocked-gh-reads.json",
+      "rawSha256": "B335E50E204A1C8295C5C7D4C4CD3D8ECCED5C45FF3B01C605FD3C57B4377990",
+      "gitBlob": "fd9fe8a7d0af8bdba66251193a2c073941de00e9"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/W11-release-05/transport-build.log",
+      "rawSha256": "0ED9766854AFA0FE46642ED9E2932BB07BCF292FDFDA65CD1BCA00FACE0CC9AA",
+      "gitBlob": "8e7afbbbbc402377a11d21c1997174c602bb6472"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/W12-release-01/mocked-gh-reads.json",
+      "rawSha256": "8B8C0DAE013D8BACD2C65AFCD8B779325476C4945A2DC1E2D516D921627A2B93",
+      "gitBlob": "b33e6566cc9fc181d7875b93e2c8f4c5ad301a57"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/W12-release-01/transport-build.log",
+      "rawSha256": "8140F7145F3B40A2B65D977EEE0F3D73E0ABC35DA3A4739DD0A751EAF0FDD3F8",
+      "gitBlob": "b85191935f93b5a955441d2687d7ba0357ba26ff"
+    },
+    {
+      "path": "Documentation/Projects/Working/RELAY-MIG-01-Working.md",
+      "rawSha256": "90A1DE1AA59C8A614ECD925FE16CB0B1ED6F24D103AEFBD52F05606F086A2452",
+      "gitBlob": "7d3ae637997575b9ce5d2c517f0a3829a5dac4bd"
+    },
+    {
+      "path": "README.md",
+      "rawSha256": "9F71E38C458D6402FFB8578448D52C318435A33995E54E3EF3979CC686EAA01B",
+      "gitBlob": "481ef607422e79853c907bdaa6da1b2f203a5926"
+    },
+    {
+      "path": "scripts/Get-RelayReleaseTarget.ps1",
+      "rawSha256": "37286F2FF20CF639A377389CFE2209DD50EFD3C937D2035D21BEBA6608A3CC4E",
+      "gitBlob": "27827344f1ab0e0e859c22f9a63d173fa0894a8e"
+    },
+    {
+      "path": "scripts/Get-RelayStageReceipt.ps1",
+      "rawSha256": "40C0319B8AC0D8108BE692E1E030DB47F80483B1E270A2CAE8F7568184A3CC70",
+      "gitBlob": "2e04269bf206f6fa4d353ede4e11caa5a0f20b95"
+    },
+    {
+      "path": "scripts/Relay.Release.psd1",
+      "rawSha256": "F38A8EA284F8A625E0461375612D1CEBE4167213AF9174294DE827BF53E8E776",
+      "gitBlob": "5400cc6b39fc544bdce61c5d5eb2ad7495c43aa6"
+    },
+    {
+      "path": "scripts/Test-RelayPromotion.ps1",
+      "rawSha256": "EB148DA96538A60E7482F81288865E570DD9F29FC77EF6AC3E09AF80487D2C3E",
+      "gitBlob": "52971660bb9fbb2e41b7669157e1ddef9db259d0"
+    },
+    {
+      "path": "Tests/Deployment/Release-Workflow.Tests.ps1",
+      "rawSha256": "066E7D67BA0BA68E925C33D82FC2E6A20FC0C3111341B1C26FE401117E77B459",
+      "gitBlob": "1fa58528f2619d3d45a9a4c492f51e61ad50950e"
+    },
+    {
+      "path": "Tests/Deployment/Workflow-Contracts.Tests.ps1",
+      "rawSha256": "A761B8CDC2A2413422F90E351149C3006ABED6893D1BF8C87A51645866382B2D",
+      "gitBlob": "e5da7d8e8990d14c565bcb9b386efbdcf3edcd8f"
+    }
+  ],
+  "parent": "c61956f79a0cae963551f271686f1f1298622c53"
+}

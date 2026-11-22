@@ -13,17 +13,22 @@ $paths=@('SovereignTrust.Relay.Azure.dll','SovereignTrust.Relay.Azure.deps.json'
 try {foreach($path in $paths){$entry=$zip.CreateEntry($path);$writer=[IO.StreamWriter]::new($entry.Open());$writer.Write('synthetic integrity fixture, not a runnable Linux package');$writer.Dispose()}}finally{$zip.Dispose()}
 $stream=[IO.MemoryStream]::new([Text.Encoding]::UTF8.GetBytes('synthetic integrity fixture, not a runnable Linux package'))
 try{$fileHash=[Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($stream))}finally{$stream.Dispose()}
-$manifest=@{purpose='deployment-release';eventName='workflow_dispatch';sourceSha=$sha;sourceTree=$tree;sdk='10.0.404';os='Linux (synthetic validator fixture)';repository='SiliconDreamArtists/SovereignTrust.Relay';workflowRunId='123';workflowRef='repo/workflow@refs/heads/reviewed';sourceRef='refs/heads/reviewed';packageSha256=(Get-FileHash (Join-Path $package 'relay.zip')).Hash;files=@($paths|ForEach-Object {@{path=$_;sha256=$fileHash}})}
+$runtime=& (Join-Path $root 'scripts/Get-RelayRuntimeIdentity.ps1')
+$expectedPlatform=if($IsLinux){'Linux'}elseif($IsWindows){'Windows'}else{'Other'}
+if($runtime.platform -cne $expectedPlatform -or $runtime.os -cne [Runtime.InteropServices.RuntimeInformation]::OSDescription){throw 'Runtime platform oracle disagrees with actual host identity'}
+Write-Output "PASS actual runtime platform oracle $($runtime.platform) (description informational)"
+$manifest=@{purpose='deployment-release';eventName='workflow_dispatch';sourceSha=$sha;sourceTree=$tree;sdk='10.0.404';platform='Linux';os='Ubuntu 24.04.3 LTS (synthetic validator fixture)';repository='SiliconDreamArtists/SovereignTrust.Relay';workflowRunId='123';workflowRef='repo/workflow@refs/heads/reviewed';sourceRef='refs/heads/reviewed';packageSha256=(Get-FileHash (Join-Path $package 'relay.zip')).Hash;files=@($paths|ForEach-Object {@{path=$_;sha256=$fileHash}})}
 function Write-Manifest { $manifest|ConvertTo-Json -Depth 6|Set-Content (Join-Path $package 'release.json') -Encoding utf8NoBOM }
 Write-Manifest
 & (Join-Path $root 'scripts/Test-RelayPackage.ps1') -PackageDirectory $package -ReleaseSha $sha -ExpectedBuildRunId '123'
-Write-Output 'PASS synthetic package integrity validator positive (not runtime acceptance)'
-foreach($case in @('WrongSource','WrongPackageHash','WrongOs','MissingProvenance','WrongFileHash','UnacceptedPackage','WrongBuildRun')){
+Write-Output 'PASS synthetic Ubuntu description without Linux accepted by structured platform (not runtime acceptance)'
+foreach($case in @('WrongSource','WrongPackageHash','WrongPlatform','MissingPlatform','MissingProvenance','WrongFileHash','UnacceptedPackage','WrongBuildRun')){
     $copy=$manifest|ConvertTo-Json -Depth 6|ConvertFrom-Json -AsHashtable
     switch($case){
         WrongSource {$manifest.sourceSha='2222222222222222222222222222222222222222'}
         WrongPackageHash {$manifest.packageSha256='0'*64}
-        WrongOs {$manifest.os='Windows'}
+        WrongPlatform {$manifest.platform='Windows';$manifest.os='Linux (misleading description must not authorize Windows)'}
+        MissingPlatform {$manifest.Remove('platform')}
         MissingProvenance {$manifest.workflowRunId=''}
         WrongFileHash {$manifest.files[0].sha256='0'*64}
     }

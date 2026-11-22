@@ -1,0 +1,20 @@
+test	Set up job	﻿2026-11-22T06:07:03.1231646Z Current runner version: '2.338.2'
+test	Set up job	2026-11-22T06:07:03.1257222Z ##[group]Runner Image Provisioner
+test	Set up job	2026-11-22T06:07:03.1258819Z Version: 20261111.635
+test	Set up job	2026-11-22T06:07:03.1265079Z ##[group]Operating System
+test	Set up job	2026-11-22T06:07:03.1265702Z Ubuntu
+test	Set up job	2026-11-22T06:07:03.1267994Z ##[group]Runner Image
+test	Set up job	2026-11-22T06:07:03.1268586Z Image: ubuntu-26.04
+test	Set up job	2026-11-22T06:07:03.1269209Z Version: 20261116.202.1
+test	Set up job	2026-11-22T06:07:03.1270293Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+test	Set up job	2026-11-22T06:07:03.1272067Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+test	Initialize containers	2026-11-22T06:07:04.6634235Z Docker daemon API version: '1.54'
+test	Initialize containers	2026-11-22T06:07:04.6846383Z Docker client API version: '1.54'
+test	Run actions/setup-dotnet@v5	2026-11-22T06:07:12.0543529Z   dotnet-version: 10.0.x
+test	Test source and deployment guards	2026-11-22T06:07:12.6438793Z   DOTNET_ROOT: /usr/share/dotnet
+test	Test source and deployment guards	2026-11-22T06:07:59.5983222Z Passed!  - Failed:     0, Passed:    56, Skipped:     0, Total:    56, Duration: 17 s - SovereignTrust.Relay.Tests.dll (net10.0)
+test	Test source and deployment guards	2026-11-22T06:08:03.0862226Z PASS published Kestrel health/unsigned401/helpers404; no queue or callback invoked
+test	Test source and deployment guards	2026-11-22T06:08:03.5580309Z Package SHA256 469CE609E3E8A020E848F8E7F5650F4D68E7141989561962690D831093D0357D; source f197c497514097df57f668134aa14aef229130d8
+test	Test source and deployment guards	2026-11-22T06:08:03.7643239Z ^[[31;1m^[[0m^[[36;1m^[[36;1m   7 | ^[[0m … otmatch 'Linux'){^[[36;1mthrow 'Deployment requires a Linux-tested package.'^[[0m}^[[0m
+test	Test source and deployment guards	2026-11-22T06:08:03.7646330Z ^[[31;1m^[[0m^[[36;1m^[[36;1m^[[0m^[[36;1m^[[0m^[[36;1m^[[31;1m^[[31;1m^[[36;1m     | ^[[31;1mDeployment requires a Linux-tested package.^[[0m
+test	Run actions/upload-artifact@v4	2026-11-22T06:08:03.8506463Z   DOTNET_ROOT: /usr/share/dotnet

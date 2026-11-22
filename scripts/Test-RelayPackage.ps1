@@ -4,7 +4,7 @@ $ErrorActionPreference='Stop'
 $manifest=Get-Content -Raw -LiteralPath (Join-Path $PackageDirectory 'release.json')|ConvertFrom-Json
 if($manifest.sourceSha -cne $ReleaseSha -or $manifest.packageSha256 -notmatch '^[A-Fa-f0-9]{64}$' -or
     (Get-FileHash -LiteralPath (Join-Path $PackageDirectory 'relay.zip') -Algorithm SHA256).Hash -ine $manifest.packageSha256){throw 'Package/source identity mismatch.'}
-if($manifest.os -notmatch 'Linux'){throw 'Deployment requires a Linux-tested package.'}
+if($manifest.platform -cne 'Linux'){throw 'Deployment requires structured Linux runtime platform provenance.'}
 if($PSBoundParameters.ContainsKey('ExpectedBuildRunId') -and
    ($ExpectedBuildRunId -notmatch '^[1-9][0-9]*$' -or $manifest.workflowRunId -cne $ExpectedBuildRunId)){throw 'Package build-run identity mismatch.'}
 if($manifest.sourceTree -notmatch '^[a-f0-9]{40}$' -or $manifest.sdk -notmatch '^10\.' -or

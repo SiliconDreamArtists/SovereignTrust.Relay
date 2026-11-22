@@ -26,6 +26,7 @@ $files=@(Get-ChildItem -LiteralPath $publish -Recurse -File | Sort-Object FullNa
 $zip=Join-Path $output 'relay.zip'
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 [IO.Compression.ZipFile]::CreateFromDirectory($publish,$zip)
-$manifest=@{purpose=$(if($BuildOnly){'build-only'}else{'deployment-release'});eventName=$env:GITHUB_EVENT_NAME;sourceSha=(& git -C $root rev-parse HEAD);sourceTree=(& git -C $root rev-parse 'HEAD^{tree}');sdk=(& dotnet --version);os=[Runtime.InteropServices.RuntimeInformation]::OSDescription;repository=$env:GITHUB_REPOSITORY;workflowRunId=$env:GITHUB_RUN_ID;workflowRef=$env:GITHUB_WORKFLOW_REF;sourceRef=$env:GITHUB_REF;packageSha256=(Get-FileHash $zip -Algorithm SHA256).Hash;files=$files}
+$runtime=& (Join-Path $PSScriptRoot 'Get-RelayRuntimeIdentity.ps1')
+$manifest=@{purpose=$(if($BuildOnly){'build-only'}else{'deployment-release'});eventName=$env:GITHUB_EVENT_NAME;sourceSha=(& git -C $root rev-parse HEAD);sourceTree=(& git -C $root rev-parse 'HEAD^{tree}');sdk=(& dotnet --version);platform=$runtime.platform;os=$runtime.os;repository=$env:GITHUB_REPOSITORY;workflowRunId=$env:GITHUB_RUN_ID;workflowRef=$env:GITHUB_WORKFLOW_REF;sourceRef=$env:GITHUB_REF;packageSha256=(Get-FileHash $zip -Algorithm SHA256).Hash;files=$files}
 $manifest|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $output 'release.json') -Encoding utf8NoBOM
 Write-Output "Package SHA256 $($manifest.packageSha256); source $($manifest.sourceSha)"

@@ -1,0 +1,1 @@
+Initial aggregate test command had a PowerShell parser error: pipeline directly after foreach statement. Parser rejected entire command before any test/process/output start. Corrected to explicit summary collection; no product change or immutable output rewrite.

@@ -2,28 +2,25 @@ $ErrorActionPreference='Stop'
 $root=Join-Path $PSScriptRoot '../..'
 $count=0
 function Assert-Contract([bool]$Condition,[string]$Name){if(!$Condition){throw "FAIL $Name"};$script:count++;Write-Output "PASS $Name"}
-foreach($environment in @('dev','test','prod')){
-    $suffix=if($environment -eq 'dev'){'dev'}else{"$environment-main"}
-    $text=Get-Content -Raw (Join-Path $root ".github/workflows/manual_deploy_sda-relay-$suffix.yml")
-    Assert-Contract ($text -match '(?m)^  workflow_dispatch:' -and $text -notmatch '(?m)^  (push|pull_request|schedule):') "$environment manual only"
-    Assert-Contract ($text.Contains("environment: sda-$environment") -and $text.Contains("app-name: sda-relay-api-$environment")) "$environment exact environment/app"
-    Assert-Contract ($text.Contains('azure/webapps-deploy@v3') -and !$text.Contains('functions-action')) "$environment ordinary deployment"
-    Assert-Contract ($text.Contains('RELAY_RELEASE_REF') -and $text.Contains('GITHUB_SHA -cne $env:RELEASE_SHA')) "$environment exact source identity"
-    Assert-Contract ($text.Contains('Test-RelayPackage.ps1') -and $text.Contains('Prepare-RelayDeployment.ps1')) "$environment predeployment guards"
-    Assert-Contract (!$text.Contains("'`${{ inputs.previous_run_id }}'") -and !$text.Contains("'`${{ inputs.release_sha }}'")) "$environment no input interpolation into script"
-    if($environment -ne 'dev'){
-        Assert-Contract ($text.Contains('RELAY_PREVIOUS_ACCEPTED_RUN_ID') -and $text.Contains('-AcceptedPackageSha256 $env:RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256')) "$environment accepted predecessor binding"
-        Assert-Contract (!$text.Contains('dotnet publish') -and !$text.Contains('New-RelayPackage.ps1')) "$environment promotes without rebuilding"
-    }else{
-        Assert-Contract (!$text.Contains('dotnet publish') -and !$text.Contains('New-RelayPackage.ps1') -and $text.Contains('name: relay-manual-package')) 'Dev downloads accepted manual package without rebuilding'
-        Assert-Contract ($text.Contains('RELAY_ACCEPTED_BUILD_ARTIFACT_ID') -and $text.Contains('-ExpectedBuildRunId $env:BUILD_RUN_ID -AcceptedPackageSha256 $env:RELAY_ACCEPTED_BUILD_PACKAGE_SHA256') -and $text.IndexOf('Test-RelayBuildAcceptance.ps1') -lt $text.IndexOf('azure/login@v2') -and $text.IndexOf('Test-RelayPackage.ps1') -lt $text.IndexOf('azure/login@v2')) 'Dev binds accepted run artifact and bytes before Azure login'
-    }
+$p=Join-Path $root '.github/workflows/manual_deploy_sda-relay.yml'
+$text=Get-Content -Raw $p
+Assert-Contract ($text -match '(?m)^  workflow_dispatch:' -and $text -notmatch '(?m)^  (push|pull_request|schedule):') 'Only manual deployment event'
+Assert-Contract (@([regex]::Matches($text,'(?m)^      [a-z_]+:$')).Count -eq 1 -and $text.Contains('type: choice') -and $text.Contains('options: [dev, test, prod]')) 'Exactly one fixed environment dropdown'
+Assert-Contract (!$text.Contains('release_sha:') -and !$text.Contains('previous_run_id:') -and !$text.Contains('build_run_id:') -and !$text.Contains('enable:')) 'No arbitrary source target or bypass inputs'
+foreach($stage in @('dev','test','prod')){
+    $block=[regex]::Match($text,'(?ms)^  deploy_'+$stage+':\r?\n(?<body>.*?)(?=^  deploy_|\z)').Groups['body'].Value
+    Assert-Contract ($block.Contains("name: Relay deployment $stage") -and $block.Contains("environment: sda-$stage") -and $block.Contains("app-name: sda-relay-api-$stage")) "$stage fixed job environment and target"
+    Assert-Contract ($block.Contains("if: `${{ false && inputs.environment == '$stage' }}") -and !$block.Contains('||')) "$stage literal false cannot be enabled by variables"
+    Assert-Contract ($block.Contains('Test-RelayBuildAcceptance.ps1') -and $block.Contains('Test-RelayPackage.ps1') -and $block.IndexOf('Test-RelayPackage.ps1') -lt $block.IndexOf('azure/login@v2')) "$stage accepted original bytes before login"
+    Assert-Contract (!$block.Contains('dotnet ') -and !$block.Contains('New-RelayPackage.ps1') -and $block.Contains('run-id: 44994573298') -and $block.Contains('artifact-ids: 14743586651') -and $block.Contains('merge-multiple: true')) "$stage never rebuilds accepted artifact"
+    Assert-Contract ($block.Contains('New-RelayStageReceipt.ps1 -Stage '+$stage) -and $block.Contains('name: relay-stage-'+$stage)) "$stage fixed receipt artifact"
+    if($stage -ne 'dev'){Assert-Contract ($block.Contains('Test-RelayPromotion.ps1 -Stage '+$stage) -and $block.IndexOf('Test-RelayPromotion.ps1') -lt $block.IndexOf('azure/login@v2')) "$stage predecessor proof before login"}
 }
+foreach($old in @('manual_deploy_sda-relay-dev.yml','manual_deploy_sda-relay-test-main.yml','manual_deploy_sda-relay-prod-main.yml')){Assert-Contract (!(Test-Path (Join-Path $root ".github/workflows/$old"))) "Retired source path $old"}
 $ci=Get-Content -Raw (Join-Path $root '.github/workflows/main_publish_sda-relay-dev.yml')
-Assert-Contract ($ci -match '(?m)^  push:' -and !$ci.Contains('branches:') -and !$ci.Contains('azure/login') -and !$ci.Contains('webapps-deploy')) 'CI runs on published migration branch without deployment'
-Assert-Contract ($ci.Contains('New-RelayPackage.ps1') -and $ci.Contains('Test-RelayPackage.ps1') -and @([regex]::Matches($ci,'-BuildOnly')).Count -eq 2 -and $ci.Contains("if (`$env:GITHUB_EVENT_NAME -ceq 'workflow_dispatch')")) 'CI selects manual release vs nondeployment push PR mode'
-Assert-Contract ($ci.Contains("'relay-manual-package' || 'relay-ci-linux-package'") -and $ci.Contains('relay-package/relay.zip') -and $ci.Contains('relay-package/release.json') -and $ci.Contains('relay-package/host-evidence/') -and $ci.Contains('retention-days: 30')) 'CI retains distinct manual and nondeployment ZIP manifest startup artifacts'
-Assert-Contract ($ci.Contains('steps.linux_build_artifact.outputs.artifact-id') -and $ci.Contains('steps.linux_build_artifact.outputs.artifact-digest') -and $ci.Contains('commit=$env:GITHUB_SHA')) 'CI records attributable immutable artifact identity'
+Assert-Contract ($ci -match '(?m)^  push:' -and !$ci.Contains('branches:') -and !$ci.Contains('azure/login') -and !$ci.Contains('webapps-deploy')) 'CI/package build remains nondeployment'
+Assert-Contract ($ci.Contains("'relay-manual-package' || 'relay-ci-linux-package'") -and $ci.Contains('retention-days: 30')) 'Manual and build-only artifacts remain distinct'
 $legacy=Get-Content -Raw (Join-Path $root '.github/workflows/main_publish_bddb-sda-prod-relay.yml')
-Assert-Contract (!$legacy.Contains('azure/login') -and !$legacy.Contains('functions-action') -and $legacy.Contains('exit 1')) 'Legacy cannot deploy'
+Assert-Contract (!$legacy.Contains('azure/login') -and !$legacy.Contains('webapps-deploy') -and $legacy.Contains('exit 1')) 'Legacy remains reject-only'
+Assert-Contract (@(Get-ChildItem (Join-Path $root '.github/workflows') -File|Where-Object{(Get-Content -Raw $_.FullName).Contains('azure/webapps-deploy@')}).Count -eq 1) 'Exactly one deployment workflow source path'
 Write-Output "Workflow contracts: $count passed"

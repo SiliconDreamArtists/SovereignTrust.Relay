@@ -70,27 +70,4 @@ foreach($case in @('BuildPush','BuildPr','BuildPrWrongRef','PrAsRelease','BuildP
     Write-Output "PASS event/mode $case";$manifest=$copy
 }
 Write-Manifest
-# Mock all GitHub reads; no network/dispatch or Azure effects.
-$saved=@{};foreach($name in @('GITHUB_REPOSITORY','RELAY_RELEASE_REF','GITHUB_REF','GITHUB_SHA','RELAY_PREVIOUS_ACCEPTED_RUN_ID','RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256','RELAY_ACCEPTED_BUILD_RUN_ID','RELAY_ACCEPTED_BUILD_ARTIFACT_ID','RELAY_ACCEPTED_BUILD_PACKAGE_SHA256')){$saved[$name]=[Environment]::GetEnvironmentVariable($name)}
-try{
-    $env:GITHUB_REPOSITORY='SiliconDreamArtists/SovereignTrust.Relay';$env:RELAY_RELEASE_REF='refs/heads/reviewed';$env:GITHUB_REF=$env:RELAY_RELEASE_REF;$env:GITHUB_SHA=$sha;$env:RELAY_PREVIOUS_ACCEPTED_RUN_ID='123';$env:RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256=$manifest.packageSha256
-    $fixture=@{}
-    function gh {
-        $global:LASTEXITCODE=0
-        if(($args -join ' ') -like '*/artifacts'){@{artifacts=@(@{name=($fixture.ArtifactName ?? 'relay-release');id=456;expired=$fixture.Expired;workflow_run=@{head_sha=$sha}})}|ConvertTo-Json -Depth 6}
-        else{@{repository=@{full_name='SiliconDreamArtists/SovereignTrust.Relay'};path=$fixture.Path;event=$fixture.Event;conclusion=$fixture.Conclusion;head_sha=$fixture.Sha;head_branch=($fixture.Branch ?? 'reviewed')}|ConvertTo-Json}
-    }
-    foreach($case in @('Valid','PushOrigin','PrOrigin','WrongWorkflow','FailedRun','WrongSource','WrongRef','Expired','WrongArtifactId','MissingAcceptance')){
-        $fixture=@{Path='.github/workflows/main_publish_sda-relay-dev.yml';Event='workflow_dispatch';Conclusion='success';Sha=$sha;Expired=$false;ArtifactName='relay-manual-package';Branch='reviewed'}
-        $env:RELAY_ACCEPTED_BUILD_RUN_ID='123';$env:RELAY_ACCEPTED_BUILD_ARTIFACT_ID='456';$env:RELAY_ACCEPTED_BUILD_PACKAGE_SHA256=$manifest.packageSha256
-        switch($case){PushOrigin{$fixture.Event='push'}PrOrigin{$fixture.Event='pull_request'}WrongWorkflow{$fixture.Path='arbitrary.yml'}FailedRun{$fixture.Conclusion='failure'}WrongSource{$fixture.Sha='0'*40}WrongRef{$fixture.Branch='unreviewed'}Expired{$fixture.Expired=$true}WrongArtifactId{$env:RELAY_ACCEPTED_BUILD_ARTIFACT_ID='999'}MissingAcceptance{$env:RELAY_ACCEPTED_BUILD_RUN_ID=''}}
-        $failure=$null;try{& (Join-Path $root 'scripts/Test-RelayBuildAcceptance.ps1') -BuildRunId '123' -ReleaseSha $sha|Out-Null}catch{$failure=$_.Exception.Message}
-        if(($case -eq 'Valid') -eq [bool]$failure){throw "FAIL accepted build $case : $failure"};Write-Output "PASS accepted build $case"
-    }
-    foreach($case in @('Valid','FailedRun','WrongWorkflow','BuildOnlyCi','PullRequest','WrongSha','Expired','NoIndependentAcceptance')){
-        $fixture=@{Path='.github/workflows/manual_deploy_sda-relay-dev.yml';Event='workflow_dispatch';Conclusion='success';Sha=$sha;Expired=$false};$env:RELAY_PREVIOUS_ACCEPTED_RUN_ID='123'
-        switch($case){FailedRun{$fixture.Conclusion='failure'}WrongWorkflow{$fixture.Path='arbitrary.yml'}BuildOnlyCi{$fixture.Path='.github/workflows/main_publish_sda-relay-dev.yml';$fixture.Event='push'}PullRequest{$fixture.Event='pull_request'}WrongSha{$fixture.Sha='0'*40}Expired{$fixture.Expired=$true}NoIndependentAcceptance{$env:RELAY_PREVIOUS_ACCEPTED_RUN_ID=''}}
-        $failure=$null;try{& (Join-Path $root 'scripts/Test-RelayPromotion.ps1') -Environment Test -PreviousRunId '123' -ReleaseSha $sha|Out-Null}catch{$failure=$_.Exception.Message}
-        if(($case -eq 'Valid') -eq [bool]$failure){throw "FAIL promotion $case : $failure"};Write-Output "PASS promotion $case"
-    }
-}finally{foreach($name in $saved.Keys){[Environment]::SetEnvironmentVariable($name,$saved[$name])}}
+# Consolidated deployment-control/stage fixtures live in Release-Workflow.Tests.ps1.

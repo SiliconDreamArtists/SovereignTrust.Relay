@@ -23,6 +23,7 @@ jobs:
         run: |
           ./Tests/Deployment/Prepare-RelayDeployment.Tests.ps1
           ./Tests/Deployment/Workflow-Contracts.Tests.ps1
+          ./Tests/Deployment/Release-Workflow.Tests.ps1 -EvidenceDirectory 'Documentation/Projects/Working/logs/ci-release-fixtures'
           ./Tests/Deployment/Package-Promotion.Tests.ps1 -EvidenceDirectory 'Documentation/Projects/Working/logs/ci-package-fixtures'
           dotnet test Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj --configuration Release --logger trx --results-directory Documentation/Projects/Working/logs/ci-tests
           if ($LASTEXITCODE) { throw 'Tests failed' }

@@ -1,0 +1,16 @@
+warning: LF will be replaced by CRLF in .github/workflows/main_publish_sda-relay-dev.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Documentation/Projects/Working/RELAY-MIG-01-Working.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Tests/Deployment/Package-Promotion.Tests.ps1.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Tests/Deployment/Workflow-Contracts.Tests.ps1.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in docs/Relay-Operations.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in scripts/Test-RelayBuildAcceptance.ps1.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in scripts/Test-RelayPromotion.ps1.
+The file will have its original line endings in your working directory

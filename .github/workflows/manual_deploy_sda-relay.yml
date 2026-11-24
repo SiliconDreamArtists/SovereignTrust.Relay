@@ -16,7 +16,7 @@ concurrency:
 jobs:
   deploy_dev:
     name: Relay deployment dev
-    if: ${{ false && inputs.environment == 'dev' }}
+    if: ${{ github.ref == 'refs/heads/main' && inputs.environment == 'dev' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     environment: sda-dev
@@ -94,7 +94,7 @@ jobs:
           "dev deployment action only; run=$env:GITHUB_RUN_ID; artifact=$env:ARTIFACT_ID; digest=$env:ARTIFACT_DIGEST; independent owner stage acceptance still required" >> $env:GITHUB_STEP_SUMMARY
   deploy_test:
     name: Relay deployment test
-    if: ${{ false && inputs.environment == 'test' }}
+    if: ${{ github.ref == 'refs/heads/main' && inputs.environment == 'test' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     environment: sda-test
@@ -174,7 +174,7 @@ jobs:
           "test deployment action only; run=$env:GITHUB_RUN_ID; artifact=$env:ARTIFACT_ID; digest=$env:ARTIFACT_DIGEST; independent owner stage acceptance still required" >> $env:GITHUB_STEP_SUMMARY
   deploy_prod:
     name: Relay deployment prod
-    if: ${{ false && inputs.environment == 'prod' }}
+    if: ${{ github.ref == 'refs/heads/main' && inputs.environment == 'prod' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     environment: sda-prod

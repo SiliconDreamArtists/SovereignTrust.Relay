@@ -5,13 +5,13 @@ function Assert-Contract([bool]$Condition,[string]$Name){if(!$Condition){throw "
 $p=Join-Path $root '.github/workflows/manual_deploy_sda-relay.yml'
 $text=Get-Content -Raw $p
 Assert-Contract ($text -match '(?m)^  workflow_dispatch:' -and $text -notmatch '(?m)^  (push|pull_request|schedule):') 'Only manual deployment event'
-Assert-Contract (@([regex]::Matches($text,'(?m)^      [a-z_]+:$')).Count -eq 1 -and $text.Contains('type: choice') -and $text.Contains('options: [dev, test, prod]')) 'Exactly one fixed environment dropdown'
+Assert-Contract (@([regex]::Matches($text,'(?m)^      [a-z_]+:\r?$')).Count -eq 1 -and $text.Contains('type: choice') -and $text.Contains('options: [dev, test, prod]')) 'Exactly one fixed environment dropdown'
 Assert-Contract (!$text.Contains('release_sha:') -and !$text.Contains('previous_run_id:') -and !$text.Contains('build_run_id:') -and !$text.Contains('enable:')) 'No arbitrary source target or bypass inputs'
 Assert-Contract ($text -notmatch 'RELAY_CONTROL_COMMIT|RELAY_PREVIOUS_ACCEPTED_(RECEIPT|PACKAGE)_SHA256|OwnerPacketSha256|BindingSha256') 'No manual deployment hash prerequisite wiring'
 foreach($stage in @('dev','test','prod')){
     $block=[regex]::Match($text,'(?ms)^  deploy_'+$stage+':\r?\n(?<body>.*?)(?=^  deploy_|\z)').Groups['body'].Value
     Assert-Contract ($block.Contains("name: Relay deployment $stage") -and $block.Contains("environment: sda-$stage") -and $block.Contains("app-name: sda-relay-api-$stage")) "$stage fixed job environment and target"
-    Assert-Contract ($block.Contains("if: `${{ false && inputs.environment == '$stage' }}") -and !$block.Contains('||')) "$stage literal false cannot be enabled by variables"
+    Assert-Contract ($block.Contains("if: `${{ github.ref == 'refs/heads/main' && inputs.environment == '$stage' }}") -and !$block.Contains('||') -and $block -notmatch 'if:.*false') "$stage requires main and selected stage without a literal-false gate"
     Assert-Contract ($block.Contains('Test-RelayBuildAcceptance.ps1') -and $block.Contains('Test-RelayPackage.ps1') -and $block.IndexOf('Test-RelayPackage.ps1') -lt $block.IndexOf('azure/login@v2')) "$stage accepted original bytes before login"
     Assert-Contract (!$block.Contains('dotnet ') -and !$block.Contains('New-RelayPackage.ps1') -and $block.Contains('run-id: 44994573298') -and $block.Contains('artifact-ids: 14743586651') -and $block.Contains('merge-multiple: true')) "$stage never rebuilds accepted artifact"
     Assert-Contract ($block.Contains('New-RelayStageReceipt.ps1 -Stage '+$stage) -and $block.Contains('name: relay-stage-'+$stage)) "$stage fixed receipt artifact"

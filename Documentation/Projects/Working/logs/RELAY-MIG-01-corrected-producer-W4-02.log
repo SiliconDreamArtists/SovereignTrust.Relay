@@ -1,0 +1,7 @@
+Producer public native provenance: {"gitHeadExit":0,"sourceSha":["1c40a9bef87feef703fb598a94cda8aceb53275f"],"sdk":["10.0.404"],"sourceTree":["049132eb3838f30d89b0a5ca5b5029add98d6016"],"gitTreeExit":0,"sdkExit":0}
+  Determining projects to restore...
+  Restored C:\Users\sfost\AppData\Local\Temp\vscode-agent-codex-sandbox-IVVYFM\relay-provenance-W4-20261122\Src\CSharp\Azure\SovereignTrust.Relay.Azure\SovereignTrust.Relay.Azure.csproj (in 547 ms).
+  SovereignTrust.Relay.Azure -> C:\Users\sfost\AppData\Local\Temp\vscode-agent-codex-sandbox-IVVYFM\relay-provenance-W4-20261122\Src\CSharp\Azure\SovereignTrust.Relay.Azure\bin\Release\net10.0\SovereignTrust.Relay.Azure.dll
+  SovereignTrust.Relay.Azure -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Documentation\Projects\Working\logs\W4-corrected-producer-windows-02\publish\
+PASS published Kestrel health/unsigned401/helpers404; no queue or callback invoked
+Package SHA256 1652A20FD8F2DFA50CCA4114E40B2C87C8EE8FC15F65739659662584D47DD967; source 1c40a9bef87feef703fb598a94cda8aceb53275f

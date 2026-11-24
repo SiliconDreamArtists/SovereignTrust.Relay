@@ -1,0 +1,135 @@
+diff --git a/Tests/Deployment/Package-Promotion.Tests.ps1 b/Tests/Deployment/Package-Promotion.Tests.ps1
+index 4ce91ef..a66b91e 100644
+--- a/Tests/Deployment/Package-Promotion.Tests.ps1
++++ b/Tests/Deployment/Package-Promotion.Tests.ps1
+@@ -3,6 +3,13 @@ $ErrorActionPreference='Stop'
+ if(Test-Path $EvidenceDirectory){throw 'Fixture directory must be new'}
+ New-Item -ItemType Directory $EvidenceDirectory|Out-Null
+ $root=Join-Path $PSScriptRoot '../..'
++$policy=Get-Content -Raw (Join-Path $root 'global.json')|ConvertFrom-Json
++$selectedSdk=@(& dotnet --version);$sdkExit=$LASTEXITCODE
++if($policy.sdk.version -cne '10.0.100' -or $policy.sdk.rollForward -cne 'latestFeature' -or $policy.sdk.allowPrerelease -ne $false -or
++   $sdkExit -ne 0 -or $selectedSdk.Count -ne 1 -or $selectedSdk[0] -notmatch '^10\.'){
++    throw "SDK 10 policy/actual selection failed: exit=$sdkExit; output=$($selectedSdk -join ', ')"
++}
++Write-Output "PASS actual SDK selection $($selectedSdk[0]) under repository policy"
+ $sha=git -C $root rev-parse HEAD
+ $tree=git -C $root rev-parse 'HEAD^{tree}'
+ $package=Join-Path (Resolve-Path $EvidenceDirectory) 'synthetic-package'
+@@ -22,13 +29,15 @@ function Write-Manifest { $manifest|ConvertTo-Json -Depth 6|Set-Content (Join-Pa
+ Write-Manifest
+ & (Join-Path $root 'scripts/Test-RelayPackage.ps1') -PackageDirectory $package -ReleaseSha $sha -ExpectedBuildRunId '123'
+ Write-Output 'PASS synthetic Ubuntu description without Linux accepted by structured platform (not runtime acceptance)'
+-foreach($case in @('WrongSource','WrongPackageHash','WrongPlatform','MissingPlatform','MissingProvenance','WrongFileHash','UnacceptedPackage','WrongBuildRun')){
++foreach($case in @('WrongSource','WrongPackageHash','WrongPlatform','MissingPlatform','WrongSdk','ArraySdk','MissingProvenance','WrongFileHash','UnacceptedPackage','WrongBuildRun')){
+     $copy=$manifest|ConvertTo-Json -Depth 6|ConvertFrom-Json -AsHashtable
+     switch($case){
+         WrongSource {$manifest.sourceSha='2222222222222222222222222222222222222222'}
+         WrongPackageHash {$manifest.packageSha256='0'*64}
+         WrongPlatform {$manifest.platform='Windows';$manifest.os='Linux (misleading description must not authorize Windows)'}
+         MissingPlatform {$manifest.Remove('platform')}
++        WrongSdk {$manifest.sdk='11.0.100'}
++        ArraySdk {$manifest.sdk=@('10.0.404','unexpected native output')}
+         MissingProvenance {$manifest.workflowRunId=''}
+         WrongFileHash {$manifest.files[0].sha256='0'*64}
+     }
+@@ -38,7 +47,9 @@ foreach($case in @('WrongSource','WrongPackageHash','WrongPlatform','MissingPlat
+         elseif($case -eq 'WrongBuildRun'){& (Join-Path $root 'scripts/Test-RelayPackage.ps1') -PackageDirectory $package -ReleaseSha $sha -ExpectedBuildRunId '999'|Out-Null}
+         else{& (Join-Path $root 'scripts/Test-RelayPackage.ps1') -PackageDirectory $package -ReleaseSha $sha|Out-Null}
+     }catch{$failure=$_.Exception.Message}
+-    if(!$failure){throw "FAIL $case accepted"};Write-Output "PASS $case rejected";$manifest=$copy
++    if(!$failure){throw "FAIL $case accepted"}
++    if($case -in @('WrongSdk','ArraySdk') -and $failure -notmatch 'provenance: sdk'){throw "FAIL $case wrong discriminating error: $failure"}
++    Write-Output "PASS $case rejected";$manifest=$copy
+ }
+ Write-Manifest
+ # Execute the verifier's actual event/mode branches; synthetic bytes never establish runtime success.
+diff --git a/scripts/New-RelayPackage.ps1 b/scripts/New-RelayPackage.ps1
+index 1e555bc..f5793ed 100644
+--- a/scripts/New-RelayPackage.ps1
++++ b/scripts/New-RelayPackage.ps1
+@@ -7,6 +7,17 @@ if($env:GITHUB_REPOSITORY -cne 'SiliconDreamArtists/SovereignTrust.Relay' -or
+ if($LASTEXITCODE){throw 'Package must be built from a committed unchanged source snapshot.'}
+ $untracked=@(& git -C $root ls-files --others --exclude-standard | Where-Object {$_ -notlike 'Documentation/Projects/Working/logs/*'})
+ if($LASTEXITCODE -or $untracked.Count){throw 'Unexpected untracked input outside isolated test evidence; package provenance is not exact.'}
++$sourceSha=@(& git -C $root rev-parse HEAD);$headExit=$LASTEXITCODE
++$sourceTree=@(& git -C $root rev-parse 'HEAD^{tree}');$treeExit=$LASTEXITCODE
++$sdk=@(& dotnet --version);$sdkExit=$LASTEXITCODE
++$native=@{sourceSha=$sourceSha;sourceTree=$sourceTree;sdk=$sdk;gitHeadExit=$headExit;gitTreeExit=$treeExit;sdkExit=$sdkExit}
++Write-Output ('Producer public native provenance: '+($native|ConvertTo-Json -Compress))
++if($headExit -ne 0 -or $sourceSha.Count -ne 1 -or $sourceSha[0] -notmatch '^[a-f0-9]{40}$' -or
++   $treeExit -ne 0 -or $sourceTree.Count -ne 1 -or $sourceTree[0] -notmatch '^[a-f0-9]{40}$' -or
++   $sdkExit -ne 0 -or $sdk.Count -ne 1 -or $sdk[0] -notmatch '^10\.'){
++    throw 'Producer requires one successful Git commit/tree and SDK 10 version result; see public native provenance.'
++}
++$sourceSha=[string]$sourceSha[0];$sourceTree=[string]$sourceTree[0];$sdk=[string]$sdk[0]
+ if(Test-Path -LiteralPath $OutputDirectory){throw 'Package output must be new; never overwrite accepted artifacts.'}
+ New-Item -ItemType Directory -Path $OutputDirectory | Out-Null
+ $output=(Resolve-Path -LiteralPath $OutputDirectory).Path
+@@ -27,6 +38,6 @@ $zip=Join-Path $output 'relay.zip'
+ Add-Type -AssemblyName System.IO.Compression.FileSystem
+ [IO.Compression.ZipFile]::CreateFromDirectory($publish,$zip)
+ $runtime=& (Join-Path $PSScriptRoot 'Get-RelayRuntimeIdentity.ps1')
+-$manifest=@{purpose=$(if($BuildOnly){'build-only'}else{'deployment-release'});eventName=$env:GITHUB_EVENT_NAME;sourceSha=(& git -C $root rev-parse HEAD);sourceTree=(& git -C $root rev-parse 'HEAD^{tree}');sdk=(& dotnet --version);platform=$runtime.platform;os=$runtime.os;repository=$env:GITHUB_REPOSITORY;workflowRunId=$env:GITHUB_RUN_ID;workflowRef=$env:GITHUB_WORKFLOW_REF;sourceRef=$env:GITHUB_REF;packageSha256=(Get-FileHash $zip -Algorithm SHA256).Hash;files=$files}
++$manifest=@{purpose=$(if($BuildOnly){'build-only'}else{'deployment-release'});eventName=$env:GITHUB_EVENT_NAME;sourceSha=$sourceSha;sourceTree=$sourceTree;sdk=$sdk;platform=$runtime.platform;os=$runtime.os;repository=$env:GITHUB_REPOSITORY;workflowRunId=$env:GITHUB_RUN_ID;workflowRef=$env:GITHUB_WORKFLOW_REF;sourceRef=$env:GITHUB_REF;packageSha256=(Get-FileHash $zip -Algorithm SHA256).Hash;files=$files}
+ $manifest|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $output 'release.json') -Encoding utf8NoBOM
+ Write-Output "Package SHA256 $($manifest.packageSha256); source $($manifest.sourceSha)"
+diff --git a/scripts/Test-RelayPackage.ps1 b/scripts/Test-RelayPackage.ps1
+index 8cba489..da1b240 100644
+--- a/scripts/Test-RelayPackage.ps1
++++ b/scripts/Test-RelayPackage.ps1
+@@ -4,12 +4,22 @@ $ErrorActionPreference='Stop'
+ $manifest=Get-Content -Raw -LiteralPath (Join-Path $PackageDirectory 'release.json')|ConvertFrom-Json
+ if($manifest.sourceSha -cne $ReleaseSha -or $manifest.packageSha256 -notmatch '^[A-Fa-f0-9]{64}$' -or
+     (Get-FileHash -LiteralPath (Join-Path $PackageDirectory 'relay.zip') -Algorithm SHA256).Hash -ine $manifest.packageSha256){throw 'Package/source identity mismatch.'}
+-if($manifest.platform -cne 'Linux'){throw 'Deployment requires structured Linux runtime platform provenance.'}
+ if($PSBoundParameters.ContainsKey('ExpectedBuildRunId') -and
+    ($ExpectedBuildRunId -notmatch '^[1-9][0-9]*$' -or $manifest.workflowRunId -cne $ExpectedBuildRunId)){throw 'Package build-run identity mismatch.'}
+-if($manifest.sourceTree -notmatch '^[a-f0-9]{40}$' -or $manifest.sdk -notmatch '^10\.' -or
+-   $manifest.repository -cne 'SiliconDreamArtists/SovereignTrust.Relay' -or
+-   $manifest.workflowRunId -notmatch '^[1-9][0-9]*$' -or !$manifest.workflowRef) {throw 'Incomplete source/build-run provenance.'}
++$publicFields=@();foreach($field in @('sourceSha','sourceTree','sdk','repository','workflowRunId','workflowRef','sourceRef','platform','purpose','eventName')){
++    $value=$manifest.$field
++    $publicFields+=@{field=$field;value=$value;type=$(if($null -eq $value){'null'}else{$value.GetType().FullName})}
++}
++$invalid=@()
++if($manifest.sourceTree -isnot [string] -or $manifest.sourceTree -notmatch '^[a-f0-9]{40}$'){$invalid+='sourceTree'}
++if($manifest.sdk -isnot [string] -or $manifest.sdk -notmatch '^10\.'){$invalid+='sdk'}
++if($manifest.repository -isnot [string] -or $manifest.repository -cne 'SiliconDreamArtists/SovereignTrust.Relay'){$invalid+='repository'}
++if($manifest.workflowRunId -isnot [string] -or $manifest.workflowRunId -notmatch '^[1-9][0-9]*$'){$invalid+='workflowRunId'}
++if($manifest.workflowRef -isnot [string] -or [string]::IsNullOrWhiteSpace($manifest.workflowRef)){$invalid+='workflowRef'}
++if($invalid.Count){
++    Write-Output ('Validator public provenance fields: '+($publicFields|ConvertTo-Json -Compress -Depth 4))
++    throw "Incomplete source/build-run provenance: $($invalid -join ', ')."
++}
+ if($BuildOnly){
+     $validEventRef=($manifest.eventName -in @('push','workflow_dispatch') -and $manifest.sourceRef -match '^refs/heads/') -or
+         ($manifest.eventName -ceq 'pull_request' -and $manifest.sourceRef -match '^refs/pull/[1-9][0-9]*/merge$')
+@@ -18,8 +28,13 @@ if($BuildOnly){
+     $manifest.sourceRef -notmatch '^refs/heads/'){
+     throw 'Deployment requires a manual branch release; build-only/PR artifacts cannot deploy.'
+ }
+-$expectedTree=& git -C (Split-Path $PSScriptRoot) rev-parse "$ReleaseSha^{tree}"
+-if($LASTEXITCODE -or $manifest.sourceTree -cne $expectedTree){throw 'Source tree does not match selected release commit.'}
++$expectedTree=@(& git -C (Split-Path $PSScriptRoot) rev-parse "$ReleaseSha^{tree}");$treeExit=$LASTEXITCODE
++if($treeExit -ne 0 -or $expectedTree.Count -ne 1 -or $expectedTree[0] -notmatch '^[a-f0-9]{40}$' -or $manifest.sourceTree -cne $expectedTree[0]){
++    Write-Output ('Validator public Git provenance: '+(@{expectedTree=$expectedTree;exit=$treeExit;manifestTree=$manifest.sourceTree}|ConvertTo-Json -Compress))
++    throw 'Source tree does not match selected release commit.'
++}
++Write-Output 'Validated scalar source/build-run metadata and native Git tree; platform/package checks still required.'
++if($manifest.platform -cne 'Linux'){throw 'Deployment requires structured Linux runtime platform provenance.'}
+ foreach($required in @('SovereignTrust.Relay.Azure.dll','SovereignTrust.Relay.Azure.deps.json','SovereignTrust.Relay.Azure.runtimeconfig.json','runtimes/linux-x64/native/libsodium.so')){
+     if(@($manifest.files|Where-Object path -CEQ $required).Count -ne 1){throw "Missing required Linux package file: $required"}
+ }
+diff --git a/global.json b/global.json
+new file mode 100644
+--- /dev/null
++++ b/global.json
+@@ -0,0 +1,7 @@
++{
++  "sdk": {
++    "version": "10.0.100",
++    "rollForward": "latestFeature",
++    "allowPrerelease": false
++  }
++}

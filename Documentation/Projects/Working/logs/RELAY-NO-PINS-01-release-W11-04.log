@@ -1,0 +1,74 @@
+PASS no owner hash property remains
+PASS fixed target dev
+PASS owner unbound dev (rejected: Owner packet is unbound: DeploymentClientId)
+PASS fixed target test
+PASS owner unbound test (rejected: Owner packet is unbound: DeploymentClientId)
+PASS fixed target prod
+PASS owner unbound prod (rejected: Owner packet is unbound: DeploymentClientId)
+PASS synthetic exact owner profile accepted
+PASS cross-environment RELAY_AZURE_CLIENT_ID rejected (rejected: Environment OIDC identity does not match fixed owner profile.)
+PASS cross-environment RELAY_AZURE_TENANT_ID rejected (rejected: Environment OIDC identity does not match fixed owner profile.)
+PASS cross-environment RELAY_AZURE_SUBSCRIPTION_ID rejected (rejected: Environment OIDC identity does not match fixed owner profile.)
+PASS unknown stage (rejected: Cannot validate argument on parameter 'Stage'. The argument "arbitrary" does not belong to the set "dev,test,prod" specified by the ValidateSet attribute. Supply an argument that is in the set and then try the command again.)
+PASS wrong control ref (rejected: Invalid deployment control context/ref.)
+PASS legacy manual control hash is ignored
+PASS authenticated current run rejects CurrentRepo (rejected: Current control run metadata differs from Actions context.)
+PASS authenticated current run rejects CurrentEvent (rejected: Current control run metadata differs from Actions context.)
+PASS authenticated current run rejects CurrentSha (rejected: Current control run metadata differs from Actions context.)
+PASS authenticated current run rejects CurrentBranch (rejected: Current control run metadata differs from Actions context.)
+PASS new control revision differs from fixed package source
+PASS build rejects push (rejected: Original package manual workflow/source/ref is not the accepted successful build.)
+PASS build rejects pull_request (rejected: Original package manual workflow/source/ref is not the accepted successful build.)
+PASS build rejects source (rejected: Original package manual workflow/source/ref is not the accepted successful build.)
+PASS build rejects artifact (rejected: Accepted manual artifact ID/digest/source missing, expired or changed.)
+PASS build rejects digest (rejected: Accepted manual artifact ID/digest/source missing, expired or changed.)
+PASS build rejects expired (rejected: Accepted manual artifact ID/digest/source missing, expired or changed.)
+PASS build rejects duplicate (rejected: Accepted manual artifact ID/digest/source missing, expired or changed.)
+PASS build rejects caller-run (rejected: Caller cannot replace the independently accepted package tuple.)
+PASS build rejects caller-sha (rejected: Caller cannot replace the independently accepted package tuple.)
+PASS writer resolves in-progress dev job
+PASS writer does not award dev acceptance
+PASS writer immutable dev output (rejected: Exception calling ".ctor" with "4" argument(s): "The file 'C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Documentation\Projects\Working\logs\W11-release-04\writer-dev.json' already exists.")
+PASS writer preserves existing dev bytes
+PASS writer rejects completed dev job (rejected: Current fixed deployment job identity is missing/ambiguous.)
+PASS test predecessor valid
+PASS test scratch boundary valid
+PASS test predecessor legacy-hashes-ignored
+PASS test scratch boundary legacy-hashes-ignored
+PASS test predecessor old-control-ref
+PASS test scratch boundary old-control-ref
+PASS test predecessor missing-owner (rejected: Missing owner-accepted predecessor run/artifact IDs.)
+PASS test scratch boundary missing-owner
+PASS test predecessor self-awarded (rejected: Missing owner-accepted predecessor run/artifact IDs.)
+PASS test scratch boundary self-awarded
+PASS test predecessor corrupt-archive (rejected: Downloaded predecessor archive digest mismatch.)
+PASS test scratch boundary corrupt-archive
+PASS test predecessor truncated-archive (rejected: Downloaded predecessor archive digest mismatch.)
+PASS test scratch boundary truncated-archive
+PASS test predecessor oversized-transport (rejected: Receipt archive exceeds size bound.)
+PASS test scratch boundary oversized-transport
+PASS test predecessor missing-digest (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary missing-digest
+PASS test predecessor malformed-digest (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary malformed-digest
+PASS test predecessor artifact-source (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary artifact-source
+PASS test predecessor artifact-run (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary artifact-run
+PASS test predecessor duplicate-entry (rejected: Unexpected receipt archive entries or size.)
+PASS test scratch boundary duplicate-entry
+PASS test predecessor traversal (rejected: Unexpected receipt archive entries or size.)
+PASS test scratch boundary traversal
+PASS test predecessor unexpected (rejected: Unexpected receipt archive entries or size.)
+PASS test scratch boundary unexpected
+PASS test predecessor oversized-json (rejected: Unexpected receipt archive entries or size.)
+PASS test scratch boundary oversized-json
+PASS test predecessor invalid-utf8 (rejected: Exception calling "Read" with "3" argument(s): "Unable to translate bytes [FF] at index 0 from specified code page to Unicode.")
+PASS test scratch boundary invalid-utf8
+PASS test predecessor invalid-json (rejected: Conversion from JSON failed with error: Unexpected end when reading JSON. Path '', line 1, position 1.)
+PASS test scratch boundary invalid-json
+Exception: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\Deployment\Release-Workflow.Tests.ps1:9
+Line |
+   9 |  …  if($Reject -ne [bool]$failure){throw "FAIL $Name : $failure"};$scrip …
+     |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | FAIL test predecessor array-root : 

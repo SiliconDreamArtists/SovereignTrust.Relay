@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using NSec.Cryptography;
 
 namespace SovereignTrust.Relay.Azure.Azure
 {
     // TODO: Move this into common library
-    public class Ed25519KeyGenerator
+    [Controller]
+    public class Ed25519KeyGenerator : ControllerBase
     {
         private readonly ILogger<Ed25519KeyGenerator> _logger;
 
@@ -19,11 +19,15 @@ namespace SovereignTrust.Relay.Azure.Azure
             _settings = settings;
         }
 
-        [Function("GenerateEd25519KeyPair")]
+        [HttpGet("/api/GenerateEd25519KeyPair")]
+        public IActionResult HttpRun() => Run(Request);
+
+        [NonAction]
         public IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req)
+            HttpRequest req)
         {
             if (!_settings.SigningEnabled) return new NotFoundResult();
+            if (!HelperAuthorization.IsAuthorized(req, _settings.HelperApiKey)) return new UnauthorizedResult();
             _logger.LogInformation("Generating a test Ed25519 key pair.");
 
             var algorithm = SignatureAlgorithm.Ed25519;

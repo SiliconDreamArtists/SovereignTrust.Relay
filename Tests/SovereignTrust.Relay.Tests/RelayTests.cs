@@ -5,7 +5,6 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Queues;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging.Abstractions;
 using Newtonsoft.Json;
@@ -24,7 +23,7 @@ public sealed class RelayTests : IDisposable
     private string PublicKeyHex => Convert.ToHexString(key.PublicKey.Export(KeyBlobFormat.RawPublicKey));
     private RelaySettings Settings(bool enabled = false) => new(PublicKeyHex, "UseDevelopmentStorage=true",
         "discord-interactions", "discord-receipts", enabled,
-        enabled ? Convert.ToHexString(key.Export(KeyBlobFormat.RawPrivateKey)) : null);
+        enabled ? Convert.ToHexString(key.Export(KeyBlobFormat.RawPrivateKey)) : null, enabled ? "local-test-key" : null);
     public RelayTests() => SignalGraph.Signal.Logger = NullLogger.Instance;
     public void Dispose() => key.Dispose();
 
@@ -81,6 +80,22 @@ public sealed class RelayTests : IDisposable
             new ConfigurationBuilder().AddInMemoryCollection(values).Build()));
     }
 
+    [Theory]
+    [InlineData("RELAY_HELPER_API_KEY")]
+    [InlineData("DISCORD_TEST_PRIVATE_KEY")]
+    public void EnabledHelperRequiresBothSeparateSecrets(string missing)
+    {
+        var values = new Dictionary<string,string?>
+        {
+            ["DISCORD_PUBLIC_KEY"] = PublicKeyHex, ["StorageQueueAccount"] = "UseDevelopmentStorage=true",
+            ["ENABLE_ED25519_SIGNING"] = "true", ["RELAY_HELPER_API_KEY"] = "local-test-key",
+            ["DISCORD_TEST_PRIVATE_KEY"] = Convert.ToHexString(key.Export(KeyBlobFormat.RawPrivateKey))
+        };
+        values.Remove(missing);
+        var error = Assert.Throws<InvalidOperationException>(() => RelaySettings.Load(new ConfigurationBuilder().AddInMemoryCollection(values).Build()));
+        Assert.Contains(missing, error.Message);
+    }
+
     [Fact]
     public async Task DisabledSigningReturns404()
     {
@@ -90,16 +105,15 @@ public sealed class RelayTests : IDisposable
     [Fact]
     public async Task SigningReturnsValidSignatureWithoutPrivateKey()
     {
-        var response = Assert.IsType<JsonResult>(await new Ed25519SignFunction(Settings(true), clock).Run(Request("test")));
+        var request = Request("test");
+        request.Headers["x-functions-key"] = "local-test-key";
+        var response = Assert.IsType<JsonResult>(await new Ed25519SignFunction(Settings(true), clock).Run(request));
         var json = JObject.FromObject(response.Value!);
         Assert.Null(json["privateKey"]);
         Assert.DoesNotContain(Settings(true).TestPrivateKey!, json.ToString(), StringComparison.OrdinalIgnoreCase);
         Assert.True(SignatureAlgorithm.Ed25519.Verify(key.PublicKey,
             Encoding.UTF8.GetBytes(json.Value<string>("timestamp") + "test"),
             Convert.FromHexString(json.Value<string>("signature")!)));
-        var trigger = typeof(Ed25519SignFunction).GetMethod("Run")!.GetParameters()[0]
-            .GetCustomAttribute<HttpTriggerAttribute>();
-        Assert.Equal(AuthorizationLevel.Function, trigger!.AuthLevel);
     }
 
     [Fact]
@@ -171,6 +185,34 @@ public sealed class RelayTests : IDisposable
         Assert.Equal(503, Assert.IsType<StatusCodeResult>(result).StatusCode);
     }
 
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public async Task SlowBodyAndAbortedClientCannotConsumeUnboundedTime(bool aborted)
+    {
+        var dispatcher = new StubDispatcher(); var request = Request("{}");
+        request.Body = new WaitingStream();
+        using var cancellation = new CancellationTokenSource();
+        if (aborted) cancellation.Cancel();
+        request.HttpContext.RequestAborted = cancellation.Token;
+        var elapsed = System.Diagnostics.Stopwatch.StartNew();
+        var result = await Relay(dispatcher).RunDiscordRelayAsync(request);
+        Assert.Equal(503, Assert.IsType<StatusCodeResult>(result).StatusCode);
+        Assert.Equal(0, dispatcher.Calls);
+        Assert.InRange(elapsed.Elapsed.TotalSeconds, aborted ? 0 : 1.8, aborted ? 1.0 : 3.5);
+    }
+
+    private sealed class WaitingStream : Stream
+    {
+        public override bool CanRead => true; public override bool CanSeek => false; public override bool CanWrite => false;
+        public override long Length => throw new NotSupportedException(); public override long Position { get => throw new NotSupportedException(); set => throw new NotSupportedException(); }
+        public override async ValueTask<int> ReadAsync(Memory<byte> buffer, CancellationToken cancellationToken = default)
+        { await Task.Delay(Timeout.Infinite, cancellationToken); return 0; }
+        public override int Read(byte[] buffer, int offset, int count) => throw new NotSupportedException();
+        public override void Flush() => throw new NotSupportedException(); public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
+        public override void SetLength(long value) => throw new NotSupportedException(); public override void Write(byte[] buffer, int offset, int count) => throw new NotSupportedException();
+    }
+
     [Fact]
     public async Task DuplicateAndFailedEnqueueBehavior()
     {
@@ -237,10 +279,25 @@ public sealed class RelayTests : IDisposable
 public sealed class StorageTests
 {
     [Fact]
+    public void RemoteLookingEnvironmentOverrideCannotSelectExternalStorage()
+    {
+        var previous = Environment.GetEnvironmentVariable("RELAY_TEST_STORAGE");
+        try
+        {
+            Environment.SetEnvironmentVariable("RELAY_TEST_STORAGE", "DefaultEndpointsProtocol=https;AccountName=externalfixture;AccountKey=ZmFrZQ==;EndpointSuffix=core.windows.net");
+            Assert.Equal("UseDevelopmentStorage=true", StorageTestConnection.Value);
+            // Construction only: no SDK request. Both data clients can only select the local emulator.
+            Assert.Equal("127.0.0.1", new QueueClient(StorageTestConnection.Value, "queue-fixture").Uri.Host);
+            Assert.Equal("127.0.0.1", new BlobContainerClient(StorageTestConnection.Value, "receipts-fixture").Uri.Host);
+        }
+        finally { Environment.SetEnvironmentVariable("RELAY_TEST_STORAGE", previous); }
+    }
+
+    [Fact]
     [Trait("Category", "Storage")]
     public async Task SharedReceiptsSerializeRequestsAndAllowRetry()
     {
-        var connection = Environment.GetEnvironmentVariable("RELAY_TEST_STORAGE") ?? "UseDevelopmentStorage=true";
+        var connection = StorageTestConnection.Value;
         var suffix = Guid.NewGuid().ToString("N");
         var container = new BlobContainerClient(connection, "receipts-" + suffix);
         var queue = new QueueClient(connection, "queue-" + suffix,
@@ -272,4 +329,10 @@ public sealed class StorageTests
             await container.DeleteIfExistsAsync();
         }
     }
+}
+
+internal static class StorageTestConnection
+{
+    // Test authorization is emulator-only. Inherited environment values cannot redirect SDK clients.
+    public const string Value = "UseDevelopmentStorage=true";
 }

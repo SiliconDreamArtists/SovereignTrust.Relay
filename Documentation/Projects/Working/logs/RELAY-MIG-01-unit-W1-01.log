@@ -1,0 +1,370 @@
+  Determining projects to restore...
+  Restored C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\SovereignTrust.Relay.Tests.csproj (in 3.23 sec).
+  1 of 2 projects are up-to-date for restore.
+  SovereignTrust.Relay.Azure -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\bin\Release\net10.0\SovereignTrust.Relay.Azure.dll
+  SovereignTrust.Relay.Tests -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll
+Test run for C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:01.44]     HttpTests.BadPayloadCannotDispatch(body: "{\"type\":2,\"id\":\"18446744073709551616\"}") [FAIL]
+[xUnit.net 00:00:01.44]     HttpTests.BadPayloadCannotDispatch(body: "not-json") [FAIL]
+  Failed HttpTests.BadPayloadCannotDispatch(body: "{\"type\":2,\"id\":\"18446744073709551616\"}") [562 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.BadPayloadCannotDispatch(String body) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 66
+   at HttpTests.BadPayloadCannotDispatch(String body) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 68
+--- End of stack trace from previous location ---
+  Failed HttpTests.BadPayloadCannotDispatch(body: "not-json") [4 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.BadPayloadCannotDispatch(String body) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 66
+   at HttpTests.BadPayloadCannotDispatch(String body) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 68
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:01.45]     HttpTests.BadPayloadCannotDispatch(body: "{\"type\":2.5,\"id\":\"123\"}") [FAIL]
+[xUnit.net 00:00:01.45]     HttpTests.BadPayloadCannotDispatch(body: "{\"type\":2,\"id\":\"0\"}") [FAIL]
+[xUnit.net 00:00:01.46]     HttpTests.TimestampWindow(offset: -300, accepted: True) [FAIL]
+[xUnit.net 00:00:01.47]     HttpTests.TimestampWindow(offset: -301, accepted: False) [FAIL]
+[xUnit.net 00:00:01.48]     HttpTests.TimestampWindow(offset: 31, accepted: False) [FAIL]
+[xUnit.net 00:00:01.49]     HttpTests.TimestampWindow(offset: 30, accepted: True) [FAIL]
+[xUnit.net 00:00:01.50]     HttpTests.BodyLimitsAndMalformedUtf8RejectWithoutDispatch [FAIL]
+[xUnit.net 00:00:01.51]     HttpTests.HelperAuthorizationIsEnforcedOverHttp [FAIL]
+[xUnit.net 00:00:01.52]     HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 3) [FAIL]
+  Failed HttpTests.BadPayloadCannotDispatch(body: "{\"type\":2.5,\"id\":\"123\"}") [6 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.BadPayloadCannotDispatch(String body) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 66
+   at HttpTests.BadPayloadCannotDispatch(String body) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 68
+--- End of stack trace from previous location ---
+  Failed HttpTests.BadPayloadCannotDispatch(body: "{\"type\":2,\"id\":\"0\"}") [5 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.BadPayloadCannotDispatch(String body) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 66
+   at HttpTests.BadPayloadCannotDispatch(String body) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 68
+--- End of stack trace from previous location ---
+  Failed HttpTests.TimestampWindow(offset: -300, accepted: True) [7 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.TimestampWindow(Int32 offset, Boolean accepted) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 76
+   at HttpTests.TimestampWindow(Int32 offset, Boolean accepted) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 77
+--- End of stack trace from previous location ---
+  Failed HttpTests.TimestampWindow(offset: -301, accepted: False) [7 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.TimestampWindow(Int32 offset, Boolean accepted) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 76
+   at HttpTests.TimestampWindow(Int32 offset, Boolean accepted) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 77
+--- End of stack trace from previous location ---
+  Failed HttpTests.TimestampWindow(offset: 31, accepted: False) [5 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.TimestampWindow(Int32 offset, Boolean accepted) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 76
+   at HttpTests.TimestampWindow(Int32 offset, Boolean accepted) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 77
+--- End of stack trace from previous location ---
+  Failed HttpTests.TimestampWindow(offset: 30, accepted: True) [8 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.TimestampWindow(Int32 offset, Boolean accepted) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 76
+   at HttpTests.TimestampWindow(Int32 offset, Boolean accepted) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 77
+--- End of stack trace from previous location ---
+  Failed HttpTests.BodyLimitsAndMalformedUtf8RejectWithoutDispatch [9 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.BodyLimitsAndMalformedUtf8RejectWithoutDispatch() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 84
+   at HttpTests.BodyLimitsAndMalformedUtf8RejectWithoutDispatch() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 91
+--- End of stack trace from previous location ---
+  Failed HttpTests.HelperAuthorizationIsEnforcedOverHttp [8 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.HelperAuthorizationIsEnforcedOverHttp() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 97
+   at HttpTests.HelperAuthorizationIsEnforcedOverHttp() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 110
+--- End of stack trace from previous location ---
+  Failed HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 3) [12 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.AcceptedTypesPreserveQueueEnvelope(Int32 type) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 52
+   at HttpTests.AcceptedTypesPreserveQueueEnvelope(Int32 type) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 56
+--- End of stack trace from previous location ---
+[xUnit.net 00:00:01.53]     HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 5) [FAIL]
+[xUnit.net 00:00:01.53]     HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 2) [FAIL]
+[xUnit.net 00:00:01.54]     HttpTests.StorageDeadlineAndFailureAre503 [FAIL]
+[xUnit.net 00:00:01.55]     HttpTests.RoutesExecuteRealJsonAndHelpersStayDisabled [FAIL]
+  Failed HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 5) [5 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.AcceptedTypesPreserveQueueEnvelope(Int32 type) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 52
+   at HttpTests.AcceptedTypesPreserveQueueEnvelope(Int32 type) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 56
+--- End of stack trace from previous location ---
+  Failed HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 2) [5 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.AcceptedTypesPreserveQueueEnvelope(Int32 type) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 52
+   at HttpTests.AcceptedTypesPreserveQueueEnvelope(Int32 type) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 56
+--- End of stack trace from previous location ---
+  Failed HttpTests.StorageDeadlineAndFailureAre503 [6 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.StorageDeadlineAndFailureAre503() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 116
+   at HttpTests.StorageDeadlineAndFailureAre503() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 123
+--- End of stack trace from previous location ---
+  Failed HttpTests.RoutesExecuteRealJsonAndHelpersStayDisabled [7 ms]
+  Error Message:
+   System.InvalidOperationException : Required setting DISCORD_PUBLIC_KEY is missing.
+  Stack Trace:
+     at SovereignTrust.Relay.Azure.RelaySettings.Required(IConfiguration config, String name) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 40
+   at SovereignTrust.Relay.Azure.RelaySettings.Load(IConfiguration config) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\RelaySettings.cs:line 13
+   at Program.<Main>$(String[] args) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Program.cs:line 11
+   at InvokeStub_Program.<Main>$(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.CreateHost()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.<>c__DisplayClass10_0.<ResolveHostFactory>b__0(String[] args)
+   at Microsoft.AspNetCore.Mvc.Testing.DeferredHostBuilder.Build()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateHost(IHostBuilder builder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.ConfigureHostBuilder(IHostBuilder hostBuilder)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.StartServer()
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateDefaultClient(Uri baseAddress, DelegatingHandler[] handlers)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient(WebApplicationFactoryClientOptions options)
+   at Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactory`1.CreateClient()
+   at HttpTests.RoutesExecuteRealJsonAndHelpersStayDisabled() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 34
+   at HttpTests.RoutesExecuteRealJsonAndHelpersStayDisabled() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 45
+--- End of stack trace from previous location ---
+Results File: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Documentation\Projects\Working\logs\W1-unit-01\sfost_SDADEV01_2026-11-21_21_26_55_net10.0.trx
+
+Failed!  - Failed:    15, Passed:    26, Skipped:     0, Total:    41, Duration: 2 s - SovereignTrust.Relay.Tests.dll (net10.0)

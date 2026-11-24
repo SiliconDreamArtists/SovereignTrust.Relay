@@ -1,0 +1,79 @@
+PASS fixed target dev
+PASS owner unbound dev
+PASS fixed target test
+PASS owner unbound test
+PASS fixed target prod
+PASS owner unbound prod
+PASS synthetic exact owner profile accepted
+PASS cross-environment RELAY_AZURE_CLIENT_ID rejected
+PASS cross-environment RELAY_AZURE_TENANT_ID rejected
+PASS cross-environment RELAY_AZURE_SUBSCRIPTION_ID rejected
+PASS unknown stage
+PASS wrong control ref
+PASS wrong control commit
+PASS new control revision differs from fixed package source
+PASS build rejects push
+PASS build rejects pull_request
+PASS build rejects source
+PASS build rejects artifact
+PASS build rejects digest
+PASS build rejects expired
+PASS build rejects duplicate
+PASS build rejects caller-run
+PASS build rejects caller-sha
+PASS writer resolves in-progress dev job
+PASS writer does not award dev acceptance
+PASS writer immutable dev output
+PASS writer preserves existing dev bytes
+PASS writer rejects completed dev job
+PASS test predecessor valid
+PASS test predecessor old-control-ref
+PASS test predecessor missing-owner
+PASS test predecessor self-awarded
+PASS test predecessor wrong-receipt-hash
+PASS test predecessor wrong-artifact
+PASS test predecessor duplicate-artifact
+PASS test predecessor expired
+PASS test predecessor wrong-stage
+PASS test predecessor wrong-target
+PASS test predecessor wrong-package
+PASS test predecessor wrong-job
+PASS test predecessor failed-job
+PASS test predecessor canceled-job
+PASS test predecessor skipped-job
+PASS test predecessor duplicate-job
+PASS test predecessor wrong-stage-success
+PASS test predecessor wrong-run-control
+PASS test predecessor wrong-blob
+PASS test predecessor wrong-structure
+PASS test predecessor wrong-event
+PASS test predecessor failed-run
+PASS writer resolves in-progress test job
+PASS writer does not award test acceptance
+PASS writer immutable test output
+PASS writer preserves existing test bytes
+PASS writer rejects completed test job
+PASS prod predecessor valid
+PASS prod predecessor old-control-ref
+PASS prod predecessor missing-owner
+PASS prod predecessor self-awarded
+PASS prod predecessor wrong-receipt-hash
+PASS prod predecessor wrong-artifact
+PASS prod predecessor duplicate-artifact
+PASS prod predecessor expired
+PASS prod predecessor wrong-stage
+PASS prod predecessor wrong-target
+PASS prod predecessor wrong-package
+PASS prod predecessor wrong-job
+PASS prod predecessor failed-job
+PASS prod predecessor canceled-job
+PASS prod predecessor skipped-job
+PASS prod predecessor duplicate-job
+PASS prod predecessor wrong-stage-success
+PASS prod predecessor wrong-run-control
+PASS prod predecessor wrong-blob
+PASS prod predecessor wrong-structure
+PASS prod predecessor wrong-event
+PASS prod predecessor failed-run
+PASS mock API vector exercised and retained
+Release workflow checks: 78 passed; 105 mocked GitHub reads, zero cloud calls.

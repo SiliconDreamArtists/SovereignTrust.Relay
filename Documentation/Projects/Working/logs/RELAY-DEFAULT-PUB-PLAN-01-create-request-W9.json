@@ -1,0 +1,26 @@
+{
+  "prohibitions": [
+    "No merge/close/enable/admin/auto-merge/ref/source/dispatch/settings/cloud effects"
+  ],
+  "utc": "2026-11-22T08:07:00.4007994Z",
+  "expectedBase": "874f54c7f4795a07f9f3e4b1b3dd13d0a4b4f500",
+  "attempt": 1,
+  "arguments": [
+    "pr",
+    "create",
+    "--repo",
+    "SiliconDreamArtists/SovereignTrust.Relay",
+    "--base",
+    "main",
+    "--head",
+    "agents/relay-azure-to-aspnet-core-migration",
+    "--draft",
+    "--title",
+    "Migrate Relay API and consolidate disabled release controls",
+    "--body-file",
+    "C:\\GitHub\\SiliconDreamArtists\\SovereignTrust.Relay.worktrees\\relay-azure-to-aspnet-core-migration\\Documentation\\Projects\\Working\\logs\\RELAY-DEFAULT-PUB-PLAN-01-pr-body-W9.txt"
+  ],
+  "bodySha256": "F2C56293217C4E23E69E9CA9CF1DB10A72DAE4F81E88CF2E2A65D2D4EF154B90",
+  "expectedHead": "c61956f79a0cae963551f271686f1f1298622c53",
+  "authority": "Explicit user execution directive plus independent W8-DRAFT-PR READY"
+}

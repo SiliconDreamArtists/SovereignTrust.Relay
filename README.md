@@ -2,6 +2,8 @@
 
 For deployment, required settings, the signing-helper flag, and duplicate handling, see [Relay operations](docs/Relay-Operations.md).
 
+Deployment source uses one [environment dropdown workflow](.github/workflows/manual_deploy_sda-relay.yml), currently literally disabled until owner/live readiness. The separate package build never deploys; historical default-main Actions retirement remains a later publication dependency.
+
 **SovereignTrust.Relay** is the ingestion layer of the [SovereignTrust](https://sovereigntrust.foundation) protocol. It accepts external input — including webhooks, HTTP events, and raw messages — and transforms them into valid `Signal<T>` messages for the SovereignTrust queue.
 
 Relays are stateless, lightweight bridges that connect the outside world to the SovereignTrust execution pipeline.
@@ -40,7 +42,7 @@ Relays do not validate, authorize, or execute. They:
 | Webhook Listener | Accepts POST requests and verifies headers          |
 | Signal Transformer | Wraps raw input into a structured `Signal<T>`      |
 | Queue Writer     | Enqueues to Azure Queue, AWS SQS, or custom adapter |
-| Stateless        | Runs as Azure Function, container, or serverless    |
+| HTTP API         | Ordinary ASP.NET Core / Kestrel Web App             |
 
 ---
 
@@ -79,7 +81,7 @@ Pushed into SovereignTrust queue for execution.
 
 | Host Platform | Description                          |
 |---------------|--------------------------------------|
-| Azure Function | Native support with `HttpTrigger`   |
+| ASP.NET Core   | Ordinary .NET 10 Web API / App Service |
 | AWS Lambda    | Wrap with API Gateway                |
 | Kestrel (.NET) | For on-prem or container use        |
 
@@ -98,7 +100,7 @@ Each relay should be small, scoped, and stateless.
 
 ## 🧪 Example Usage
 
-Coming soon in `Examples/DiscordRelay.cs` and `Relay.Tests/`.
+See [operations](docs/Relay-Operations.md) and the hosted HTTP/storage tests in [Relay tests](Tests/SovereignTrust.Relay.Tests/).
 
 ---
 
@@ -119,3 +121,5 @@ MIT — see [`LICENSE`](./LICENSE)
 - [`SovereignTrust.SignalGraph`](https://github.com/SiliconDreamArtists/signal-core) – The universal feedback/result object
 - [`SovereignTrust.Router`](https://github.com/SiliconDreamArtists/SovereignTrust.Router) – Resolves and executes signal instructions
 - [`SovereignTrust.Emitter`](https://github.com/SiliconDreamArtists/SovereignTrust.Emitter) – Triggers and authors intent signals
+
+Deployment uses the fixed environment dropdown with all deployment jobs disabled. The reviewed no-pin contract removes manually copied owner/control/predecessor SHA prerequisites; accepted artifact integrity checks and owner-accepted predecessor run/artifact IDs remain required. See [operations](docs/Relay-Operations.md).

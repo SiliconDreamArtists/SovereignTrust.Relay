@@ -1,0 +1,13 @@
+PASS Valid
+PASS WrongApp
+PASS WrongPlanArgument
+PASS WrongEnvironment
+PASS FunctionKind
+PASS UnknownState
+PASS Stopped
+PASS WrongPlanActual
+PASS HttpsOff
+PASS WrongRuntime
+PASS AlwaysOnOff
+PASS MissingSetting
+PASS SigningEnabled

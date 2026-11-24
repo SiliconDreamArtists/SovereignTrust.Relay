@@ -1,0 +1,219 @@
+{
+  "function": "RELAY-NO-PINS-01",
+  "phase": "W12",
+  "state": "FROZEN_RESULT_REVIEW_PENDING",
+  "track": "Normal",
+  "planSha256": "A2E037B45937993E21FCEC7F15DD2B49854834650EA7FB67463E38977A894600",
+  "reviewedWorkingSha256": "35EDC3CFEBB21FB53C9317A610289BACA085BC49CEF26692951D3AF7F55B1E4A",
+  "sourceParent": "c61956f79a0cae963551f271686f1f1298622c53",
+  "source": [
+    {
+      "path": ".github/workflows/manual_deploy_sda-relay.yml",
+      "rawSha256": "CE590FCB846B598BCA794DA75042B490827C606BE3D940C237904C8B3344C90C",
+      "gitBlob": "6f0f72376835666fca4ea1a4a587f67c09624045",
+      "status": "modified"
+    },
+    {
+      "path": "README.md",
+      "rawSha256": "9F71E38C458D6402FFB8578448D52C318435A33995E54E3EF3979CC686EAA01B",
+      "gitBlob": "481ef607422e79853c907bdaa6da1b2f203a5926",
+      "status": "modified"
+    },
+    {
+      "path": "Tests/Deployment/Release-Workflow.Tests.ps1",
+      "rawSha256": "066E7D67BA0BA68E925C33D82FC2E6A20FC0C3111341B1C26FE401117E77B459",
+      "gitBlob": "1fa58528f2619d3d45a9a4c492f51e61ad50950e",
+      "status": "modified"
+    },
+    {
+      "path": "Tests/Deployment/Workflow-Contracts.Tests.ps1",
+      "rawSha256": "A761B8CDC2A2413422F90E351149C3006ABED6893D1BF8C87A51645866382B2D",
+      "gitBlob": "e5da7d8e8990d14c565bcb9b386efbdcf3edcd8f",
+      "status": "modified"
+    },
+    {
+      "path": "docs/Relay-Operations.md",
+      "rawSha256": "27D7177BDA1E7383F77F52DC18D3327FEFA130423D219751D2239407849B37A2",
+      "gitBlob": "66a36d5cbe1b1541c838f7fa4f22373eabd50dbe",
+      "status": "modified"
+    },
+    {
+      "path": "scripts/Get-RelayReleaseTarget.ps1",
+      "rawSha256": "37286F2FF20CF639A377389CFE2209DD50EFD3C937D2035D21BEBA6608A3CC4E",
+      "gitBlob": "27827344f1ab0e0e859c22f9a63d173fa0894a8e",
+      "status": "modified"
+    },
+    {
+      "path": "scripts/Get-RelayStageReceipt.ps1",
+      "rawSha256": "40C0319B8AC0D8108BE692E1E030DB47F80483B1E270A2CAE8F7568184A3CC70",
+      "gitBlob": "2e04269bf206f6fa4d353ede4e11caa5a0f20b95",
+      "status": "added"
+    },
+    {
+      "path": "scripts/Relay.Release.psd1",
+      "rawSha256": "F38A8EA284F8A625E0461375612D1CEBE4167213AF9174294DE827BF53E8E776",
+      "gitBlob": "5400cc6b39fc544bdce61c5d5eb2ad7495c43aa6",
+      "status": "modified"
+    },
+    {
+      "path": "scripts/Test-RelayPromotion.ps1",
+      "rawSha256": "EB148DA96538A60E7482F81288865E570DD9F29FC77EF6AC3E09AF80487D2C3E",
+      "gitBlob": "52971660bb9fbb2e41b7669157e1ddef9db259d0",
+      "status": "modified"
+    }
+  ],
+  "deletions": [],
+  "evidence": [
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-plan-W10.md",
+      "sha256": "A2E037B45937993E21FCEC7F15DD2B49854834650EA7FB67463E38977A894600"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-baseline-W10.json",
+      "sha256": "9BCEAD9F58BE48A9B3A6813BA3FF2985FC77A0FDD10C6B31DFE4AE86ED293208"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-pr16-body-W11.txt",
+      "sha256": "231349F260B5C8BCF3A714F68CDFC6BED65A43439D2E169061A0B0EBD080EAA4"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-01.log",
+      "sha256": "2845E6711F32848FFCFD31C0867D132B231C2B5D420E7657431FA87AB5863AC9"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-02.log",
+      "sha256": "9F9687D467DE8B2F48234B0E1C4A1B29F562789C85EBAF179E631133EE122267"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-03.log",
+      "sha256": "A91ABB48F40764D2FB7100AA86F28C7EC4414950523F6E5D0A5166EBE49CFB08"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-04.log",
+      "sha256": "741A4168CB95E9CA466ACF3C68622F746FA78518B8FE36A49723E776997C21D7"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W11-05.log",
+      "sha256": "254CBC40DB6C98043958A2454AF9ED04CBA6066459A2EB9FC820CEE1D6A12F6F"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-workflow-W11-01.log",
+      "sha256": "03FBC9C117C2BE77A4B736D521D348B9EEC67A5AFE98EEAFF504831E2867D9DF"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-package-W11-01.log",
+      "sha256": "9F238BB4A9236D47B9901E27BF292917CA8474D09F2B4F52ABCCFD96F173A131"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-prepare-W11-01.log",
+      "sha256": "6D265A7191B8E7610784C3A08C281E9FD4EED13186FB950EDAF48057D8922C75"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-actionlint-W11-01.log",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-diffcheck-W11-01.log",
+      "sha256": "B74A92AC819943374BDAA98705F72C4748C297C7916770CC08683265D630BF67"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/W11-release-05/mocked-gh-reads.json",
+      "sha256": "B335E50E204A1C8295C5C7D4C4CD3D8ECCED5C45FF3B01C605FD3C57B4377990"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/W11-release-05/transport-build.log",
+      "sha256": "0ED9766854AFA0FE46642ED9E2932BB07BCF292FDFDA65CD1BCA00FACE0CC9AA"
+    },
+    {
+      "sha256": "D267CA042DE57FB1E8F114B45B977E22DCCF6ECBECD5B5439CE3D6CEB67D50E4",
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-result-W11.json"
+    },
+    {
+      "sha256": "3F2A565342616538154C0E4FE6BD4E7CB20BD394F0730747130B8588D76A49B0",
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-pr16-body-W12.txt"
+    },
+    {
+      "sha256": "FDA20A826323D7375417E477A7592BED5A65324C9F746E5A9550699C71DDDBC3",
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-release-W12-01.log"
+    },
+    {
+      "sha256": "B74A92AC819943374BDAA98705F72C4748C297C7916770CC08683265D630BF67",
+      "path": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-diffcheck-W12-01.log"
+    },
+    {
+      "sha256": "8B8C0DAE013D8BACD2C65AFCD8B779325476C4945A2DC1E2D516D921627A2B93",
+      "path": "Documentation/Projects/Working/logs/W12-release-01/mocked-gh-reads.json"
+    },
+    {
+      "sha256": "8140F7145F3B40A2B65D977EEE0F3D73E0ABC35DA3A4739DD0A751EAF0FDD3F8",
+      "path": "Documentation/Projects/Working/logs/W12-release-01/transport-build.log"
+    }
+  ],
+  "checks": {
+    "total": 264,
+    "mockedMetadataReads": 410,
+    "package": 19,
+    "preflight": 13,
+    "workflow": 28,
+    "diffcheckExit": 0,
+    "actionlintExit": 0,
+    "release": 204,
+    "fail": 0
+  },
+  "identity": {
+    "packageTupleUnchanged": true,
+    "packageZipSha256": "E4473862F6A6406B8DC021CFFCB34B82247AAD7640D9FE0CB3659D1A8DBB87FC",
+    "wrapperSha256": "255B70A03DB79149BEF46A9880AE51F9816CD77FD8E203D531EB4312B1B0DA8F",
+    "unchangedDependencies": [
+      {
+        "sha256": "8CD6DFEACB15F2AB663B416D3F9E519B40269C252CB9FD928661CCD6A9C34B5E",
+        "path": "scripts/Test-RelayBuildAcceptance.ps1"
+      },
+      {
+        "sha256": "D1D627C0D3A507F8FF9D9CF2F0D6E90B465E937369397BFB88880192BC0FE66B",
+        "path": "scripts/Test-RelayPackage.ps1"
+      },
+      {
+        "sha256": "08A8CEDAAD26F6A9E7745EA26EFE357DF22B494AF2036B2D0225774C473C37B2",
+        "path": "scripts/New-RelayStageReceipt.ps1"
+      },
+      {
+        "sha256": "F032F8CCF2A57DAB636B06B25777D6DC7730230C1EDF34557816AC4E9FDDA351",
+        "path": "Tests/Deployment/Package-Promotion.Tests.ps1"
+      }
+    ],
+    "apiAndSdkDiffPaths": [],
+    "literalFalseJobs": 3,
+    "realOwnerNonhashFieldsBlank": true,
+    "noPublicationOrExternalEffects": true
+  },
+  "pr": {
+    "expectedOldBodySha256": "F2C56293217C4E23E69E9CA9CF1DB10A72DAE4F81E88CF2E2A65D2D4EF154B90",
+    "expectedBase": "874f54c7f4795a07f9f3e4b1b3dd13d0a4b4f500",
+    "bodyFile": "Documentation/Projects/Working/logs/RELAY-NO-PINS-01-pr16-body-W12.txt",
+    "expectedOldHead": "c61956f79a0cae963551f271686f1f1298622c53",
+    "route": "coordinator only after result PASS and committed-target verification; FF existing branch push then exact body-file edit; no duplicate/merge/dispatch",
+    "title": "Migrate Relay API and consolidate disabled release controls",
+    "bodySha256": "3F2A565342616538154C0E4FE6BD4E7CB20BD394F0730747130B8588D76A49B0",
+    "newHead": "future accepted commit, not yet created",
+    "number": 16
+  },
+  "limitations": [
+    "No new Linux execution yet; only automatic nondeployment CI permitted after reviewed publication",
+    "All jobs literal false; no live acceptance",
+    "W8 c619 merge/inverse candidate becomes stale on new head; W9 creation PASS historical"
+  ],
+  "correction": {
+    "reusedUnchangedChecks": 60,
+    "firstPageOnlyCalls": 0,
+    "priorResultSha256": "D267CA042DE57FB1E8F114B45B977E22DCCF6ECBECD5B5439CE3D6CEB67D50E4",
+    "changedSource": [
+      "scripts/Test-RelayPromotion.ps1",
+      "Tests/Deployment/Release-Workflow.Tests.ps1"
+    ],
+    "affectedExecutedChecks": 204,
+    "finding": "RELAY-NP-F01",
+    "oracle": "selected artifact page2 for both Test/Prod, duplicate artifact across pages rejected, unpaginated route forbidden",
+    "noPublicationOrExternalEffects": true
+  }
+}

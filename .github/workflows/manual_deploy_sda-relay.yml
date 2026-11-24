@@ -1,0 +1,254 @@
+name: Deploy Relay (choose environment; currently disabled)
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Fixed Relay deployment stage
+        required: true
+        type: choice
+        options: [dev, test, prod]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: relay-webapp-${{ inputs.environment }}
+  cancel-in-progress: false
+jobs:
+  deploy_dev:
+    name: Relay deployment dev
+    if: ${{ false && inputs.environment == 'dev' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: sda-dev
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELAY_AZURE_CLIENT_ID: ${{ vars.RELAY_AZURE_CLIENT_ID }}
+      RELAY_AZURE_TENANT_ID: ${{ vars.RELAY_AZURE_TENANT_ID }}
+      RELAY_AZURE_SUBSCRIPTION_ID: ${{ vars.RELAY_AZURE_SUBSCRIPTION_ID }}
+      RELAY_PREVIOUS_ACCEPTED_RUN_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RUN_ID }}
+      RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Validate fixed target and reviewed control revision
+        id: target
+        shell: pwsh
+        run: |
+          $target=./scripts/Get-RelayReleaseTarget.ps1 -Stage dev -RequireOwner
+          foreach ($item in @{client=$target.DeploymentClientId;tenant=$target.TenantId;subscription=$target.Subscription;app=$target.AppResourceId;plan=$target.PlanResourceId}.GetEnumerator()) {
+            "$($item.Key)=$($item.Value)" >> $env:GITHUB_OUTPUT
+          }
+      - name: Verify fixed independently accepted manual package identity
+        shell: pwsh
+        run: ./scripts/Test-RelayBuildAcceptance.ps1
+
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: 14743586651
+          merge-multiple: true
+          run-id: 44994573298
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/relay-package
+      - name: Verify original bytes without rebuilding
+        shell: pwsh
+        run: |
+          $package=(Import-PowerShellDataFile ./scripts/Relay.Release.psd1).Package
+          ./scripts/Test-RelayPackage.ps1 -PackageDirectory '${{ runner.temp }}/relay-package' -ReleaseSha $package.SourceCommit -ExpectedBuildRunId $package.BuildRunId -AcceptedPackageSha256 $package.Sha256
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ steps.target.outputs.client }}
+          tenant-id: ${{ steps.target.outputs.tenant }}
+          subscription-id: ${{ steps.target.outputs.subscription }}
+      - name: Read-only exact ordinary host validation
+        shell: pwsh
+        env:
+          APP_ID: ${{ steps.target.outputs.app }}
+          PLAN_ID: ${{ steps.target.outputs.plan }}
+        run: ./scripts/Prepare-RelayDeployment.ps1 -Environment Dev -AppResourceId $env:APP_ID -PlanResourceId $env:PLAN_ID
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: sda-relay-api-dev
+          package: ${{ runner.temp }}/relay-package/relay.zip
+      - name: Record deployment action (not owner acceptance)
+        shell: pwsh
+        run: ./scripts/New-RelayStageReceipt.ps1 -Stage dev -OutputPath '${{ runner.temp }}/stage-receipt.json'
+      - uses: actions/upload-artifact@v4
+        id: stage_artifact
+        with:
+          name: relay-stage-dev
+          path: ${{ runner.temp }}/stage-receipt.json
+          retention-days: 30
+          if-no-files-found: error
+      - name: Record immutable receipt artifact identity
+        shell: pwsh
+        env:
+          ARTIFACT_ID: ${{ steps.stage_artifact.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.stage_artifact.outputs.artifact-digest }}
+        run: |
+          "dev deployment action only; run=$env:GITHUB_RUN_ID; artifact=$env:ARTIFACT_ID; digest=$env:ARTIFACT_DIGEST; independent owner stage acceptance still required" >> $env:GITHUB_STEP_SUMMARY
+  deploy_test:
+    name: Relay deployment test
+    if: ${{ false && inputs.environment == 'test' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: sda-test
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELAY_AZURE_CLIENT_ID: ${{ vars.RELAY_AZURE_CLIENT_ID }}
+      RELAY_AZURE_TENANT_ID: ${{ vars.RELAY_AZURE_TENANT_ID }}
+      RELAY_AZURE_SUBSCRIPTION_ID: ${{ vars.RELAY_AZURE_SUBSCRIPTION_ID }}
+      RELAY_PREVIOUS_ACCEPTED_RUN_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RUN_ID }}
+      RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Validate fixed target and reviewed control revision
+        id: target
+        shell: pwsh
+        run: |
+          $target=./scripts/Get-RelayReleaseTarget.ps1 -Stage test -RequireOwner
+          foreach ($item in @{client=$target.DeploymentClientId;tenant=$target.TenantId;subscription=$target.Subscription;app=$target.AppResourceId;plan=$target.PlanResourceId}.GetEnumerator()) {
+            "$($item.Key)=$($item.Value)" >> $env:GITHUB_OUTPUT
+          }
+      - name: Verify fixed independently accepted manual package identity
+        shell: pwsh
+        run: ./scripts/Test-RelayBuildAcceptance.ps1
+      - name: Verify owner-accepted predecessor stage and fixed job proof
+        shell: pwsh
+        run: ./scripts/Test-RelayPromotion.ps1 -Stage test -ScratchDirectory '${{ runner.temp }}/predecessor/stage-receipt.json'
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: 14743586651
+          merge-multiple: true
+          run-id: 44994573298
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/relay-package
+      - name: Verify original bytes without rebuilding
+        shell: pwsh
+        run: |
+          $package=(Import-PowerShellDataFile ./scripts/Relay.Release.psd1).Package
+          ./scripts/Test-RelayPackage.ps1 -PackageDirectory '${{ runner.temp }}/relay-package' -ReleaseSha $package.SourceCommit -ExpectedBuildRunId $package.BuildRunId -AcceptedPackageSha256 $package.Sha256
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ steps.target.outputs.client }}
+          tenant-id: ${{ steps.target.outputs.tenant }}
+          subscription-id: ${{ steps.target.outputs.subscription }}
+      - name: Read-only exact ordinary host validation
+        shell: pwsh
+        env:
+          APP_ID: ${{ steps.target.outputs.app }}
+          PLAN_ID: ${{ steps.target.outputs.plan }}
+        run: ./scripts/Prepare-RelayDeployment.ps1 -Environment Test -AppResourceId $env:APP_ID -PlanResourceId $env:PLAN_ID
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: sda-relay-api-test
+          package: ${{ runner.temp }}/relay-package/relay.zip
+      - name: Record deployment action (not owner acceptance)
+        shell: pwsh
+        run: ./scripts/New-RelayStageReceipt.ps1 -Stage test -OutputPath '${{ runner.temp }}/stage-receipt.json'
+      - uses: actions/upload-artifact@v4
+        id: stage_artifact
+        with:
+          name: relay-stage-test
+          path: ${{ runner.temp }}/stage-receipt.json
+          retention-days: 30
+          if-no-files-found: error
+      - name: Record immutable receipt artifact identity
+        shell: pwsh
+        env:
+          ARTIFACT_ID: ${{ steps.stage_artifact.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.stage_artifact.outputs.artifact-digest }}
+        run: |
+          "test deployment action only; run=$env:GITHUB_RUN_ID; artifact=$env:ARTIFACT_ID; digest=$env:ARTIFACT_DIGEST; independent owner stage acceptance still required" >> $env:GITHUB_STEP_SUMMARY
+  deploy_prod:
+    name: Relay deployment prod
+    if: ${{ false && inputs.environment == 'prod' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: sda-prod
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELAY_AZURE_CLIENT_ID: ${{ vars.RELAY_AZURE_CLIENT_ID }}
+      RELAY_AZURE_TENANT_ID: ${{ vars.RELAY_AZURE_TENANT_ID }}
+      RELAY_AZURE_SUBSCRIPTION_ID: ${{ vars.RELAY_AZURE_SUBSCRIPTION_ID }}
+      RELAY_PREVIOUS_ACCEPTED_RUN_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_RUN_ID }}
+      RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID: ${{ vars.RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Validate fixed target and reviewed control revision
+        id: target
+        shell: pwsh
+        run: |
+          $target=./scripts/Get-RelayReleaseTarget.ps1 -Stage prod -RequireOwner
+          foreach ($item in @{client=$target.DeploymentClientId;tenant=$target.TenantId;subscription=$target.Subscription;app=$target.AppResourceId;plan=$target.PlanResourceId}.GetEnumerator()) {
+            "$($item.Key)=$($item.Value)" >> $env:GITHUB_OUTPUT
+          }
+      - name: Verify fixed independently accepted manual package identity
+        shell: pwsh
+        run: ./scripts/Test-RelayBuildAcceptance.ps1
+      - name: Verify owner-accepted predecessor stage and fixed job proof
+        shell: pwsh
+        run: ./scripts/Test-RelayPromotion.ps1 -Stage prod -ScratchDirectory '${{ runner.temp }}/predecessor/stage-receipt.json'
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: 14743586651
+          merge-multiple: true
+          run-id: 44994573298
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/relay-package
+      - name: Verify original bytes without rebuilding
+        shell: pwsh
+        run: |
+          $package=(Import-PowerShellDataFile ./scripts/Relay.Release.psd1).Package
+          ./scripts/Test-RelayPackage.ps1 -PackageDirectory '${{ runner.temp }}/relay-package' -ReleaseSha $package.SourceCommit -ExpectedBuildRunId $package.BuildRunId -AcceptedPackageSha256 $package.Sha256
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ steps.target.outputs.client }}
+          tenant-id: ${{ steps.target.outputs.tenant }}
+          subscription-id: ${{ steps.target.outputs.subscription }}
+      - name: Read-only exact ordinary host validation
+        shell: pwsh
+        env:
+          APP_ID: ${{ steps.target.outputs.app }}
+          PLAN_ID: ${{ steps.target.outputs.plan }}
+        run: ./scripts/Prepare-RelayDeployment.ps1 -Environment Prod -AppResourceId $env:APP_ID -PlanResourceId $env:PLAN_ID
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: sda-relay-api-prod
+          package: ${{ runner.temp }}/relay-package/relay.zip
+      - name: Record deployment action (not owner acceptance)
+        shell: pwsh
+        run: ./scripts/New-RelayStageReceipt.ps1 -Stage prod -OutputPath '${{ runner.temp }}/stage-receipt.json'
+      - uses: actions/upload-artifact@v4
+        id: stage_artifact
+        with:
+          name: relay-stage-prod
+          path: ${{ runner.temp }}/stage-receipt.json
+          retention-days: 30
+          if-no-files-found: error
+      - name: Record immutable receipt artifact identity
+        shell: pwsh
+        env:
+          ARTIFACT_ID: ${{ steps.stage_artifact.outputs.artifact-id }}
+          ARTIFACT_DIGEST: ${{ steps.stage_artifact.outputs.artifact-digest }}
+        run: |
+          "prod deployment action only; run=$env:GITHUB_RUN_ID; artifact=$env:ARTIFACT_ID; digest=$env:ARTIFACT_DIGEST; independent owner stage acceptance still required" >> $env:GITHUB_STEP_SUMMARY

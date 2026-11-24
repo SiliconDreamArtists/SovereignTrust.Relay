@@ -1,0 +1,213 @@
+{
+  "htmlUrl": "https://github.com/discord/discord-api-docs/blob/main/developers/interactions/overview.mdx",
+  "repository": "discord/discord-api-docs",
+  "gitBlob": "ee87bcfe177a25e8641715cc033ec861900a50da",
+  "excerpts": [
+    {
+      "line": 25,
+      "text": "\n- **Slash commands** are the most common type of command and are accessed by typing `/` in the chat input, or by opening the command picker.\n- **Message commands** are commands related to a message or a message's content. They're accessed by clicking on the context menu (the three dots) at the top-right of a message (or right clicking on a message), then navigating to the \"Apps\" section.\n- **User commands** are commands that related to a user in Discord. They're accessed by right clicking on a user profile, then navigating to the \"Apps\" section.\n- **Entry Point commands** are commands used as the primary way to launch [Activities](/developers/activities/overview) from the App Launcher."
+    },
+    {
+      "line": 64,
+      "text": "\nBy default your app will receive interactions via a Gateway connection, but you can opt-in to HTTP-based interactions by adding a **Interactions Endpoint URL** to your app's settings. Technical details about handling interactions is in the [Receiving and Responding](/developers/interactions/receiving-and-responding) documentation.\n\n### Configuring an Interactions Endpoint URL\n"
+    },
+    {
+      "line": 66,
+      "text": "\n### Configuring an Interactions Endpoint URL\n\nA **Interactions Endpoint URL** is a public endpoint for your app where Discord can send your app HTTP-based interactions. If your app is using [Gateway](/developers/events/gateway)-based interactions, you don't need to configure an Interactions Endpoint URL.\n"
+    },
+    {
+      "line": 68,
+      "text": "\nA **Interactions Endpoint URL** is a public endpoint for your app where Discord can send your app HTTP-based interactions. If your app is using [Gateway](/developers/events/gateway)-based interactions, you don't need to configure an Interactions Endpoint URL.\n\n#### Setting Up an Endpoint\n"
+    },
+    {
+      "line": 72,
+      "text": "\nBefore you can add your Interactions Endpoint URL to your app, your endpoint must be prepared for two things ahead of time:\n\n1. Acknowledging `PING` requests from Discord\n2. Validate security-related request headers (`X-Signature-Ed25519` and `X-Signature-Timestamp`)"
+    },
+    {
+      "line": 74,
+      "text": "\n1. Acknowledging `PING` requests from Discord\n2. Validate security-related request headers (`X-Signature-Ed25519` and `X-Signature-Timestamp`)\n\nIf either of these are not complete, your Interactions Endpoint URL will not be validated. Details on acknowledging PING requests and validating security-related headers are in the sections below."
+    },
+    {
+      "line": 75,
+      "text": "1. Acknowledging `PING` requests from Discord\n2. Validate security-related request headers (`X-Signature-Ed25519` and `X-Signature-Timestamp`)\n\nIf either of these are not complete, your Interactions Endpoint URL will not be validated. Details on acknowledging PING requests and validating security-related headers are in the sections below.\n"
+    },
+    {
+      "line": 77,
+      "text": "\nIf either of these are not complete, your Interactions Endpoint URL will not be validated. Details on acknowledging PING requests and validating security-related headers are in the sections below.\n\n#### Acknowledging PING requests\n"
+    },
+    {
+      "line": 79,
+      "text": "\n#### Acknowledging PING requests\n\nWhen adding your Interactions Endpoint URL, Discord will send a `POST` request with a `PING` payload with a `type: 1` to your endpoint. Your app is expected to acknowledge the request by returning a `200` response with a `PONG` payload (which has the same `type: 1`). Details about interaction responses are in the [Receiving and Responding documentation](/developers/interactions/receiving-and-responding).\n"
+    },
+    {
+      "line": 81,
+      "text": "\nWhen adding your Interactions Endpoint URL, Discord will send a `POST` request with a `PING` payload with a `type: 1` to your endpoint. Your app is expected to acknowledge the request by returning a `200` response with a `PONG` payload (which has the same `type: 1`). Details about interaction responses are in the [Receiving and Responding documentation](/developers/interactions/receiving-and-responding).\n\n<Info>\nYou must provide a valid `Content-Type` when responding to `PING`s. See [here](/developers/reference#http-api) for further information."
+    },
+    {
+      "line": 84,
+      "text": "<Info>\nYou must provide a valid `Content-Type` when responding to `PING`s. See [here](/developers/reference#http-api) for further information.\n</Info>\n\n<Accordion title=\"Responding to PING Requests\" description=\"Code example for acknowledging PING interactions\" icon=\"code\">"
+    },
+    {
+      "line": 87,
+      "text": "\n<Accordion title=\"Responding to PING Requests\" description=\"Code example for acknowledging PING interactions\" icon=\"code\">\nTo properly acknowledge a `PING` payload, return a `200` response with a payload of `type: 1`:\n\n```py"
+    },
+    {
+      "line": 88,
+      "text": "<Accordion title=\"Responding to PING Requests\" description=\"Code example for acknowledging PING interactions\" icon=\"code\">\nTo properly acknowledge a `PING` payload, return a `200` response with a payload of `type: 1`:\n\n```py\n@app.route('/', methods=['POST'])"
+    },
+    {
+      "line": 100,
+      "text": "\n<ManualAnchor id=\"setting-up-an-endpoint-validating-security-request-headers\" />\n###### Validating Security Request Headers\n\nThe internet is a scary place, especially for people hosting public, unauthenticated endpoints. To receive interactions via HTTP, there are some security steps you **must** take before your app is eligible to receive requests."
+    },
+    {
+      "line": 101,
+      "text": "<ManualAnchor id=\"setting-up-an-endpoint-validating-security-request-headers\" />\n###### Validating Security Request Headers\n\nThe internet is a scary place, especially for people hosting public, unauthenticated endpoints. To receive interactions via HTTP, there are some security steps you **must** take before your app is eligible to receive requests.\n"
+    },
+    {
+      "line": 107,
+      "text": "\n-   `X-Signature-Ed25519` as a signature\n-   `X-Signature-Timestamp` as a timestamp\n\nUsing your favorite security library, you **must validate the request each time you receive an [interaction](/developers/interactions/receiving-and-responding#interaction-object)**. If the signature fails validation, your app should respond with a `401` error code."
+    },
+    {
+      "line": 108,
+      "text": "-   `X-Signature-Ed25519` as a signature\n-   `X-Signature-Timestamp` as a timestamp\n\nUsing your favorite security library, you **must validate the request each time you receive an [interaction](/developers/interactions/receiving-and-responding#interaction-object)**. If the signature fails validation, your app should respond with a `401` error code.\n"
+    },
+    {
+      "line": 110,
+      "text": "\nUsing your favorite security library, you **must validate the request each time you receive an [interaction](/developers/interactions/receiving-and-responding#interaction-object)**. If the signature fails validation, your app should respond with a `401` error code.\n\n<Accordion title=\"Validating Security Headers\" description=\"Code example for validating security-related request headers\" icon=\"code\">\nBelow are some code examples that show how to validate the headers sent in interactions requests."
+    },
+    {
+      "line": 112,
+      "text": "\n<Accordion title=\"Validating Security Headers\" description=\"Code example for validating security-related request headers\" icon=\"code\">\nBelow are some code examples that show how to validate the headers sent in interactions requests.\n\n**JavaScript**"
+    },
+    {
+      "line": 113,
+      "text": "<Accordion title=\"Validating Security Headers\" description=\"Code example for validating security-related request headers\" icon=\"code\">\nBelow are some code examples that show how to validate the headers sent in interactions requests.\n\n**JavaScript**\n"
+    },
+    {
+      "line": 120,
+      "text": "\n// Your public key can be found on your application in the Developer Portal\nconst PUBLIC_KEY = \"APPLICATION_PUBLIC_KEY\";\n\nconst signature = req.get(\"X-Signature-Ed25519\");"
+    },
+    {
+      "line": 123,
+      "text": "\nconst signature = req.get(\"X-Signature-Ed25519\");\nconst timestamp = req.get(\"X-Signature-Timestamp\");\nconst body = req.rawBody; // rawBody is expected to be a string, not raw bytes\n"
+    },
+    {
+      "line": 124,
+      "text": "const signature = req.get(\"X-Signature-Ed25519\");\nconst timestamp = req.get(\"X-Signature-Timestamp\");\nconst body = req.rawBody; // rawBody is expected to be a string, not raw bytes\n\nconst isVerified = nacl.sign.detached.verify("
+    },
+    {
+      "line": 129,
+      "text": "    Buffer.from(timestamp + body),\n    Buffer.from(signature, \"hex\"),\n    Buffer.from(PUBLIC_KEY, \"hex\")\n);\n"
+    },
+    {
+      "line": 134,
+      "text": "if (!isVerified) {\n    return res.status(401).end(\"invalid request signature\");\n}\n```\n"
+    },
+    {
+      "line": 142,
+      "text": "from nacl.signing import VerifyKey\nfrom nacl.exceptions import BadSignatureError\n\n# Your public key can be found on your application in the Developer Portal\nPUBLIC_KEY = 'APPLICATION_PUBLIC_KEY'"
+    },
+    {
+      "line": 144,
+      "text": "\n# Your public key can be found on your application in the Developer Portal\nPUBLIC_KEY = 'APPLICATION_PUBLIC_KEY'\n\nverify_key = VerifyKey(bytes.fromhex(PUBLIC_KEY))"
+    },
+    {
+      "line": 149,
+      "text": "\nsignature = request.headers[\"X-Signature-Ed25519\"]\ntimestamp = request.headers[\"X-Signature-Timestamp\"]\nbody = request.data.decode(\"utf-8\")\n"
+    },
+    {
+      "line": 150,
+      "text": "signature = request.headers[\"X-Signature-Ed25519\"]\ntimestamp = request.headers[\"X-Signature-Timestamp\"]\nbody = request.data.decode(\"utf-8\")\n\ntry:"
+    },
+    {
+      "line": 154,
+      "text": "try:\n    verify_key.verify(f'{timestamp}{body}'.encode(), bytes.fromhex(signature))\nexcept BadSignatureError:\n    abort(401, 'invalid request signature')\n```"
+    },
+    {
+      "line": 155,
+      "text": "    verify_key.verify(f'{timestamp}{body}'.encode(), bytes.fromhex(signature))\nexcept BadSignatureError:\n    abort(401, 'invalid request signature')\n```\n"
+    },
+    {
+      "line": 156,
+      "text": "except BadSignatureError:\n    abort(401, 'invalid request signature')\n```\n\n**Java**"
+    },
+    {
+      "line": 166,
+      "text": "```java\nimport com.google.crypto.tink.subtle.Ed25519Verify;\nimport com.google.crypto.tink.subtle.Hex;\n\nimport java.nio.charset.StandardCharsets;"
+    },
+    {
+      "line": 172,
+      "text": "\npublic class Ed25519WebhookVerifier {\n    private final Ed25519Verify verifier;\n\n    public Ed25519WebhookVerifier(String publicKey) {"
+    },
+    {
+      "line": 173,
+      "text": "public class Ed25519WebhookVerifier {\n    private final Ed25519Verify verifier;\n\n    public Ed25519WebhookVerifier(String publicKey) {\n        this.verifier = new Ed25519Verify(Hex.decode(publicKey));"
+    },
+    {
+      "line": 175,
+      "text": "\n    public Ed25519WebhookVerifier(String publicKey) {\n        this.verifier = new Ed25519Verify(Hex.decode(publicKey));\n    }\n"
+    },
+    {
+      "line": 176,
+      "text": "    public Ed25519WebhookVerifier(String publicKey) {\n        this.verifier = new Ed25519Verify(Hex.decode(publicKey));\n    }\n\n    public boolean verify(String signature, String timestamp, String body) {"
+    },
+    {
+      "line": 179,
+      "text": "\n    public boolean verify(String signature, String timestamp, String body) {\n        try {\n            verifier.verify(Hex.decode(signature), (timestamp + body).getBytes(StandardCharsets.UTF_8));\n            return true;"
+    },
+    {
+      "line": 181,
+      "text": "        try {\n            verifier.verify(Hex.decode(signature), (timestamp + body).getBytes(StandardCharsets.UTF_8));\n            return true;\n        } catch (GeneralSecurityException e) {\n            return false;"
+    },
+    {
+      "line": 193,
+      "text": "```java\n// Your public key can be found on your application in the Developer Portal\nvar verifier = new Ed25519WebhookVerifier(\"PUBLIC_KEY\");\n\n// Get those from your favorite web server library"
+    },
+    {
+      "line": 194,
+      "text": "// Your public key can be found on your application in the Developer Portal\nvar verifier = new Ed25519WebhookVerifier(\"PUBLIC_KEY\");\n\n// Get those from your favorite web server library\n// The \"X-Signature-Ed25519\" header"
+    },
+    {
+      "line": 197,
+      "text": "// Get those from your favorite web server library\n// The \"X-Signature-Ed25519\" header\nString signature;\n// The \"X-Signature-Timestamp\" header\nString timestamp;"
+    },
+    {
+      "line": 198,
+      "text": "// The \"X-Signature-Ed25519\" header\nString signature;\n// The \"X-Signature-Timestamp\" header\nString timestamp;\n// Request body"
+    },
+    {
+      "line": 199,
+      "text": "String signature;\n// The \"X-Signature-Timestamp\" header\nString timestamp;\n// Request body\nString body;"
+    },
+    {
+      "line": 203,
+      "text": "String body;\nif (!verifier.verify(signature, timestamp, body)) {\n    // Signature is invalid, return an HTTP 401 response\n    throw new UnsupportedOperationException(\"Return a HTTP 401 response\");\n}"
+    },
+    {
+      "line": 204,
+      "text": "if (!verifier.verify(signature, timestamp, body)) {\n    // Signature is invalid, return an HTTP 401 response\n    throw new UnsupportedOperationException(\"Return a HTTP 401 response\");\n}\n```"
+    },
+    {
+      "line": 210,
+      "text": "\nIn addition to ensuring your app validates security-related request headers at the time of saving your endpoint, Discord will also perform automated, routine security checks against your endpoint, including purposefully sending you invalid signatures. If you fail the validation, we will remove your interactions URL and alert you via email and System DM.\n\nWe highly recommend checking out our [Community Resources](/developers/developer-tools/community-resources#interactions) and the libraries found there. They not only provide typing for Interactions data models, but also include decorators for API frameworks like Flask and Express to make validation easy.\n"
+    },
+    {
+      "line": 212,
+      "text": "\nWe highly recommend checking out our [Community Resources](/developers/developer-tools/community-resources#interactions) and the libraries found there. They not only provide typing for Interactions data models, but also include decorators for API frameworks like Flask and Express to make validation easy.\n\n#### Adding an Interactions Endpoint URL\n"
+    },
+    {
+      "line": 214,
+      "text": "\n#### Adding an Interactions Endpoint URL\n\nAfter you have a public endpoint to use as your app's Interactions Endpoint URL, you can add it to your app by going to your [app's settings](https://discord.com/developers/applications).\n"
+    },
+    {
+      "line": 216,
+      "text": "\nAfter you have a public endpoint to use as your app's Interactions Endpoint URL, you can add it to your app by going to your [app's settings](https://discord.com/developers/applications).\n\nOn the [**General Information** page](https://discord.com/developers/applications/select/information), look for the **Interactive Endpoint URL** field. Paste your public URL that is set up to acknowledge `PING` messages and correctly handles security-related signature headers.\n"
+    },
+    {
+      "line": 218,
+      "text": "\nOn the [**General Information** page](https://discord.com/developers/applications/select/information), look for the **Interactive Endpoint URL** field. Paste your public URL that is set up to acknowledge `PING` messages and correctly handles security-related signature headers.\n\n---\n"
+    }
+  ],
+  "path": "developers/interactions/overview.mdx",
+  "scope": "Primary official mechanics; no owner/app/key/callback observed or Portal access"
+}

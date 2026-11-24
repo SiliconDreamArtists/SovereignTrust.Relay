@@ -1,0 +1,205 @@
+PASS no owner hash property remains
+PASS fixed target dev
+PASS owner unbound dev (rejected: Owner packet is unbound: DeploymentClientId)
+PASS fixed target test
+PASS owner unbound test (rejected: Owner packet is unbound: DeploymentClientId)
+PASS fixed target prod
+PASS owner unbound prod (rejected: Owner packet is unbound: DeploymentClientId)
+PASS synthetic exact owner profile accepted
+PASS cross-environment RELAY_AZURE_CLIENT_ID rejected (rejected: Environment OIDC identity does not match fixed owner profile.)
+PASS cross-environment RELAY_AZURE_TENANT_ID rejected (rejected: Environment OIDC identity does not match fixed owner profile.)
+PASS cross-environment RELAY_AZURE_SUBSCRIPTION_ID rejected (rejected: Environment OIDC identity does not match fixed owner profile.)
+PASS synthetic exact owner test without manual hashes
+PASS synthetic owner test rejects absent acceptance ID (rejected: Owner predecessor pointers are incomplete or not single exact identities.)
+PASS synthetic exact owner prod without manual hashes
+PASS synthetic owner prod rejects absent acceptance ID (rejected: Owner predecessor pointers are incomplete or not single exact identities.)
+PASS unknown stage (rejected: Cannot validate argument on parameter 'Stage'. The argument "arbitrary" does not belong to the set "dev,test,prod" specified by the ValidateSet attribute. Supply an argument that is in the set and then try the command again.)
+PASS wrong control ref (rejected: Invalid deployment control context/ref.)
+PASS legacy manual control hash is ignored
+PASS authenticated current run rejects CurrentRepo (rejected: Current control run metadata differs from Actions context.)
+PASS authenticated current run rejects CurrentEvent (rejected: Current control run metadata differs from Actions context.)
+PASS authenticated current run rejects CurrentSha (rejected: Current control run metadata differs from Actions context.)
+PASS authenticated current run rejects CurrentBranch (rejected: Current control run metadata differs from Actions context.)
+PASS new control revision differs from fixed package source
+PASS build rejects push (rejected: Original package manual workflow/source/ref is not the accepted successful build.)
+PASS build rejects pull_request (rejected: Original package manual workflow/source/ref is not the accepted successful build.)
+PASS build rejects source (rejected: Original package manual workflow/source/ref is not the accepted successful build.)
+PASS build rejects artifact (rejected: Accepted manual artifact ID/digest/source missing, expired or changed.)
+PASS build rejects digest (rejected: Accepted manual artifact ID/digest/source missing, expired or changed.)
+PASS build rejects expired (rejected: Accepted manual artifact ID/digest/source missing, expired or changed.)
+PASS build rejects duplicate (rejected: Accepted manual artifact ID/digest/source missing, expired or changed.)
+PASS build rejects caller-run (rejected: Caller cannot replace the independently accepted package tuple.)
+PASS build rejects caller-sha (rejected: Caller cannot replace the independently accepted package tuple.)
+PASS writer resolves in-progress dev job
+PASS writer does not award dev acceptance
+PASS writer immutable dev output (rejected: Exception calling ".ctor" with "4" argument(s): "The file 'C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Documentation\Projects\Working\logs\W12-release-01\writer-dev.json' already exists.")
+PASS writer preserves existing dev bytes
+PASS writer rejects completed dev job (rejected: Current fixed deployment job identity is missing/ambiguous.)
+PASS test predecessor valid
+PASS test scratch boundary valid
+PASS test predecessor legacy-hashes-ignored
+PASS test scratch boundary legacy-hashes-ignored
+PASS test predecessor old-control-ref
+PASS test scratch boundary old-control-ref
+PASS test predecessor missing-owner (rejected: Missing owner-accepted predecessor run/artifact IDs.)
+PASS test scratch boundary missing-owner
+PASS test predecessor self-awarded (rejected: Missing owner-accepted predecessor run/artifact IDs.)
+PASS test scratch boundary self-awarded
+PASS test predecessor corrupt-archive (rejected: Downloaded predecessor archive digest mismatch.)
+PASS test scratch boundary corrupt-archive
+PASS test predecessor truncated-archive (rejected: Downloaded predecessor archive digest mismatch.)
+PASS test scratch boundary truncated-archive
+PASS test predecessor oversized-transport (rejected: Receipt archive exceeds size bound.)
+PASS test scratch boundary oversized-transport
+PASS test predecessor missing-digest (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary missing-digest
+PASS test predecessor malformed-digest (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary malformed-digest
+PASS test predecessor artifact-source (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary artifact-source
+PASS test predecessor artifact-run (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary artifact-run
+PASS test predecessor duplicate-entry (rejected: Unexpected receipt archive entries or size.)
+PASS test scratch boundary duplicate-entry
+PASS test predecessor traversal (rejected: Unexpected receipt archive entries or size.)
+PASS test scratch boundary traversal
+PASS test predecessor unexpected (rejected: Unexpected receipt archive entries or size.)
+PASS test scratch boundary unexpected
+PASS test predecessor oversized-json (rejected: Unexpected receipt archive entries or size.)
+PASS test scratch boundary oversized-json
+PASS test predecessor invalid-utf8 (rejected: Exception calling "Read" with "3" argument(s): "Unable to translate bytes [FF] at index 0 from specified code page to Unicode.")
+PASS test scratch boundary invalid-utf8
+PASS test predecessor invalid-json (rejected: Conversion from JSON failed with error: Unexpected end when reading JSON. Path '', line 1, position 1.)
+PASS test scratch boundary invalid-json
+PASS test predecessor array-root (rejected: Receipt must be a JSON object.)
+PASS test scratch boundary array-root
+PASS test predecessor package-array (rejected: Predecessor package tuple changed: Sha256)
+PASS test scratch boundary package-array
+PASS test predecessor nonscalar (rejected: Predecessor receipt field must be scalar text: stage)
+PASS test scratch boundary nonscalar
+PASS test predecessor transport-exit (rejected: Artifact transport failed.)
+PASS test scratch boundary transport-exit
+PASS test predecessor scratch-collision (rejected: Receipt scratch directory must be new.)
+PASS test scratch boundary scratch-collision
+PASS test predecessor wrong-artifact (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary wrong-artifact
+PASS test predecessor duplicate-artifact (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary duplicate-artifact
+PASS test predecessor expired (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary expired
+PASS test predecessor wrong-stage (rejected: Predecessor stage/job/target/control identity mismatch.)
+PASS test scratch boundary wrong-stage
+PASS test predecessor wrong-target (rejected: Predecessor stage/job/target/control identity mismatch.)
+PASS test scratch boundary wrong-target
+PASS test predecessor wrong-package (rejected: Predecessor package tuple changed: Sha256)
+PASS test scratch boundary wrong-package
+PASS test predecessor wrong-job (rejected: Predecessor numeric job identity differs from receipt.)
+PASS test scratch boundary wrong-job
+PASS test predecessor failed-job (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS test scratch boundary failed-job
+PASS test predecessor canceled-job (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS test scratch boundary canceled-job
+PASS test predecessor skipped-job (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS test scratch boundary skipped-job
+PASS test predecessor duplicate-job (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS test scratch boundary duplicate-job
+PASS test predecessor wrong-stage-success (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS test scratch boundary wrong-stage-success
+PASS test predecessor wrong-run-control (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS test scratch boundary wrong-run-control
+PASS test predecessor wrong-blob (rejected: Historical control workflow blob mismatch.)
+PASS test scratch boundary wrong-blob
+PASS test predecessor wrong-structure (rejected: Historical fixed stage job structure does not match accepted receipt.)
+PASS test scratch boundary wrong-structure
+PASS test predecessor wrong-event (rejected: Predecessor is not an accepted completed manual run.)
+PASS test scratch boundary wrong-event
+PASS test predecessor failed-run (rejected: Predecessor is not an accepted completed manual run.)
+PASS test scratch boundary failed-run
+PASS writer resolves in-progress test job
+PASS writer does not award test acceptance
+PASS writer immutable test output (rejected: Exception calling ".ctor" with "4" argument(s): "The file 'C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Documentation\Projects\Working\logs\W12-release-01\writer-test.json' already exists.")
+PASS writer preserves existing test bytes
+PASS writer rejects completed test job (rejected: Current fixed deployment job identity is missing/ambiguous.)
+PASS prod predecessor valid
+PASS prod scratch boundary valid
+PASS prod predecessor legacy-hashes-ignored
+PASS prod scratch boundary legacy-hashes-ignored
+PASS prod predecessor old-control-ref
+PASS prod scratch boundary old-control-ref
+PASS prod predecessor missing-owner (rejected: Missing owner-accepted predecessor run/artifact IDs.)
+PASS prod scratch boundary missing-owner
+PASS prod predecessor self-awarded (rejected: Missing owner-accepted predecessor run/artifact IDs.)
+PASS prod scratch boundary self-awarded
+PASS prod predecessor corrupt-archive (rejected: Downloaded predecessor archive digest mismatch.)
+PASS prod scratch boundary corrupt-archive
+PASS prod predecessor truncated-archive (rejected: Downloaded predecessor archive digest mismatch.)
+PASS prod scratch boundary truncated-archive
+PASS prod predecessor oversized-transport (rejected: Receipt archive exceeds size bound.)
+PASS prod scratch boundary oversized-transport
+PASS prod predecessor missing-digest (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS prod scratch boundary missing-digest
+PASS prod predecessor malformed-digest (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS prod scratch boundary malformed-digest
+PASS prod predecessor artifact-source (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS prod scratch boundary artifact-source
+PASS prod predecessor artifact-run (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS prod scratch boundary artifact-run
+PASS prod predecessor duplicate-entry (rejected: Unexpected receipt archive entries or size.)
+PASS prod scratch boundary duplicate-entry
+PASS prod predecessor traversal (rejected: Unexpected receipt archive entries or size.)
+PASS prod scratch boundary traversal
+PASS prod predecessor unexpected (rejected: Unexpected receipt archive entries or size.)
+PASS prod scratch boundary unexpected
+PASS prod predecessor oversized-json (rejected: Unexpected receipt archive entries or size.)
+PASS prod scratch boundary oversized-json
+PASS prod predecessor invalid-utf8 (rejected: Exception calling "Read" with "3" argument(s): "Unable to translate bytes [FF] at index 0 from specified code page to Unicode.")
+PASS prod scratch boundary invalid-utf8
+PASS prod predecessor invalid-json (rejected: Conversion from JSON failed with error: Unexpected end when reading JSON. Path '', line 1, position 1.)
+PASS prod scratch boundary invalid-json
+PASS prod predecessor array-root (rejected: Receipt must be a JSON object.)
+PASS prod scratch boundary array-root
+PASS prod predecessor package-array (rejected: Predecessor package tuple changed: Sha256)
+PASS prod scratch boundary package-array
+PASS prod predecessor nonscalar (rejected: Predecessor receipt field must be scalar text: stage)
+PASS prod scratch boundary nonscalar
+PASS prod predecessor transport-exit (rejected: Artifact transport failed.)
+PASS prod scratch boundary transport-exit
+PASS prod predecessor scratch-collision (rejected: Receipt scratch directory must be new.)
+PASS prod scratch boundary scratch-collision
+PASS prod predecessor wrong-artifact (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS prod scratch boundary wrong-artifact
+PASS prod predecessor duplicate-artifact (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS prod scratch boundary duplicate-artifact
+PASS prod predecessor expired (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS prod scratch boundary expired
+PASS prod predecessor wrong-stage (rejected: Predecessor stage/job/target/control identity mismatch.)
+PASS prod scratch boundary wrong-stage
+PASS prod predecessor wrong-target (rejected: Predecessor stage/job/target/control identity mismatch.)
+PASS prod scratch boundary wrong-target
+PASS prod predecessor wrong-package (rejected: Predecessor package tuple changed: Sha256)
+PASS prod scratch boundary wrong-package
+PASS prod predecessor wrong-job (rejected: Predecessor numeric job identity differs from receipt.)
+PASS prod scratch boundary wrong-job
+PASS prod predecessor failed-job (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS prod scratch boundary failed-job
+PASS prod predecessor canceled-job (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS prod scratch boundary canceled-job
+PASS prod predecessor skipped-job (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS prod scratch boundary skipped-job
+PASS prod predecessor duplicate-job (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS prod scratch boundary duplicate-job
+PASS prod predecessor wrong-stage-success (rejected: Successful fixed predecessor stage job is not uniquely established.)
+PASS prod scratch boundary wrong-stage-success
+PASS prod predecessor wrong-run-control (rejected: Wrong/missing/expired predecessor artifact or digest.)
+PASS prod scratch boundary wrong-run-control
+PASS prod predecessor wrong-blob (rejected: Historical control workflow blob mismatch.)
+PASS prod scratch boundary wrong-blob
+PASS prod predecessor wrong-structure (rejected: Historical fixed stage job structure does not match accepted receipt.)
+PASS prod scratch boundary wrong-structure
+PASS prod predecessor wrong-event (rejected: Predecessor is not an accepted completed manual run.)
+PASS prod scratch boundary wrong-event
+PASS prod predecessor failed-run (rejected: Predecessor is not an accepted completed manual run.)
+PASS prod scratch boundary failed-run
+PASS no unpaginated predecessor artifact lookup attempted
+PASS mock API vector exercised and retained
+Release workflow checks: 204 passed; 410 mocked GitHub reads, zero cloud calls.

@@ -1,0 +1,6 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  SovereignTrust.Relay.Azure -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\bin\Release\net10.0\SovereignTrust.Relay.Azure.dll
+  SovereignTrust.Relay.Azure -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Documentation\Projects\Working\logs\W4-actual-producer-windows\publish\
+PASS published Kestrel health/unsigned401/helpers404; no queue or callback invoked
+Package SHA256 D235590D429FCECB4E599C0E212F9AD9855895D9B4E38A32048713ACDDC25B78; source 2b4bf18603e5c8632654ff2bd743f75e10c2478e

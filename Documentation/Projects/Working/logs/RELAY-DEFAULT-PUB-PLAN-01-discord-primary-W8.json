@@ -1,0 +1,59 @@
+{
+  "retrievedUtc": "2026-11-22T07:51:27.5786473Z",
+  "htmlUrl": "https://github.com/discord/discord-api-docs/blob/main/developers/interactions/receiving-and-responding.mdx",
+  "limitations": [
+    "Official mechanics only, no Portal owner/application/current callback/key values observed.",
+    "Initial obsolete docs/interactions path404; discovered current developers/interactions path via official repository root; no repeated unchanged call.",
+    "Examples contain placeholder signing keys only; no real signing key, token or request body collected."
+  ],
+  "repository": "discord/discord-api-docs",
+  "gitBlob": "d9d41d7239c6960a69629e8aba29e5ba74471d32",
+  "primaryPage": "https://docs.discord.com/developers/interactions/receiving-and-responding",
+  "path": "developers/interactions/receiving-and-responding.mdx",
+  "excerpts": [
+    {
+      "text": "| entitlements                   | array of [entitlement](/developers/resources/entitlement#entitlement-object) objects                                                        | For [monetized apps](/developers/monetization/overview), any entitlements for the invoking user, representing access to premium [SKUs](/developers/resources/sku)                                                                                                          |\n| authorizing_integration_owners | dictionary with keys of [application integration types](/developers/resources/application#application-object-application-integration-types) | Mapping of installation contexts that the interaction was authorized for to related user or guild IDs. See [Authorizing Integration Owners Object](/developers/interactions/receiving-and-responding#interaction-object-authorizing-integration-owners-object) for details |\n| context?                       | [interaction context type](/developers/interactions/receiving-and-responding#interaction-object-interaction-context-types)                  | Context where the interaction was triggered from                                                                                                                                                                                                                           |\n| attachment_size_limit          | integer                                                                                                                                     | Attachment size limit in bytes                                                                                                                                                                                                                                             |",
+      "line": 41
+    },
+    {
+      "text": "\n\\*\\*\\*\\* This is available on all interaction types except PING\n\n<ManualAnchor id=\"interaction-object-interaction-type\" />",
+      "line": 51
+    },
+    {
+      "text": "|----------------------------------|-------|\n| PING                             | 1     |\n| APPLICATION_COMMAND              | 2     |\n| MESSAGE_COMPONENT                | 3     |",
+      "line": 58
+    },
+    {
+      "text": "\nWhile the `data` field is guaranteed to be present for all [interaction types](/developers/interactions/receiving-and-responding#interaction-object-interaction-type) besides `PING`, its structure will vary. The following tables detail the inner `data` payload for each interaction type.\n\n| Interaction Type                       | Interaction Data                                                                                                                              |",
+      "line": 95
+    },
+    {
+      "text": "|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|\n| PING (`1`)                             | N / A                                                                                                                                         |\n| APPLICATION_COMMAND (`2`)              | [Application Command Data Structure](/developers/interactions/receiving-and-responding#interaction-object-application-command-data-structure) |\n| MESSAGE_COMPONENT (`3`)                | [Message Component Data Structure](/developers/interactions/receiving-and-responding#interaction-object-message-component-data-structure)     |",
+      "line": 99
+    },
+    {
+      "text": "\nIf you want to receive interactions via HTTP-based outgoing webhooks, you must configure an Interactions Endpoint URL for your app. You can read about preparing and adding an Interactions Endpoint URL to your app in the [Preparing for Interactions](/developers/interactions/overview#preparing-for-interactions) section in Interactions Overview.\n\n### Interaction Metadata",
+      "line": 229
+    },
+    {
+      "text": "|-----------------------------------------|-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| PONG                                    | 1     | ACK a `Ping`                                                                                                                                                                                                                                      |\n| CHANNEL_MESSAGE_WITH_SOURCE             | 4     | Respond to an interaction with a message                                                                                                                                                                                                          |\n| DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE    | 5     | ACK an interaction and edit a response later, the user sees a loading state                                                                                                                                                                       |",
+      "line": 270
+    },
+    {
+      "text": "\n\\*\\* Not available for `MODAL_SUBMIT` and `PING` interactions.\n\n<ManualAnchor id=\"interaction-response-object-interaction-callback-data-structure\" />",
+      "line": 282
+    },
+    {
+      "text": "<Warning>\nIf your application responds with user data, you should use [`allowed_mentions`](/developers/resources/message#allowed-mentions-object) to filter which mentions in the content actually ping.\n</Warning>\n",
+      "line": 325
+    },
+    {
+      "text": "<Info>\nInteraction `tokens` are valid for **15 minutes** and can be used to send followup messages but you **must send an initial response within 3 seconds of receiving the event**. If the 3 second deadline is exceeded, the token will be invalidated.\n</Info>\n",
+      "line": 351
+    },
+    {
+      "text": "\nInteraction tokens are valid for **15 minutes**, meaning you can respond to an interaction within that amount of time.\n\n### Endpoints",
+      "line": 432
+    }
+  ]
+}

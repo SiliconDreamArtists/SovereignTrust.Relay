@@ -1,0 +1,28 @@
+PASS Only manual deployment event
+PASS Exactly one fixed environment dropdown
+PASS No arbitrary source target or bypass inputs
+PASS dev fixed job environment and target
+PASS dev literal false cannot be enabled by variables
+PASS dev accepted original bytes before login
+PASS dev never rebuilds accepted artifact
+PASS dev fixed receipt artifact
+PASS test fixed job environment and target
+PASS test literal false cannot be enabled by variables
+PASS test accepted original bytes before login
+PASS test never rebuilds accepted artifact
+PASS test fixed receipt artifact
+PASS test predecessor proof before login
+PASS prod fixed job environment and target
+PASS prod literal false cannot be enabled by variables
+PASS prod accepted original bytes before login
+PASS prod never rebuilds accepted artifact
+PASS prod fixed receipt artifact
+PASS prod predecessor proof before login
+PASS Retired source path manual_deploy_sda-relay-dev.yml
+PASS Retired source path manual_deploy_sda-relay-test-main.yml
+PASS Retired source path manual_deploy_sda-relay-prod-main.yml
+PASS CI/package build remains nondeployment
+PASS Manual and build-only artifacts remain distinct
+PASS Legacy remains reject-only
+PASS Exactly one deployment workflow source path
+Workflow contracts: 27 passed

@@ -1,0 +1,20 @@
+warning: LF will be replaced by CRLF in .github/workflows/main_publish_bddb-sda-prod-relay.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .github/workflows/main_publish_sda-relay-dev.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .github/workflows/manual_check_sda-relay-prod-link.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .github/workflows/manual_check_sda-relay-test-link.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .github/workflows/manual_deploy_sda-relay-prod-main.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in .github/workflows/manual_deploy_sda-relay-test-main.yml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Src/CSharp/Azure/SovereignTrust.Relay.Azure/ps/Call-Discord.ps1.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Tests/Deployment/Prepare-RelayDeployment.Tests.ps1.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in docs/Relay-Operations.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in scripts/Prepare-RelayDeployment.ps1.
+The file will have its original line endings in your working directory

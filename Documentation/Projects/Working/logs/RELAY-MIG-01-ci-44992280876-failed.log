@@ -1,0 +1,117 @@
+test	Test source and deployment guards	﻿2026-11-22T06:07:12.6388018Z ##[group]Run ./Tests/Deployment/Prepare-RelayDeployment.Tests.ps1
+test	Test source and deployment guards	2026-11-22T06:07:12.6388620Z ^[[36;1m./Tests/Deployment/Prepare-RelayDeployment.Tests.ps1^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6389069Z ^[[36;1m./Tests/Deployment/Workflow-Contracts.Tests.ps1^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6389964Z ^[[36;1m./Tests/Deployment/Package-Promotion.Tests.ps1 -EvidenceDirectory 'Documentation/Projects/Working/logs/ci-package-fixtures'^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6391140Z ^[[36;1mdotnet test Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj --configuration Release --logger trx --results-directory Documentation/Projects/Working/logs/ci-tests^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6392019Z ^[[36;1mif ($LASTEXITCODE) { throw 'Tests failed' }^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6392406Z ^[[36;1mif ($env:GITHUB_EVENT_NAME -ceq 'workflow_dispatch') {^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6393152Z ^[[36;1m  ./scripts/New-RelayPackage.ps1 -OutputDirectory '/home/runner/work/_temp/relay-package'^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6394041Z ^[[36;1m  ./scripts/Test-RelayPackage.ps1 -PackageDirectory '/home/runner/work/_temp/relay-package' -ReleaseSha 'f197c497514097df57f668134aa14aef229130d8'^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6394734Z ^[[36;1m} else {^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6395191Z ^[[36;1m  ./scripts/New-RelayPackage.ps1 -OutputDirectory '/home/runner/work/_temp/relay-package' -BuildOnly^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6396133Z ^[[36;1m  ./scripts/Test-RelayPackage.ps1 -PackageDirectory '/home/runner/work/_temp/relay-package' -ReleaseSha 'f197c497514097df57f668134aa14aef229130d8' -BuildOnly^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6396823Z ^[[36;1m}^[[0m
+test	Test source and deployment guards	2026-11-22T06:07:12.6438281Z shell: /usr/bin/pwsh -command ". '{0}'"
+test	Test source and deployment guards	2026-11-22T06:07:12.6438592Z env:
+test	Test source and deployment guards	2026-11-22T06:07:12.6438793Z   DOTNET_ROOT: /usr/share/dotnet
+test	Test source and deployment guards	2026-11-22T06:07:12.6439050Z ##[endgroup]
+test	Test source and deployment guards	2026-11-22T06:07:17.5133126Z PASS Valid
+test	Test source and deployment guards	2026-11-22T06:07:17.7256309Z PASS WrongApp
+test	Test source and deployment guards	2026-11-22T06:07:17.7282449Z PASS WrongPlanArgument
+test	Test source and deployment guards	2026-11-22T06:07:17.7299330Z PASS WrongEnvironment
+test	Test source and deployment guards	2026-11-22T06:07:17.7343187Z PASS FunctionKind
+test	Test source and deployment guards	2026-11-22T06:07:17.7391785Z PASS UnknownState
+test	Test source and deployment guards	2026-11-22T06:07:17.7416063Z PASS Stopped
+test	Test source and deployment guards	2026-11-22T06:07:17.7439517Z PASS WrongPlanActual
+test	Test source and deployment guards	2026-11-22T06:07:17.7466275Z PASS HttpsOff
+test	Test source and deployment guards	2026-11-22T06:07:17.7508815Z PASS WrongRuntime
+test	Test source and deployment guards	2026-11-22T06:07:17.7540183Z PASS AlwaysOnOff
+test	Test source and deployment guards	2026-11-22T06:07:17.7664667Z PASS MissingSetting
+test	Test source and deployment guards	2026-11-22T06:07:17.7705824Z PASS SigningEnabled
+test	Test source and deployment guards	2026-11-22T06:07:17.7992753Z PASS dev manual only
+test	Test source and deployment guards	2026-11-22T06:07:17.8008664Z PASS dev exact environment/app
+test	Test source and deployment guards	2026-11-22T06:07:17.8016626Z PASS dev ordinary deployment
+test	Test source and deployment guards	2026-11-22T06:07:17.8019909Z PASS dev exact source identity
+test	Test source and deployment guards	2026-11-22T06:07:17.8023352Z PASS dev predeployment guards
+test	Test source and deployment guards	2026-11-22T06:07:17.8026742Z PASS dev no input interpolation into script
+test	Test source and deployment guards	2026-11-22T06:07:17.8030061Z PASS Dev downloads accepted manual package without rebuilding
+test	Test source and deployment guards	2026-11-22T06:07:17.8144811Z PASS Dev binds accepted run artifact and bytes before Azure login
+test	Test source and deployment guards	2026-11-22T06:07:17.8213540Z PASS test manual only
+test	Test source and deployment guards	2026-11-22T06:07:17.8216904Z PASS test exact environment/app
+test	Test source and deployment guards	2026-11-22T06:07:17.8220240Z PASS test ordinary deployment
+test	Test source and deployment guards	2026-11-22T06:07:17.8223705Z PASS test exact source identity
+test	Test source and deployment guards	2026-11-22T06:07:17.8226798Z PASS test predeployment guards
+test	Test source and deployment guards	2026-11-22T06:07:17.8229925Z PASS test no input interpolation into script
+test	Test source and deployment guards	2026-11-22T06:07:17.8233236Z PASS test accepted predecessor binding
+test	Test source and deployment guards	2026-11-22T06:07:17.8236408Z PASS test promotes without rebuilding
+test	Test source and deployment guards	2026-11-22T06:07:17.8247541Z PASS prod manual only
+test	Test source and deployment guards	2026-11-22T06:07:17.8250477Z PASS prod exact environment/app
+test	Test source and deployment guards	2026-11-22T06:07:17.8253781Z PASS prod ordinary deployment
+test	Test source and deployment guards	2026-11-22T06:07:17.8256669Z PASS prod exact source identity
+test	Test source and deployment guards	2026-11-22T06:07:17.8259636Z PASS prod predeployment guards
+test	Test source and deployment guards	2026-11-22T06:07:17.8262892Z PASS prod no input interpolation into script
+test	Test source and deployment guards	2026-11-22T06:07:17.8265895Z PASS prod accepted predecessor binding
+test	Test source and deployment guards	2026-11-22T06:07:17.8268953Z PASS prod promotes without rebuilding
+test	Test source and deployment guards	2026-11-22T06:07:17.8279658Z PASS CI runs on published migration branch without deployment
+test	Test source and deployment guards	2026-11-22T06:07:17.8360174Z PASS CI selects manual release vs nondeployment push PR mode
+test	Test source and deployment guards	2026-11-22T06:07:17.8363774Z PASS CI retains distinct manual and nondeployment ZIP manifest startup artifacts
+test	Test source and deployment guards	2026-11-22T06:07:17.8367234Z PASS CI records attributable immutable artifact identity
+test	Test source and deployment guards	2026-11-22T06:07:17.8378007Z PASS Legacy cannot deploy
+test	Test source and deployment guards	2026-11-22T06:07:17.8385150Z Workflow contracts: 29 passed
+test	Test source and deployment guards	2026-11-22T06:07:18.1434422Z Verified package integrity/provenance fields 2D8C7F841DCEF6EE852AC9F2C549F6F72B3AAA0B0B6E1F1BB5EF832ECF3A61D8; matching Linux runtime receipt still required.
+test	Test source and deployment guards	2026-11-22T06:07:18.1436618Z PASS synthetic package integrity validator positive (not runtime acceptance)
+test	Test source and deployment guards	2026-11-22T06:07:18.1495075Z PASS WrongSource rejected
+test	Test source and deployment guards	2026-11-22T06:07:18.1554315Z PASS WrongPackageHash rejected
+test	Test source and deployment guards	2026-11-22T06:07:18.1605713Z PASS WrongOs rejected
+test	Test source and deployment guards	2026-11-22T06:07:18.1657105Z PASS MissingProvenance rejected
+test	Test source and deployment guards	2026-11-22T06:07:18.1854515Z PASS WrongFileHash rejected
+test	Test source and deployment guards	2026-11-22T06:07:18.2112207Z PASS UnacceptedPackage rejected
+test	Test source and deployment guards	2026-11-22T06:07:18.2152011Z PASS WrongBuildRun rejected
+test	Test source and deployment guards	2026-11-22T06:07:18.2362768Z PASS event/mode BuildPush
+test	Test source and deployment guards	2026-11-22T06:07:18.2529903Z PASS event/mode BuildPr
+test	Test source and deployment guards	2026-11-22T06:07:18.2569686Z PASS event/mode BuildPrWrongRef
+test	Test source and deployment guards	2026-11-22T06:07:18.2607405Z PASS event/mode PrAsRelease
+test	Test source and deployment guards	2026-11-22T06:07:18.2645270Z PASS event/mode BuildPushAsRelease
+test	Test source and deployment guards	2026-11-22T06:07:18.2682402Z PASS event/mode ReleaseAsBuildOnly
+test	Test source and deployment guards	2026-11-22T06:07:18.2961961Z PASS accepted build Valid
+test	Test source and deployment guards	2026-11-22T06:07:18.3006593Z PASS accepted build PushOrigin
+test	Test source and deployment guards	2026-11-22T06:07:18.3028190Z PASS accepted build PrOrigin
+test	Test source and deployment guards	2026-11-22T06:07:18.3053700Z PASS accepted build WrongWorkflow
+test	Test source and deployment guards	2026-11-22T06:07:18.3078101Z PASS accepted build FailedRun
+test	Test source and deployment guards	2026-11-22T06:07:18.3102462Z PASS accepted build WrongSource
+test	Test source and deployment guards	2026-11-22T06:07:18.3126761Z PASS accepted build WrongRef
+test	Test source and deployment guards	2026-11-22T06:07:18.3166508Z PASS accepted build Expired
+test	Test source and deployment guards	2026-11-22T06:07:18.3193278Z PASS accepted build WrongArtifactId
+test	Test source and deployment guards	2026-11-22T06:07:18.3207815Z PASS accepted build MissingAcceptance
+test	Test source and deployment guards	2026-11-22T06:07:18.3265913Z PASS promotion Valid
+test	Test source and deployment guards	2026-11-22T06:07:18.3284137Z PASS promotion FailedRun
+test	Test source and deployment guards	2026-11-22T06:07:18.3301330Z PASS promotion WrongWorkflow
+test	Test source and deployment guards	2026-11-22T06:07:18.3318676Z PASS promotion BuildOnlyCi
+test	Test source and deployment guards	2026-11-22T06:07:18.3335897Z PASS promotion PullRequest
+test	Test source and deployment guards	2026-11-22T06:07:18.3353073Z PASS promotion WrongSha
+test	Test source and deployment guards	2026-11-22T06:07:18.3376257Z PASS promotion Expired
+test	Test source and deployment guards	2026-11-22T06:07:18.3520537Z PASS promotion NoIndependentAcceptance
+test	Test source and deployment guards	2026-11-22T06:07:24.4580239Z   Determining projects to restore...
+test	Test source and deployment guards	2026-11-22T06:07:28.6904996Z   Restored /home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/Tests/SovereignTrust.Relay.Tests/LeaseCrashWorker/LeaseCrashWorker.csproj (in 2.9 sec).
+test	Test source and deployment guards	2026-11-22T06:07:28.6913729Z   Restored /home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/Src/CSharp/Azure/SovereignTrust.Relay.Azure/SovereignTrust.Relay.Azure.csproj (in 2.9 sec).
+test	Test source and deployment guards	2026-11-22T06:07:28.7003037Z   Restored /home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/Tests/SovereignTrust.Relay.Tests/SovereignTrust.Relay.Tests.csproj (in 2.93 sec).
+test	Test source and deployment guards	2026-11-22T06:07:36.6825990Z   SovereignTrust.Relay.Azure -> /home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/Src/CSharp/Azure/SovereignTrust.Relay.Azure/bin/Release/net10.0/SovereignTrust.Relay.Azure.dll
+test	Test source and deployment guards	2026-11-22T06:07:37.1663158Z   LeaseCrashWorker -> /home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/Tests/SovereignTrust.Relay.Tests/LeaseCrashWorker/bin/Release/net10.0/LeaseCrashWorker.dll
+test	Test source and deployment guards	2026-11-22T06:07:38.2707671Z   SovereignTrust.Relay.Tests -> /home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/Tests/SovereignTrust.Relay.Tests/bin/Release/net10.0/SovereignTrust.Relay.Tests.dll
+test	Test source and deployment guards	2026-11-22T06:07:38.3415932Z Test run for /home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/Tests/SovereignTrust.Relay.Tests/bin/Release/net10.0/SovereignTrust.Relay.Tests.dll (.NETCoreApp,Version=v10.0)
+test	Test source and deployment guards	2026-11-22T06:07:38.9604352Z A total of 1 test files matched the specified pattern.
+test	Test source and deployment guards	2026-11-22T06:07:59.5938886Z Results File: /home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/Documentation/Projects/Working/logs/ci-tests/_runnervm0hi8g_2026-11-22_06_07_42_net10.0.trx
+test	Test source and deployment guards	2026-11-22T06:07:59.5941650Z 
+test	Test source and deployment guards	2026-11-22T06:07:59.5983222Z Passed!  - Failed:     0, Passed:    56, Skipped:     0, Total:    56, Duration: 17 s - SovereignTrust.Relay.Tests.dll (net10.0)
+test	Test source and deployment guards	2026-11-22T06:08:01.0023688Z   Determining projects to restore...
+test	Test source and deployment guards	2026-11-22T06:08:01.2785453Z   All projects are up-to-date for restore.
+test	Test source and deployment guards	2026-11-22T06:08:01.6916537Z   SovereignTrust.Relay.Azure -> /home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/Src/CSharp/Azure/SovereignTrust.Relay.Azure/bin/Release/net10.0/SovereignTrust.Relay.Azure.dll
+test	Test source and deployment guards	2026-11-22T06:08:01.7585378Z   SovereignTrust.Relay.Azure -> /home/runner/work/_temp/relay-package/publish/
+test	Test source and deployment guards	2026-11-22T06:08:03.0862226Z PASS published Kestrel health/unsigned401/helpers404; no queue or callback invoked
+test	Test source and deployment guards	2026-11-22T06:08:03.5580309Z Package SHA256 469CE609E3E8A020E848F8E7F5650F4D68E7141989561962690D831093D0357D; source f197c497514097df57f668134aa14aef229130d8
+test	Test source and deployment guards	2026-11-22T06:08:03.7640409Z ^[[31;1mException: ^[[0m/home/runner/work/SovereignTrust.Relay/SovereignTrust.Relay/scripts/Test-RelayPackage.ps1:7^[[0m
+test	Test source and deployment guards	2026-11-22T06:08:03.7641548Z ^[[31;1m^[[0m^[[36;1mLine |^[[0m
+test	Test source and deployment guards	2026-11-22T06:08:03.7643239Z ^[[31;1m^[[0m^[[36;1m^[[36;1m   7 | ^[[0m … otmatch 'Linux'){^[[36;1mthrow 'Deployment requires a Linux-tested package.'^[[0m}^[[0m
+test	Test source and deployment guards	2026-11-22T06:08:03.7644891Z ^[[31;1m^[[0m^[[36;1m^[[36;1m^[[0m^[[36;1m^[[0m^[[36;1m     | ^[[31;1m                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[[0m
+test	Test source and deployment guards	2026-11-22T06:08:03.7646330Z ^[[31;1m^[[0m^[[36;1m^[[36;1m^[[0m^[[36;1m^[[0m^[[36;1m^[[31;1m^[[31;1m^[[36;1m     | ^[[31;1mDeployment requires a Linux-tested package.^[[0m
+test	Test source and deployment guards	2026-11-22T06:08:03.8170992Z ##[error]Process completed with exit code 1.

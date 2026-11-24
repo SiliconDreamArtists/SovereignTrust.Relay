@@ -1,0 +1,21 @@
+PASS actual SDK selection 10.0.404 under repository policy
+PASS actual runtime platform oracle Windows (description informational)
+Validated scalar source/build-run metadata and native Git tree; platform/package checks still required.
+Verified package integrity/provenance fields 4678230B75FFF14C6D2E7CEEF76C331D301E9A1955128398A75F4042288919A7; matching Linux runtime receipt still required.
+PASS synthetic Ubuntu description without Linux accepted by structured platform (not runtime acceptance)
+PASS WrongSource rejected
+PASS WrongPackageHash rejected
+PASS WrongPlatform rejected
+PASS MissingPlatform rejected
+PASS WrongSdk rejected
+PASS ArraySdk rejected
+PASS MissingProvenance rejected
+PASS WrongFileHash rejected
+PASS UnacceptedPackage rejected
+PASS WrongBuildRun rejected
+PASS event/mode BuildPush
+PASS event/mode BuildPr
+PASS event/mode BuildPrWrongRef
+PASS event/mode PrAsRelease
+PASS event/mode BuildPushAsRelease
+PASS event/mode ReleaseAsBuildOnly

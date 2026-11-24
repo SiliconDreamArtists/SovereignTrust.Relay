@@ -1,0 +1,62 @@
+PASS fixed target dev
+PASS owner unbound dev
+PASS fixed target test
+PASS owner unbound test
+PASS fixed target prod
+PASS owner unbound prod
+PASS unknown stage
+PASS wrong control ref
+PASS wrong control commit
+PASS new control revision differs from fixed package source
+PASS build rejects push
+PASS build rejects pull_request
+PASS build rejects source
+PASS build rejects artifact
+PASS build rejects digest
+PASS build rejects expired
+PASS build rejects duplicate
+PASS build rejects caller-run
+PASS build rejects caller-sha
+PASS writer resolves in-progress dev job
+PASS writer does not award dev acceptance
+PASS writer immutable dev output
+PASS test predecessor valid
+PASS test predecessor old-control-ref
+PASS test predecessor missing-owner
+PASS test predecessor wrong-receipt-hash
+PASS test predecessor wrong-artifact
+PASS test predecessor expired
+PASS test predecessor wrong-stage
+PASS test predecessor wrong-target
+PASS test predecessor wrong-package
+PASS test predecessor wrong-job
+PASS test predecessor failed-job
+PASS test predecessor skipped-job
+PASS test predecessor duplicate-job
+PASS test predecessor wrong-stage-success
+PASS test predecessor wrong-run-control
+PASS test predecessor wrong-blob
+PASS test predecessor wrong-structure
+PASS test predecessor wrong-event
+PASS test predecessor failed-run
+PASS writer resolves in-progress test job
+PASS writer does not award test acceptance
+PASS writer immutable test output
+PASS prod predecessor valid
+PASS prod predecessor old-control-ref
+PASS prod predecessor missing-owner
+PASS prod predecessor wrong-receipt-hash
+PASS prod predecessor wrong-artifact
+PASS prod predecessor expired
+PASS prod predecessor wrong-stage
+PASS prod predecessor wrong-target
+PASS prod predecessor wrong-package
+PASS prod predecessor wrong-job
+PASS prod predecessor failed-job
+PASS prod predecessor skipped-job
+PASS prod predecessor duplicate-job
+Exception: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-azure-to-aspnet-core-migration\Tests\Deployment\Release-Workflow.Tests.ps1:9
+Line |
+   9 |  …  if($Reject -ne [bool]$failure){throw "FAIL $Name : $failure"};$scrip …
+     |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | FAIL prod predecessor wrong-stage-success : 

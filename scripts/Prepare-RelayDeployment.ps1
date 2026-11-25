@@ -1,7 +1,8 @@
 param(
     [Parameter(Mandatory)][ValidateSet('Dev','Test','Prod')][string]$Environment,
     [Parameter(Mandatory)][string]$AppResourceId,
-    [Parameter(Mandatory)][string]$PlanResourceId
+    [Parameter(Mandatory)][string]$PlanResourceId,
+    [ValidateSet('RuntimeReady','PackagePlacement')][string]$Purpose='RuntimeReady'
 )
 $ErrorActionPreference = 'Stop'
 $contracts = @{
@@ -25,11 +26,17 @@ if ($app.id -ine $expectedApp -or $app.kind -notmatch 'linux' -or $app.kind -mat
     $app.properties.httpsOnly -ne $true) { throw 'Target must be the exact running HTTPS Linux Relay Web App on the expected plan.' }
 $config = Invoke-RelayAzureRead @('webapp','config','show','--name',$c.Name,'--resource-group',$c.Group)
 if ($config.linuxFxVersion -ne 'DOTNETCORE|10.0' -or $config.alwaysOn -ne $true) { throw 'Require DOTNETCORE|10.0 and per-app Always On.' }
-# Names only; never emit credential-bearing settings. Owner resolves vault references and provisions data resources.
-$names = @(Invoke-RelayAzureRead @('webapp','config','appsettings','list','--name',$c.Name,'--resource-group',$c.Group,'--query','[].name'))
-foreach ($required in @('DISCORD_PUBLIC_KEY','StorageQueueAccount','DISCORD_QUEUE_NAME','DISCORD_DEDUP_CONTAINER','ENABLE_ED25519_SIGNING')) {
-    if ($names -cnotcontains $required) { throw "Missing required setting name: $required" }
+# Names cannot establish isolation; owner separately attests exact references or intentional absence.
+if ($Purpose -eq 'RuntimeReady') {
+    $names = @(Invoke-RelayAzureRead @('webapp','config','appsettings','list','--name',$c.Name,'--resource-group',$c.Group,'--query','[].name'))
+    foreach ($required in @('DISCORD_PUBLIC_KEY','StorageQueueAccount','DISCORD_QUEUE_NAME','DISCORD_DEDUP_CONTAINER','ENABLE_ED25519_SIGNING')) {
+        if ($names -cnotcontains $required) { throw "Missing required setting name: $required" }
+    }
 }
 $flag = Invoke-RelayAzureRead @('webapp','config','appsettings','list','--name',$c.Name,'--resource-group',$c.Group,'--query',"[?name=='ENABLE_ED25519_SIGNING'].value | [0]")
 if ($flag -cne 'false') { throw 'ENABLE_ED25519_SIGNING must be exactly false for release.' }
-Write-Output "Validated $Environment ordinary Relay target $expectedApp; no configuration or storage writes performed."
+if ($Purpose -eq 'PackagePlacement') {
+    Write-Output "Validated PackagePlacement infrastructure for $Environment target $expectedApp; no runtime readiness, settings isolation or functionality proved."
+} else {
+    Write-Output "Validated RuntimeReady setting names and infrastructure for $Environment target $expectedApp; actual startup, storage access and functionality remain unproved."
+}

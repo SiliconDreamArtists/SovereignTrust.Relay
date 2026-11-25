@@ -134,7 +134,12 @@ try{
         Check "synthetic owner $stage rejects absent acceptance ID" {& (Join-Path $ownerDir 'Get-RelayReleaseTarget.ps1') -Stage $stage -RequireOwner} $true
     }
     Check 'unknown stage' {& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage arbitrary} $true
-    $env:GITHUB_REF='refs/heads/arbitrary';Check 'wrong control ref' {& (Join-Path $root 'scripts/Test-RelayBuildAcceptance.ps1')} $true;$env:GITHUB_REF=$contract.ControlRef
+    Check 'fixed main control ref' {if($contract.ControlRef -cne 'refs/heads/main'){throw 'Control ref must be main'}}
+    $env:GITHUB_REF='refs/heads/main';Check 'main control ref accepted' {& (Join-Path $root 'scripts/Test-RelayBuildAcceptance.ps1')}
+    foreach($ref in @('refs/heads/agents/relay-azure-to-aspnet-core-migration','refs/heads/arbitrary')){
+        $env:GITHUB_REF=$ref;Check "wrong control ref $ref" {& (Join-Path $root 'scripts/Test-RelayBuildAcceptance.ps1')} $true
+    }
+    $env:GITHUB_REF=$contract.ControlRef
     $env:RELAY_CONTROL_COMMIT='ignored legacy value';Check 'legacy manual control hash is ignored' {& (Join-Path $root 'scripts/Test-RelayBuildAcceptance.ps1')};$env:RELAY_CONTROL_COMMIT=''
     foreach($case in @('CurrentRepo','CurrentEvent','CurrentSha','CurrentBranch')){
         $fixture=@{};$fixture[$case]='wrong';Check "authenticated current run rejects $case" {& (Join-Path $root 'scripts/Test-RelayBuildAcceptance.ps1')} $true

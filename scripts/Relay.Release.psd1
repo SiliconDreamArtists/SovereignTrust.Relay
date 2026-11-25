@@ -1,7 +1,7 @@
 @{
     Repository = 'SiliconDreamArtists/SovereignTrust.Relay'
     WorkflowPath = '.github/workflows/manual_deploy_sda-relay.yml'
-    ControlRef = 'refs/heads/agents/relay-azure-to-aspnet-core-migration'
+    ControlRef = 'refs/heads/main'
     TenantId = '8904b745-1738-426c-ad85-3fcecb32d24b'
     Issuer = 'https://token.actions.githubusercontent.com'
     Audience = 'api://AzureADTokenExchange'

@@ -102,6 +102,7 @@ try{
     $env:GITHUB_SHA='cccccccccccccccccccccccccccccccccccccccc';$env:GITHUB_RUN_ID='801'
     $env:RELAY_CONTROL_COMMIT='';$env:RELAY_PREVIOUS_ACCEPTED_RECEIPT_SHA256='';$env:RELAY_PREVIOUS_ACCEPTED_PACKAGE_SHA256=''
     Check 'no owner hash property remains' {if(@($contract.Stages.Values|Where-Object {$_.ContainsKey('OwnerPacketSha256')}).Count){throw 'Manual owner hash remains'}}
+    $env:RELAY_AZURE_CLIENT_ID='';$env:RELAY_AZURE_TENANT_ID='';$env:RELAY_AZURE_SUBSCRIPTION_ID=''
     foreach($stage in @('dev','test','prod')){
         Check "fixed target $stage" {
             $sub=@{dev='cc1fa56e-a8ce-411f-bb5c-58e96d9ac4f8';test='5c813ecc-3c19-44de-b676-304116fc869d';prod='b7690041-454b-472b-b340-3d8dde115103'}[$stage]
@@ -111,13 +112,27 @@ try{
                $t.PlanResourceId -cne "/subscriptions/$sub/resourceGroups/sda-$stage/providers/Microsoft.Web/serverfarms/ASP-sda-$stage-fusion" -or
                $t.FederationSubject -cne "repo:$($contract.Repository):environment:sda-$stage"){throw 'Mapping mismatch'}
         }
-        Check "owner unbound $stage" {& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage $stage -RequireOwner} $true
+        Check "absent environment credentials rejected $stage" {& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage $stage -RequireOwner} $true
+    }
+    Check 'bound Dev owner profile accepted' {
+        $credentialNames=@('RELAY_AZURE_CLIENT_ID','RELAY_AZURE_TENANT_ID','RELAY_AZURE_SUBSCRIPTION_ID')
+        $priorCredentials=@{};foreach($name in $credentialNames){$priorCredentials[$name]=[Environment]::GetEnvironmentVariable($name)}
+        try {
+            $env:RELAY_AZURE_CLIENT_ID='8b487a0d-ff5b-4c8b-af47-df5de45c9ebd';$env:RELAY_AZURE_TENANT_ID='8904b745-1738-426c-ad85-3fcecb32d24b';$env:RELAY_AZURE_SUBSCRIPTION_ID='cc1fa56e-a8ce-411f-bb5c-58e96d9ac4f8'
+            $bound=& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage dev -RequireOwner
+            if($bound.Sku -cne 'B2' -or $bound.DeploymentClientId -cne '8b487a0d-ff5b-4c8b-af47-df5de45c9ebd' -or
+               $bound.DeploymentPrincipalId -cne '3a48ab88-5916-4e2a-b7cb-94132372e1e7' -or $bound.RuntimePrincipalId -cne '9697fed0-6ae1-462f-b372-152fd3e16184' -or
+               $bound.DefaultHostName -cne 'sda-relay-api-dev.azurewebsites.net'){throw 'Bound Dev profile differs from accepted owner outputs'}
+        } finally {foreach($name in $credentialNames){if($null -eq $priorCredentials[$name]){Remove-Item -LiteralPath "Env:$name" -ErrorAction SilentlyContinue}else{[Environment]::SetEnvironmentVariable($name,$priorCredentials[$name])}}}
     }
     # Populate a copy only, to exercise a complete future owner binding without inventing current outputs.
     $ownerDir=Join-Path $evidence 'synthetic-owner-profile';New-Item -ItemType Directory $ownerDir|Out-Null
     Copy-Item (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') $ownerDir
     $profile=Get-Content -Raw (Join-Path $root 'scripts/Relay.Release.psd1')
-    $synthetic=$profile.Replace("DeploymentClientId = ''","DeploymentClientId = '11111111-1111-1111-1111-111111111111'").Replace("DeploymentPrincipalId = ''","DeploymentPrincipalId = '22222222-2222-2222-2222-222222222222'").Replace("RuntimePrincipalId = ''","RuntimePrincipalId = '33333333-3333-3333-3333-333333333333'").Replace("DefaultHostName = ''","DefaultHostName = 'relay-fixture.azurewebsites.net'")
+    $synthetic=$profile
+    foreach($item in @{DeploymentClientId='11111111-1111-1111-1111-111111111111';DeploymentPrincipalId='22222222-2222-2222-2222-222222222222';RuntimePrincipalId='33333333-3333-3333-3333-333333333333';DefaultHostName='relay-fixture.azurewebsites.net'}.GetEnumerator()){
+        $synthetic=[regex]::Replace($synthetic,"\b$($item.Key)\s*=\s*'[^']*'","$($item.Key) = '$($item.Value)'")
+    }
     $synthetic|Set-Content (Join-Path $ownerDir 'Relay.Release.psd1') -Encoding utf8NoBOM
     $env:RELAY_AZURE_CLIENT_ID='11111111-1111-1111-1111-111111111111';$env:RELAY_AZURE_TENANT_ID=$contract.TenantId;$env:RELAY_AZURE_SUBSCRIPTION_ID='cc1fa56e-a8ce-411f-bb5c-58e96d9ac4f8'
     Check 'synthetic exact owner profile accepted' {& (Join-Path $ownerDir 'Get-RelayReleaseTarget.ps1') -Stage dev -RequireOwner}
@@ -209,4 +224,4 @@ try{
     Check 'no unpaginated predecessor artifact lookup attempted' {if(@($apiLog|Where-Object {$_ -match '/actions/runs/800/artifacts$'}).Count){throw 'First-page-only query attempted'}}
     Check 'mock API vector exercised and retained' {if($apiLog.Count -lt 10){throw 'Expected actual mocked helper reads'};$apiLog|ConvertTo-Json|Set-Content (Join-Path $evidence 'mocked-gh-reads.json') -Encoding utf8NoBOM}
     Write-Output "Release workflow checks: $count passed; $($apiLog.Count) mocked GitHub reads, zero cloud calls."
-}finally{foreach($name in $envNames){[Environment]::SetEnvironmentVariable($name,$saved[$name])}}
+}finally{foreach($name in $envNames){if($null -eq $saved[$name]){Remove-Item -LiteralPath "Env:$name" -ErrorAction SilentlyContinue}else{[Environment]::SetEnvironmentVariable($name,$saved[$name])}}}

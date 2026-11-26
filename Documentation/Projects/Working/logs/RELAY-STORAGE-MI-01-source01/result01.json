@@ -1,0 +1,407 @@
+{
+  "revision": "SRC-D-02-result01",
+  "function": "RELAY-STORAGE-MI-01",
+  "purpose": "Source/local test aggregate; independent R pending",
+  "base": "e85b8605466f9942e8332f48c9f24e86dc1cc867",
+  "tree": "826f53ed6a3ec636f404768da19aa9993ce17de2",
+  "branch": "agents/relay-runtime-storage-auth-migration",
+  "priorHead": "52e5a79a31178e5719537edbd5bbb6ae6f84c01e",
+  "sdk": "10.0.404",
+  "source": [
+    {
+      "path": "Documentation/Projects/Working/RELAY-MIG-01-Working.md",
+      "sha256": "1525c3174e4278ad6271361c46a4914a0fc08f968f1f0c0c8a7538eced37c946",
+      "bytes": 227748,
+      "gitBlob": "8ad589b23762c7719f8940954fc3061ecb9338e8"
+    },
+    {
+      "path": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/Program.cs",
+      "sha256": "e02604b9a7680478c174682018c958cf5028ee8c1b40cd31eef644a3241bf3b1",
+      "bytes": 2065,
+      "gitBlob": "455471b6ab896d9c072affcf91ac7a21ec730e4b"
+    },
+    {
+      "path": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/RelaySettings.cs",
+      "sha256": "46909d4f2048d9e0670631b09b890935803c211b157dd862aa55a4c83f05496e",
+      "bytes": 2772,
+      "gitBlob": "8e7efae6ff2f1fda99a8acb4f455611d3b72c3c7"
+    },
+    {
+      "path": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/SovereignTrust.Relay.Azure.csproj",
+      "sha256": "f496322537736e333649ef27d786c13bf6b98bda95cd7fdbc85d3f744e7f8e0c",
+      "bytes": 1179,
+      "gitBlob": "9283fae82a0e283fc3be3f34508fe92feaee93d1"
+    },
+    {
+      "path": "Tests/Deployment/Package-Promotion.Tests.ps1",
+      "sha256": "44cd2e1877167aed36b9732ea18eeede1eed9642bf8e6203ca854995d5fc90a0",
+      "bytes": 7690,
+      "gitBlob": "9008069c150c1e86d31aa05f2b1cb102dc53df53"
+    },
+    {
+      "path": "Tests/Deployment/Prepare-RelayDeployment.Tests.ps1",
+      "sha256": "44274fd3f9d67c527e80541074a26b1d2c507a2496264198e9661d9059a9ed44",
+      "bytes": 4190,
+      "gitBlob": "6b6b310e1ef4f0dca748739afb50742dbfa3e46f"
+    },
+    {
+      "path": "Tests/SovereignTrust.Relay.Tests/HttpTests.cs",
+      "sha256": "3001d69d14516d24c0bb8b3da614606a352bfaa67247e3027b8ddff35c1a6e11",
+      "bytes": 11769,
+      "gitBlob": "50c504be2b283bf7d45a603f62518e59778f9743"
+    },
+    {
+      "path": "Tests/SovereignTrust.Relay.Tests/RelayTests.cs",
+      "sha256": "a5cd41a9b29bf117da08dd404e088d22b9c2dfb4200d4cdc509abf638fc347c1",
+      "bytes": 16266,
+      "gitBlob": "506d26a729290f4538a422ac9ed443f74d63ff24"
+    },
+    {
+      "path": "docs/Relay-Operations.md",
+      "sha256": "7b1125b1d14038fb0ba85dd6dd54345e07a4745351e85e6ef684227135c8fe85",
+      "bytes": 18232,
+      "gitBlob": "22260f87252195bf1c6cce4a14319362240d4be3"
+    },
+    {
+      "path": "scripts/Prepare-RelayDeployment.ps1",
+      "sha256": "4dcb80cd0a2bf4b3e97350f36c634c703990dd43dcb42ca723349c8c5e7510d1",
+      "bytes": 3357,
+      "gitBlob": "cd227ec1f2ba3bbab145ea1e5f7358603b99c980"
+    },
+    {
+      "path": "scripts/Test-RelayPackage.ps1",
+      "sha256": "d59631fc2d7e832e6bf8b6787f265e5f643652a23e2826f88d434068e79946ff",
+      "bytes": 5211,
+      "gitBlob": "eadeedd5cb2faa362729bd367d7cb283400c0850"
+    },
+    {
+      "path": "scripts/Test-RelayPublishedHost.ps1",
+      "sha256": "14a23036b721d44471cf61a495667090c246fee6537f3f91665e9c0aa2ce419f",
+      "bytes": 4510,
+      "gitBlob": "d0564668bcb8f6732df9eb146ff5500c840421e7"
+    },
+    {
+      "path": "Tests/SovereignTrust.Relay.Tests/StorageAuthenticationTests.cs",
+      "sha256": "06f9ffd70497e4c4489e8aaf126875f1665f3cba5bf69ca0693aa48582c20e0b",
+      "bytes": 8370,
+      "gitBlob": "b141540dddab3eeee73ecbf829799831daf2f5ca"
+    }
+  ],
+  "protected": [
+    {
+      "path": "scripts/Relay.Release.psd1",
+      "sha256": "9b8effe7603dca951a7037035d70f4cdd4a326e79d6523fa37ab902a390d52cf",
+      "bytes": 2412,
+      "gitBlob": "43e328934eba97007a5e83b25e95569ea3229b9b"
+    },
+    {
+      "path": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/Discord/InteractionDispatcher.cs",
+      "sha256": "051f65954dc841062cca94eca26547bcc6bdc34571692b20c1843da2e968462a",
+      "bytes": 3679,
+      "gitBlob": "facdcb6c6e63f2d5e3f4651f3571e3e54b3b72fb"
+    },
+    {
+      "path": "Tests/SovereignTrust.Relay.Tests/RecoveryTests.cs",
+      "sha256": "1a40b6a773b1079246a1a35fa60e13c0ba1aca89b4ccfc4a5621d313ab33e051",
+      "bytes": 7478,
+      "gitBlob": "68031bce140f43366352477e66dadb59ac3470db"
+    },
+    {
+      "path": "Tests/SovereignTrust.Relay.Tests/LeaseCrashWorker/Program.cs",
+      "sha256": "f0d9d3638c5b760417675e7d4136a22dc54443d3012fd893ff608b127c27e0ac",
+      "bytes": 609,
+      "gitBlob": "416c2051f1b4c9a8b8393317bc1440e2537d8633"
+    },
+    {
+      "path": ".github/workflows/main_publish_bddb-sda-prod-relay.yml",
+      "sha256": "919dacc0847532644df0cd9e94d300c10dc246552ad1dfb22535f22ab3358bd5",
+      "bytes": 259,
+      "gitBlob": "47d7cf091cc161a442057bdedbe10596699792be"
+    },
+    {
+      "path": ".github/workflows/main_publish_sda-relay-dev.yml",
+      "sha256": "c9aa01076f10be4120449d5239065f5fe0d612c3a26875593ef78399340491b0",
+      "bytes": 2992,
+      "gitBlob": "bb049656b934ae08ae373f0487eeb1f6f5221db6"
+    },
+    {
+      "path": ".github/workflows/manual_check_sda-relay-prod-link.yml",
+      "sha256": "a1bb6a4c8b6cee35cc141aa283bd3670689125987fe51d71654907b52707ba14",
+      "bytes": 1503,
+      "gitBlob": "b65246801ed5d2fc407d554b21cc2a09ac6570b7"
+    },
+    {
+      "path": ".github/workflows/manual_check_sda-relay-test-link.yml",
+      "sha256": "08c55f7033c6c59c979c007af411d6e9c0a512a20b49703a50c4f89a3154579c",
+      "bytes": 1503,
+      "gitBlob": "d7b652d3ee4537b079725283d2885f40927922e8"
+    },
+    {
+      "path": ".github/workflows/manual_deploy_sda-relay.yml",
+      "sha256": "8274ac0243ac07ad0fb242721587e705e096d959c7f11c551784c31a0c3a28f8",
+      "bytes": 12114,
+      "gitBlob": "f1413d475240525cffd1376ba17cbbdf8e648c58"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/unit01.log",
+      "sha256": "8cdf7f0d0696bd404b951401623555c79bfd3e1734ea6032ef81f701098bd7a3",
+      "bytes": 3537,
+      "gitBlob": "c29c992ad6f5fbbd23f826cbf3d91c22f418f7e0"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/unit02.log",
+      "sha256": "c48197838edcb9bc2415b52c4127087c3670c1c83caf1755719872169acfb900",
+      "bytes": 1378,
+      "gitBlob": "51fea3a7a39d006125d5a7f6cd138a95dcbd7c21"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/full01.log",
+      "sha256": "136e35c087d2eec7d3c54279f7064a90046d0759549ae6c59f2d3b46b9253fe9",
+      "bytes": 6109,
+      "gitBlob": "4cc303a743668acaf55e93696b086e34a2462032"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/recovery-recheck01.log",
+      "sha256": "45f340f80a678fed78959984d456eaab720e981f35c25d39dfd41d94814b7110",
+      "bytes": 658,
+      "gitBlob": "79f2891ef0d43f2b89cb2578c0adaec2ed5e2433"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/preflight01.log",
+      "sha256": "00e14c5b8f71b817dbfdb5cfa1787c5cef58a2744f1b91031b01cb71076f15cb",
+      "bytes": 4184,
+      "gitBlob": "bfaafa453ef9edc90d820061b7dd7b305ae5daa6"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/package-fixtures01.log",
+      "sha256": "e414d637b7489c9ffb808f5324726c2060ac0826a420d5f59284aca22307dc68",
+      "bytes": 1262,
+      "gitBlob": "677b4acdb89471016cc1005e55495b87b2dcbcb3"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/publish01.log",
+      "sha256": "14a24dd8574098153cdcb91f27c1b32917c6ad5e26e82160c6d00c42a341ac27",
+      "bytes": 433,
+      "gitBlob": "a66a65286443f6c816144169503d021f19b0e4fa"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/published-host01.log",
+      "sha256": "71da8a29b27c18bae489ef76e9dd51da6b62baac488cdcc5f68483f6809ad728",
+      "bytes": 174,
+      "gitBlob": "6393ef39c932aa3eeb20f6210915d6724c8a4360"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/published-host02.log",
+      "sha256": "71da8a29b27c18bae489ef76e9dd51da6b62baac488cdcc5f68483f6809ad728",
+      "bytes": 174,
+      "gitBlob": "6393ef39c932aa3eeb20f6210915d6724c8a4360"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/dependency-security01.json",
+      "sha256": "e5a265f437cf8c88ccd7eac40a5ac2df5673444b8706adc5fd9cdb204d715d5e",
+      "bytes": 432,
+      "gitBlob": "423c267089dd346d48367df7bf34d9863c111044"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/security-summary01.json",
+      "sha256": "ceb8ecca195fdc480dfa38041d2ee4c957164d532853453d03a171f7283096cc",
+      "bytes": 466,
+      "gitBlob": "aefe3fd51ee2025b314a5b1e4371ab50e37199ac"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/production-storage-path01.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "gitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/parser-final01.json",
+      "sha256": "93b8bb1b1316ed8b62bfbf35e6b8d3639ec7ba21f858fcb45be11255663d7b1f",
+      "bytes": 278,
+      "gitBlob": "ef51e0b5823a2840217bda307b415d73e173522d"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/local-zip-exclusion01.json",
+      "sha256": "34b3db752556f29e7fb9cd3dde7b6cbcd967270b8196e51bddab007b564d4a1d",
+      "bytes": 1675,
+      "gitBlob": "d351aa15878a0b665557cb78eceae3ed1bfb59a5"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/azurite-process.json",
+      "sha256": "1287caf272d2b774e25bc7dfee45201e52f7fce0006e942c59ac8f0c231ee64f",
+      "bytes": 295,
+      "gitBlob": "1839155122641d8339aa0c3e16208d8d1da373f0"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/azurite-ready-before-recheck.json",
+      "sha256": "91c90b4857f6c60abc4d2c32820a7c41a15f514306a0265086607b38aa4f2b85",
+      "bytes": 201,
+      "gitBlob": "1d2af7fa8cf86444c98277184ee7e2f5f11fad5b"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/azurite-stop.json",
+      "sha256": "33574977312e519caffcbfa226fe9a7de814858d3c03e1891c2bd1c9f94cf981",
+      "bytes": 250,
+      "gitBlob": "3e44c567b93c13cee0dd93ecfcab77fe970865db"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/preimages.json",
+      "sha256": "92d1b0d8d2280682592295ed64509211a1a1e17d5ec206cd6dd6da6a53f8c05e",
+      "bytes": 2499,
+      "gitBlob": "8b1e0094d67d4a0da7fac475afb6edd3dafd52dd"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/draft-parser-errors.json",
+      "sha256": "3e33de64cc64088617bf531d6ca2d67a55b0cac98a575da0bdb6825bed9e86ad",
+      "bytes": 2160,
+      "gitBlob": "bd405bbc919a695ddf8ff4aaca8fa808b711409c"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/draft-correction-preimages.json",
+      "sha256": "c5bb94e068f3549138d1e5adb77f0b843e675ffb95231b4286e1e71fc34b2853",
+      "bytes": 214,
+      "gitBlob": "5192a25a804275a5cb346a9add8465809c9a0a36"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/published-host-draft-invalid.ps1.txt",
+      "sha256": "44af06781dd450b54db1d2f39fa023e2dbc744c74988aadb4a70b5d0924176c4",
+      "bytes": 7496,
+      "gitBlob": "fcc2a32d77b6fdaebb53d1f259bdfd58093def6a"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/package-validator-draft-invalid.ps1.txt",
+      "sha256": "1154641ce959f6095fda613d1acf94769c36cbfc7a3b71e1bf0d6bb15966a4a0",
+      "bytes": 5719,
+      "gitBlob": "c35434f4fbe1aae01a96fa4ad8b0159cbc7f555e"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/fastforward.log",
+      "sha256": "6d13c92d52726b26db11eb55a81e3b760587a9bfc2c6946bd92474b4e05b954b",
+      "bytes": 24598,
+      "gitBlob": "acf8f4b566ec20800583983dae5da82277c3673b"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/unit01/sfost_SDADEV01_2026-11-25_20_54_56_net10.0.trx",
+      "sha256": "6d648b718a9181c7a2fbe95979131129ba0dc391913c9ef79227ddc3472f89d1",
+      "bytes": 202416,
+      "gitBlob": "90468d302a262fc679dd332c9c06f3d8cebd720a"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/unit02/sfost_SDADEV01_2026-11-25_20_57_08_net10.0.trx",
+      "sha256": "32c8f023831a1cd3f932a663f469e2fa6ac41fc377b30480eadaba59ba459bae",
+      "bytes": 198626,
+      "gitBlob": "69ce80bf8078ef5fd6883531da2de7848bfd1df5"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/full01/sfost_SDADEV01_2026-11-25_20_57_48_net10.0.trx",
+      "sha256": "3d9aa8b368024a2d37d82c5495870d4802a227623a1becb2c19bdaf7f2a06051",
+      "bytes": 215192,
+      "gitBlob": "d3929491a7d24240c059c718dbca9c55a8aa373a"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/recovery-recheck01/sfost_SDADEV01_2026-11-25_20_59_45_net10.0.trx",
+      "sha256": "8f44739e48dc2c8637e30d4afce1e78a2573b0dd7b686bc584bf7e9fba3b121a",
+      "bytes": 3060,
+      "gitBlob": "6a41f398b1840f0a4b16faeb8aad48417f5252eb"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/published-host01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "gitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/published-host01/stdout.log",
+      "sha256": "dd99a6f2c6189060fe8fb9fa4b7d0cafa34a8d741fb0fdd2a0b80cdb79f775dc",
+      "bytes": 5151,
+      "gitBlob": "34381738007889d70a2c799a07bde958cf093a73"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/published-host02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "gitBlob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/published-host02/stdout.log",
+      "sha256": "3b7dd784d3e619a83aee2f39209ec10714895657d7aeb9a98a10a8aa6b0c3576",
+      "bytes": 5153,
+      "gitBlob": "9a2c43c0378db6382932cebcfe9f76b0ede31c19"
+    }
+  ],
+  "binaries": [
+    {
+      "path": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/bin/Release/net10.0/SovereignTrust.Relay.Azure.dll",
+      "sha256": "a49ceaf81752f52f82bf29d7c210aa6d72d9a62e2355a02f93a1c91c30d9c7dd",
+      "bytes": 38400
+    },
+    {
+      "path": "Tests/SovereignTrust.Relay.Tests/bin/Release/net10.0/SovereignTrust.Relay.Tests.dll",
+      "sha256": "9481d03946cd1dc3744c6523d1837e9620069a78064fcd6fc73b2ced1fc66092",
+      "bytes": 81408
+    },
+    {
+      "path": "Tests/SovereignTrust.Relay.Tests/LeaseCrashWorker/bin/Release/net10.0/LeaseCrashWorker.dll",
+      "sha256": "04b8770c06d73b65aae594e68bfdca06ef9f2e824540b75ede6a690318e4abad",
+      "bytes": 6656
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/publish01/SovereignTrust.Relay.Azure.dll",
+      "sha256": "a49ceaf81752f52f82bf29d7c210aa6d72d9a62e2355a02f93a1c91c30d9c7dd",
+      "bytes": 38400
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/publish01/SovereignTrust.Relay.Azure.deps.json",
+      "sha256": "60dc25fddb31dfe46a39468869a501ad0114881f43c698cefce90638dfbc4f77",
+      "bytes": 13608
+    },
+    {
+      "path": "Documentation/Projects/Working/logs/RELAY-STORAGE-MI-01-source01/local-windows-nondeployment.zip",
+      "sha256": "660d8031c39d6820759d2b433bdacfe4fc2f459d056122ea7a7c556434c07458",
+      "bytes": 4268654
+    }
+  ],
+  "results": {
+    "unit01": {
+      "passed": 86,
+      "failed": 1,
+      "total": 87
+    },
+    "unit02": {
+      "passed": 87,
+      "failed": 0,
+      "total": 87
+    },
+    "full01": {
+      "passed": 90,
+      "failed": 1,
+      "total": 91
+    },
+    "affectedRecheck": {
+      "passed": 1,
+      "failed": 0,
+      "total": 1
+    },
+    "uniqueFinal": {
+      "passed": 91,
+      "failed": 0,
+      "total": 91
+    },
+    "preflight": {
+      "passed": 43,
+      "failed": 0,
+      "total": 43
+    },
+    "security": "No vulnerable dependencies reported; independent gate pending",
+    "platform": "Windows only; Linux release acceptance pending"
+  },
+  "limits": [
+    "No commit/push/PR/dispatch/cloud",
+    "No W5/release control change",
+    "No live identity/data-plane acceptance",
+    "Mandatory security/saved-plan/apply/aggregate gates preserved"
+  ],
+  "worker": "gpt-6.1-sol/medium requested; dispatch guarantee; host telemetry unavailable"
+}

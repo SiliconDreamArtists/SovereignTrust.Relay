@@ -1,0 +1,62 @@
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://127.0.0.1:65095
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://127.0.0.1:65095/healthz - - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: GET /healthz'
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]
+      Setting HTTP status code 200.
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]
+      Writing value of type '<>f__AnonymousType3`1' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: GET /healthz'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://127.0.0.1:65095/healthz - 200 - application/json;+charset=utf-8 99.7874ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://127.0.0.1:65095/api/discordrelay - text/plain;+charset=utf-8 2
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]
+      Executing StatusCodeResult, setting HTTP status code 401
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 159.2925ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://127.0.0.1:65095/api/discordrelay - 401 0 - 235.5537ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://127.0.0.1:65095/api/GenerateEd25519KeyPair - - -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "HttpRun", controller = "Ed25519KeyGenerator"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator (SovereignTrust.Relay.Azure).
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]
+      Executing StatusCodeResult, setting HTTP status code 404
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure) in 1.7786ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://127.0.0.1:65095/api/GenerateEd25519KeyPair - 404 0 - 9.1549ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://127.0.0.1:65095/api/Ed25519SignFunction - - 0
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "HttpRun", controller = "Ed25519SignFunction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction (SovereignTrust.Relay.Azure).
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]
+      Executing StatusCodeResult, setting HTTP status code 404
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure) in 1.5234ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://127.0.0.1:65095/api/Ed25519SignFunction - 404 0 - 16.1554ms

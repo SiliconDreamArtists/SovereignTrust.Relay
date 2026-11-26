@@ -21,7 +21,7 @@ public sealed class RelayTests : IDisposable
         new KeyCreationParameters { ExportPolicy = KeyExportPolicies.AllowPlaintextExport });
     private readonly TimeProvider clock = new FixedClock();
     private string PublicKeyHex => Convert.ToHexString(key.PublicKey.Export(KeyBlobFormat.RawPublicKey));
-    private RelaySettings Settings(bool enabled = false) => new(PublicKeyHex, "UseDevelopmentStorage=true",
+    private RelaySettings Settings(bool enabled = false) => new(PublicKeyHex, "localfixture",
         "discord-interactions", "discord-receipts", enabled,
         enabled ? Convert.ToHexString(key.Export(KeyBlobFormat.RawPrivateKey)) : null, enabled ? "local-test-key" : null);
     public RelayTests() => SignalGraph.Signal.Logger = NullLogger.Instance;
@@ -48,7 +48,8 @@ public sealed class RelayTests : IDisposable
     {
         var config = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string,string?>
         {
-            ["DISCORD_PUBLIC_KEY"] = PublicKeyHex, ["StorageQueueAccount"] = "UseDevelopmentStorage=true",
+            ["DISCORD_PUBLIC_KEY"] = PublicKeyHex, ["DISCORD_STORAGE_ACCOUNT_NAME"] = "localfixture",
+            ["DISCORD_QUEUE_NAME"] = "queue-fixture", ["DISCORD_DEDUP_CONTAINER"] = "receipts-fixture",
             ["ENABLE_ED25519_SIGNING"] = value
         }).Build();
         Assert.False(RelaySettings.Load(config).SigningEnabled);
@@ -57,14 +58,15 @@ public sealed class RelayTests : IDisposable
     [Theory]
     [InlineData("DISCORD_PUBLIC_KEY", null)]
     [InlineData("DISCORD_PUBLIC_KEY", "bad")]
-    [InlineData("StorageQueueAccount", null)]
-    [InlineData("StorageQueueAccount", "bad")]
+    [InlineData("DISCORD_STORAGE_ACCOUNT_NAME", null)]
+    [InlineData("DISCORD_STORAGE_ACCOUNT_NAME", "Bad-Account")]
     [InlineData("DISCORD_QUEUE_NAME", "Bad--Name")]
     [InlineData("DISCORD_DEDUP_CONTAINER", "Bad")]
     public void InvalidConfigurationFails(string name, string? value)
     {
         var values = new Dictionary<string,string?>
-        { ["DISCORD_PUBLIC_KEY"] = PublicKeyHex, ["StorageQueueAccount"] = "UseDevelopmentStorage=true" };
+        { ["DISCORD_PUBLIC_KEY"] = PublicKeyHex, ["DISCORD_STORAGE_ACCOUNT_NAME"] = "localfixture",
+            ["DISCORD_QUEUE_NAME"] = "queue-fixture", ["DISCORD_DEDUP_CONTAINER"] = "receipts-fixture" };
         values[name] = value;
         Assert.Throws<InvalidOperationException>(() => RelaySettings.Load(
             new ConfigurationBuilder().AddInMemoryCollection(values).Build()));
@@ -74,7 +76,8 @@ public sealed class RelayTests : IDisposable
     public void EnabledHelperRequiresTestKey()
     {
         var values = new Dictionary<string,string?>
-        { ["DISCORD_PUBLIC_KEY"] = PublicKeyHex, ["StorageQueueAccount"] = "UseDevelopmentStorage=true",
+        { ["DISCORD_PUBLIC_KEY"] = PublicKeyHex, ["DISCORD_STORAGE_ACCOUNT_NAME"] = "localfixture",
+            ["DISCORD_QUEUE_NAME"] = "queue-fixture", ["DISCORD_DEDUP_CONTAINER"] = "receipts-fixture",
           ["ENABLE_ED25519_SIGNING"] = "true" };
         Assert.Throws<InvalidOperationException>(() => RelaySettings.Load(
             new ConfigurationBuilder().AddInMemoryCollection(values).Build()));
@@ -87,7 +90,8 @@ public sealed class RelayTests : IDisposable
     {
         var values = new Dictionary<string,string?>
         {
-            ["DISCORD_PUBLIC_KEY"] = PublicKeyHex, ["StorageQueueAccount"] = "UseDevelopmentStorage=true",
+            ["DISCORD_PUBLIC_KEY"] = PublicKeyHex, ["DISCORD_STORAGE_ACCOUNT_NAME"] = "localfixture",
+            ["DISCORD_QUEUE_NAME"] = "queue-fixture", ["DISCORD_DEDUP_CONTAINER"] = "receipts-fixture",
             ["ENABLE_ED25519_SIGNING"] = "true", ["RELAY_HELPER_API_KEY"] = "local-test-key",
             ["DISCORD_TEST_PRIVATE_KEY"] = Convert.ToHexString(key.Export(KeyBlobFormat.RawPrivateKey))
         };

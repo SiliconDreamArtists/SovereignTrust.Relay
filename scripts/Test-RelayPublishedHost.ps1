@@ -2,6 +2,16 @@ param([Parameter(Mandatory)][string]$PublishDirectory,[Parameter(Mandatory)][str
 $ErrorActionPreference='Stop'
 if(Test-Path -LiteralPath $EvidenceDirectory){throw 'Host evidence output must be new'}
 New-Item -ItemType Directory -Path $EvidenceDirectory|Out-Null
+# The emulator exception is confined to excluded local tests, never published bytes.
+foreach($file in @(Get-ChildItem -LiteralPath $PublishDirectory -Recurse -File)){
+    $relative=[IO.Path]::GetRelativePath((Resolve-Path $PublishDirectory).Path,$file.FullName).Replace('\','/')
+    if($relative -match '(^|/)(Tests|LeaseCrashWorker|node_modules)(/|$)|(^|/)(testhost\.dll|xunit[^/]*|Microsoft\.TestPlatform[^/]*|[^/]*\.Tests\.dll|LeaseCrashWorker[^/]*|[^/]*azurite[^/]*|[^/]*\.cs)$' -or $relative -match '(^|/)(local\.settings\.json|host\.json|worker\.config\.json|\.azurefunctions)(/|$)'){
+        throw "Test/local artifact must not be published: $relative"
+    }
+}
+$dependencies=Get-Content -Raw -LiteralPath (Join-Path $PublishDirectory 'SovereignTrust.Relay.Azure.deps.json')|ConvertFrom-Json
+if(@($dependencies.libraries.PSObject.Properties.Name|Where-Object {$_ -match 'SovereignTrust\.Relay\.Tests|LeaseCrashWorker|Microsoft\.NET\.Test\.Sdk|Microsoft\.AspNetCore\.Mvc\.Testing|xunit|TestPlatform'}).Count){throw 'Production dependency manifest includes test dependencies'}
+Write-Output 'PASS published application excludes local tests/emulator artifacts and test dependencies'
 $listener=[Net.Sockets.TcpListener]::new([Net.IPAddress]::Loopback,0)
 $listener.Start(); $port=([Net.IPEndPoint]$listener.LocalEndpoint).Port; $listener.Stop()
 $start=[Diagnostics.ProcessStartInfo]::new('dotnet')
@@ -9,7 +19,13 @@ $start.UseShellExecute=$false; $start.RedirectStandardOutput=$true; $start.Redir
 $start.ArgumentList.Add((Join-Path (Resolve-Path $PublishDirectory).Path 'SovereignTrust.Relay.Azure.dll'))
 $start.ArgumentList.Add('--urls');$start.ArgumentList.Add("http://127.0.0.1:$port")
 $start.Environment['DISCORD_PUBLIC_KEY']='d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a'
-$start.Environment['StorageQueueAccount']='UseDevelopmentStorage=true'
+# Local syntax-only smoke configuration; no identity/storage request or deployed binding.
+foreach($name in @('StorageQueueAccount','AzureWebJobsStorage','AZURE_STORAGE_CONNECTION_STRING','AZURE_STORAGE_KEY','AZURE_STORAGE_SAS_TOKEN')){
+    $start.Environment.Remove($name)|Out-Null
+}
+$start.Environment['DISCORD_STORAGE_ACCOUNT_NAME']='localfixture'
+$start.Environment['DISCORD_QUEUE_NAME']='queue-fixture'
+$start.Environment['DISCORD_DEDUP_CONTAINER']='receipts-fixture'
 $start.Environment['ENABLE_ED25519_SIGNING']='false'
 $process=[Diagnostics.Process]::Start($start)
 $stdout=$process.StandardOutput.ReadToEndAsync();$stderr=$process.StandardError.ReadToEndAsync()

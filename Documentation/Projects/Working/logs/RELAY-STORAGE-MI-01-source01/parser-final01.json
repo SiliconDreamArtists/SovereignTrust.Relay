@@ -1,0 +1,10 @@
+{
+  "files": [
+    "scripts/Prepare-RelayDeployment.ps1",
+    "scripts/Test-RelayPackage.ps1",
+    "scripts/Test-RelayPublishedHost.ps1",
+    "Tests/Deployment/Prepare-RelayDeployment.Tests.ps1",
+    "Tests/Deployment/Package-Promotion.Tests.ps1"
+  ],
+  "errors": 0
+}

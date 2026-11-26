@@ -47,6 +47,7 @@ try {
     if($entries.Count -ne $manifest.files.Count){throw 'Package manifest count mismatch'}
     foreach($entry in $entries){
         if($entry.FullName -match '(^/|\\|(^|/)\.\.(/|$)|(^|/)(local\.settings\.json|host\.json|worker\.config\.json|\.azurefunctions)(/|$))'){throw 'Unsafe/forbidden ZIP entry'}
+        if($entry.FullName -match '(^|/)(Tests|LeaseCrashWorker|node_modules)(/|$)|(^|/)(testhost\.dll|xunit[^/]*|Microsoft\.TestPlatform[^/]*|[^/]*\.Tests\.dll|LeaseCrashWorker[^/]*|[^/]*azurite[^/]*|[^/]*\.cs)$'){throw 'Test/emulator fixture must not be packaged'}
         $file=@($manifest.files|Where-Object path -CEQ $entry.FullName)
         if($file.Count -ne 1){throw 'Missing/duplicate manifest entry'}
         $stream=$entry.Open()

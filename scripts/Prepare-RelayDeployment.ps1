@@ -29,7 +29,7 @@ if ($config.linuxFxVersion -ne 'DOTNETCORE|10.0' -or $config.alwaysOn -ne $true)
 # Names cannot establish isolation; owner separately attests exact references or intentional absence.
 if ($Purpose -eq 'RuntimeReady') {
     $names = @(Invoke-RelayAzureRead @('webapp','config','appsettings','list','--name',$c.Name,'--resource-group',$c.Group,'--query','[].name'))
-    foreach ($required in @('DISCORD_PUBLIC_KEY','StorageQueueAccount','DISCORD_QUEUE_NAME','DISCORD_DEDUP_CONTAINER','ENABLE_ED25519_SIGNING')) {
+    foreach ($required in @('DISCORD_PUBLIC_KEY','DISCORD_STORAGE_ACCOUNT_NAME','DISCORD_QUEUE_NAME','DISCORD_DEDUP_CONTAINER','ENABLE_ED25519_SIGNING')) {
         if ($names -cnotcontains $required) { throw "Missing required setting name: $required" }
     }
 }

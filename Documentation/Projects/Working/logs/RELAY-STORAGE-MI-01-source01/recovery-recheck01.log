@@ -1,0 +1,5 @@
+Test run for C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Documentation\Projects\Working\logs\RELAY-STORAGE-MI-01-source01\recovery-recheck01\sfost_SDADEV01_2026-11-25_20_59_45_net10.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 513 ms - SovereignTrust.Relay.Tests.dll (net10.0)

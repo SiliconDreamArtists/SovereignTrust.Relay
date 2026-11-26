@@ -1,0 +1,26 @@
+PASS actual SDK selection 10.0.404 under repository policy
+PASS actual runtime platform oracle Windows (description informational)
+Validated scalar source/build-run metadata and native Git tree; platform/package checks still required.
+Verified package integrity/provenance fields 91E53093FD896259B46A80F9DF6C4488D481A50D55B4D28994C30A9DE37B7D23; matching Linux runtime receipt still required.
+PASS synthetic Ubuntu description without Linux accepted by structured platform (not runtime acceptance)
+PASS WrongSource rejected
+PASS WrongPackageHash rejected
+PASS WrongPlatform rejected
+PASS MissingPlatform rejected
+PASS WrongSdk rejected
+PASS ArraySdk rejected
+PASS MissingProvenance rejected
+PASS WrongFileHash rejected
+PASS UnacceptedPackage rejected
+PASS WrongBuildRun rejected
+PASS event/mode BuildPush
+PASS event/mode BuildPr
+PASS event/mode BuildPrWrongRef
+PASS event/mode PrAsRelease
+PASS event/mode BuildPushAsRelease
+PASS event/mode ReleaseAsBuildOnly
+PASS test-only artifact excluded: SovereignTrust.Relay.Tests.dll
+PASS test-only artifact excluded: LeaseCrashWorker.dll
+PASS test-only artifact excluded: Tests/fixture.json
+PASS test-only artifact excluded: fixture.cs
+PASS test-only artifact excluded: __azurite_db_blob__.json

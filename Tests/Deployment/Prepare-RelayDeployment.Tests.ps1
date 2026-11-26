@@ -22,7 +22,7 @@ $cases=@('Valid','WrongApp','WrongPlanArgument','WrongEnvironment','FunctionKind
 foreach($purpose in @('Default','RuntimeReady','PackagePlacement')){
 foreach($case in $cases){
     $reads.Clear()
-    $fixture=@{Kind='app,linux';State='Running';Plan=$planId;Https=$true;Runtime='DOTNETCORE|10.0';AlwaysOn=$true;Names=@('DISCORD_PUBLIC_KEY','StorageQueueAccount','DISCORD_QUEUE_NAME','DISCORD_DEDUP_CONTAINER','ENABLE_ED25519_SIGNING');Flag='false'}
+    $fixture=@{Kind='app,linux';State='Running';Plan=$planId;Https=$true;Runtime='DOTNETCORE|10.0';AlwaysOn=$true;Names=@('DISCORD_PUBLIC_KEY','DISCORD_STORAGE_ACCOUNT_NAME','DISCORD_QUEUE_NAME','DISCORD_DEDUP_CONTAINER','ENABLE_ED25519_SIGNING');Flag='false'}
     $argsToUse=@{Environment='Dev';AppResourceId=$appId;PlanResourceId=$planId}
     if($purpose -ne 'Default'){$argsToUse.Purpose=$purpose}
     switch($case){

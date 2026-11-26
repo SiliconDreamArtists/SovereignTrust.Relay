@@ -125,6 +125,35 @@ try{
                $bound.DefaultHostName -cne 'sda-relay-api-dev.azurewebsites.net'){throw 'Bound Dev profile differs from accepted owner outputs'}
         } finally {foreach($name in $credentialNames){if($null -eq $priorCredentials[$name]){Remove-Item -LiteralPath "Env:$name" -ErrorAction SilentlyContinue}else{[Environment]::SetEnvironmentVariable($name,$priorCredentials[$name])}}}
     }
+    # Actual Test owner outputs; environment values are confined to this mocked fixture.
+    $testOwnerNames=@('RELAY_AZURE_CLIENT_ID','RELAY_AZURE_TENANT_ID','RELAY_AZURE_SUBSCRIPTION_ID','RELAY_PREVIOUS_ACCEPTED_RUN_ID','RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID')
+    $testOwnerSaved=@{};foreach($name in $testOwnerNames){$testOwnerSaved[$name]=[Environment]::GetEnvironmentVariable($name)}
+    try {
+        $env:RELAY_AZURE_CLIENT_ID='52289819-53b8-48b7-a690-4dd88ff297bc'
+        $env:RELAY_AZURE_TENANT_ID='8904b745-1738-426c-ad85-3fcecb32d24b'
+        $env:RELAY_AZURE_SUBSCRIPTION_ID='5c813ecc-3c19-44de-b676-304116fc869d'
+        $env:RELAY_PREVIOUS_ACCEPTED_RUN_ID='45866426041';$env:RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID='15139584030'
+        Check 'bound Test owner profile and accepted Dev pointers accepted' {
+            $bound=& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage test -RequireOwner
+            if($bound.DeploymentClientId -cne '52289819-53b8-48b7-a690-4dd88ff297bc' -or
+               $bound.DeploymentPrincipalId -cne '4c9457de-890d-46b1-9dd1-e56ecbe568bd' -or
+               $bound.RuntimePrincipalId -cne '1ed9a5c6-d93c-4c8b-b40e-bf484c2d1999' -or
+               $bound.DefaultHostName -cne 'sda-relay-api-test.azurewebsites.net' -or $bound.Sku -cne 'B1' -or
+               $bound.AppResourceId -cne '/subscriptions/5c813ecc-3c19-44de-b676-304116fc869d/resourceGroups/sda-test/providers/Microsoft.Web/sites/sda-relay-api-test' -or
+               $bound.PlanResourceId -cne '/subscriptions/5c813ecc-3c19-44de-b676-304116fc869d/resourceGroups/sda-test/providers/Microsoft.Web/serverfarms/ASP-sda-test-fusion' -or
+               $bound.FederationSubject -cne 'repo:SiliconDreamArtists/SovereignTrust.Relay:environment:sda-test'){throw 'Bound Test profile differs from accepted owner outputs'}
+        }
+        foreach($name in @('RELAY_AZURE_CLIENT_ID','RELAY_AZURE_TENANT_ID','RELAY_AZURE_SUBSCRIPTION_ID')){
+            $actual=[Environment]::GetEnvironmentVariable($name);[Environment]::SetEnvironmentVariable($name,'99999999-9999-9999-9999-999999999999')
+            Check "bound Test rejects wrong $name" {& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage test -RequireOwner} $true
+            [Environment]::SetEnvironmentVariable($name,$actual)
+        }
+        foreach($name in @('RELAY_PREVIOUS_ACCEPTED_RUN_ID','RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID')){
+            $actual=[Environment]::GetEnvironmentVariable($name);[Environment]::SetEnvironmentVariable($name,'')
+            Check "bound Test rejects missing $name" {& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage test -RequireOwner} $true
+            [Environment]::SetEnvironmentVariable($name,$actual)
+        }
+    } finally {foreach($name in $testOwnerNames){if($null -eq $testOwnerSaved[$name]){Remove-Item -LiteralPath "Env:$name" -ErrorAction SilentlyContinue}else{[Environment]::SetEnvironmentVariable($name,$testOwnerSaved[$name])}}}
     # Populate a copy only, to exercise a complete future owner binding without inventing current outputs.
     $ownerDir=Join-Path $evidence 'synthetic-owner-profile';New-Item -ItemType Directory $ownerDir|Out-Null
     Copy-Item (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') $ownerDir

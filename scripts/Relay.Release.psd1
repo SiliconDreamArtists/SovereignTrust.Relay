@@ -7,14 +7,14 @@
     Audience = 'api://AzureADTokenExchange'
     Package = @{
         BuildWorkflowPath = '.github/workflows/main_publish_sda-relay-dev.yml'
-        SourceCommit = 'b32c3fbfe2cdf64056be264d59dcd97df6d4591e'
-        SourceTree = '1dbd784e41033d3ffcce6206bef54f2b3d9ab090'
-        SourceRef = 'refs/heads/agents/relay-azure-to-aspnet-core-migration'
-        BuildRunId = '44994573298'
-        ArtifactId = '14743586651'
+        SourceCommit = 'f0325ec5133d333217c92208d19a5922bedfbb00'
+        SourceTree = '81fead85696127e2b9406da4412f422b0d068939'
+        SourceRef = 'refs/heads/main'
+        BuildRunId = '45788694095'
+        ArtifactId = '15101132737'
         ArtifactName = 'relay-manual-package'
-        WrapperSha256 = '255B70A03DB79149BEF46A9880AE51F9816CD77FD8E203D531EB4312B1B0DA8F'
-        Sha256 = 'E4473862F6A6406B8DC021CFFCB34B82247AAD7640D9FE0CB3659D1A8DBB87FC'
+        WrapperSha256 = '6DF744213B1798A97737C5E966D140A65356226D7FB07B2BC613E3F9C0D7B096'
+        Sha256 = '586EEF9E48BAC9C01D5E4E0C342C220520A84892D389B6985B4788A7D41CABBB'
     }
     Stages = @{
         dev = @{

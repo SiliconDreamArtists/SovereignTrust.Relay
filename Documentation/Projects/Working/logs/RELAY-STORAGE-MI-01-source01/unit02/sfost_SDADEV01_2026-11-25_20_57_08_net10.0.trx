@@ -1,0 +1,1267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="e4932e84-9a3d-478f-aa4f-e27c971e6598" name="sfost@SDADEV01 2026-11-25 20:57:08" runUser="SDADEV01\sfost" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-11-25T20:57:08.2815425-08:00" queuing="2026-11-25T20:57:08.2815435-08:00" start="2026-11-25T20:57:05.5377577-08:00" finish="2026-11-25T20:57:14.4694229-08:00" />
+  <TestSettings name="default" id="61131742-add4-4a6b-ba87-3f7f49efc787">
+    <Deployment runDeploymentRoot="sfost_SDADEV01_2026-11-25_20_57_08" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="6cdc53db-fee1-4eef-8733-89c33748a369" testId="ba225be8-0e5f-b48e-e3b5-5ae476d3cd83" testName="RelayTests.InvalidPayloadNeverEnqueued(body: &quot;{\&quot;type\&quot;:2}&quot;)" computerName="SDADEV01" duration="00:00:00.0009786" startTime="2026-11-25T20:57:12.3620018-08:00" endTime="2026-11-25T20:57:12.3746841-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6cdc53db-fee1-4eef-8733-89c33748a369" />
+    <UnitTestResult executionId="fcfc2d5f-1378-4b1b-b96f-78c961befa14" testId="891f0724-ba2c-0510-5281-aa251b363239" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;UPPERCASE&quot;)" computerName="SDADEV01" duration="00:00:00.0001524" startTime="2026-11-25T20:57:08.2014563-08:00" endTime="2026-11-25T20:57:08.2206143-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fcfc2d5f-1378-4b1b-b96f-78c961befa14" />
+    <UnitTestResult executionId="a2e66eb1-abc1-41eb-b70b-39d6ad1d7ad0" testId="b0a98ab9-07c4-0107-34db-d3a7738a0fd4" testName="HttpTests.BadPayloadCannotDispatch(body: &quot;not-json&quot;)" computerName="SDADEV01" duration="00:00:00.1672914" startTime="2026-11-25T20:57:08.7537406-08:00" endTime="2026-11-25T20:57:08.9263378-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a2e66eb1-abc1-41eb-b70b-39d6ad1d7ad0" />
+    <UnitTestResult executionId="33094068-1517-49df-af6a-4109868206ac" testId="2f63a85a-2de7-361e-2e97-ddf862bc4bc2" testName="HttpTests.SerializedUtf8LimitRejectsBeforeQueue" computerName="SDADEV01" duration="00:00:00.1870717" startTime="2026-11-25T20:57:14.0395348-08:00" endTime="2026-11-25T20:57:14.2284982-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="33094068-1517-49df-af6a-4109868206ac" />
+    <UnitTestResult executionId="934ea643-9389-4e42-8832-ba68da6aba0c" testId="5389306b-3c77-f53a-8f9e-826c54fb2087" testName="HttpTests.HelperAuthorizationIsEnforcedOverHttp" computerName="SDADEV01" duration="00:00:00.6283722" startTime="2026-11-25T20:57:10.6085517-08:00" endTime="2026-11-25T20:57:11.4198278-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="934ea643-9389-4e42-8832-ba68da6aba0c" />
+    <UnitTestResult executionId="5928e19a-6307-42ba-938e-087b9786f988" testId="7c20c706-bc26-d8d2-e790-00d459728389" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;@Microsoft.KeyVault(SecretUri=fixture)&quot;)" computerName="SDADEV01" duration="00:00:00.0001465" startTime="2026-11-25T20:57:08.2349638-08:00" endTime="2026-11-25T20:57:08.2350263-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5928e19a-6307-42ba-938e-087b9786f988" />
+    <UnitTestResult executionId="ff46219b-8a20-429c-8062-5246059bedc4" testId="d7147f15-47e0-c32a-d560-b9e883087f9c" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: null)" computerName="SDADEV01" duration="00:00:00.0001654" startTime="2026-11-25T20:57:08.2209778-08:00" endTime="2026-11-25T20:57:08.2210593-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff46219b-8a20-429c-8062-5246059bedc4" />
+    <UnitTestResult executionId="ae49daf9-50cf-4325-a7d1-13ad7a01a733" testId="9e17d01d-d842-bd01-9dd9-3d153fdcd725" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;UPPERCASE&quot;)" computerName="SDADEV01" duration="00:00:00.0001427" startTime="2026-11-25T20:57:08.2356980-08:00" endTime="2026-11-25T20:57:08.2357629-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ae49daf9-50cf-4325-a7d1-13ad7a01a733" />
+    <UnitTestResult executionId="970c5250-16d4-4a44-81b0-3980463ad5b6" testId="967b3e50-1ff7-1f62-65c8-c856abf8516b" testName="StorageAuthenticationTests.BothRegisteredClientsUseBearerTokensBase64AndNoRetries" computerName="SDADEV01" duration="00:00:00.3739008" startTime="2026-11-25T20:57:08.7612992-08:00" endTime="2026-11-25T20:57:09.1713564-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="970c5250-16d4-4a44-81b0-3980463ad5b6" />
+    <UnitTestResult executionId="285b2ca1-16b3-4c8a-b2da-18ecf1ef92ec" testId="197bbbe5-7827-b8bb-f7e1-4c72938d556c" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;https://external.invalid&quot;)" computerName="SDADEV01" duration="00:00:00.0001432" startTime="2026-11-25T20:57:08.2354924-08:00" endTime="2026-11-25T20:57:08.2355565-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="285b2ca1-16b3-4c8a-b2da-18ecf1ef92ec" />
+    <UnitTestResult executionId="ed8fee3b-6316-4703-9e26-8628e742642d" testId="845fe1d5-99b3-e823-9991-c404df22170e" testName="RelayTests.StaleOrFutureSignatureRejected(offset: -301)" computerName="SDADEV01" duration="00:00:00.0009056" startTime="2026-11-25T20:57:12.3948372-08:00" endTime="2026-11-25T20:57:12.3955230-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ed8fee3b-6316-4703-9e26-8628e742642d" />
+    <UnitTestResult executionId="e45da738-861a-4fcb-b75b-11db85559be1" testId="f61ad1d1-c949-2e05-08f3-09fc7c33e3dd" testName="HttpTests.InvalidSignatureHeadersCannotDispatch(mode: &quot;tampered&quot;)" computerName="SDADEV01" duration="00:00:00.0627404" startTime="2026-11-25T20:57:10.4331322-08:00" endTime="2026-11-25T20:57:10.5006895-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e45da738-861a-4fcb-b75b-11db85559be1" />
+    <UnitTestResult executionId="1808634b-16b6-4097-8ef0-9239cb1579f4" testId="0da70797-9721-937a-8266-5c60a2bb396f" testName="HttpTests.TimestampWindow(offset: -300, accepted: True)" computerName="SDADEV01" duration="00:00:00.1321029" startTime="2026-11-25T20:57:09.5641294-08:00" endTime="2026-11-25T20:57:09.7069609-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1808634b-16b6-4097-8ef0-9239cb1579f4" />
+    <UnitTestResult executionId="044673ac-f997-4a2d-99fe-9e7f3704b396" testId="a231ae5c-911e-83e0-cdf6-96caff0ac1c4" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: null)" computerName="SDADEV01" duration="00:00:00.0001683" startTime="2026-11-25T20:57:08.1977234-08:00" endTime="2026-11-25T20:57:08.1978708-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="044673ac-f997-4a2d-99fe-9e7f3704b396" />
+    <UnitTestResult executionId="54fcefb7-ea56-40b4-bbb9-37a269480465" testId="72fee485-bc28-a718-b8da-6ea08c5e61ba" testName="RelayTests.PingDoesNotAccessStorage" computerName="SDADEV01" duration="00:00:00.0484456" startTime="2026-11-25T20:57:08.2047772-08:00" endTime="2026-11-25T20:57:08.2324500-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="54fcefb7-ea56-40b4-bbb9-37a269480465" />
+    <UnitTestResult executionId="cda86289-2fac-429d-b44d-436b31d740b2" testId="f394a2cf-48f4-9da8-c76a-69332557af22" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;https://external.invalid&quot;)" computerName="SDADEV01" duration="00:00:00.0001442" startTime="2026-11-25T20:57:08.2351403-08:00" endTime="2026-11-25T20:57:08.2352060-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cda86289-2fac-429d-b44d-436b31d740b2" />
+    <UnitTestResult executionId="adaafa04-0025-4909-9518-029b4de49d16" testId="1b87193f-630e-cc58-09d6-e20c5585face" testName="RelayTests.EnabledHelperRequiresBothSeparateSecrets(missing: &quot;DISCORD_TEST_PRIVATE_KEY&quot;)" computerName="SDADEV01" duration="00:00:00.0016396" startTime="2026-11-25T20:57:12.3772121-08:00" endTime="2026-11-25T20:57:12.3788323-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="adaafa04-0025-4909-9518-029b4de49d16" />
+    <UnitTestResult executionId="2b82e2f1-bfed-4042-9c8c-857937265a7e" testId="e2122f14-77e7-3ebd-b027-a7326acfd184" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;validname\n&quot;)" computerName="SDADEV01" duration="00:00:00.0282238" startTime="2026-11-25T20:57:08.2279675-08:00" endTime="2026-11-25T20:57:08.2295430-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2b82e2f1-bfed-4042-9c8c-857937265a7e" />
+    <UnitTestResult executionId="7e3c6be6-d2aa-4ee2-a2bd-97a6bc49c999" testId="55c72cbf-969d-60d1-4602-ef830bf2a0d9" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;&quot;)" computerName="SDADEV01" duration="00:00:00.0001596" startTime="2026-11-25T20:57:08.2211925-08:00" endTime="2026-11-25T20:57:08.2212521-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e3c6be6-d2aa-4ee2-a2bd-97a6bc49c999" />
+    <UnitTestResult executionId="9fcf418e-4e28-4f24-9569-d35d24975f4e" testId="70aa3303-937b-a203-03ad-d8a8b9d70638" testName="HttpTests.TimestampWindow(offset: 30, accepted: True)" computerName="SDADEV01" duration="00:00:00.2204819" startTime="2026-11-25T20:57:09.9375564-08:00" endTime="2026-11-25T20:57:10.1789159-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9fcf418e-4e28-4f24-9569-d35d24975f4e" />
+    <UnitTestResult executionId="659ecce8-c9bf-4543-bc97-f8d3dfbad3e6" testId="cef6139a-7f2d-8b0d-4253-5d103b307403" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;&quot;)" computerName="SDADEV01" duration="00:00:00.0001588" startTime="2026-11-25T20:57:08.1999359-08:00" endTime="2026-11-25T20:57:08.2001546-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="659ecce8-c9bf-4543-bc97-f8d3dfbad3e6" />
+    <UnitTestResult executionId="c1f4d881-1f71-471d-91ef-4834600f8719" testId="668940f7-497a-26d8-ae11-2fa4fd9c6ce6" testName="RelayTests.StorageWorkIsCanceledAtDeadline" computerName="SDADEV01" duration="00:00:02.0405965" startTime="2026-11-25T20:57:10.2254799-08:00" endTime="2026-11-25T20:57:12.2968713-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c1f4d881-1f71-471d-91ef-4834600f8719" />
+    <UnitTestResult executionId="973c4393-762e-4301-b1c7-2897e15bfcd0" testId="a3cc14d2-591c-381d-2466-210750ed518e" testName="RelayTests.BusyReceiptDoesNotEnqueue" computerName="SDADEV01" duration="00:00:00.0117473" startTime="2026-11-25T20:57:10.1910813-08:00" endTime="2026-11-25T20:57:10.2030522-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="973c4393-762e-4301-b1c7-2897e15bfcd0" />
+    <UnitTestResult executionId="4274e1f7-44ed-4e4f-9281-0772edd1f69b" testId="e0281a36-b1fd-7da9-8e08-c0e6b0044c67" testName="RelayTests.SigningDefaultsOff(value: &quot;false&quot;)" computerName="SDADEV01" duration="00:00:00.0005069" startTime="2026-11-25T20:57:10.2236622-08:00" endTime="2026-11-25T20:57:10.2238954-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4274e1f7-44ed-4e4f-9281-0772edd1f69b" />
+    <UnitTestResult executionId="b38f0801-d0a6-478d-83f0-7eba825220ee" testId="eb27e340-6e72-f927-90fb-b3b014a5bab5" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;validname\n&quot;)" computerName="SDADEV01" duration="00:00:00.0004176" startTime="2026-11-25T20:57:08.2330914-08:00" endTime="2026-11-25T20:57:08.2331573-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b38f0801-d0a6-478d-83f0-7eba825220ee" />
+    <UnitTestResult executionId="10df95f0-686c-4b21-b383-5c059aac4fb4" testId="e9df4328-9aad-0538-d702-1742d17a68a3" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;https://external.invalid&quot;)" computerName="SDADEV01" duration="00:00:00.0001697" startTime="2026-11-25T20:57:08.2271596-08:00" endTime="2026-11-25T20:57:08.2272880-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="10df95f0-686c-4b21-b383-5c059aac4fb4" />
+    <UnitTestResult executionId="aa3d39f4-2326-4b87-8674-70d16e701476" testId="b426d56b-60fe-ab3a-1f1d-f49c69123d29" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot; &quot;)" computerName="SDADEV01" duration="00:00:00.0002139" startTime="2026-11-25T20:57:08.2316922-08:00" endTime="2026-11-25T20:57:08.2318189-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa3d39f4-2326-4b87-8674-70d16e701476" />
+    <UnitTestResult executionId="da39f5e6-f9e6-4fd5-a9e2-aa7afa150d85" testId="bc3af7c5-4ed4-c94e-0c70-dff68edf318a" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;bad--name&quot;)" computerName="SDADEV01" duration="00:00:00.0004594" startTime="2026-11-25T20:57:08.2297818-08:00" endTime="2026-11-25T20:57:08.2298550-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="da39f5e6-f9e6-4fd5-a9e2-aa7afa150d85" />
+    <UnitTestResult executionId="dd7aa057-6c71-48da-aad8-95ea75634c73" testId="1bdf8c85-b6e4-276a-f78d-3101ffdfb9f5" testName="RelayTests.InvalidPayloadNeverEnqueued(body: &quot;{\&quot;type\&quot;:4,\&quot;id\&quot;:\&quot;123\&quot;}&quot;)" computerName="SDADEV01" duration="00:00:00.0014373" startTime="2026-11-25T20:57:12.3751860-08:00" endTime="2026-11-25T20:57:12.3768448-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd7aa057-6c71-48da-aad8-95ea75634c73" />
+    <UnitTestResult executionId="2b1bff1e-ddcb-4e1d-8a24-d183d0e99315" testId="55b206be-e83f-dab0-d5a5-7b542be4d665" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot; &quot;)" computerName="SDADEV01" duration="00:00:00.0620346" startTime="2026-11-25T20:57:08.2323321-08:00" endTime="2026-11-25T20:57:08.2329607-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2b1bff1e-ddcb-4e1d-8a24-d183d0e99315" />
+    <UnitTestResult executionId="7e69f8aa-84ed-46fa-990a-8470b298c119" testId="25d0dd1e-d8da-8cf5-e59b-8a12f365541c" testName="HttpTests.StorageDeadlineAndFailureAre503" computerName="SDADEV01" duration="00:00:02.0923042" startTime="2026-11-25T20:57:11.7040617-08:00" endTime="2026-11-25T20:57:13.7979453-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e69f8aa-84ed-46fa-990a-8470b298c119" />
+    <UnitTestResult executionId="d06c2108-97f9-4a11-b5f9-23dea4242480" testId="31e05ab7-875a-00fd-4827-5aecdebaa9aa" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;ab&quot;)" computerName="SDADEV01" duration="00:00:00.0001642" startTime="2026-11-25T20:57:08.1995857-08:00" endTime="2026-11-25T20:57:08.1997538-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d06c2108-97f9-4a11-b5f9-23dea4242480" />
+    <UnitTestResult executionId="55fdf079-b65a-4707-a878-aa3bc8524a7c" testId="247c3ccb-adee-4a79-c8c9-647a27d3fef6" testName="RelayTests.AcceptedInteractionPreservesIdAndDefers" computerName="SDADEV01" duration="00:00:00.0035190" startTime="2026-11-25T20:57:12.3969296-08:00" endTime="2026-11-25T20:57:12.4005122-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="55fdf079-b65a-4707-a878-aa3bc8524a7c" />
+    <UnitTestResult executionId="fc798d11-f5be-4514-84ec-ae1c2697d9df" testId="f3c56309-711c-a993-df69-07cd7b24a38d" testName="HttpTests.InvalidSignatureHeadersCannotDispatch(mode: &quot;multiple&quot;)" computerName="SDADEV01" duration="00:00:00.0518404" startTime="2026-11-25T20:57:10.3095881-08:00" endTime="2026-11-25T20:57:10.3616945-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fc798d11-f5be-4514-84ec-ae1c2697d9df" />
+    <UnitTestResult executionId="336c2304-721e-4ce0-96e9-290ed2ed0d8e" testId="dd57eb0a-dec0-6eca-6536-94848c35d1b2" testName="RelayTests.SigningDefaultsOff(value: &quot;invalid&quot;)" computerName="SDADEV01" duration="00:00:00.0004510" startTime="2026-11-25T20:57:10.2242155-08:00" endTime="2026-11-25T20:57:10.2243765-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="336c2304-721e-4ce0-96e9-290ed2ed0d8e" />
+    <UnitTestResult executionId="34f98a28-c136-4244-900b-ab0610add65d" testId="6da31307-fe4e-cce8-a628-be8754d37a59" testName="RelayTests.SlowBodyAndAbortedClientCannotConsumeUnboundedTime(aborted: True)" computerName="SDADEV01" duration="00:00:00.0041325" startTime="2026-11-25T20:57:08.2326389-08:00" endTime="2026-11-25T20:57:08.2327411-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="34f98a28-c136-4244-900b-ab0610add65d" />
+    <UnitTestResult executionId="282dad46-27d7-401d-b6e8-3df6daa66718" testId="01446b48-1d81-b7f4-f5d7-adb58623106e" testName="HttpTests.BadPayloadCannotDispatch(body: &quot;{\&quot;type\&quot;:2.5,\&quot;id\&quot;:\&quot;123\&quot;}&quot;)" computerName="SDADEV01" duration="00:00:00.2428196" startTime="2026-11-25T20:57:08.9265929-08:00" endTime="2026-11-25T20:57:09.2198107-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="282dad46-27d7-401d-b6e8-3df6daa66718" />
+    <UnitTestResult executionId="158a1c23-6cd5-443f-b690-3bb462c9f90e" testId="b174ca7b-9eb2-2ffa-4566-4315fb3ebd9c" testName="RelayTests.TamperedSignatureRejected" computerName="SDADEV01" duration="00:00:00.0173579" startTime="2026-11-25T20:57:12.2978006-08:00" endTime="2026-11-25T20:57:12.3161558-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="158a1c23-6cd5-443f-b690-3bb462c9f90e" />
+    <UnitTestResult executionId="95f1f540-6ca5-45fa-90de-8151d8b4af55" testId="c39446be-7aa0-a3b9-76ba-a713c5f93b64" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;UPPERCASE&quot;)" computerName="SDADEV01" duration="00:00:00.0001383" startTime="2026-11-25T20:57:08.2358846-08:00" endTime="2026-11-25T20:57:08.2359435-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="95f1f540-6ca5-45fa-90de-8151d8b4af55" />
+    <UnitTestResult executionId="8e704e81-d9f9-47c3-ae58-1cdef22da111" testId="9f79d817-9985-8844-d55e-b6781e276640" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;aaaaaaaaaaaaaaaaaaaaaaaaa&quot;)" computerName="SDADEV01" duration="00:00:00.0001507" startTime="2026-11-25T20:57:08.2277695-08:00" endTime="2026-11-25T20:57:08.2278381-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e704e81-d9f9-47c3-ae58-1cdef22da111" />
+    <UnitTestResult executionId="c4de54fd-de71-4653-b4ae-68aa26230afe" testId="bbb7affb-42d6-dbeb-1f10-24913ff7f85a" testName="RelayTests.DuplicateAndFailedEnqueueBehavior" computerName="SDADEV01" duration="00:00:00.0059060" startTime="2026-11-25T20:57:12.3840397-08:00" endTime="2026-11-25T20:57:12.3925948-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c4de54fd-de71-4653-b4ae-68aa26230afe" />
+    <UnitTestResult executionId="a906da1b-aa3e-4a72-9c76-824dd36c5e17" testId="3f5c9626-9def-c7ad-69de-b1060c6a7ef9" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;account-name&quot;)" computerName="SDADEV01" duration="00:00:00.0001802" startTime="2026-11-25T20:57:08.0616463-08:00" endTime="2026-11-25T20:57:08.0618242-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a906da1b-aa3e-4a72-9c76-824dd36c5e17" />
+    <UnitTestResult executionId="b39adbb6-9e7a-4ce2-b09f-45f39fee50d7" testId="6637e4d2-b12d-2d85-5c79-acb7ae62466b" testName="HttpTests.BadPayloadCannotDispatch(body: &quot;{\&quot;type\&quot;:2,\&quot;id\&quot;:\&quot;0\&quot;}&quot;)" computerName="SDADEV01" duration="00:00:00.3066040" startTime="2026-11-25T20:57:09.2201786-08:00" endTime="2026-11-25T20:57:09.5616680-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b39adbb6-9e7a-4ce2-b09f-45f39fee50d7" />
+    <UnitTestResult executionId="2222d19b-c135-4fb6-85be-c79cc41aee3d" testId="3a1baff5-56ac-4940-a51a-ebe86471d825" testName="HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 3)" computerName="SDADEV01" duration="00:00:00.1342376" startTime="2026-11-25T20:57:11.4223280-08:00" endTime="2026-11-25T20:57:11.5703486-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2222d19b-c135-4fb6-85be-c79cc41aee3d" />
+    <UnitTestResult executionId="4a2f871d-e440-4aae-acf2-567d921021bb" testId="bd2096c9-8216-e9be-fc33-681a7c4a606a" testName="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;Bad--Name&quot;)" computerName="SDADEV01" duration="00:00:00.0005886" startTime="2026-11-25T20:57:08.0467614-08:00" endTime="2026-11-25T20:57:08.0610795-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4a2f871d-e440-4aae-acf2-567d921021bb" />
+    <UnitTestResult executionId="1c37d4b0-d820-4192-aa85-e696ee4f49a3" testId="8aa4daff-e556-96cb-41e1-e522c466c1ad" testName="StorageAuthenticationTests.LegacyCredentialsCannotRedirectExplicitEndpoints" computerName="SDADEV01" duration="00:00:00.0007058" startTime="2026-11-25T20:57:09.1720844-08:00" endTime="2026-11-25T20:57:09.1730289-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1c37d4b0-d820-4192-aa85-e696ee4f49a3" />
+    <UnitTestResult executionId="f16bba25-b88a-4b03-9713-10a68485038e" testId="b8a4ed3d-2bec-d695-af9a-13e55c705330" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;ab&quot;)" computerName="SDADEV01" duration="00:00:00.0001591" startTime="2026-11-25T20:57:08.2347779-08:00" endTime="2026-11-25T20:57:08.2348412-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f16bba25-b88a-4b03-9713-10a68485038e" />
+    <UnitTestResult executionId="a1ea1369-6e5b-4aec-b7ae-601d8815047e" testId="42328e7d-3547-e703-485f-bb2a4804afbd" testName="RelayTests.StorageFailureReturns503" computerName="SDADEV01" duration="00:00:00.0055989" startTime="2026-11-25T20:57:12.3196157-08:00" endTime="2026-11-25T20:57:12.3257017-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a1ea1369-6e5b-4aec-b7ae-601d8815047e" />
+    <UnitTestResult executionId="a0c684b0-8128-49e2-acee-192544a9205c" testId="0be56543-b0d4-c348-7682-0e349c799f12" testName="RelayTests.EnabledHelperRequiresTestKey" computerName="SDADEV01" duration="00:00:00.0007511" startTime="2026-11-25T20:57:10.2250442-08:00" endTime="2026-11-25T20:57:10.2252107-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a0c684b0-8128-49e2-acee-192544a9205c" />
+    <UnitTestResult executionId="f1d3cd70-9527-4cd1-9e4a-e21f8692df57" testId="c7391d53-f836-6aff-cb31-5535346ff76f" testName="HttpTests.InvalidSignatureHeadersCannotDispatch(mode: &quot;missing&quot;)" computerName="SDADEV01" duration="00:00:00.0701191" startTime="2026-11-25T20:57:10.3621096-08:00" endTime="2026-11-25T20:57:10.4327342-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f1d3cd70-9527-4cd1-9e4a-e21f8692df57" />
+    <UnitTestResult executionId="fb738bf2-4671-409b-94ae-3a9d1ec99c6e" testId="cd49ee6d-0c07-703c-54d9-34a0ca0f19a2" testName="RelayTests.SigningDefaultsOff(value: null)" computerName="SDADEV01" duration="00:00:00.0001573" startTime="2026-11-25T20:57:10.2245906-08:00" endTime="2026-11-25T20:57:10.2247599-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb738bf2-4671-409b-94ae-3a9d1ec99c6e" />
+    <UnitTestResult executionId="e1393eaa-464d-4c22-a0f5-1c1a4d84d73f" testId="fa8006b7-a517-b610-e0af-03f1e4eefe53" testName="RelayTests.SlowBodyAndAbortedClientCannotConsumeUnboundedTime(aborted: False)" computerName="SDADEV01" duration="00:00:02.0785592" startTime="2026-11-25T20:57:08.2328920-08:00" endTime="2026-11-25T20:57:10.1906502-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e1393eaa-464d-4c22-a0f5-1c1a4d84d73f" />
+    <UnitTestResult executionId="d05a026d-7a2d-4b55-8cf4-9f1a59c5690c" testId="28bf722d-a8d5-b767-faa5-7fe645e619d3" testName="RecoveryTests.CompletionFailureAndAmbiguousSendRemainAtLeastOnce" computerName="SDADEV01" duration="00:00:00.0242268" startTime="2026-11-25T20:57:07.9963867-08:00" endTime="2026-11-25T20:57:08.0247051-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d05a026d-7a2d-4b55-8cf4-9f1a59c5690c" />
+    <UnitTestResult executionId="d1cf76ba-6b32-493f-ab70-913c162e1d6f" testId="c6bf1fb9-d770-4450-f986-8cbe0ae4342a" testName="HttpTests.RoutesExecuteRealJsonAndHelpersStayDisabled" computerName="SDADEV01" duration="00:00:00.2405040" startTime="2026-11-25T20:57:13.7983964-08:00" endTime="2026-11-25T20:57:14.0391308-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d1cf76ba-6b32-493f-ab70-913c162e1d6f" />
+    <UnitTestResult executionId="241d7bb0-e38f-452f-83bb-c1c1f2ae4213" testId="5484318e-1928-f8bc-fa28-9f4c03ab0655" testName="HttpTests.BodyLimitsAndMalformedUtf8RejectWithoutDispatch" computerName="SDADEV01" duration="00:00:00.1066091" startTime="2026-11-25T20:57:10.5026905-08:00" endTime="2026-11-25T20:57:10.6081404-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="241d7bb0-e38f-452f-83bb-c1c1f2ae4213" />
+    <UnitTestResult executionId="3e2a92c9-2e90-4ab2-85d3-545c6dab7045" testId="ac736ad0-8e3c-e497-09cd-c4489687fae6" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;validname\n&quot;)" computerName="SDADEV01" duration="00:00:00.0002323" startTime="2026-11-25T20:57:08.2321423-08:00" endTime="2026-11-25T20:57:08.2322161-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e2a92c9-2e90-4ab2-85d3-545c6dab7045" />
+    <UnitTestResult executionId="972d36af-9e6b-42d3-9f49-9471ca065c42" testId="c6bc3e5d-38a9-cd0d-a281-05b0e5d3f230" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;ab&quot;)" computerName="SDADEV01" duration="00:00:00.0089044" startTime="2026-11-25T20:57:08.0214944-08:00" endTime="2026-11-25T20:57:08.0314941-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="972d36af-9e6b-42d3-9f49-9471ca065c42" />
+    <UnitTestResult executionId="c49f882a-79c8-42d3-8e2e-84bf0cfb2f69" testId="ccdc885f-087e-4ae6-d013-cd0686840ae2" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;bad--name&quot;)" computerName="SDADEV01" duration="00:00:00.0002121" startTime="2026-11-25T20:57:08.2319613-08:00" endTime="2026-11-25T20:57:08.2320262-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c49f882a-79c8-42d3-8e2e-84bf0cfb2f69" />
+    <UnitTestResult executionId="3ca0141b-38fe-4cc5-a123-d58437e205ff" testId="d20b2996-1777-e5b5-a62c-d06d39020857" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot; &quot;)" computerName="SDADEV01" duration="00:00:00.0001339" startTime="2026-11-25T20:57:08.2360560-08:00" endTime="2026-11-25T20:57:08.2361178-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3ca0141b-38fe-4cc5-a123-d58437e205ff" />
+    <UnitTestResult executionId="8be30687-efab-40db-b034-b0d4a8ed3029" testId="8e568247-327f-7446-918b-59a7df8235ac" testName="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_PUBLIC_KEY&quot;, value: &quot;bad&quot;)" computerName="SDADEV01" duration="00:00:00.0003986" startTime="2026-11-25T20:57:08.0615976-08:00" endTime="2026-11-25T20:57:08.1990641-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8be30687-efab-40db-b034-b0d4a8ed3029" />
+    <UnitTestResult executionId="9bf4a1a2-6ce0-4b0e-a86b-a7766de2986c" testId="3d85b2b6-9a42-34a7-b30b-79afb4b293ce" testName="RelayTests.DisabledKeyGenerationReturns404" computerName="SDADEV01" duration="00:00:00.0008273" startTime="2026-11-25T20:57:12.3958435-08:00" endTime="2026-11-25T20:57:12.3965382-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9bf4a1a2-6ce0-4b0e-a86b-a7766de2986c" />
+    <UnitTestResult executionId="5a94cc19-1a0f-4173-a6d3-1e2039d3d662" testId="c7f3e3f7-c039-2cda-c547-d33f8a95d55b" testName="StorageTests.RemoteLookingEnvironmentOverrideCannotSelectExternalStorage" computerName="SDADEV01" duration="00:00:00.1953462" startTime="2026-11-25T20:57:07.9858547-08:00" endTime="2026-11-25T20:57:08.2378872-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a94cc19-1a0f-4173-a6d3-1e2039d3d662" />
+    <UnitTestResult executionId="123e98d0-132a-4b22-9d6d-189d1aff54cb" testId="30d93a21-3f2b-1e8a-9f54-ad0b2bfdd3a5" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: null)" computerName="SDADEV01" duration="00:00:00.0001496" startTime="2026-11-25T20:57:08.2353178-08:00" endTime="2026-11-25T20:57:08.2353786-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="123e98d0-132a-4b22-9d6d-189d1aff54cb" />
+    <UnitTestResult executionId="9b214c59-57aa-44e2-aff0-7aaf2aa1b580" testId="7d8bf02e-2b8c-79e3-3cac-f26ff55c0c41" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;@Microsoft.KeyVault(SecretUri=fixture)&quot;)" computerName="SDADEV01" duration="00:00:00.0001639" startTime="2026-11-25T20:57:08.2275449-08:00" endTime="2026-11-25T20:57:08.2276157-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9b214c59-57aa-44e2-aff0-7aaf2aa1b580" />
+    <UnitTestResult executionId="16febb03-aa48-44fd-82ef-13956a466d8a" testId="fb693a86-cc87-3b3f-cb6b-5f8a4feb108c" testName="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_PUBLIC_KEY&quot;, value: null)" computerName="SDADEV01" duration="00:00:00.0001555" startTime="2026-11-25T20:57:08.1992706-08:00" endTime="2026-11-25T20:57:08.1995080-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="16febb03-aa48-44fd-82ef-13956a466d8a" />
+    <UnitTestResult executionId="11c66c8b-cc25-40b6-9a57-3e018bbebdca" testId="e60a2f70-5e1e-e6af-dc30-ac3163786b79" testName="RelayTests.StaleOrFutureSignatureRejected(offset: 31)" computerName="SDADEV01" duration="00:00:00.0016006" startTime="2026-11-25T20:57:12.3930044-08:00" endTime="2026-11-25T20:57:12.3944790-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="11c66c8b-cc25-40b6-9a57-3e018bbebdca" />
+    <UnitTestResult executionId="23cb6653-5aa3-4c92-a739-2329f392cb3a" testId="f110edbc-cd80-39b2-2238-d8e1128fe2c6" testName="HttpTests.TimestampWindow(offset: 31, accepted: False)" computerName="SDADEV01" duration="00:00:00.0861730" startTime="2026-11-25T20:57:09.8249626-08:00" endTime="2026-11-25T20:57:09.9371255-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="23cb6653-5aa3-4c92-a739-2329f392cb3a" />
+    <UnitTestResult executionId="916ae770-6346-49f6-8a98-c3007f8a95c7" testId="e1be9800-6a37-bce4-b740-16aa4b3280ae" testName="RelayTests.InvalidPayloadNeverEnqueued(body: &quot;not-json&quot;)" computerName="SDADEV01" duration="00:00:00.0056995" startTime="2026-11-25T20:57:12.3346132-08:00" endTime="2026-11-25T20:57:12.3615951-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="916ae770-6346-49f6-8a98-c3007f8a95c7" />
+    <UnitTestResult executionId="2374a413-ed16-4e7f-94eb-fedb31e36db3" testId="2acd2b70-2fc9-6bd3-de76-3a67ae456750" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;···)" computerName="SDADEV01" duration="00:00:00.0001557" startTime="2026-11-25T20:57:08.2213659-08:00" endTime="2026-11-25T20:57:08.2214310-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2374a413-ed16-4e7f-94eb-fedb31e36db3" />
+    <UnitTestResult executionId="b9db505d-23c7-42f9-af68-e45b42c281ff" testId="527f343e-fae9-fded-61ea-dbfd5daa42f6" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;@Microsoft.KeyVault(SecretUri=fixture)&quot;)" computerName="SDADEV01" duration="00:00:00.0002374" startTime="2026-11-25T20:57:08.2345091-08:00" endTime="2026-11-25T20:57:08.2346093-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b9db505d-23c7-42f9-af68-e45b42c281ff" />
+    <UnitTestResult executionId="be607c97-6f3e-4ec4-b042-e96dcc0d260a" testId="67f5dfb3-3bf6-6ea8-812e-b3a6928caf9b" testName="RelayTests.InvalidPayloadNeverEnqueued(body: &quot;{\&quot;type\&quot;:\&quot;2\&quot;,\&quot;id\&quot;:\&quot;123\&quot;}&quot;)" computerName="SDADEV01" duration="00:00:00.0047219" startTime="2026-11-25T20:57:12.3260787-08:00" endTime="2026-11-25T20:57:12.3330644-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="be607c97-6f3e-4ec4-b042-e96dcc0d260a" />
+    <UnitTestResult executionId="060cc554-b167-4193-9f36-822922706132" testId="7c4dbc3f-0879-7e4b-7236-eadf496c3264" testName="RelayTests.EnabledHelperRequiresBothSeparateSecrets(missing: &quot;RELAY_HELPER_API_KEY&quot;)" computerName="SDADEV01" duration="00:00:00.0008943" startTime="2026-11-25T20:57:12.3795986-08:00" endTime="2026-11-25T20:57:12.3808557-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="060cc554-b167-4193-9f36-822922706132" />
+    <UnitTestResult executionId="db0c4472-980c-4bcd-9870-6573e9ac79e6" testId="3f4adcbb-ac07-bc82-d3c8-372874a2fc96" testName="HttpTests.InvalidSignatureHeadersCannotDispatch(mode: &quot;malformed&quot;)" computerName="SDADEV01" duration="00:00:00.1293557" startTime="2026-11-25T20:57:10.1793473-08:00" endTime="2026-11-25T20:57:10.3091564-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="db0c4472-980c-4bcd-9870-6573e9ac79e6" />
+    <UnitTestResult executionId="fdc23c12-de51-47c9-a585-ee66be6175a0" testId="79a448d1-8b96-daaa-b63a-f0dd4ce749e9" testName="RelayTests.SigningReturnsValidSignatureWithoutPrivateKey" computerName="SDADEV01" duration="00:00:00.0169059" startTime="2026-11-25T20:57:10.2035289-08:00" endTime="2026-11-25T20:57:10.2203887-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fdc23c12-de51-47c9-a585-ee66be6175a0" />
+    <UnitTestResult executionId="4b7c359a-24ce-4e8c-b6ce-b9968652a1b0" testId="5dc38e54-1d30-1bcd-081b-5773fc16436b" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;&quot;)" computerName="SDADEV01" duration="00:00:00.0002544" startTime="2026-11-25T20:57:08.2313814-08:00" endTime="2026-11-25T20:57:08.2314866-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4b7c359a-24ce-4e8c-b6ce-b9968652a1b0" />
+    <UnitTestResult executionId="40a02633-23a6-4066-8338-64ee5990d6c5" testId="675aef34-93be-8979-7561-c0b59407f588" testName="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;Bad-Account&quot;)" computerName="SDADEV01" duration="00:00:00.0001682" startTime="2026-11-25T20:57:08.1996758-08:00" endTime="2026-11-25T20:57:08.1998759-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="40a02633-23a6-4066-8338-64ee5990d6c5" />
+    <UnitTestResult executionId="f0aee672-6664-45a3-94b8-76869a744a5c" testId="2ede58b4-3582-1507-2361-0a25cbf25c90" testName="HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 2)" computerName="SDADEV01" duration="00:00:00.0662679" startTime="2026-11-25T20:57:11.6366466-08:00" endTime="2026-11-25T20:57:11.7036528-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f0aee672-6664-45a3-94b8-76869a744a5c" />
+    <UnitTestResult executionId="7711a067-ffba-4995-97a1-83fe9578c2ae" testId="43e5da7f-e7cf-8e22-ecdd-d3c2d5b563eb" testName="HttpTests.BadPayloadCannotDispatch(body: &quot;{\&quot;type\&quot;:2,\&quot;id\&quot;:\&quot;18446744073709551616\&quot;}&quot;)" computerName="SDADEV01" duration="00:00:00.7500791" startTime="2026-11-25T20:57:07.9820517-08:00" endTime="2026-11-25T20:57:08.7445573-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7711a067-ffba-4995-97a1-83fe9578c2ae" />
+    <UnitTestResult executionId="5a11e237-0e9a-4fcb-88f5-0b1608acc5aa" testId="84c2139c-feef-1a88-4988-a3ed39e78a73" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;···)" computerName="SDADEV01" duration="00:00:00.0001741" startTime="2026-11-25T20:57:08.1990332-08:00" endTime="2026-11-25T20:57:08.1993567-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a11e237-0e9a-4fcb-88f5-0b1608acc5aa" />
+    <UnitTestResult executionId="6bfca441-168e-487f-9d68-f1fc85fcb338" testId="29a6181c-766f-9b25-f000-fd7e2f0352e2" testName="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: null)" computerName="SDADEV01" duration="00:00:00.0001492" startTime="2026-11-25T20:57:08.2000691-08:00" endTime="2026-11-25T20:57:08.2002791-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6bfca441-168e-487f-9d68-f1fc85fcb338" />
+    <UnitTestResult executionId="d5a4fcab-6748-408a-a386-727d7873fb26" testId="892ea560-6b90-827c-117b-a4ca976db4b7" testName="StorageAuthenticationTests.ProductionRegistrationUsesManagedIdentityWithoutAuthenticatingAtStartup" computerName="SDADEV01" duration="00:00:00.6116732" startTime="2026-11-25T20:57:08.2378160-08:00" endTime="2026-11-25T20:57:08.7578781-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d5a4fcab-6748-408a-a386-727d7873fb26" />
+    <UnitTestResult executionId="e228eacc-7148-440e-b7e0-d925476b03f3" testId="c496b02a-cf53-52e7-21ef-465b952df0a5" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;bad--name&quot;)" computerName="SDADEV01" duration="00:00:00.0005973" startTime="2026-11-25T20:57:08.0467199-08:00" endTime="2026-11-25T20:57:08.0613275-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e228eacc-7148-440e-b7e0-d925476b03f3" />
+    <UnitTestResult executionId="9c20f08b-5fe4-4cb3-8454-89bba98dddce" testId="03c1b513-1e46-9108-47d9-b919aa36bbb5" testName="RelayTests.DisabledSigningReturns404" computerName="SDADEV01" duration="00:00:00.0012921" startTime="2026-11-25T20:57:10.2208397-08:00" endTime="2026-11-25T20:57:10.2217743-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c20f08b-5fe4-4cb3-8454-89bba98dddce" />
+    <UnitTestResult executionId="a1f2bd84-7241-439e-ae6c-5bb5d5957ea7" testId="6788da11-0194-bef2-37c0-39f167fed2cb" testName="HttpTests.TimestampWindow(offset: -301, accepted: False)" computerName="SDADEV01" duration="00:00:00.1159388" startTime="2026-11-25T20:57:09.7074044-08:00" endTime="2026-11-25T20:57:09.8245174-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a1f2bd84-7241-439e-ae6c-5bb5d5957ea7" />
+    <UnitTestResult executionId="e72e8293-608f-4468-b12f-e1490d0d7445" testId="689a1c6a-d511-e2b4-0ddf-17bd7553b677" testName="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;Bad&quot;)" computerName="SDADEV01" duration="00:00:00.0368201" startTime="2026-11-25T20:57:07.9861215-08:00" endTime="2026-11-25T20:57:08.0317246-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e72e8293-608f-4468-b12f-e1490d0d7445" />
+    <UnitTestResult executionId="2061fbee-f98e-4b98-b30e-eade047daaeb" testId="4038fefc-9b72-73ff-4ec0-a0df015be297" testName="HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 5)" computerName="SDADEV01" duration="00:00:00.0622308" startTime="2026-11-25T20:57:11.5706754-08:00" endTime="2026-11-25T20:57:11.6362018-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2061fbee-f98e-4b98-b30e-eade047daaeb" />
+    <UnitTestResult executionId="7e3712af-c999-45f1-9ae0-6e250056b995" testId="8b90778f-ee4a-f4cf-4ee0-0fded1f6f881" testName="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;···)" computerName="SDADEV01" duration="00:00:00.0001642" startTime="2026-11-25T20:57:08.2374806-08:00" endTime="2026-11-25T20:57:08.2375720-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e3712af-c999-45f1-9ae0-6e250056b995" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="HttpTests.BodyLimitsAndMalformedUtf8RejectWithoutDispatch" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="5484318e-1928-f8bc-fa28-9f4c03ab0655">
+      <Execution id="241d7bb0-e38f-452f-83bb-c1c1f2ae4213" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="BodyLimitsAndMalformedUtf8RejectWithoutDispatch" />
+    </UnitTest>
+    <UnitTest name="RelayTests.SigningReturnsValidSignatureWithoutPrivateKey" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="79a448d1-8b96-daaa-b63a-f0dd4ce749e9">
+      <Execution id="fdc23c12-de51-47c9-a585-ee66be6175a0" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="SigningReturnsValidSignatureWithoutPrivateKey" />
+    </UnitTest>
+    <UnitTest name="RelayTests.SlowBodyAndAbortedClientCannotConsumeUnboundedTime(aborted: True)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="6da31307-fe4e-cce8-a628-be8754d37a59">
+      <Execution id="34f98a28-c136-4244-900b-ab0610add65d" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="SlowBodyAndAbortedClientCannotConsumeUnboundedTime" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;@Microsoft.KeyVault(SecretUri=fixture)&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="7c20c706-bc26-d8d2-e790-00d459728389">
+      <Execution id="5928e19a-6307-42ba-938e-087b9786f988" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;ab&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="c6bc3e5d-38a9-cd0d-a281-05b0e5d3f230">
+      <Execution id="972d36af-9e6b-42d3-9f49-9471ca065c42" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;aaaaaaaaaaaaaaaaaaaaaaaaa&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="9f79d817-9985-8844-d55e-b6781e276640">
+      <Execution id="8e704e81-d9f9-47c3-ae58-1cdef22da111" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="cef6139a-7f2d-8b0d-4253-5d103b307403">
+      <Execution id="659ecce8-c9bf-4543-bc97-f8d3dfbad3e6" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.DisabledKeyGenerationReturns404" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="3d85b2b6-9a42-34a7-b30b-79afb4b293ce">
+      <Execution id="9bf4a1a2-6ce0-4b0e-a86b-a7766de2986c" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="DisabledKeyGenerationReturns404" />
+    </UnitTest>
+    <UnitTest name="RecoveryTests.CompletionFailureAndAmbiguousSendRemainAtLeastOnce" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="28bf722d-a8d5-b767-faa5-7fe645e619d3">
+      <Execution id="d05a026d-7a2d-4b55-8cf4-9f1a59c5690c" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RecoveryTests" name="CompletionFailureAndAmbiguousSendRemainAtLeastOnce" />
+    </UnitTest>
+    <UnitTest name="RelayTests.PingDoesNotAccessStorage" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="72fee485-bc28-a718-b8da-6ea08c5e61ba">
+      <Execution id="54fcefb7-ea56-40b4-bbb9-37a269480465" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="PingDoesNotAccessStorage" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: null)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="d7147f15-47e0-c32a-d560-b9e883087f9c">
+      <Execution id="ff46219b-8a20-429c-8062-5246059bedc4" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidPayloadNeverEnqueued(body: &quot;{\&quot;type\&quot;:4,\&quot;id\&quot;:\&quot;123\&quot;}&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="1bdf8c85-b6e4-276a-f78d-3101ffdfb9f5">
+      <Execution id="dd7aa057-6c71-48da-aad8-95ea75634c73" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidPayloadNeverEnqueued" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;UPPERCASE&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="9e17d01d-d842-bd01-9dd9-3d153fdcd725">
+      <Execution id="ae49daf9-50cf-4325-a7d1-13ad7a01a733" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.StaleOrFutureSignatureRejected(offset: 31)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="e60a2f70-5e1e-e6af-dc30-ac3163786b79">
+      <Execution id="11c66c8b-cc25-40b6-9a57-3e018bbebdca" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="StaleOrFutureSignatureRejected" />
+    </UnitTest>
+    <UnitTest name="HttpTests.TimestampWindow(offset: 30, accepted: True)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="70aa3303-937b-a203-03ad-d8a8b9d70638">
+      <Execution id="9fcf418e-4e28-4f24-9569-d35d24975f4e" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="TimestampWindow" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot; &quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="b426d56b-60fe-ab3a-1f1d-f49c69123d29">
+      <Execution id="aa3d39f4-2326-4b87-8674-70d16e701476" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="HttpTests.RoutesExecuteRealJsonAndHelpersStayDisabled" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="c6bf1fb9-d770-4450-f986-8cbe0ae4342a">
+      <Execution id="d1cf76ba-6b32-493f-ab70-913c162e1d6f" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="RoutesExecuteRealJsonAndHelpersStayDisabled" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;bad--name&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="ccdc885f-087e-4ae6-d013-cd0686840ae2">
+      <Execution id="c49f882a-79c8-42d3-8e2e-84bf0cfb2f69" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;UPPERCASE&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="891f0724-ba2c-0510-5281-aa251b363239">
+      <Execution id="fcfc2d5f-1378-4b1b-b96f-78c961befa14" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.EnabledHelperRequiresBothSeparateSecrets(missing: &quot;RELAY_HELPER_API_KEY&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="7c4dbc3f-0879-7e4b-7236-eadf496c3264">
+      <Execution id="060cc554-b167-4193-9f36-822922706132" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="EnabledHelperRequiresBothSeparateSecrets" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;···)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="2acd2b70-2fc9-6bd3-de76-3a67ae456750">
+      <Execution id="2374a413-ed16-4e7f-94eb-fedb31e36db3" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;···)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="84c2139c-feef-1a88-4988-a3ed39e78a73">
+      <Execution id="5a11e237-0e9a-4fcb-88f5-0b1608acc5aa" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_PUBLIC_KEY&quot;, value: null)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="fb693a86-cc87-3b3f-cb6b-5f8a4feb108c">
+      <Execution id="16febb03-aa48-44fd-82ef-13956a466d8a" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidConfigurationFails" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;@Microsoft.KeyVault(SecretUri=fixture)&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="7d8bf02e-2b8c-79e3-3cac-f26ff55c0c41">
+      <Execution id="9b214c59-57aa-44e2-aff0-7aaf2aa1b580" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;bad--name&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="bc3af7c5-4ed4-c94e-0c70-dff68edf318a">
+      <Execution id="da39f5e6-f9e6-4fd5-a9e2-aa7afa150d85" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.BothRegisteredClientsUseBearerTokensBase64AndNoRetries" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="967b3e50-1ff7-1f62-65c8-c856abf8516b">
+      <Execution id="970c5250-16d4-4a44-81b0-3980463ad5b6" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="BothRegisteredClientsUseBearerTokensBase64AndNoRetries" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;account-name&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="3f5c9626-9def-c7ad-69de-b1060c6a7ef9">
+      <Execution id="a906da1b-aa3e-4a72-9c76-824dd36c5e17" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;validname\n&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="ac736ad0-8e3c-e497-09cd-c4489687fae6">
+      <Execution id="3e2a92c9-2e90-4ab2-85d3-545c6dab7045" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="HttpTests.InvalidSignatureHeadersCannotDispatch(mode: &quot;multiple&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="f3c56309-711c-a993-df69-07cd7b24a38d">
+      <Execution id="fc798d11-f5be-4514-84ec-ae1c2697d9df" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="InvalidSignatureHeadersCannotDispatch" />
+    </UnitTest>
+    <UnitTest name="RelayTests.EnabledHelperRequiresBothSeparateSecrets(missing: &quot;DISCORD_TEST_PRIVATE_KEY&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="1b87193f-630e-cc58-09d6-e20c5585face">
+      <Execution id="adaafa04-0025-4909-9518-029b4de49d16" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="EnabledHelperRequiresBothSeparateSecrets" />
+    </UnitTest>
+    <UnitTest name="RelayTests.DisabledSigningReturns404" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="03c1b513-1e46-9108-47d9-b919aa36bbb5">
+      <Execution id="9c20f08b-5fe4-4cb3-8454-89bba98dddce" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="DisabledSigningReturns404" />
+    </UnitTest>
+    <UnitTest name="HttpTests.TimestampWindow(offset: -300, accepted: True)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="0da70797-9721-937a-8266-5c60a2bb396f">
+      <Execution id="1808634b-16b6-4097-8ef0-9239cb1579f4" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="TimestampWindow" />
+    </UnitTest>
+    <UnitTest name="RelayTests.SlowBodyAndAbortedClientCannotConsumeUnboundedTime(aborted: False)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="fa8006b7-a517-b610-e0af-03f1e4eefe53">
+      <Execution id="e1393eaa-464d-4c22-a0f5-1c1a4d84d73f" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="SlowBodyAndAbortedClientCannotConsumeUnboundedTime" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.ProductionRegistrationUsesManagedIdentityWithoutAuthenticatingAtStartup" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="892ea560-6b90-827c-117b-a4ca976db4b7">
+      <Execution id="d5a4fcab-6748-408a-a386-727d7873fb26" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="ProductionRegistrationUsesManagedIdentityWithoutAuthenticatingAtStartup" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;validname\n&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="eb27e340-6e72-f927-90fb-b3b014a5bab5">
+      <Execution id="b38f0801-d0a6-478d-83f0-7eba825220ee" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="HttpTests.BadPayloadCannotDispatch(body: &quot;{\&quot;type\&quot;:2,\&quot;id\&quot;:\&quot;18446744073709551616\&quot;}&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="43e5da7f-e7cf-8e22-ecdd-d3c2d5b563eb">
+      <Execution id="7711a067-ffba-4995-97a1-83fe9578c2ae" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="BadPayloadCannotDispatch" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;bad--name&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="c496b02a-cf53-52e7-21ef-465b952df0a5">
+      <Execution id="e228eacc-7148-440e-b7e0-d925476b03f3" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="HttpTests.StorageDeadlineAndFailureAre503" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="25d0dd1e-d8da-8cf5-e59b-8a12f365541c">
+      <Execution id="7e69f8aa-84ed-46fa-990a-8470b298c119" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="StorageDeadlineAndFailureAre503" />
+    </UnitTest>
+    <UnitTest name="HttpTests.InvalidSignatureHeadersCannotDispatch(mode: &quot;missing&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="c7391d53-f836-6aff-cb31-5535346ff76f">
+      <Execution id="f1d3cd70-9527-4cd1-9e4a-e21f8692df57" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="InvalidSignatureHeadersCannotDispatch" />
+    </UnitTest>
+    <UnitTest name="HttpTests.InvalidSignatureHeadersCannotDispatch(mode: &quot;malformed&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="3f4adcbb-ac07-bc82-d3c8-372874a2fc96">
+      <Execution id="db0c4472-980c-4bcd-9870-6573e9ac79e6" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="InvalidSignatureHeadersCannotDispatch" />
+    </UnitTest>
+    <UnitTest name="HttpTests.SerializedUtf8LimitRejectsBeforeQueue" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="2f63a85a-2de7-361e-2e97-ddf862bc4bc2">
+      <Execution id="33094068-1517-49df-af6a-4109868206ac" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="SerializedUtf8LimitRejectsBeforeQueue" />
+    </UnitTest>
+    <UnitTest name="HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 3)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="3a1baff5-56ac-4940-a51a-ebe86471d825">
+      <Execution id="2222d19b-c135-4fb6-85be-c79cc41aee3d" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="AcceptedTypesPreserveQueueEnvelope" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;https://external.invalid&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="197bbbe5-7827-b8bb-f7e1-4c72938d556c">
+      <Execution id="285b2ca1-16b3-4c8a-b2da-18ecf1ef92ec" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.EnabledHelperRequiresTestKey" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="0be56543-b0d4-c348-7682-0e349c799f12">
+      <Execution id="a0c684b0-8128-49e2-acee-192544a9205c" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="EnabledHelperRequiresTestKey" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidPayloadNeverEnqueued(body: &quot;not-json&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="e1be9800-6a37-bce4-b740-16aa4b3280ae">
+      <Execution id="916ae770-6346-49f6-8a98-c3007f8a95c7" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidPayloadNeverEnqueued" />
+    </UnitTest>
+    <UnitTest name="RelayTests.TamperedSignatureRejected" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="b174ca7b-9eb2-2ffa-4566-4315fb3ebd9c">
+      <Execution id="158a1c23-6cd5-443f-b690-3bb462c9f90e" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="TamperedSignatureRejected" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;@Microsoft.KeyVault(SecretUri=fixture)&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="527f343e-fae9-fded-61ea-dbfd5daa42f6">
+      <Execution id="b9db505d-23c7-42f9-af68-e45b42c281ff" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="HttpTests.TimestampWindow(offset: 31, accepted: False)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="f110edbc-cd80-39b2-2238-d8e1128fe2c6">
+      <Execution id="23cb6653-5aa3-4c92-a739-2329f392cb3a" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="TimestampWindow" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: null)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="29a6181c-766f-9b25-f000-fd7e2f0352e2">
+      <Execution id="6bfca441-168e-487f-9d68-f1fc85fcb338" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidConfigurationFails" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="55c72cbf-969d-60d1-4602-ef830bf2a0d9">
+      <Execution id="7e3c6be6-d2aa-4ee2-a2bd-97a6bc49c999" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;Bad-Account&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="675aef34-93be-8979-7561-c0b59407f588">
+      <Execution id="40a02633-23a6-4066-8338-64ee5990d6c5" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidConfigurationFails" />
+    </UnitTest>
+    <UnitTest name="StorageTests.RemoteLookingEnvironmentOverrideCannotSelectExternalStorage" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="c7f3e3f7-c039-2cda-c547-d33f8a95d55b">
+      <Execution id="5a94cc19-1a0f-4173-a6d3-1e2039d3d662" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageTests" name="RemoteLookingEnvironmentOverrideCannotSelectExternalStorage" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_PUBLIC_KEY&quot;, value: &quot;bad&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="8e568247-327f-7446-918b-59a7df8235ac">
+      <Execution id="8be30687-efab-40db-b034-b0d4a8ed3029" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidConfigurationFails" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="5dc38e54-1d30-1bcd-081b-5773fc16436b">
+      <Execution id="4b7c359a-24ce-4e8c-b6ce-b9968652a1b0" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.SigningDefaultsOff(value: null)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="cd49ee6d-0c07-703c-54d9-34a0ca0f19a2">
+      <Execution id="fb738bf2-4671-409b-94ae-3a9d1ec99c6e" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="SigningDefaultsOff" />
+    </UnitTest>
+    <UnitTest name="RelayTests.StaleOrFutureSignatureRejected(offset: -301)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="845fe1d5-99b3-e823-9991-c404df22170e">
+      <Execution id="ed8fee3b-6316-4703-9e26-8628e742642d" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="StaleOrFutureSignatureRejected" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot; &quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="55b206be-e83f-dab0-d5a5-7b542be4d665">
+      <Execution id="2b1bff1e-ddcb-4e1d-8a24-d183d0e99315" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;Bad&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="689a1c6a-d511-e2b4-0ddf-17bd7553b677">
+      <Execution id="e72e8293-608f-4468-b12f-e1490d0d7445" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidConfigurationFails" />
+    </UnitTest>
+    <UnitTest name="RelayTests.AcceptedInteractionPreservesIdAndDefers" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="247c3ccb-adee-4a79-c8c9-647a27d3fef6">
+      <Execution id="55fdf079-b65a-4707-a878-aa3bc8524a7c" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="AcceptedInteractionPreservesIdAndDefers" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;https://external.invalid&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="e9df4328-9aad-0538-d702-1742d17a68a3">
+      <Execution id="10df95f0-686c-4b21-b383-5c059aac4fb4" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidPayloadNeverEnqueued(body: &quot;{\&quot;type\&quot;:\&quot;2\&quot;,\&quot;id\&quot;:\&quot;123\&quot;}&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="67f5dfb3-3bf6-6ea8-812e-b3a6928caf9b">
+      <Execution id="be607c97-6f3e-4ec4-b042-e96dcc0d260a" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidPayloadNeverEnqueued" />
+    </UnitTest>
+    <UnitTest name="HttpTests.BadPayloadCannotDispatch(body: &quot;{\&quot;type\&quot;:2.5,\&quot;id\&quot;:\&quot;123\&quot;}&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="01446b48-1d81-b7f4-f5d7-adb58623106e">
+      <Execution id="282dad46-27d7-401d-b6e8-3df6daa66718" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="BadPayloadCannotDispatch" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;ab&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="31e05ab7-875a-00fd-4827-5aecdebaa9aa">
+      <Execution id="d06c2108-97f9-4a11-b5f9-23dea4242480" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;https://external.invalid&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="f394a2cf-48f4-9da8-c76a-69332557af22">
+      <Execution id="cda86289-2fac-429d-b44d-436b31d740b2" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 2)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="2ede58b4-3582-1507-2361-0a25cbf25c90">
+      <Execution id="f0aee672-6664-45a3-94b8-76869a744a5c" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="AcceptedTypesPreserveQueueEnvelope" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot; &quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="d20b2996-1777-e5b5-a62c-d06d39020857">
+      <Execution id="3ca0141b-38fe-4cc5-a123-d58437e205ff" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.BusyReceiptDoesNotEnqueue" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="a3cc14d2-591c-381d-2466-210750ed518e">
+      <Execution id="973c4393-762e-4301-b1c7-2897e15bfcd0" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="BusyReceiptDoesNotEnqueue" />
+    </UnitTest>
+    <UnitTest name="HttpTests.AcceptedTypesPreserveQueueEnvelope(type: 5)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="4038fefc-9b72-73ff-4ec0-a0df015be297">
+      <Execution id="2061fbee-f98e-4b98-b30e-eade047daaeb" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="AcceptedTypesPreserveQueueEnvelope" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_STORAGE_ACCOUNT_NAME&quot;, value: &quot;ab&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="b8a4ed3d-2bec-d695-af9a-13e55c705330">
+      <Execution id="f16bba25-b88a-4b03-9713-10a68485038e" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="HttpTests.InvalidSignatureHeadersCannotDispatch(mode: &quot;tampered&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="f61ad1d1-c949-2e05-08f3-09fc7c33e3dd">
+      <Execution id="e45da738-861a-4fcb-b75b-11db85559be1" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="InvalidSignatureHeadersCannotDispatch" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;UPPERCASE&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="c39446be-7aa0-a3b9-76ba-a713c5f93b64">
+      <Execution id="95f1f540-6ca5-45fa-90de-8151d8b4af55" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.StorageWorkIsCanceledAtDeadline" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="668940f7-497a-26d8-ae11-2fa4fd9c6ce6">
+      <Execution id="c1f4d881-1f71-471d-91ef-4834600f8719" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="StorageWorkIsCanceledAtDeadline" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: null)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="a231ae5c-911e-83e0-cdf6-96caff0ac1c4">
+      <Execution id="044673ac-f997-4a2d-99fe-9e7f3704b396" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="HttpTests.TimestampWindow(offset: -301, accepted: False)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="6788da11-0194-bef2-37c0-39f167fed2cb">
+      <Execution id="a1f2bd84-7241-439e-ae6c-5bb5d5957ea7" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="TimestampWindow" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;validname\n&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="e2122f14-77e7-3ebd-b027-a7326acfd184">
+      <Execution id="2b82e2f1-bfed-4042-9c8c-857937265a7e" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="RelayTests.StorageFailureReturns503" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="42328e7d-3547-e703-485f-bb2a4804afbd">
+      <Execution id="a1ea1369-6e5b-4aec-b7ae-601d8815047e" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="StorageFailureReturns503" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidConfigurationFails(name: &quot;DISCORD_QUEUE_NAME&quot;, value: &quot;Bad--Name&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="bd2096c9-8216-e9be-fc33-681a7c4a606a">
+      <Execution id="4a2f871d-e440-4aae-acf2-567d921021bb" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidConfigurationFails" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: null)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="30d93a21-3f2b-1e8a-9f54-ad0b2bfdd3a5">
+      <Execution id="123e98d0-132a-4b22-9d6d-189d1aff54cb" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="HttpTests.BadPayloadCannotDispatch(body: &quot;{\&quot;type\&quot;:2,\&quot;id\&quot;:\&quot;0\&quot;}&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="6637e4d2-b12d-2d85-5c79-acb7ae62466b">
+      <Execution id="b39adbb6-9e7a-4ce2-b09f-45f39fee50d7" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="BadPayloadCannotDispatch" />
+    </UnitTest>
+    <UnitTest name="HttpTests.HelperAuthorizationIsEnforcedOverHttp" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="5389306b-3c77-f53a-8f9e-826c54fb2087">
+      <Execution id="934ea643-9389-4e42-8832-ba68da6aba0c" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="HelperAuthorizationIsEnforcedOverHttp" />
+    </UnitTest>
+    <UnitTest name="RelayTests.SigningDefaultsOff(value: &quot;false&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="e0281a36-b1fd-7da9-8e08-c0e6b0044c67">
+      <Execution id="4274e1f7-44ed-4e4f-9281-0772edd1f69b" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="SigningDefaultsOff" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem(name: &quot;DISCORD_DEDUP_CONTAINER&quot;, value: &quot;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&quot;···)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="8b90778f-ee4a-f4cf-4ee0-0fded1f6f881">
+      <Execution id="7e3712af-c999-45f1-9ae0-6e250056b995" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="RequiredIdentifiersRejectMalformedValuesWithoutDisclosingThem" />
+    </UnitTest>
+    <UnitTest name="StorageAuthenticationTests.LegacyCredentialsCannotRedirectExplicitEndpoints" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="8aa4daff-e556-96cb-41e1-e522c466c1ad">
+      <Execution id="1c37d4b0-d820-4192-aa85-e696ee4f49a3" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="StorageAuthenticationTests" name="LegacyCredentialsCannotRedirectExplicitEndpoints" />
+    </UnitTest>
+    <UnitTest name="RelayTests.InvalidPayloadNeverEnqueued(body: &quot;{\&quot;type\&quot;:2}&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="ba225be8-0e5f-b48e-e3b5-5ae476d3cd83">
+      <Execution id="6cdc53db-fee1-4eef-8733-89c33748a369" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="InvalidPayloadNeverEnqueued" />
+    </UnitTest>
+    <UnitTest name="RelayTests.DuplicateAndFailedEnqueueBehavior" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="bbb7affb-42d6-dbeb-1f10-24913ff7f85a">
+      <Execution id="c4de54fd-de71-4653-b4ae-68aa26230afe" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="DuplicateAndFailedEnqueueBehavior" />
+    </UnitTest>
+    <UnitTest name="RelayTests.SigningDefaultsOff(value: &quot;invalid&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="dd57eb0a-dec0-6eca-6536-94848c35d1b2">
+      <Execution id="336c2304-721e-4ce0-96e9-290ed2ed0d8e" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="RelayTests" name="SigningDefaultsOff" />
+    </UnitTest>
+    <UnitTest name="HttpTests.BadPayloadCannotDispatch(body: &quot;not-json&quot;)" storage="c:\github\silicondreamartists\sovereigntrust.relay.worktrees\relay-runtime-storage-auth-migration\tests\sovereigntrust.relay.tests\bin\release\net10.0\sovereigntrust.relay.tests.dll" id="b0a98ab9-07c4-0107-34db-d3a7738a0fd4">
+      <Execution id="a2e66eb1-abc1-41eb-b70b-39d6ad1d7ad0" />
+      <TestMethod codeBase="C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="HttpTests" name="BadPayloadCannotDispatch" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="ba225be8-0e5f-b48e-e3b5-5ae476d3cd83" executionId="6cdc53db-fee1-4eef-8733-89c33748a369" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="891f0724-ba2c-0510-5281-aa251b363239" executionId="fcfc2d5f-1378-4b1b-b96f-78c961befa14" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b0a98ab9-07c4-0107-34db-d3a7738a0fd4" executionId="a2e66eb1-abc1-41eb-b70b-39d6ad1d7ad0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2f63a85a-2de7-361e-2e97-ddf862bc4bc2" executionId="33094068-1517-49df-af6a-4109868206ac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5389306b-3c77-f53a-8f9e-826c54fb2087" executionId="934ea643-9389-4e42-8832-ba68da6aba0c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c20c706-bc26-d8d2-e790-00d459728389" executionId="5928e19a-6307-42ba-938e-087b9786f988" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d7147f15-47e0-c32a-d560-b9e883087f9c" executionId="ff46219b-8a20-429c-8062-5246059bedc4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9e17d01d-d842-bd01-9dd9-3d153fdcd725" executionId="ae49daf9-50cf-4325-a7d1-13ad7a01a733" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="967b3e50-1ff7-1f62-65c8-c856abf8516b" executionId="970c5250-16d4-4a44-81b0-3980463ad5b6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="197bbbe5-7827-b8bb-f7e1-4c72938d556c" executionId="285b2ca1-16b3-4c8a-b2da-18ecf1ef92ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="845fe1d5-99b3-e823-9991-c404df22170e" executionId="ed8fee3b-6316-4703-9e26-8628e742642d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f61ad1d1-c949-2e05-08f3-09fc7c33e3dd" executionId="e45da738-861a-4fcb-b75b-11db85559be1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0da70797-9721-937a-8266-5c60a2bb396f" executionId="1808634b-16b6-4097-8ef0-9239cb1579f4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a231ae5c-911e-83e0-cdf6-96caff0ac1c4" executionId="044673ac-f997-4a2d-99fe-9e7f3704b396" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="72fee485-bc28-a718-b8da-6ea08c5e61ba" executionId="54fcefb7-ea56-40b4-bbb9-37a269480465" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f394a2cf-48f4-9da8-c76a-69332557af22" executionId="cda86289-2fac-429d-b44d-436b31d740b2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1b87193f-630e-cc58-09d6-e20c5585face" executionId="adaafa04-0025-4909-9518-029b4de49d16" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e2122f14-77e7-3ebd-b027-a7326acfd184" executionId="2b82e2f1-bfed-4042-9c8c-857937265a7e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="55c72cbf-969d-60d1-4602-ef830bf2a0d9" executionId="7e3c6be6-d2aa-4ee2-a2bd-97a6bc49c999" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="70aa3303-937b-a203-03ad-d8a8b9d70638" executionId="9fcf418e-4e28-4f24-9569-d35d24975f4e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cef6139a-7f2d-8b0d-4253-5d103b307403" executionId="659ecce8-c9bf-4543-bc97-f8d3dfbad3e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="668940f7-497a-26d8-ae11-2fa4fd9c6ce6" executionId="c1f4d881-1f71-471d-91ef-4834600f8719" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a3cc14d2-591c-381d-2466-210750ed518e" executionId="973c4393-762e-4301-b1c7-2897e15bfcd0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e0281a36-b1fd-7da9-8e08-c0e6b0044c67" executionId="4274e1f7-44ed-4e4f-9281-0772edd1f69b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eb27e340-6e72-f927-90fb-b3b014a5bab5" executionId="b38f0801-d0a6-478d-83f0-7eba825220ee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e9df4328-9aad-0538-d702-1742d17a68a3" executionId="10df95f0-686c-4b21-b383-5c059aac4fb4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b426d56b-60fe-ab3a-1f1d-f49c69123d29" executionId="aa3d39f4-2326-4b87-8674-70d16e701476" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bc3af7c5-4ed4-c94e-0c70-dff68edf318a" executionId="da39f5e6-f9e6-4fd5-a9e2-aa7afa150d85" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1bdf8c85-b6e4-276a-f78d-3101ffdfb9f5" executionId="dd7aa057-6c71-48da-aad8-95ea75634c73" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="55b206be-e83f-dab0-d5a5-7b542be4d665" executionId="2b1bff1e-ddcb-4e1d-8a24-d183d0e99315" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="25d0dd1e-d8da-8cf5-e59b-8a12f365541c" executionId="7e69f8aa-84ed-46fa-990a-8470b298c119" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="31e05ab7-875a-00fd-4827-5aecdebaa9aa" executionId="d06c2108-97f9-4a11-b5f9-23dea4242480" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="247c3ccb-adee-4a79-c8c9-647a27d3fef6" executionId="55fdf079-b65a-4707-a878-aa3bc8524a7c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3c56309-711c-a993-df69-07cd7b24a38d" executionId="fc798d11-f5be-4514-84ec-ae1c2697d9df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dd57eb0a-dec0-6eca-6536-94848c35d1b2" executionId="336c2304-721e-4ce0-96e9-290ed2ed0d8e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6da31307-fe4e-cce8-a628-be8754d37a59" executionId="34f98a28-c136-4244-900b-ab0610add65d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="01446b48-1d81-b7f4-f5d7-adb58623106e" executionId="282dad46-27d7-401d-b6e8-3df6daa66718" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b174ca7b-9eb2-2ffa-4566-4315fb3ebd9c" executionId="158a1c23-6cd5-443f-b690-3bb462c9f90e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c39446be-7aa0-a3b9-76ba-a713c5f93b64" executionId="95f1f540-6ca5-45fa-90de-8151d8b4af55" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9f79d817-9985-8844-d55e-b6781e276640" executionId="8e704e81-d9f9-47c3-ae58-1cdef22da111" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bbb7affb-42d6-dbeb-1f10-24913ff7f85a" executionId="c4de54fd-de71-4653-b4ae-68aa26230afe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3f5c9626-9def-c7ad-69de-b1060c6a7ef9" executionId="a906da1b-aa3e-4a72-9c76-824dd36c5e17" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6637e4d2-b12d-2d85-5c79-acb7ae62466b" executionId="b39adbb6-9e7a-4ce2-b09f-45f39fee50d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a1baff5-56ac-4940-a51a-ebe86471d825" executionId="2222d19b-c135-4fb6-85be-c79cc41aee3d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bd2096c9-8216-e9be-fc33-681a7c4a606a" executionId="4a2f871d-e440-4aae-acf2-567d921021bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8aa4daff-e556-96cb-41e1-e522c466c1ad" executionId="1c37d4b0-d820-4192-aa85-e696ee4f49a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b8a4ed3d-2bec-d695-af9a-13e55c705330" executionId="f16bba25-b88a-4b03-9713-10a68485038e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="42328e7d-3547-e703-485f-bb2a4804afbd" executionId="a1ea1369-6e5b-4aec-b7ae-601d8815047e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0be56543-b0d4-c348-7682-0e349c799f12" executionId="a0c684b0-8128-49e2-acee-192544a9205c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c7391d53-f836-6aff-cb31-5535346ff76f" executionId="f1d3cd70-9527-4cd1-9e4a-e21f8692df57" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cd49ee6d-0c07-703c-54d9-34a0ca0f19a2" executionId="fb738bf2-4671-409b-94ae-3a9d1ec99c6e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fa8006b7-a517-b610-e0af-03f1e4eefe53" executionId="e1393eaa-464d-4c22-a0f5-1c1a4d84d73f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="28bf722d-a8d5-b767-faa5-7fe645e619d3" executionId="d05a026d-7a2d-4b55-8cf4-9f1a59c5690c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c6bf1fb9-d770-4450-f986-8cbe0ae4342a" executionId="d1cf76ba-6b32-493f-ab70-913c162e1d6f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5484318e-1928-f8bc-fa28-9f4c03ab0655" executionId="241d7bb0-e38f-452f-83bb-c1c1f2ae4213" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ac736ad0-8e3c-e497-09cd-c4489687fae6" executionId="3e2a92c9-2e90-4ab2-85d3-545c6dab7045" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c6bc3e5d-38a9-cd0d-a281-05b0e5d3f230" executionId="972d36af-9e6b-42d3-9f49-9471ca065c42" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ccdc885f-087e-4ae6-d013-cd0686840ae2" executionId="c49f882a-79c8-42d3-8e2e-84bf0cfb2f69" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d20b2996-1777-e5b5-a62c-d06d39020857" executionId="3ca0141b-38fe-4cc5-a123-d58437e205ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8e568247-327f-7446-918b-59a7df8235ac" executionId="8be30687-efab-40db-b034-b0d4a8ed3029" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3d85b2b6-9a42-34a7-b30b-79afb4b293ce" executionId="9bf4a1a2-6ce0-4b0e-a86b-a7766de2986c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c7f3e3f7-c039-2cda-c547-d33f8a95d55b" executionId="5a94cc19-1a0f-4173-a6d3-1e2039d3d662" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30d93a21-3f2b-1e8a-9f54-ad0b2bfdd3a5" executionId="123e98d0-132a-4b22-9d6d-189d1aff54cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d8bf02e-2b8c-79e3-3cac-f26ff55c0c41" executionId="9b214c59-57aa-44e2-aff0-7aaf2aa1b580" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fb693a86-cc87-3b3f-cb6b-5f8a4feb108c" executionId="16febb03-aa48-44fd-82ef-13956a466d8a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e60a2f70-5e1e-e6af-dc30-ac3163786b79" executionId="11c66c8b-cc25-40b6-9a57-3e018bbebdca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f110edbc-cd80-39b2-2238-d8e1128fe2c6" executionId="23cb6653-5aa3-4c92-a739-2329f392cb3a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e1be9800-6a37-bce4-b740-16aa4b3280ae" executionId="916ae770-6346-49f6-8a98-c3007f8a95c7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2acd2b70-2fc9-6bd3-de76-3a67ae456750" executionId="2374a413-ed16-4e7f-94eb-fedb31e36db3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="527f343e-fae9-fded-61ea-dbfd5daa42f6" executionId="b9db505d-23c7-42f9-af68-e45b42c281ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="67f5dfb3-3bf6-6ea8-812e-b3a6928caf9b" executionId="be607c97-6f3e-4ec4-b042-e96dcc0d260a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7c4dbc3f-0879-7e4b-7236-eadf496c3264" executionId="060cc554-b167-4193-9f36-822922706132" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3f4adcbb-ac07-bc82-d3c8-372874a2fc96" executionId="db0c4472-980c-4bcd-9870-6573e9ac79e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="79a448d1-8b96-daaa-b63a-f0dd4ce749e9" executionId="fdc23c12-de51-47c9-a585-ee66be6175a0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5dc38e54-1d30-1bcd-081b-5773fc16436b" executionId="4b7c359a-24ce-4e8c-b6ce-b9968652a1b0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="675aef34-93be-8979-7561-c0b59407f588" executionId="40a02633-23a6-4066-8338-64ee5990d6c5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2ede58b4-3582-1507-2361-0a25cbf25c90" executionId="f0aee672-6664-45a3-94b8-76869a744a5c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="43e5da7f-e7cf-8e22-ecdd-d3c2d5b563eb" executionId="7711a067-ffba-4995-97a1-83fe9578c2ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="84c2139c-feef-1a88-4988-a3ed39e78a73" executionId="5a11e237-0e9a-4fcb-88f5-0b1608acc5aa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="29a6181c-766f-9b25-f000-fd7e2f0352e2" executionId="6bfca441-168e-487f-9d68-f1fc85fcb338" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="892ea560-6b90-827c-117b-a4ca976db4b7" executionId="d5a4fcab-6748-408a-a386-727d7873fb26" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c496b02a-cf53-52e7-21ef-465b952df0a5" executionId="e228eacc-7148-440e-b7e0-d925476b03f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="03c1b513-1e46-9108-47d9-b919aa36bbb5" executionId="9c20f08b-5fe4-4cb3-8454-89bba98dddce" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6788da11-0194-bef2-37c0-39f167fed2cb" executionId="a1f2bd84-7241-439e-ae6c-5bb5d5957ea7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="689a1c6a-d511-e2b4-0ddf-17bd7553b677" executionId="e72e8293-608f-4468-b12f-e1490d0d7445" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4038fefc-9b72-73ff-4ec0-a0df015be297" executionId="2061fbee-f98e-4b98-b30e-eade047daaeb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8b90778f-ee4a-f4cf-4ee0-0fded1f6f881" executionId="7e3712af-c999-45f1-9ae0-6e250056b995" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="87" executed="87" passed="87" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v3.1.1+bf6400fd51 (64-bit .NET 10.0.15)&#xD;
+[xUnit.net 00:00:00.25]   Discovering: SovereignTrust.Relay.Tests&#xD;
+[xUnit.net 00:00:00.62]   Discovered:  SovereignTrust.Relay.Tests&#xD;
+[xUnit.net 00:00:00.79]   Starting:    SovereignTrust.Relay.Tests&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/healthz - - -&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 38&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'HTTP: GET /healthz'&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]&#xD;
+      Setting HTTP status code 200.&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]&#xD;
+      Writing value of type '&lt;&gt;f__AnonymousType3`1' as Json.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'HTTP: GET /healthz'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/healthz - 200 - application/json;+charset=utf-8 151.6684ms&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]&#xD;
+      Executing BadRequestObjectResult, writing value of type 'System.String'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 47.7666ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 400 - text/plain;+charset=utf-8 186.6028ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/healthz - - -&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'HTTP: GET /healthz'&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]&#xD;
+      Setting HTTP status code 200.&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]&#xD;
+      Writing value of type '&lt;&gt;f__AnonymousType3`1' as Json.&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 8&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]&#xD;
+      Executing BadRequestObjectResult, writing value of type 'System.String'.&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'HTTP: GET /healthz'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/healthz - 200 - application/json;+charset=utf-8 45.8460ms&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 32.0105ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 400 - text/plain;+charset=utf-8 52.6516ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 23&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]&#xD;
+      Executing BadRequestObjectResult, writing value of type 'System.String'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 2.655ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 400 - text/plain;+charset=utf-8 20.0517ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 19&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]&#xD;
+      Executing BadRequestObjectResult, writing value of type 'System.String'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 56.2726ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 400 - text/plain;+charset=utf-8 77.8829ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 10&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 15.9252ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 200 - application/json;+charset=utf-8 46.3647ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 10&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 0.8815ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 401 - - 20.1835ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 10&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 0.8769ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 401 - - 16.1755ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 10&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 13.2547ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 200 - application/json;+charset=utf-8 32.6344ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 21&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+warn: SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay[0]&#xD;
+      Malformed Discord signature or public key.&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 7.7676ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 401 - - 34.1100ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 21&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 0.6733ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 401 - - 23.5315ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 21&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 0.5187ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 401 - - 25.5298ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - text/plain;+charset=utf-8 21&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 0.8065ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 401 - - 18.5136ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 65536&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 31.8938ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 200 - application/json;+charset=utf-8 52.6327ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 65537&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 413&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 3.1534ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 413 - - 7.2397ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - - 1&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]&#xD;
+      Executing BadRequestObjectResult, writing value of type 'System.String'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 1.4775ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 400 - text/plain;+charset=utf-8 2.0397ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/api/GenerateEd25519KeyPair?code=local-test-key - - -&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "Ed25519KeyGenerator"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure) in 1.3179ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/api/GenerateEd25519KeyPair?code=local-test-key - 401 - - 29.3565ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/Ed25519SignFunction - text/plain;+charset=utf-8 4&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "Ed25519SignFunction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure) in 0.9548ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/Ed25519SignFunction - 401 - - 23.5747ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/api/GenerateEd25519KeyPair - - -&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "Ed25519KeyGenerator"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure) in 0.2656ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/api/GenerateEd25519KeyPair - 401 - - 5.3782ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/Ed25519SignFunction - text/plain;+charset=utf-8 4&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "Ed25519SignFunction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType2`4[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure) in 5.4572ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/Ed25519SignFunction - 200 - application/json;+charset=utf-8 6.4828ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/api/GenerateEd25519KeyPair - - -&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "Ed25519KeyGenerator"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator (SovereignTrust.Relay.Azure).&#xD;
+info: SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator[0]&#xD;
+      Generating a test Ed25519 key pair.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure) in 7.3253ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/api/GenerateEd25519KeyPair - 200 - application/json;+charset=utf-8 38.8993ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 21&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: SignalGraph[0]&#xD;
+      Received packet from Discord.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 7.1616ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 200 - application/json;+charset=utf-8 22.2003ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 21&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: SignalGraph[0]&#xD;
+      Received packet from Discord.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 4.3103ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 200 - application/json;+charset=utf-8 22.8854ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 21&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: SignalGraph[0]&#xD;
+      Received packet from Discord.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 17.8634ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 200 - application/json;+charset=utf-8 30.2539ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 21&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: SignalGraph[0]&#xD;
+      Received packet from Discord.&#xD;
+fail: SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay[0]&#xD;
+      Discord relay could not durably enqueue the interaction.&#xD;
+      System.IO.IOException: isolated storage failure&#xD;
+         at HttpTests.Dispatcher.DispatchAsync(String id, String message, CancellationToken cancellationToken) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\HttpTests.cs:line 184&#xD;
+         at SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.RunDiscordRelayAsync(HttpRequest req) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\Discord\DiscordRelay.cs:line 62&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 503&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 10.5888ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 503 - - 23.5855ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 21&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: SignalGraph[0]&#xD;
+      Received packet from Discord.&#xD;
+warn: SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay[0]&#xD;
+      Discord request exceeded its deadline or was canceled.&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 503&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 2012.4555ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 503 - - 2015.7486ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/healthz - - -&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'HTTP: GET /healthz'&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]&#xD;
+      Setting HTTP status code 200.&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]&#xD;
+      Writing value of type '&lt;&gt;f__AnonymousType3`1' as Json.&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'HTTP: GET /healthz'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/healthz - 200 - application/json;+charset=utf-8 40.2568ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/api/discordrelay - - -&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint '405 HTTP Method Not Supported'&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint '405 HTTP Method Not Supported'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/api/discordrelay - 405 - - 2.2329ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/unknown - - -&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/unknown - 404 - - 16.5962ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[16]&#xD;
+      Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost/unknown, Response status code: 404&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - text/plain;+charset=utf-8 2&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 401&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 0.5204ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 401 - - 21.7207ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 10&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 2.4035ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 200 - application/json;+charset=utf-8 3.2731ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/Ed25519SignFunction - text/plain;+charset=utf-8 4&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "Ed25519SignFunction"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 404&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure) in 2.5735ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519SignFunction.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/Ed25519SignFunction - 404 - - 21.7256ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/api/GenerateEd25519KeyPair - - -&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "Ed25519KeyGenerator"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator (SovereignTrust.Relay.Azure).&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 404&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure) in 0.8388ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Ed25519KeyGenerator.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/api/GenerateEd25519KeyPair - 404 - - 5.6592ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 34&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: SignalGraph[0]&#xD;
+      Received packet from Discord.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 5.7226ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 200 - application/json;+charset=utf-8 64.7026ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 48743&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: SignalGraph[0]&#xD;
+      Received packet from Discord.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.SystemTextJsonResultExecutor[1]&#xD;
+      Executing JsonResult, writing value of type '&lt;&gt;f__AnonymousType0`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 3.2383ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 200 - application/json;+charset=utf-8 6.8212ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 48871&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: SignalGraph[0]&#xD;
+      Received packet from Discord.&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 413&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 3.0987ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 413 - - 5.7891ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 POST http://localhost/api/discordrelay - application/json;+charset=utf-8 50034&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]&#xD;
+      Route matched with {action = "HttpRun", controller = "DiscordRelay"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] HttpRun() on controller SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay (SovereignTrust.Relay.Azure).&#xD;
+info: SignalGraph[0]&#xD;
+      Received packet from Discord.&#xD;
+info: Microsoft.AspNetCore.Mvc.StatusCodeResult[1]&#xD;
+      Executing StatusCodeResult, setting HTTP status code 413&#xD;
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]&#xD;
+      Executed action SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure) in 1.8137ms&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'SovereignTrust.Relay.Azure.Azure.Discord.DiscordRelay.HttpRun (SovereignTrust.Relay.Azure)'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 POST http://localhost/api/discordrelay - 413 - - 2.4515ms&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+[xUnit.net 00:00:07.09]   Finished:    SovereignTrust.Relay.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

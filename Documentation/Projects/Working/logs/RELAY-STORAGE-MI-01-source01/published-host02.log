@@ -1,0 +1,2 @@
+PASS published application excludes local tests/emulator artifacts and test dependencies
+PASS published Kestrel health/unsigned401/helpers404; no queue or callback invoked

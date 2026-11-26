@@ -71,3 +71,20 @@ foreach($case in @('BuildPush','BuildPr','BuildPrWrongRef','PrAsRelease','BuildP
 }
 Write-Manifest
 # Consolidated deployment-control/stage fixtures live in Release-Workflow.Tests.ps1.
+
+# Test-only emulator exception requires rejection even when ZIP/manifest hashes match.
+foreach($forbidden in @('SovereignTrust.Relay.Tests.dll','LeaseCrashWorker.dll','Tests/fixture.json','fixture.cs','__azurite_db_blob__.json')){
+    $caseDirectory=Join-Path (Resolve-Path $EvidenceDirectory) ('forbidden-'+[guid]::NewGuid().ToString('N'))
+    New-Item -ItemType Directory $caseDirectory|Out-Null
+    Copy-Item -LiteralPath (Join-Path $package 'relay.zip') -Destination (Join-Path $caseDirectory 'relay.zip')
+    $zip=[IO.Compression.ZipFile]::Open((Join-Path $caseDirectory 'relay.zip'),[IO.Compression.ZipArchiveMode]::Update)
+    try{$writer=[IO.StreamWriter]::new($zip.CreateEntry($forbidden).Open());$writer.Write('synthetic integrity fixture, not a runnable Linux package');$writer.Dispose()}finally{$zip.Dispose()}
+    $copy=$manifest|ConvertTo-Json -Depth 6|ConvertFrom-Json -AsHashtable
+    $copy.files+=@{path=$forbidden;sha256=$fileHash}
+    $copy.packageSha256=(Get-FileHash (Join-Path $caseDirectory 'relay.zip')).Hash
+    $copy|ConvertTo-Json -Depth 6|Set-Content (Join-Path $caseDirectory 'release.json') -Encoding utf8NoBOM
+    $failure=$null
+    try{& (Join-Path $root 'scripts/Test-RelayPackage.ps1') -PackageDirectory $caseDirectory -ReleaseSha $sha|Out-Null}catch{$failure=$_.Exception.Message}
+    if($failure -cne 'Test/emulator fixture must not be packaged'){throw "FAIL forbidden $forbidden : $failure"}
+    Write-Output "PASS test-only artifact excluded: $forbidden"
+}

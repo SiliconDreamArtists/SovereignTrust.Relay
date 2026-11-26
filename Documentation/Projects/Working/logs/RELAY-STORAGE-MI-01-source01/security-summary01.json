@@ -1,0 +1,8 @@
+{
+  "productionPathMatches": 0,
+  "checkedProduction": "main app source/config + .github/workflows",
+  "scope": "Worker evidence; independent aggregate security/result acceptance pending",
+  "dependencyAudit": "No vulnerable packages reported by configured NuGet sources",
+  "auth": "Explicit ManagedIdentityId.SystemAssigned; TokenCredential constructors only",
+  "testException": "Local tests only; actual publish/dependency/ZIP exclusion checks passed"
+}

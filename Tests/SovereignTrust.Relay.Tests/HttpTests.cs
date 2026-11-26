@@ -164,7 +164,8 @@ public sealed class HttpTests : IDisposable
             builder.ConfigureAppConfiguration((_, config) => config.AddInMemoryCollection(new Dictionary<string, string?>
             {
                 ["DISCORD_PUBLIC_KEY"] = Convert.ToHexString(key.PublicKey.Export(KeyBlobFormat.RawPublicKey)),
-                ["StorageQueueAccount"] = "UseDevelopmentStorage=true", ["ENABLE_ED25519_SIGNING"] = enabled.ToString(),
+                ["DISCORD_STORAGE_ACCOUNT_NAME"] = "localfixture",
+                ["DISCORD_QUEUE_NAME"] = "queue-fixture", ["DISCORD_DEDUP_CONTAINER"] = "receipts-fixture", ["ENABLE_ED25519_SIGNING"] = enabled.ToString(),
                 ["RELAY_HELPER_API_KEY"] = "local-test-key", ["DISCORD_TEST_PRIVATE_KEY"] = enabled ? Convert.ToHexString(key.Export(KeyBlobFormat.RawPrivateKey)) : null
             }));
             builder.ConfigureServices(services =>

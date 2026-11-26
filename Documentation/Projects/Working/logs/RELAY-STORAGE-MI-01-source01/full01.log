@@ -1,0 +1,44 @@
+  SovereignTrust.Relay.Azure -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\bin\Release\net10.0\SovereignTrust.Relay.Azure.dll
+  LeaseCrashWorker -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\LeaseCrashWorker\bin\Release\net10.0\LeaseCrashWorker.dll
+  SovereignTrust.Relay.Tests -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll
+Test run for C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:03.06]     RecoveryTests.StalledLeaseReleaseIsCanceledByCleanupBudget [FAIL]
+  Failed RecoveryTests.StalledLeaseReleaseIsCanceledByCleanupBudget [2 s]
+  Error Message:
+   Azure.RequestFailedException : No connection could be made because the target machine actively refused it. (127.0.0.1:10000)
+---- System.Net.Http.HttpRequestException : No connection could be made because the target machine actively refused it. (127.0.0.1:10000)
+-------- System.Net.Sockets.SocketException : No connection could be made because the target machine actively refused it.
+  Stack Trace:
+     at Azure.Core.Pipeline.HttpClientTransport.ProcessSyncOrAsync(HttpMessage message, Boolean async)
+   at Azure.Core.Pipeline.HttpPipelineTransportPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline)
+   at Azure.Core.Pipeline.ResponseBodyPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.HttpPipelineSynchronousPolicy.InnerProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline)
+   at Azure.Core.Pipeline.RedirectPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.HttpPipelineSynchronousPolicy.InnerProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline)
+   at Azure.Storage.Blobs.ContainerRestClient.CreateAsync(Nullable`1 timeout, IDictionary`2 metadata, Nullable`1 access, String defaultEncryptionScope, Nullable`1 preventEncryptionScopeOverride, CancellationToken cancellationToken)
+   at Azure.Storage.Blobs.BlobContainerClient.CreateInternal(PublicAccessType publicAccessType, IDictionary`2 metadata, BlobContainerEncryptionScopeOptions encryptionScopeOptions, Boolean async, CancellationToken cancellationToken, String operationName)
+   at Azure.Storage.Blobs.BlobContainerClient.CreateAsync(PublicAccessType publicAccessType, IDictionary`2 metadata, BlobContainerEncryptionScopeOptions encryptionScopeOptions, CancellationToken cancellationToken)
+   at RecoveryTests.StalledLeaseReleaseIsCanceledByCleanupBudget() in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\RecoveryTests.cs:line 15
+--- End of stack trace from previous location ---
+----- Inner Stack Trace -----
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.InjectNewHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.SocketsHttpHandler.<SendAsync>g__CreateHandlerAndSendAsync|118_0(HttpRequestMessage request, CancellationToken cancellationToken)
+   at RecoveryTests.StalledReleaseHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken) in C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\RecoveryTests.cs:line 34
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Azure.Core.Pipeline.HttpClientTransport.ProcessSyncOrAsync(HttpMessage message, Boolean async)
+----- Inner Stack Trace -----
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Http.HttpConnectionPool.ConnectToTcpHostAsync(String host, Int32 port, HttpRequestMessage initialRequest, Boolean async, CancellationToken cancellationToken)
+Results File: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Documentation\Projects\Working\logs\RELAY-STORAGE-MI-01-source01\full01\sfost_SDADEV01_2026-11-25_20_57_48_net10.0.trx
+
+Failed!  - Failed:     1, Passed:    90, Skipped:     0, Total:    91, Duration: 30 s - SovereignTrust.Relay.Tests.dll (net10.0)

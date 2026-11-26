@@ -1,28 +1,28 @@
 using System.Text.RegularExpressions;
-using Azure.Storage.Blobs;
-using Azure.Storage.Queues;
 using Microsoft.Extensions.Configuration;
 using NSec.Cryptography;
 namespace SovereignTrust.Relay.Azure;
 
-public sealed record RelaySettings(string PublicKey, string StorageConnection, string QueueName,
+public sealed record RelaySettings(string PublicKey, string StorageAccountName, string QueueName,
     string DedupContainer, bool SigningEnabled, string? TestPrivateKey, string? HelperApiKey = null)
 {
+    public Uri QueueUri => new($"https://{StorageAccountName}.queue.core.windows.net/{QueueName}");
+    public Uri ContainerUri => new($"https://{StorageAccountName}.blob.core.windows.net/{DedupContainer}");
+
     public static RelaySettings Load(IConfiguration config)
     {
         var publicKey = Required(config, "DISCORD_PUBLIC_KEY");
         try { NSec.Cryptography.PublicKey.Import(SignatureAlgorithm.Ed25519, Convert.FromHexString(publicKey), KeyBlobFormat.RawPublicKey); }
         catch (Exception ex) when (ex is FormatException or ArgumentException)
         { throw new InvalidOperationException("DISCORD_PUBLIC_KEY must be a raw Ed25519 public key in hex."); }
-        var connection = Required(config, "StorageQueueAccount");
-        var queue = config["DISCORD_QUEUE_NAME"] ?? "discord-interactions";
-        var container = config["DISCORD_DEDUP_CONTAINER"] ?? "discord-interaction-receipts";
-        foreach (var name in new[] { queue, container })
-            if (!Regex.IsMatch(name, "^[a-z0-9](?:[a-z0-9]|-(?!-)){1,61}[a-z0-9]$"))
-                throw new InvalidOperationException("Queue and receipt container names must be valid Azure storage resource names.");
-        try { _ = new QueueClient(connection, queue); _ = new BlobContainerClient(connection, container); }
-        catch (Exception ex) when (ex is FormatException or ArgumentException)
-        { throw new InvalidOperationException("StorageQueueAccount must be a valid Queue and Blob storage connection string."); }
+        var account = Required(config, "DISCORD_STORAGE_ACCOUNT_NAME");
+        if (!Regex.IsMatch(account, @"\A[a-z0-9]{3,24}\z"))
+            throw new InvalidOperationException("DISCORD_STORAGE_ACCOUNT_NAME must be a valid Azure storage account name.");
+        var queue = Required(config, "DISCORD_QUEUE_NAME");
+        var container = Required(config, "DISCORD_DEDUP_CONTAINER");
+        foreach (var (name, value) in new[] { ("DISCORD_QUEUE_NAME", queue), ("DISCORD_DEDUP_CONTAINER", container) })
+            if (!Regex.IsMatch(value, @"\A[a-z0-9](?:[a-z0-9]|-(?!-)){1,61}[a-z0-9]\z"))
+                throw new InvalidOperationException($"{name} must be a valid Azure storage resource name.");
         var enabled = bool.TryParse(config["ENABLE_ED25519_SIGNING"], out var flag) && flag;
         string? privateKey = null;
         string? helperKey = null;
@@ -34,7 +34,7 @@ public sealed record RelaySettings(string PublicKey, string StorageConnection, s
             catch (Exception ex) when (ex is FormatException or ArgumentException)
             { throw new InvalidOperationException("DISCORD_TEST_PRIVATE_KEY must be a raw Ed25519 private key in hex."); }
         }
-        return new(publicKey, connection, queue, container, enabled, privateKey, helperKey);
+        return new(publicKey, account, queue, container, enabled, privateKey, helperKey);
     }
     private static string Required(IConfiguration config, string name) =>
         !string.IsNullOrWhiteSpace(config[name]) ? config[name]! :

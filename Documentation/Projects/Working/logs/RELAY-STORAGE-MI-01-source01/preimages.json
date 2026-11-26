@@ -1,0 +1,62 @@
+[
+  {
+    "path": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/RelaySettings.cs",
+    "sha256": "dde739f49ad552fbe457638a60abc3cea0a138580d927cf8a1a380c1bd8cfea3",
+    "blob": "35dce9c5fb1fbc91605da7ddce8af0166eb4c398"
+  },
+  {
+    "path": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/Program.cs",
+    "sha256": "8078a6818468655122ab781c4d0152fdf30b3f7474f1e901d01dae25c6d3ff3e",
+    "blob": "566605440e3ad363ba12335bb340dd06387a4905"
+  },
+  {
+    "path": "Src/CSharp/Azure/SovereignTrust.Relay.Azure/SovereignTrust.Relay.Azure.csproj",
+    "sha256": "2297f2090136f838bb8cf972ac13955766cc5bbc380ec6129cfea81cb1e2aabb",
+    "blob": "0fa7f7ccff45a9323f123c29f53d66edc9c9a945"
+  },
+  {
+    "path": "Tests/SovereignTrust.Relay.Tests/RelayTests.cs",
+    "sha256": "3db5bb9d65ca1f35c99180520bb5f1be9873cb097305e2866c08cd24d160fac9",
+    "blob": "9a1883110d89ba8b990237ca6bfcc27100854775"
+  },
+  {
+    "path": "Tests/SovereignTrust.Relay.Tests/HttpTests.cs",
+    "sha256": "bfe753949f5e5b480d7a42c1f8fec1533e28f402613db3cc09f736b481fc4dca",
+    "blob": "fa9e74ee93455ade24483c2365b5b8d88fa4a0cc"
+  },
+  {
+    "path": "scripts/Prepare-RelayDeployment.ps1",
+    "sha256": "a859f8a3369eb5e5d3f41ebadabc8e1ad778a0465696ba53cc0d62124a472542",
+    "blob": "0bef072a4a523bb9f7b8d8cf31a3ffde96a9dc5f"
+  },
+  {
+    "path": "Tests/Deployment/Prepare-RelayDeployment.Tests.ps1",
+    "sha256": "63222a146bb501bd5f2784bb2e1b16dbf474db00d6291f17fd270bb22b32f70d",
+    "blob": "607da0048a50af21b67daaa17109789b65d9c8cd"
+  },
+  {
+    "path": "scripts/Test-RelayPublishedHost.ps1",
+    "sha256": "04671b9a271c75eea26ad17c955dd67731bae8b5923d349464fedad1999a5305",
+    "blob": "b17dd158eeb25787fa63c978ba5395760b030dc9"
+  },
+  {
+    "path": "scripts/Test-RelayPackage.ps1",
+    "sha256": "5eac04504cb1fce007092c2b2779f45692b1887db4ff67defbc07290bea1e560",
+    "blob": "da1b240420a87c21788218d55b0c8f4d36b2a97e"
+  },
+  {
+    "path": "docs/Relay-Operations.md",
+    "sha256": "98d9fa7f9a7016a6c77d5faefd1ef82dafdf1f71ef605665319cce9d6649beaf",
+    "blob": "a4f41849cdda17eba656db483f6ba7719e78b4f7"
+  },
+  {
+    "path": "Documentation/Projects/Working/RELAY-MIG-01-Working.md",
+    "sha256": "f02144b792cba442a2621148e8ecca09ddecf6bbc8dfcc1c889757c6bf748e98",
+    "blob": "7d3ae637997575b9ce5d2c517f0a3829a5dac4bd"
+  },
+  {
+    "path": "Tests/Deployment/Package-Promotion.Tests.ps1",
+    "sha256": "924344a568e57744d34acf600ab85d87aa04b41c9e0d6ff4d3317b9c91e5a92b",
+    "blob": "dd541570497dcbc5d746ca14d4747bd3763f03cd"
+  }
+]

@@ -1,0 +1,10 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  SovereignTrust.Relay.Azure -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Src\CSharp\Azure\SovereignTrust.Relay.Azure\bin\Release\net10.0\SovereignTrust.Relay.Azure.dll
+  LeaseCrashWorker -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\LeaseCrashWorker\bin\Release\net10.0\LeaseCrashWorker.dll
+  SovereignTrust.Relay.Tests -> C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll
+Test run for C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Tests\SovereignTrust.Relay.Tests\bin\Release\net10.0\SovereignTrust.Relay.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\GitHub\SiliconDreamArtists\SovereignTrust.Relay.worktrees\relay-runtime-storage-auth-migration\Documentation\Projects\Working\logs\RELAY-STORAGE-MI-01-source01\unit02\sfost_SDADEV01_2026-11-25_20_57_08_net10.0.trx
+
+Passed!  - Failed:     0, Passed:    87, Skipped:     0, Total:    87, Duration: 6 s - SovereignTrust.Relay.Tests.dll (net10.0)

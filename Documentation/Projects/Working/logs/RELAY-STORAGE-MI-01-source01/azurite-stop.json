@@ -1,0 +1,6 @@
+{
+  "pid": 38232,
+  "recovery": "Guard initially compared auto-converted JSON DateTime; inspected exact original timestamp/name and used DateKind String. No other process stopped.",
+  "time": "2026-11-26T05:00:38.8359316Z",
+  "stopped": true
+}

@@ -50,9 +50,9 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          artifact-ids: 14743586651
+          artifact-ids: 15101132737
           merge-multiple: true
-          run-id: 44994573298
+          run-id: 45788694095
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/relay-package
       - name: Verify original bytes without rebuilding
@@ -130,9 +130,9 @@ jobs:
         run: ./scripts/Test-RelayPromotion.ps1 -Stage test -ScratchDirectory '${{ runner.temp }}/predecessor/stage-receipt.json'
       - uses: actions/download-artifact@v4
         with:
-          artifact-ids: 14743586651
+          artifact-ids: 15101132737
           merge-multiple: true
-          run-id: 44994573298
+          run-id: 45788694095
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/relay-package
       - name: Verify original bytes without rebuilding
@@ -210,9 +210,9 @@ jobs:
         run: ./scripts/Test-RelayPromotion.ps1 -Stage prod -ScratchDirectory '${{ runner.temp }}/predecessor/stage-receipt.json'
       - uses: actions/download-artifact@v4
         with:
-          artifact-ids: 14743586651
+          artifact-ids: 15101132737
           merge-multiple: true
-          run-id: 44994573298
+          run-id: 45788694095
           github-token: ${{ github.token }}
           path: ${{ runner.temp }}/relay-package
       - name: Verify original bytes without rebuilding

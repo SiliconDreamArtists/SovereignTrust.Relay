@@ -19,9 +19,9 @@
     Stages = @{
         dev = @{
             Environment = 'sda-dev'; Subscription = 'cc1fa56e-a8ce-411f-bb5c-58e96d9ac4f8'; Group = 'sda-dev'
-            AppName = 'sda-relay-api-dev'; PlanName = 'ASP-sda-dev-fusion'; Sku = 'B1'
+            AppName = 'sda-relay-api-dev'; PlanName = 'ASP-sda-dev-fusion'; Sku = 'B2'
             JobKey = 'deploy_dev'; JobName = 'Relay deployment dev'; Predecessor = ''
-            DeploymentClientId = ''; DeploymentPrincipalId = ''; RuntimePrincipalId = ''; DefaultHostName = ''
+            DeploymentClientId = '8b487a0d-ff5b-4c8b-af47-df5de45c9ebd'; DeploymentPrincipalId = '3a48ab88-5916-4e2a-b7cb-94132372e1e7'; RuntimePrincipalId = '9697fed0-6ae1-462f-b372-152fd3e16184'; DefaultHostName = 'sda-relay-api-dev.azurewebsites.net'
         }
         test = @{
             Environment = 'sda-test'; Subscription = '5c813ecc-3c19-44de-b676-304116fc869d'; Group = 'sda-test'

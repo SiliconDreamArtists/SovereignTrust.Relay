@@ -65,12 +65,12 @@ jobs:
           client-id: ${{ steps.target.outputs.client }}
           tenant-id: ${{ steps.target.outputs.tenant }}
           subscription-id: ${{ steps.target.outputs.subscription }}
-      - name: Read-only exact ordinary host validation
+      - name: Read-only package placement infrastructure validation
         shell: pwsh
         env:
           APP_ID: ${{ steps.target.outputs.app }}
           PLAN_ID: ${{ steps.target.outputs.plan }}
-        run: ./scripts/Prepare-RelayDeployment.ps1 -Environment Dev -AppResourceId $env:APP_ID -PlanResourceId $env:PLAN_ID
+        run: ./scripts/Prepare-RelayDeployment.ps1 -Environment Dev -AppResourceId $env:APP_ID -PlanResourceId $env:PLAN_ID -Purpose PackagePlacement
       - uses: azure/webapps-deploy@v3
         with:
           app-name: sda-relay-api-dev
@@ -145,12 +145,12 @@ jobs:
           client-id: ${{ steps.target.outputs.client }}
           tenant-id: ${{ steps.target.outputs.tenant }}
           subscription-id: ${{ steps.target.outputs.subscription }}
-      - name: Read-only exact ordinary host validation
+      - name: Read-only package placement infrastructure validation
         shell: pwsh
         env:
           APP_ID: ${{ steps.target.outputs.app }}
           PLAN_ID: ${{ steps.target.outputs.plan }}
-        run: ./scripts/Prepare-RelayDeployment.ps1 -Environment Test -AppResourceId $env:APP_ID -PlanResourceId $env:PLAN_ID
+        run: ./scripts/Prepare-RelayDeployment.ps1 -Environment Test -AppResourceId $env:APP_ID -PlanResourceId $env:PLAN_ID -Purpose PackagePlacement
       - uses: azure/webapps-deploy@v3
         with:
           app-name: sda-relay-api-test
@@ -225,12 +225,12 @@ jobs:
           client-id: ${{ steps.target.outputs.client }}
           tenant-id: ${{ steps.target.outputs.tenant }}
           subscription-id: ${{ steps.target.outputs.subscription }}
-      - name: Read-only exact ordinary host validation
+      - name: Read-only package placement infrastructure validation
         shell: pwsh
         env:
           APP_ID: ${{ steps.target.outputs.app }}
           PLAN_ID: ${{ steps.target.outputs.plan }}
-        run: ./scripts/Prepare-RelayDeployment.ps1 -Environment Prod -AppResourceId $env:APP_ID -PlanResourceId $env:PLAN_ID
+        run: ./scripts/Prepare-RelayDeployment.ps1 -Environment Prod -AppResourceId $env:APP_ID -PlanResourceId $env:PLAN_ID -Purpose PackagePlacement
       - uses: azure/webapps-deploy@v3
         with:
           app-name: sda-relay-api-prod

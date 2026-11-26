@@ -33,7 +33,7 @@
             Environment = 'sda-prod'; Subscription = 'b7690041-454b-472b-b340-3d8dde115103'; Group = 'sda-prod'
             AppName = 'sda-relay-api-prod'; PlanName = 'ASP-sda-prod-fusion'; Sku = 'B3'
             JobKey = 'deploy_prod'; JobName = 'Relay deployment prod'; Predecessor = 'test'
-            DeploymentClientId = ''; DeploymentPrincipalId = ''; RuntimePrincipalId = ''; DefaultHostName = ''
+            DeploymentClientId = '147ed1fd-119e-448e-a992-636ce3f26a5b'; DeploymentPrincipalId = 'f295430c-c8b2-47ff-a3b8-2f18feb54e6a'; RuntimePrincipalId = '3c71f391-796b-4805-bf9f-af60e164fd1b'; DefaultHostName = 'sda-relay-api-prod.azurewebsites.net'
         }
     }
 }

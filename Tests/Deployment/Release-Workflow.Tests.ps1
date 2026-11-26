@@ -154,6 +154,35 @@ try{
             [Environment]::SetEnvironmentVariable($name,$actual)
         }
     } finally {foreach($name in $testOwnerNames){if($null -eq $testOwnerSaved[$name]){Remove-Item -LiteralPath "Env:$name" -ErrorAction SilentlyContinue}else{[Environment]::SetEnvironmentVariable($name,$testOwnerSaved[$name])}}}
+    # Actual Prod owner outputs; environment values are confined to this mocked fixture.
+    $prodOwnerNames=@('RELAY_AZURE_CLIENT_ID','RELAY_AZURE_TENANT_ID','RELAY_AZURE_SUBSCRIPTION_ID','RELAY_PREVIOUS_ACCEPTED_RUN_ID','RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID')
+    $prodOwnerSaved=@{};foreach($name in $prodOwnerNames){$prodOwnerSaved[$name]=[Environment]::GetEnvironmentVariable($name)}
+    try {
+        $env:RELAY_AZURE_CLIENT_ID='147ed1fd-119e-448e-a992-636ce3f26a5b'
+        $env:RELAY_AZURE_TENANT_ID='8904b745-1738-426c-ad85-3fcecb32d24b'
+        $env:RELAY_AZURE_SUBSCRIPTION_ID='b7690041-454b-472b-b340-3d8dde115103'
+        $env:RELAY_PREVIOUS_ACCEPTED_RUN_ID='45878666753';$env:RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID='15146337082'
+        Check 'bound Prod owner profile and accepted Test pointers accepted' {
+            $bound=& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage prod -RequireOwner
+            if($bound.DeploymentClientId -cne '147ed1fd-119e-448e-a992-636ce3f26a5b' -or
+               $bound.DeploymentPrincipalId -cne 'f295430c-c8b2-47ff-a3b8-2f18feb54e6a' -or
+               $bound.RuntimePrincipalId -cne '3c71f391-796b-4805-bf9f-af60e164fd1b' -or
+               $bound.DefaultHostName -cne 'sda-relay-api-prod.azurewebsites.net' -or $bound.Sku -cne 'B3' -or
+               $bound.AppResourceId -cne '/subscriptions/b7690041-454b-472b-b340-3d8dde115103/resourceGroups/sda-prod/providers/Microsoft.Web/sites/sda-relay-api-prod' -or
+               $bound.PlanResourceId -cne '/subscriptions/b7690041-454b-472b-b340-3d8dde115103/resourceGroups/sda-prod/providers/Microsoft.Web/serverfarms/ASP-sda-prod-fusion' -or
+               $bound.FederationSubject -cne 'repo:SiliconDreamArtists/SovereignTrust.Relay:environment:sda-prod'){throw 'Bound Prod profile differs from accepted owner outputs'}
+        }
+        foreach($name in @('RELAY_AZURE_CLIENT_ID','RELAY_AZURE_TENANT_ID','RELAY_AZURE_SUBSCRIPTION_ID')){
+            $actual=[Environment]::GetEnvironmentVariable($name);[Environment]::SetEnvironmentVariable($name,'99999999-9999-9999-9999-999999999999')
+            Check "bound Prod rejects wrong $name" {& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage prod -RequireOwner} $true
+            [Environment]::SetEnvironmentVariable($name,$actual)
+        }
+        foreach($name in @('RELAY_PREVIOUS_ACCEPTED_RUN_ID','RELAY_PREVIOUS_ACCEPTED_ARTIFACT_ID')){
+            $actual=[Environment]::GetEnvironmentVariable($name);[Environment]::SetEnvironmentVariable($name,'')
+            Check "bound Prod rejects missing $name" {& (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') -Stage prod -RequireOwner} $true
+            [Environment]::SetEnvironmentVariable($name,$actual)
+        }
+    } finally {foreach($name in $prodOwnerNames){if($null -eq $prodOwnerSaved[$name]){Remove-Item -LiteralPath "Env:$name" -ErrorAction SilentlyContinue}else{[Environment]::SetEnvironmentVariable($name,$prodOwnerSaved[$name])}}}
     # Populate a copy only, to exercise a complete future owner binding without inventing current outputs.
     $ownerDir=Join-Path $evidence 'synthetic-owner-profile';New-Item -ItemType Directory $ownerDir|Out-Null
     Copy-Item (Join-Path $root 'scripts/Get-RelayReleaseTarget.ps1') $ownerDir
